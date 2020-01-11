@@ -42,7 +42,7 @@
 <meta itemprop="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明">
 <meta itemprop="datePublished" content="2020-01-11T18:51:35&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-11T18:51:35&#43;08:00" />
-<meta itemprop="wordCount" content="884">
+<meta itemprop="wordCount" content="1059">
 
 
 
@@ -386,8 +386,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/hugo-math/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 884字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1059字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -408,12 +408,38 @@ $ cp site_name/themes/exampleSite/config.yml config.yml
 $ hugo server
 </code></pre>
 <h1 id="-github-page">上傳到之前的 github page</h1>
+<p>首先是這個theme的設定檔案<code>./config.yml</code>的<code>baseURL</code>要填入你的github page的網址，hugo官方也有提到相關的問題，如果沒有加入的話會導致css無法讀取，踩過地雷，記錄一下。</p>
+<pre><code class="language-sh">baseURL: https://xxxxxxx.github.io
+theme: pure
+title: Pure theme for Hugo
+defaultContentLanguage: zh  # en/zh/...
+footnoteReturnLinkContents: ↩
+hasCJKLanguage: true
+paginate: 7
+enableEmoji: true
+PygmentsCodeFences: false
+googleAnalytics: &quot;UA-97401827-1&quot;      # UA-XXXXXXXX-X 
+permalinks:
+  posts: /:year/:month/:filename/
+</code></pre>
 <p>首先假設你已經設定好github的指令。</p>
+<ul>
+<li>用clone的方式</li>
+</ul>
+<pre><code class="language-sh">$ cd site_name &amp;&amp; rm -rf public
+$ git clone https://www.gitxxx/xxx/xxx.git
+$ mv xxx.github.io public &amp;&amp; hugo
+$ cd public &amp;&amp; git add. &amp;&amp; git commit -m &quot;add&quot; 
+$ git push -u origin master
+</code></pre>
+<ul>
+<li>另一種</li>
+</ul>
 <pre><code class="language-sh">$ cd site_name/public
 $ git init
 $ git remote -v # 有的話就不用加了
 $ git remote add origin https://www.gitxxx/xxx/xxx.git
-$ git pull &amp;&amp; hugo ## 要先拉在推
+$ git pull &amp;&amp; hugo ## 要先拉再推
 $ git add .
 $ git commit -m &quot;update to hugo from hexo&quot;
 $ git push -u origin master # 還是不行就加-f

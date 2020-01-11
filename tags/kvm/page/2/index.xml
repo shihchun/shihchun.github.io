@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kvm on Pure theme for Hugo</title>
+    <link>https://example.com/tags/kvm/</link>
+    <description>Recent content in kvm on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 30 Oct 2018 19:04:06 +0000</lastBuildDate>
+    
+        <atom:link href="https://example.com/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux命令基本格式</title>
+      <link>https://example.com/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Fri, 14 Apr 2017 01:38:03 +0000</pubDate>
+      
+      <guid>https://example.com/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</guid>
+      <description>[root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般使</description>
+    </item>
+    
+    <item>
+      <title>M51AC-457AANE Hackintosh</title>
+      <link>https://example.com/2017/04/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/</link>
+      <pubDate>Wed, 12 Apr 2017 01:36:46 +0000</pubDate>
+      
+      <guid>https://example.com/2017/04/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/</guid>
+      <description>核心：Intel Haswell Core i5-4570(3.2 GHz,turbo 3.6GHz) 板子：H87M-PRO 記憶體：8GB DDR3 顯示介面：NVIDIA GeForce GT630 2GB GDDR3獨顯 音效：ALC 892 $$ 安裝 \begin{cases} EFI \ 分割 &amp;amp; \text{Clover</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -185,14 +185,14 @@
   </url>
   
   <url>
-    <loc>https://example.com/categories/git/</loc>
+    <loc>https://example.com/tags/git/</loc>
     <lastmod>2019-02-18T15:17:29+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://example.com/tags/git/</loc>
+    <loc>https://example.com/categories/git/</loc>
     <lastmod>2019-02-18T15:17:29+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -42,7 +42,7 @@
 <meta itemprop="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明">
 <meta itemprop="datePublished" content="2020-01-11T18:51:35&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-11T18:51:35&#43;08:00" />
-<meta itemprop="wordCount" content="861">
+<meta itemprop="wordCount" content="884">
 
 
 
@@ -386,7 +386,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/hugo-math/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 861字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 884字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
@@ -410,11 +410,13 @@ $ hugo server
 <h1 id="-github-page">上傳到之前的 github page</h1>
 <p>首先假設你已經設定好github的指令。</p>
 <pre><code class="language-sh">$ cd site_name/public
+$ git init
 $ git remote -v # 有的話就不用加了
 $ git remote add origin https://www.gitxxx/xxx/xxx.git
+$ git pull &amp;&amp; hugo ## 要先拉在推
 $ git add .
 $ git commit -m &quot;update to hugo from hexo&quot;
-$ git push -u orgin master
+$ git push -u origin master # 還是不行就加-f
 </code></pre>
 <h1 id="hugo-mathjax">hugo mathjax顯示</h1>
 <p>有些themes沒有辦法辨識mathjax，通常這樣可以解決，我用的theme不用作者有做了。</p>

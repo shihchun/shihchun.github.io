@@ -42,7 +42,7 @@
 <meta itemprop="description" content="安裝Jack2、qJackCtl、cadence 我是使用Manjaro community的版本。 然後打開qjackCtl設備調整成地延遲的D">
 <meta itemprop="datePublished" content="2020-01-13T14:47:28&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-13T14:47:28&#43;08:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="wordCount" content="417">
 
 
 
@@ -378,7 +378,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/jack2/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 330字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 417字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 1分 </span>
       </div>
     </div>
@@ -398,6 +398,7 @@
 <p>另外如果之後重新開機之後如果cadence沒有啟動的話，可以試試看這個指令：</p>
 <pre><code class="language-sh">cadence-session-start --system-start
 </code></pre>
+<p>會發生這種狀況是因為<code>Auto-start JACK or LADISH at login</code>這個選項造成的，你會發現重新開機之後你的聲音驅動全部不見了，如果手動打開的話問題就不大，其他更多的設定也可以玩玩看。</p>
 <h1 id="airwave--windws-vst">airwave 和 windws vst</h1>
 <p>首先必須先在wine的系統裡面安裝windows的vst。</p>
 <pre><code class="language-sh">wine xxx.exe

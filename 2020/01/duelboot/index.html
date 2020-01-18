@@ -42,7 +42,7 @@
 <meta itemprop="description" content="切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁">
 <meta itemprop="datePublished" content="2020-01-18T19:36:48&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-18T19:36:48&#43;08:00" />
-<meta itemprop="wordCount" content="246">
+<meta itemprop="wordCount" content="311">
 
 
 
@@ -376,7 +376,7 @@
     <div class="article-header">
       <h1 itemprop="name">
   <a
-    class="article-title"
+    class=""
     href="/2020/01/duelboot/"
     >Manjaro 雙系統安裝</a
   >
@@ -404,7 +404,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/duelboot/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 246字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 311字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 1分 </span>
       </div>
     </div>
@@ -434,7 +434,20 @@
 <pre><code class="language-sh">REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power&quot; /V HiberbootEnabled /T REG_dWORD /D 0 /F
 </code></pre>
 <h2 id="macos">MacOS</h2>
+<ul>
+<li>
 <p>插上電源，關閉FileVault。</p>
+</li>
+<li>
+<p>安裝 <code>apfs-fuse</code></p>
+</li>
+</ul>
+<pre><code class="language-sh">~
+sudo fdisk -l # 我的apfs在sda2
+mkdir macos
+sudo apfs-fuse -o allow_other /dev/sda2 ~/macos
+</code></pre>
+<p>有人說需要把linux efi驅動覆蓋一次，到apple的驅動，我是覺得不用。</p>
 <p><img src="/media/Screenshot_from_2020-01-18_20-03-34.png" alt=""></p>
 
     </div>

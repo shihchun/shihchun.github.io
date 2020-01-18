@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 $ man ls LS(1) NAME ls - list directory contents SYNOPSIS ls [OPTION]... [FILE]... DESCRIPTION List information about the FILEs (the current directory by default). Sort entries alphabetically if none" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>Linux 幫助指令 - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -393,7 +409,7 @@
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <p>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。</p>
 <!-- raw HTML omitted -->
-<h1 id="man-">man 使用</h1>
+<h1 id="man-使用">man 使用</h1>
 <pre><code class="language-bash">$ man ls
 </code></pre>
 <pre><code class="language-bash">LS(1)
@@ -438,7 +454,7 @@ DESCRIPTION
 </code></pre>
 <p>輸入之後會會看到ls指令的相關用法如上，輸入之後可以開始查找文檔裡面的內容了，進入man模式之後其實它的操作跟vi的操作十分雷同。</p>
 <p>如果要離開的話只要輸入一個<code>q</code>就可以離開了，同vi的操作如果我要查找<code>-d</code>的使用方式，我只要打入<code>/-d</code>，他就會跳到第一個出現<code>-d</code>的位置了，如果是要找前、後一個<code>-d</code>，只要輸入<code>n</code>、<code>shift</code>+<code>n</code>。</p>
-<h2 id="man--1">man 文件級別</h2>
+<h2 id="man-文件級別">man 文件級別</h2>
 <p>在之前輸入<code>man ls</code>的時候，有告知<code>LS(1)</code>，這個級別1代表指令的用戶級別，各個查找級別如下：</p>
 <pre><code class="language-bash">$ man man
 </code></pre>
@@ -560,9 +576,9 @@ slapd-passwd(5)          - /etc/passwd backend to slapd
 slappasswd(8)            - OpenLDAP password utility
 </code></pre>
 <p>如果我們是要找<code>htpasswd</code>的幫助文檔，但卻忘了指令的名稱，只記得有<code>passwd</code>這個字的時候，可以使用<code>man -k</code>或<code>apropos</code>來查找指令，這個指令會列出所有相關的文檔。</p>
-<h1 id="heading">其他指令</h1>
+<h1 id="其他指令">其他指令</h1>
 <p>查找指令的內容還可以使用<code>info</code>、<code>help</code>可以使用，而查找指令別名或位置還有<code>whereis</code>、<code>which</code>、<code>type -a</code>、<code>command -v</code>、<code>command -V</code>、<code>alias</code>可以使用</p>
-<h2 id="help--info">help 和 info</h2>
+<h2 id="help-和-info">help 和 info</h2>
 <p><code>help</code>只能夠查詢shell自帶的命令內容</p>
 <pre><code class="language-bash">$ help cd
 </code></pre>
@@ -629,7 +645,7 @@ ll is an alias for ls -lh
       <a href="https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/" title="Linux 幫助指令" target="_blank" rel="external">https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -649,6 +665,7 @@ ll is an alias for ls -lh
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

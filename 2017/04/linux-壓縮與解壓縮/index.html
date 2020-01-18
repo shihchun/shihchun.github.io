@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>Linux 壓縮與解壓縮 - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -396,7 +412,7 @@
 <p>在壓縮的過程中，其實可以不用把副檔名寫上去，因為Linux是不會認這個東西的，但是為了方便辨認大部分操作上，還是要寫上去才可以。</p>
 <!-- raw HTML omitted -->
 <h1 id="zip">.zip</h1>
-<h2 id="zip-">zip 壓縮</h2>
+<h2 id="zip-壓縮">zip 壓縮</h2>
 <p>zip [option] [filename] [source file]</p>
 <p>zip -r [filename]  [source file]</p>
 <pre><code class="language-bash">$ touch myfile
@@ -410,14 +426,14 @@ $ zip -r  myfile.zip myfile/ ## 只有壓縮目錄及目錄下的檔案
 updating: myfile/ (stored 0%)
   adding: myfile/asdf (stored 0%）
 </code></pre>
-<h2 id="unzip-">unzip 解壓縮</h2>
+<h2 id="unzip-解壓縮">unzip 解壓縮</h2>
 <pre><code class="language-bash">$ unzip myfile.zip
 Archive:  myfile.zip
    creating: myfile/
  extracting: myfile/myfile
 </code></pre>
 <h1 id="gz">.gz</h1>
-<h2 id="gzip-">gzip 壓縮</h2>
+<h2 id="gzip-壓縮">gzip 壓縮</h2>
 <p>gzip [source file]</p>
 <pre><code class="language-bash">$ touch myfile
 $ gzip myfile
@@ -456,7 +472,7 @@ $ ll
 -rw-rw-r--. 1 cyberjun cyberjun 28  4月 26 19:34 myfile3.gz
 </code></pre>
 <p>執行完這個指令之後他會把目錄下面的所有文件一個一個壓縮，但是不會把目錄給壓縮。</p>
-<h2 id="gzip--dgunzip">gzip -d或gunzip解壓縮</h2>
+<h2 id="gzip--d或gunzip解壓縮">gzip -d或gunzip解壓縮</h2>
 <pre><code class="language-bash">$ gzip -d myfile.gz
 $ gunzip myfile.gz
 $ gunzip myfiles.gz
@@ -482,7 +498,7 @@ $ ll
 -rw-rw-r--. 1 cyberjun cyberjun 0  4月 26 19:34 myfile3
 </code></pre>
 <h1 id="bz2">.bz2</h1>
-<h2 id="bzip2-">bzip2 壓縮</h2>
+<h2 id="bzip2-壓縮">bzip2 壓縮</h2>
 <p>bzip2 [sourcefile]</p>
 <pre><code class="language-bash">$ touch abc
 $ bzip2 abc
@@ -505,7 +521,7 @@ $ bzip2 abc
 bzip2: Input file abc is a directory.
 </code></pre>
 <p><code>bzip2</code>並沒有支援目錄壓縮</p>
-<h2 id="bzip2--dbunzip2">bzip2 -d或bunzip2解壓縮</h2>
+<h2 id="bzip2--d或bunzip2解壓縮">bzip2 -d或bunzip2解壓縮</h2>
 <pre><code class="language-bash">$ touch abc
 $ bzip2 abc
 $ bzip2 -d abc.bz2
@@ -522,9 +538,9 @@ abc.bz2
 <pre><code class="language-bash">$ bunzip -k abc.bz2
 $ bzip -dk abc.bz2
 </code></pre>
-<h1 id="tar-">tar 打包</h1>
+<h1 id="tar-打包">tar 打包</h1>
 <p>由於gzip和bzip2不能把目錄壓縮起來所以就有了tar了打包，如果要壓縮的話就只要把檔案先打包起來再壓縮成<code>.tar.gz</code>、<code>.tar.bz2</code>就可以了</p>
-<h2 id="tar--cvf-">tar -cvf 打包</h2>
+<h2 id="tar--cvf-打包">tar -cvf 打包</h2>
 <p>tar -cvf [filename] [sourcefile]</p>
 <ul>
 <li><code>-c</code>: 打包</li>
@@ -557,7 +573,7 @@ drwxrwxr-x.  2 cyberjun cyberjun    50  4月 26 20:14 myfiles
 -rw-rw-r--.  1 cyberjun cyberjun   191  4月 26 20:14 myfiles.tar.bz2
 -rw-rw-r--.  1 cyberjun cyberjun   191  4月 26 20:18 myfiles.tar.gz
 </code></pre>
-<h2 id="tar--xvf-">tar -xvf 解打包</h2>
+<h2 id="tar--xvf-解打包">tar -xvf 解打包</h2>
 <p>tar -xvf [.tar file]</p>
 <ul>
 <li><code>-x</code> 解打包</li>
@@ -582,9 +598,9 @@ drwxrwxr-x.  2 cyberjun cyberjun    50  4月 26 20:14 myfiles
 -rw-rw-r--.  1 cyberjun cyberjun 10240  4月 26 20:28 myfiles.tar
 -rw-rw-r--.  1 cyberjun cyberjun   191  4月 26 20:14 myfiles.tar.bz2
 </code></pre>
-<h1 id="targztarbz2">打包.tar.gz和.tar.bz2</h1>
+<h1 id="打包targz和tarbz2">打包.tar.gz和.tar.bz2</h1>
 <p><code>tar</code>是支援直接打包成<code>.tar.gz</code>、<code>.tar.bz2</code>的，所以其實不需要像之前那個樣子壓縮與解壓縮這麼麻煩。</p>
-<h2 id="tar--z-cvfxvf">tar -z cvf或xvf</h2>
+<h2 id="tar--z-cvf或xvf">tar -z cvf或xvf</h2>
 <p>tar -zcvf [filename.tar.gz] [sourcefile]</p>
 <p>tar -zxvf [sourcefile.tar.gz]</p>
 <p>如果要打包成.tar.gz的話，只要在之前的打包指令前面加上<code>-z</code>即可。</p>
@@ -604,7 +620,7 @@ $ ll
 drwxrwxr-x.  2 cyberjun cyberjun   50  4月 26 20:14 myfiles
 -rw-rw-r--.  1 cyberjun cyberjun  179  4月 26 20:46 myfiles.tar.gz
 </code></pre>
-<h2 id="tar--j-cvf-xvf">tar -j cvf 或xvf</h2>
+<h2 id="tar--j-cvf-或xvf">tar -j cvf 或xvf</h2>
 <p>tar -jcvf [filename.tar.bz2] [sourcefile]</p>
 <p>tar -jxvf [sourcefile.tar.bz2]</p>
 <p>如果要打包成.tar.bz2的話，只要在之前的打包指令前面加上<code>-j</code>即可。</p>
@@ -624,7 +640,7 @@ $ ll
 drwxrwxr-x.  2 cyberjun cyberjun   50  4月 26 20:14 myfiles
 -rw-rw-r--.  1 cyberjun cyberjun  191  4月 26 20:48 myfiles.tar.bz2
 </code></pre>
-<h1 id="tar--1">tar 指定解壓縮位置</h1>
+<h1 id="tar-指定解壓縮位置">tar 指定解壓縮位置</h1>
 <p>tar -xvf [sourcefile.tar] -C [directory]</p>
 <pre><code class="language-bash">$ tar -zcvf myfiles.tar.gz myfiles/
 myfiles/
@@ -637,7 +653,7 @@ $ ll /tmp/
 drwxrwxr-x.  2 cyberjun cyberjun   50  4月 26 20:14 myfiles
 drwx------. 3 root root 17  4月 26 14:45 systemd-private-14d94e1345584cf1b22f365c4e00445b-vmtoolsd.service-6dKW4n
 </code></pre>
-<h1 id="tar--2">tar 壓縮多個文件</h1>
+<h1 id="tar-壓縮多個文件">tar 壓縮多個文件</h1>
 <p>tar -cvf [filename.tar] [file1] [file2]&hellip;.etc.</p>
 <p>如果要指定壓縮位置的話，只要把[filename.tar]用絕對路徑去寫就可以了。</p>
 <pre><code class="language-bash">$ ll
@@ -669,7 +685,7 @@ $ ll
       <a href="https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/" title="Linux 壓縮與解壓縮" target="_blank" rel="external">https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -689,6 +705,7 @@ $ ll
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

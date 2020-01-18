@@ -5,10 +5,19 @@
     <link>https://shihchun.github.io/posts/</link>
     <description>Recent content in Posts on 隨手筆記</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jan 2020 14:47:28 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 19:36:48 +0800</lastBuildDate>
     
         <atom:link href="https://shihchun.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 鍵結指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:39:37 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</guid>
+      <description>ln [option] [source file] [target file] 選項 -s 建立軟鏈接 鏈接指令分為硬鏈接和軟連接，沒有加上任何選項，軟鏈接要加上-s 硬鏈接 硬鏈接的特征 硬鏈接和原本文件有相同的inod</description>
+    </item>
     
     <item>
       <title>Linux目錄指令</title>

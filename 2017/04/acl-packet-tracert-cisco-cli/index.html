@@ -23,8 +23,8 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z. [Router1(config)]$ int" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z." />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>ACL Packet Tracert Cisco CLI - 隨手筆記</title>
   
   
@@ -33,22 +33,22 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
   <meta property="og:title" content="ACL Packet Tracert Cisco CLI" />
-<meta property="og:description" content="要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z. [Router1(config)]$ int" />
+<meta property="og:description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/" />
 <meta property="article:published_time" content="2017-04-15T02:28:58+00:00" />
 <meta property="article:modified_time" content="2017-04-15T02:28:58+00:00" />
 <meta itemprop="name" content="ACL Packet Tracert Cisco CLI">
-<meta itemprop="description" content="要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z. [Router1(config)]$ int">
+<meta itemprop="description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z.">
 <meta itemprop="datePublished" content="2017-04-15T02:28:58&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-15T02:28:58&#43;00:00" />
-<meta itemprop="wordCount" content="511">
+<meta itemprop="wordCount" content="513">
 
 
 
 <meta itemprop="keywords" content="網路," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ACL Packet Tracert Cisco CLI"/>
-<meta name="twitter:description" content="要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z. [Router1(config)]$ int"/>
+<meta name="twitter:description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -385,14 +401,15 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2017/04/acl-packet-tracert-cisco-cli/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 511字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 513字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="heading">要求</h1>
+      <p><a href="/presentation/networks_tracer/%E6%9C%9F%E6%9C%AB%E8%80%83%E5%AF%A6%E4%BD%9C.html">簡報</a></p>
+<h1 id="要求">要求</h1>
 <p><img src="/media/request.jpg" alt="request"></p>
-<h1 id="heading-1">切網段</h1>
+<h1 id="切網段">切網段</h1>
 <table>
 <thead>
 <tr>
@@ -442,9 +459,9 @@
 </tbody>
 </table>
 <!-- raw HTML omitted -->
-<h1 id="-ip">設定 IP</h1>
+<h1 id="設定-ip">設定 IP</h1>
 <p><img src="/media/ip.png" alt="ip"></p>
-<h1 id="heading-2">子網段設定</h1>
+<h1 id="子網段設定">子網段設定</h1>
 <pre><code class="language-bash">[Router]$confi
 Configuring from terminal, memory, or network [terminal]$?
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -453,7 +470,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 [Router1(config-if)]$ int fa0/0.1
 [Router1(config-subif)]$ ip address  192.168.80.1 255.255.255.192
 </code></pre>
-<h1 id="eigrp-">EIGRP 設定</h1>
+<h1 id="eigrp-設定">EIGRP 設定</h1>
 <pre><code class="language-bash">[Router1]$&gt; en
 [Router1]$ confi
 Configuring from terminal, memory, or network [terminal]$?
@@ -497,9 +514,9 @@ Configuring from terminal, memory, or network [terminal]$?
 [Switch1(config)]$ int fa0/2
 [Switch1(config-if)]$ switchport mode trunk
 </code></pre>
-<h2 id="vlanvlan-name">設定Vlan、vlan name</h2>
+<h2 id="設定vlanvlan-name">設定Vlan、vlan name</h2>
 <p><img src="/media/vlan.png" alt="vlan"></p>
-<h2 id="heading-3"></h2>
+<h2 id="heading"></h2>
 <pre><code class="language-bash">[Switch]$&gt; en
 [Switch]$confi
 Configuring from terminal, memory, or network [terminal]$?
@@ -520,8 +537,8 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 [Switch(config-if)]$ switchport access vlan 3
 </code></pre>
 <p>到此已經完成要求2、3了。</p>
-<h1 id="acl-">ACL 設定</h1>
-<h2 id="302ping-502">30.2不能ping 50.2</h2>
+<h1 id="acl-設定">ACL 設定</h1>
+<h2 id="302不能ping-502">30.2不能ping 50.2</h2>
 <pre><code class="language-bash">[Router3]$&gt;en
 [Router3]$ confi
 Configuring from terminal, memory, or network [terminal]$?
@@ -532,7 +549,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 [Router3(config-if)]$ ip access-group 10 out
 </code></pre>
 <p><img src="/media/acl.jpg" alt="ac"></p>
-<h1 id="heading-4">設定密碼</h1>
+<h1 id="設定密碼">設定密碼</h1>
 <ul>
 <li>Router 自己的密碼</li>
 </ul>
@@ -556,7 +573,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 [Router(config-line)]$ password cisco
 [Router(config-line)]$ login
 </code></pre>
-<h1 id="heading-5">遠端登入</h1>
+<h1 id="遠端登入">遠端登入</h1>
 <pre><code class="language-bash">[Router]$ &gt;en
 Password:
 [Router1]$ telnet 192.168.80.254 # 或是192.168.80.249
@@ -583,7 +600,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
       <a href="https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/" title="ACL Packet Tracert Cisco CLI" target="_blank" rel="external">https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -603,6 +620,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

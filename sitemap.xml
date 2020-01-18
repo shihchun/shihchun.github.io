@@ -3,29 +3,78 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://shihchun.github.io/2020/01/jack2/</loc>
-    <lastmod>2020-01-13T14:47:28+08:00</lastmod>
+    <loc>https://shihchun.github.io/categories/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/tags/duelboot/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/categories/linux/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/tags/macbook/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/tags/manjaro/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/2020/01/duelboot/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://shihchun.github.io/posts/</loc>
-    <lastmod>2020-01-13T14:47:28+08:00</lastmod>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/tags/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shihchun.github.io/tags/windows/</loc>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://shihchun.github.io/</loc>
-    <lastmod>2020-01-13T14:47:28+08:00</lastmod>
+    <lastmod>2020-01-18T19:36:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://shihchun.github.io/categories/</loc>
-    <lastmod>2020-01-11T18:51:35+08:00</lastmod>
+    <loc>https://shihchun.github.io/2020/01/jack2/</loc>
+    <lastmod>2020-01-13T14:47:28+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -46,13 +95,6 @@
   
   <url>
     <loc>https://shihchun.github.io/tags/mathjax/</loc>
-    <lastmod>2020-01-11T18:51:35+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://shihchun.github.io/tags/</loc>
     <lastmod>2020-01-11T18:51:35+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -178,13 +220,6 @@
   </url>
   
   <url>
-    <loc>https://shihchun.github.io/categories/linux/</loc>
-    <lastmod>2019-02-22T21:21:09+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://shihchun.github.io/tags/ubuntu/</loc>
     <lastmod>2019-02-22T21:21:09+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -297,14 +332,14 @@
   </url>
   
   <url>
-    <loc>https://shihchun.github.io/tags/gource/</loc>
+    <loc>https://shihchun.github.io/categories/gource/</loc>
     <lastmod>2017-05-04T10:27:01+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://shihchun.github.io/categories/gource/</loc>
+    <loc>https://shihchun.github.io/tags/gource/</loc>
     <lastmod>2017-05-04T10:27:01+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

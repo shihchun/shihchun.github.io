@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>從Hexo到Hugo - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -391,13 +407,13 @@
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="heading">原因</h1>
+      <h1 id="原因">原因</h1>
 <p>隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的<strong>速度</strong>漸漸的變慢了，發現Hexo的速度以及它<code>plugin</code>過度依賴的問題太過於明顯，前一陣子因為<code>plugin</code>的問題弄了很久，放假時間就試着使用hugo了。</p>
 <p>之前使用的是Hexo-NexT的主題，就不介紹了，是一個我很喜歡的主題，有我喜歡的Local Search的功能，也不知道為什麼很多的都不寫，雖然網路上看到一些高手想到的解決方案，但是如果可以直接有的主題還是我的首選，所以我就使用<a href="https://github.com/xiaoheiAh/hugo-theme-pure">hugo-theme-pure</a>了。</p>
 <p>下面是我轉到Hugo下面的主題架構檔案大小，之前用Hexo的時候，檔案非常難以移動，現在比較好搬動了，下面的檔案大小還是我將轉出來的<code>public</code>，也就是上傳到github page的部分刪掉的大小，相對而言，Hugo實在是優秀太多了，只是hexo對剛開始使用的人真的也是非常友好，上傳github有hexo d的指令可以使用，如果用hugo的話，就要自己重新add remote xx.git，然後重新add、commit、push一次。</p>
 <p><img src="/media/Screenshot_from_2020-01-11_22-56-03.png" alt="2"></p>
 <p>這篇文章大概整理一下換hugo使用的過程遇到的地方。</p>
-<h1 id="hugo-">hugo 安裝</h1>
+<h1 id="hugo-安裝">hugo 安裝</h1>
 <p>我在Manjaro linux上面使用，所以直接在Add/Remove Software加上去就解決了。不過<a href="https://gohugo.io/getting-started/installing/">官方</a>也有說怎麼做安裝的動作，Windows用Chocolatey，Macos用Homebrew。</p>
 <pre><code class="language-sh">～
 $ hugo new site site_name
@@ -407,7 +423,7 @@ $ cd ~/site_name
 $ cp site_name/themes/exampleSite/config.yml config.yml
 $ hugo server
 </code></pre>
-<h1 id="-github-page">上傳到之前的 github page</h1>
+<h1 id="上傳到之前的-github-page">上傳到之前的 github page</h1>
 <p>首先是這個theme的設定檔案<code>./config.yml</code>的<code>baseURL</code>要填入你的github page的網址，hugo官方也有提到相關的問題，如果沒有加入的話會導致css無法讀取，踩過地雷，記錄一下。</p>
 <pre><code class="language-sh">baseURL: https://xxxxxxx.github.io
 theme: pure
@@ -444,7 +460,7 @@ $ git add .
 $ git commit -m &quot;update to hugo from hexo&quot;
 $ git push -u origin master # 還是不行就加-f
 </code></pre>
-<h1 id="hugo-mathjax">hugo mathjax顯示</h1>
+<h1 id="hugo-mathjax顯示">hugo mathjax顯示</h1>
 <p>有些themes沒有辦法辨識mathjax，通常這樣可以解決，我用的theme不用作者有做了。</p>
 <p>在<code>themes/theme-name/layouts/head.html</code>貼上</p>
 <pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; async
@@ -486,7 +502,7 @@ $ git push -u origin master # 還是不行就加-f
       <a href="https://shihchun.github.io/2020/01/hugo-math/" title="從Hexo到Hugo" target="_blank" rel="external">https://shihchun.github.io/2020/01/hugo-math/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -506,6 +522,7 @@ $ git push -u origin master # 還是不行就加-f
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

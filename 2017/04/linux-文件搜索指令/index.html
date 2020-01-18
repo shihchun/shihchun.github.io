@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>Linux 文件搜索指令 - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -392,7 +408,7 @@
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <p>不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知道多少。</p>
-<h1 id="locate-">locate 文件搜索</h1>
+<h1 id="locate-文件搜索">locate 文件搜索</h1>
 <p>locate和find搜索的最大差別就是，它的搜索速度比find快了很多，find會把範圍之內的所有文件都搜索一次，如果find搜索的範圍設定的很大的話，這會是一個非常耗費資源的命令。</p>
 <!-- raw HTML omitted -->
 <pre><code class="language-bash">[user@localhost ~]$ locate install.log
@@ -448,12 +464,12 @@
 ##搜尋不到任何文件
 </code></pre>
 <p>如果按照上面的規則來看我的<code>/tmp</code>目錄下的檔案是不會被搜索的如果我隨便搜索一個<code>/tmp</code>是不會被查詢的，如果我要搜索<code>/tmp</code>下面的檔案，我就必須修改設定檔</p>
-<h1 id="whereiswhich-">whereis、which 搜索系統命令介紹</h1>
+<h1 id="whereiswhich-搜索系統命令介紹">whereis、which 搜索系統命令介紹</h1>
 <p>whereis和which這兩個命令只能尋找系統命令的資訊，並不能尋找其他的外裝命令，比如我搜索<code>pandoc</code>、<code>npm</code>、<code>git</code>、<code>pip3</code>、<code>brew</code>、<code>macport</code>就不行使用，有些Linux查不到shell內建的指令例如：cd、bg、echo。</p>
 <pre><code class="language-bash">[user@localhost ~]$ which npm #搜索一個外裝指令
 # 搜不到任何東西
 </code></pre>
-<h2 id="whereis-">whereis 搜索命令所在位置以及幫助文檔</h2>
+<h2 id="whereis-搜索命令所在位置以及幫助文檔">whereis 搜索命令所在位置以及幫助文檔</h2>
 <p>whereis [command name]</p>
 <p>選項：</p>
 <ul>
@@ -463,7 +479,7 @@
 <pre><code class="language-bash">whereis  ls
 ls: /bin/ls /usr/share/man/manl/ls.l.gz /usr/share/man/manlp/ls.lp.gz
 </code></pre>
-<h2 id="which-">which 搜索命令（有別名會顯示）</h2>
+<h2 id="which-搜索命令有別名會顯示">which 搜索命令（有別名會顯示）</h2>
 <p>[user@localhost ~]$ which [command name]</p>
 <pre><code class="language-bash">[user@localhost ~]$ which ls
 alias ls='ls --color=auto'
@@ -471,7 +487,7 @@ alias ls='ls --color=auto'
 [user@localhost ~]$ which pwd
 /bin/pwd ##不是所有命令都有別名
 </code></pre>
-<h1 id="heading">環境變量</h1>
+<h1 id="環境變量">環境變量</h1>
 <p>由於之前提到搜索系統命令的命令是依據環境變量<code>$PATH</code>中的系統命令路徑做搜索的，所以就來介紹一下環境變量吧！</p>
 <p>環境變量這種設定在Windows上面也有，在Linux裡面如果沒有環境變量的話，那麼我使用指令的話就要使用絕對路徑才可以找到我要使用的指令，何其的麻煩，如果我要使用<code>ls</code>，那麼我要在終端機上面打上<code>/bin/ls</code>我的命令才可以執行，這是非常麻煩的，所以Linux上面如果要安裝指令在上面使用的話，就要設定環境變量，雖然Linux基本指令的環境變量在安裝時就已經設定了，但是如果我們要外裝命令的話還是要設定環境變量才行。</p>
 <pre><code class="language-bash">[user@localhost ~]$ echo $PATH #查看設定的環境變量
@@ -490,7 +506,7 @@ alias ls='ls --color=auto'
 #環境變量設定成功！
 </code></pre>
 <p>當然現在很多的軟體源在安裝的時候就會幫我們設定好環境變量了，可是有時候命令無法執行，還是要會除錯才行，所以我們還是得知道一下環境變量的設定方法。</p>
-<h1 id="find-">find 搜索文件命令</h1>
+<h1 id="find-搜索文件命令">find 搜索文件命令</h1>
 <p>find命令的功能比較多、比較強大，相對的選項就會比較多，其中以下幾個是比較常用的選項。</p>
 <p>find  [directory] [option] [conditions]</p>
 <p>選項</p>
@@ -508,12 +524,12 @@ alias ls='ls --color=auto'
 <li><code>-o</code> OR 邏輯</li>
 <li><code>-exec 命令 {} \;</code> 搜索完後再執行一個命令</li>
 </ul>
-<h2 id="find---name-">find / -name 以文件名搜索</h2>
+<h2 id="find---name-以文件名搜索">find / -name 以文件名搜索</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find / -name install.log
 /root/install.log
 </code></pre>
 <p>在使用find命令搜索文件的時候，應該要避免大範圍搜索，所以指定的路徑盡量要小，還有一點，如果使用這種無通配符的搜索的話，我的搜索條件就要完全相符，所以如果只是要搜索特定的文件，就要使用通配符來執行搜索（其他的指令也是如此）。</p>
-<h3 id="heading-1">常用的通配符</h3>
+<h3 id="常用的通配符">常用的通配符</h3>
 <p>通配符在其他的指令中也可以使用其中最長用的是<code>*</code>、<code>？</code>、<code>[]$</code>。</p>
 <ul>
 <li><code>*</code> 任意內容</li>
@@ -547,14 +563,14 @@ alias ls='ls --color=auto'
 [user@localhost ~]$ find /root -name lyris*
 </code></pre>
 <p>在上面的命令中其中<code>-name &quot;*&quot;</code>的搜索中是包含隱藏文件的，例如<code>.DS_Store</code>就是隱藏文件。</p>
-<h2 id="find---iname-">find / -iname 以文件名搜索，不區分大小寫</h2>
+<h2 id="find---iname-以文件名搜索不區分大小寫">find / -iname 以文件名搜索，不區分大小寫</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find / -name InStAlL.log
 find: InStAlL.log: No such file or directory
 [user@localhost ~]$ find / -iname InStAlL.log
 /root/install.log
 </code></pre>
 <p>在Linux上面是嚴格區分大小寫的，所以當我搜索文件的時候，如果搜索的關鍵字，我想要大小寫的內容都搜索的話，我就要使用<code>-iname</code>了，用這個指令搜索的內容都不會區分大小寫。</p>
-<h2 id="find---user-">find / -user 以文件所有者搜索</h2>
+<h2 id="find---user-以文件所有者搜索">find / -user 以文件所有者搜索</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /root -user root
 /root
 /root/.bashrc
@@ -567,7 +583,7 @@ find: InStAlL.log: No such file or directory
 /root/install.log.syslog
 /root/.cshrc
 </code></pre>
-<h2 id="find---nouser-">find / -nouser 以文件所有者搜索不是該所有者的文件</h2>
+<h2 id="find---nouser-以文件所有者搜索不是該所有者的文件">find / -nouser 以文件所有者搜索不是該所有者的文件</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /root -nouser root
 /root/Gumdam.out
 [user@localhost ~]$ find /root -nouser -exec rm -rf {} \;
@@ -577,18 +593,18 @@ find: InStAlL.log: No such file or directory
 <p>第一個情況是Linux的內核產生的文件，內核在執行的過程中是不會經過所用者的，所以內核產生的文件是不會有所用者的，內核的運行過程中會在內存記憶體之中交互作用，所以在<code>/proc</code>和<code>/sys</code>目錄下面是會產生沒有檔案所用者的文件的。</p>
 <p>第二個情況是在Windows上面建立的文件，在這個Windows盛行的時代，我們難免會使用到Windows上面建立的文件，在Windows建立文件的時候是會忽略檔案所用者的，所以如果你用USB隨身碟把你的文件拿到Linux上面作業，你之前在Windows上面建立的文件是沒有所用者的，所以不能刪除。</p>
 <p>Linux上面除了以上兩種文件，大多都是可以直接手動刪除的。</p>
-<h2 id="find---mtime-">find / -mtime 搜索文件上次修改文件內容的時間</h2>
+<h2 id="find---mtime-搜索文件上次修改文件內容的時間">find / -mtime 搜索文件上次修改文件內容的時間</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /var/log -mtime +10
 </code></pre>
 <p>其中<code>10</code>代表天數，如果加上正負號的話，<code>+10</code>代表我要查找十天之前修改的文件、<code>10</code>代表十天當天修改的文件、<code>-10</code>代表十天內修改的文件。</p>
 <p><img src="/media/mtime.png" alt="mtime"></p>
-<h2 id="find---atime-">find / -atime 搜索文件上次訪問的時間</h2>
+<h2 id="find---atime-搜索文件上次訪問的時間">find / -atime 搜索文件上次訪問的時間</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /var/log -atime +10
 </code></pre>
-<h2 id="find---ctime-">find / -ctime 搜索文件上次修改文件屬性的時間</h2>
+<h2 id="find---ctime-搜索文件上次修改文件屬性的時間">find / -ctime 搜索文件上次修改文件屬性的時間</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /var/log -ctime +10
 </code></pre>
-<h2 id="find----size-">find /  -size 以文件大小搜索文件</h2>
+<h2 id="find----size-以文件大小搜索文件">find /  -size 以文件大小搜索文件</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find . -size 25k
 </code></pre>
 <p>和之前的天數的命令一樣，如果我輸入<code>25k</code>是搜索等於25KB的文件、輸入<code>-25k</code>是搜索小於25KB的文件、輸入<code>+25k</code>是搜索大於25KB的文件，</p>
@@ -602,17 +618,17 @@ find: -size: -25K: illegal trailing character
 <p>如果不寫單位的預設的單位是磁碟扇區，一個扇區，扇區是一個邏輯的概念，並不是真實存在的東西，在這個指令上一個扇區有512KB的大小，所以上面指令是搜索$512KB \times25大小的文件$，這是非常不人性化的使用方式，所以一般不是用它，知道就可以了。</p>
 <p>如下圖A為磁軌、B為幾何扇區、C為磁軌扇，相鄰磁區組合在一起，組成D叢集，磁區的排列由格式化成的檔案系統來決定，在Linux的ex4檔案系統中，會把硬碟每4KB切成一個區塊、每512KB切成一個扇區。</p>
 <p><img src="/media/inode.jpg" alt="inode"></p>
-<h2 id="find---inum-inode-numbr">find / -inum 以inode numbr搜索文件</h2>
+<h2 id="find---inum-以inode-numbr搜索文件">find / -inum 以inode numbr搜索文件</h2>
 <pre><code class="language-bash">[user@localhost ~]$ find / -inum 262223
 </code></pre>
 <p>這個指令會搜索inode number為262223的文件，inode number在之前已經提過了所以不再多做解釋。</p>
-<h2 id="find--a-o">find 下的<code>-a</code>和<code>-o</code></h2>
+<h2 id="find-下的-a和-o">find 下的<code>-a</code>和<code>-o</code></h2>
 <pre><code class="language-bash">[user@localhost ~]$ find /etc -size +32k -a -mtime -10
 ## 搜索/etc 目錄下大於32KB且十天內有修改過內容的文件
 [user@localhost ~]$ find /etc -size +32k -o -mtime -10
 ## 搜索/etc 目錄下大於32KB或十天內有修改過內容的文件
 </code></pre>
-<h2 id="find---exec-">find 搜索後面加上 `-exec 命令</h2>
+<h2 id="find-搜索後面加上--exec-命令-">find 搜索後面加上 `-exec 命令</h2>
 <pre><code class="language-bash">find  [directory]  [Option]  [condition] -exec [command] {} \;
 </code></pre>
 <p>這個命令代表把find命令的搜尋結果用<code>-exec</code>後面的命令去處理，其中<code>-exec [command]$ {} \;</code>是通用格式，是要記起來的。</p>
@@ -634,7 +650,7 @@ drwx------+ 33 Gumdam  staff   1.1K  3 17 00:22 Desktop
 drwx------+ 32 Gumdam  staff   1.1K  3 15 18:46 Documents
 -rw-r--r--   1 Gumdam  staff   9.6K  3  7 21:08 vimrc
 </code></pre>
-<h1 id="grep-">grep 搜索文件中字符串命令</h1>
+<h1 id="grep-搜索文件中字符串命令">grep 搜索文件中字符串命令</h1>
 <p>grep [OPTIONS] PATTERN [FILE&hellip;]</p>
 <p>選項</p>
 <ul>
@@ -672,7 +688,7 @@ you lose
       <a href="https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/" title="Linux 文件搜索指令" target="_blank" rel="external">https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -692,6 +708,7 @@ you lose
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

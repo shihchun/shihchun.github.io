@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="Express.js Web應用框架（Web application framework），和一般HTTP server功能上的差別就是，他們有多用HTTP網路編程，提供了可靠度高的方案" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>Express.js 簡單整理 - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -397,7 +413,7 @@
 <p>但是如果要做另外其他Server的安全機制，如SSL，可能就要另外架設Server然後把，Express框架發佈在Server的listen port上面（如：http、https庫）。</p>
 <p>ExpressJS基於NodeJS中開發的Web框架，主要的調用方法對應HTTP方法名字，容易理解。類似的工具如：PHP、spring boot（java開發）、tomecat（java開發）、Laravel（java開發）、Django（python開發）等等。</p>
 <!-- raw HTML omitted -->
-<h2 id="heading">基本安裝與設置</h2>
+<h2 id="基本安裝與設置">基本安裝與設置</h2>
 <p>打開<code>cmd</code>，瀏覽器訪問Chocolatey（是一個Windows下的軟體包管理器），將安裝的指令執行一次。</p>
 <pre><code class="language-sh">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;
 </code></pre>
@@ -406,7 +422,7 @@
 nvm install 10.15.0 #安裝10.15.0的版本
 nvm on #啟用
 </code></pre>
-<h2 id="heading-1">專案創建</h2>
+<h2 id="專案創建">專案創建</h2>
 <p>創建一個資料夾建立專案或是使用express-generator，自動生成一個專案，express-generator安裝進去會自動把很多server應該架設的程式碼寫入，只要進行專案邏輯編寫即可。</p>
 <p>express-generator 設定</p>
 <pre><code class="language-sh"># npm 是NodeJS軟體包管理系統，類似python的pip
@@ -415,7 +431,7 @@ npm install express-generator -g
 express --view=hbs /tmp/myproj_g &amp;&amp; cd /tmp/myproj_g
 npm install # 根據package.json安裝依賴庫
 </code></pre>
-<h2 id="server">手動架設server</h2>
+<h2 id="手動架設server">手動架設server</h2>
 <pre><code class="language-sh">mkdir /tmp/myproj &amp;&amp; cd /tmp/myproj &amp;&amp; npm init
 npm install express body-parser serve-static
 </code></pre>
@@ -433,7 +449,7 @@ app.set('views', './views/pages');
 app.use(serveStatic('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 </code></pre>
-<h1 id="express">Express基本使用方法</h1>
+<h1 id="express基本使用方法">Express基本使用方法</h1>
 <p>Express 支援下列的路由方法，這些方法對應至 HTTP 方法：get、 post、put、head、delete、options、 trace、copy、lock、mkcol、move、purge、propfind、proppatch、unlock、report、mkactivity、checkout、merge、m-search、notify、subscribe、unsubscribe、patch、search，以及 connect。</p>
 <ol>
 <li>基本HTTP code</li>
@@ -513,7 +529,7 @@ app.post('/',function (req, res){
     console.log(JSON.stringify(req.body));
 });
 </code></pre>
-<h1 id="template-engine">範本引擎（Template Engine）</h1>
+<h1 id="範本引擎template-engine">範本引擎（Template Engine）</h1>
 <p>NodeJS支持的範本引擎有Pug（以前叫做jade）、ejs、swig。</p>
 <ul>
 <li>PUG</li>
@@ -563,7 +579,7 @@ app.get('/',function(req, res){
       <a href="https://shihchun.github.io/2019/04/node-js-4/" title="Express.js 簡單整理" target="_blank" rel="external">https://shihchun.github.io/2019/04/node-js-4/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -583,6 +599,7 @@ app.get('/',function(req, res){
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

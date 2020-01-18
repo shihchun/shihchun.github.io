@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="[root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般使" />
-  <meta name="generator" content="Hugo 0.62.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>Linux命令基本格式 - 隨手筆記</title>
   
   
@@ -164,7 +164,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
@@ -192,6 +192,10 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -243,6 +247,14 @@
                     class="tag-list-count">8</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
                     class="tag-list-count">1</span></li>
             
@@ -275,6 +287,10 @@
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
                     class="tag-list-count">1</span></li>
             
@@ -287,6 +303,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -324,16 +350,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-03-28 20:46:39 &#43;0000 UTC" itemprop="datePublished">2019-03-28</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2019/03/node-js-3/" class="title">mongodb日期儲存問題</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-03-18 15:26:54 &#43;0000 UTC" itemprop="datePublished">2019-03-18</time>
                     </p>
                 </div>
             </li>
@@ -429,7 +445,7 @@
 <pre><code class="language-bash">[root@localhost~]# pwd
 </code></pre>
 <p><code>pwd</code>指令可以顯示當前的絕對路徑，所以如果我在<code>~</code>的目錄下面使用<code>pwd</code>的話，用該要顯示<code>/root/home/</code>這個家目錄才對。</p>
-<h2 id="heading">命令格式</h2>
+<h2 id="命令格式">命令格式</h2>
 <p>命令  [option]  [parameter]</p>
 <p>其中選項（Option）又分為簡化選項和完整選項比如<code>ls</code>中的簡化選項<code>-a</code>的完整選項就是<code>--all</code>，簡化選項和完整選項的功能是一樣的。</p>
 <pre><code class="language-bash">ls  [Option]  [file or directory]
@@ -454,7 +470,7 @@ drwxr-xr-x  4     root  staff        136  3  8 20:21 Rmd to pptx
 #權限 #軟連接次數  #所文件用者     ##檔案大小  ##日期    ##檔案名稱
       #引用計數           ##檔案大小不人性化
 </code></pre>
-<h3 id="heading-1">權限</h3>
+<h3 id="權限">權限</h3>
 <p><code>-</code>rw&ndash;r&ndash;r&ndash;</p>
 <p>在說權限之前，要先比較一下Linux和Windows之間文件類型，Linux不像是Windows有明顯區分擴展名，Linux的軟體、硬體都是以文件形式儲存的，不管是目錄、設備&hellip;都是以文件的方式儲存的，他們的差別就只有權限。</p>
 <p>權限默認一般有十位的字，其中第一位<code>-</code>為文件類型，文件類型最常見的有三個分別是文件<code>-</code>、目錄<code>d</code>、軟連接文件<code>l</code>，後面九個數字分別代表各種用戶所持有的權限，每三位數為一組，分別為檔案擁有者、加入此群組之帳號的權限、非本人且沒有加入本群組之其他帳號的權限，簡略的說有三個組：u所屬者、g所屬組、o其他人，而顯示的字符有讀（r）、寫（w）、執行（x）三種權限。</p>
@@ -503,7 +519,7 @@ brw-r-----  1 root         operator         1,   2  3  7 21:10 disk0s3
 ###權限                              ##檔案大小人性化
 </code></pre>
 <p><code>-h</code>這個選項單獨使用時是沒有什麼意義的，因為這個選項是讓我的<code>ls</code>指令中的內容可以人性化的顯示檔案大小，但是單是在<code>ls -h</code>這個指令下面並不會有檔案大小所以使用的效果和<code>ls</code>是一樣的。</p>
-<h3 id="ls--lh--ll">ls -lh 等於 ll</h3>
+<h3 id="ls--lh-等於-ll">ls -lh 等於 ll</h3>
 <pre><code class="language-bash">## ls -lh 等同 ll
 [root@localhost~]# type -a ll
 ll is an alias for ls -lh
@@ -525,7 +541,7 @@ _=sudo
  453557 Command_line.pdf
 #inode number  #filename
 </code></pre>
-<h4 id="inode-number-">inode number 介紹</h4>
+<h4 id="inode-number-介紹">inode number 介紹</h4>
 <p>Unix的時候，利用inode來取資料的方式就已經有了，在Linux上面也是使用這種資料查找資料，在Linux上面每一個檔案都有一個inode number，就大家所知道的檔案儲存在硬碟的位置是不固定的，首先，假設你的硬碟被格式化成了ex4檔案系統，會建立一個inocde table查找表，你的硬碟被切成了好幾個等大小的數據塊，每一個數據塊可以儲存4KB的檔案，如果我有一個10KB的檔案儲存了進去，它並不會連續的儲存，假設它分別儲存了4KB在Proc A、4KB在Proc B、2KB在Proc C。</p>
 <p>講到這裡有一個問題，我這個10KB的文件儲存了進去有一個區塊只有儲存2KB的資料，那麼這個區塊還可以儲存其他的資料嗎？答案是不行的，有興趣可以自己去研究，數據塊不是只能切成每4KB一個區塊，默認是4KB，但是其實是可以0KB、2KB、4KB三種的。</p>
 <p>在查找表裡面會記錄inode nuber（ID號碼）、修改時間、權限以及要抓資料的區塊位置。Linux中檔案在開啟的時候就是利用這個概念去抓資料的，首先讀取到inode number，再確認權限，如果不匹配就直接拒絕，匹配的話就會把數據塊中的資料抓給使用者使用。</p>
@@ -540,7 +556,7 @@ _=sudo
       <a href="https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Linux命令基本格式" target="_blank" rel="external">https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
     </li>
   </ul>
 </blockquote>
@@ -560,6 +576,7 @@ _=sudo
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">

@@ -42,7 +42,7 @@
 <meta itemprop="description" content="切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁">
 <meta itemprop="datePublished" content="2020-01-18T19:36:48&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-18T19:36:48&#43;08:00" />
-<meta itemprop="wordCount" content="377">
+<meta itemprop="wordCount" content="440">
 
 
 
@@ -404,7 +404,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/duelboot/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 377字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 440字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 1分 </span>
       </div>
     </div>
@@ -427,7 +427,8 @@
 <li>ext4 <code>/home</code>, flag <code>home</code></li>
 <li>linuxswap, flag: <code>swap</code></li>
 </ul>
-<p>可以只有加入root，我是切50G全部給了root。</p>
+<p>說一下我的分割方式，我是直接全部切50G全部給<code>/</code>、<code>root</code>。</p>
+<p>由於Linux其實不用swap也可以運作，所以就沒有切了，如果記憶體真的比較小的舊電腦，還是建議切幾個GB給SWAP。</p>
 <h1 id="ntfsapfs讀取問題">NTFS、APFS讀取問題</h1>
 <h2 id="windows">Windows</h2>
 <p>要關掉電源的像是Fast startup、Hybrid Sleep的設定，不然就算有<code>ntfs-3g</code>，在Linux上面也沒有硬碟的寫入權限，只能讀取。</p>

@@ -42,7 +42,7 @@
 <meta itemprop="description" content="切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁">
 <meta itemprop="datePublished" content="2020-01-18T19:36:48&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-18T19:36:48&#43;08:00" />
-<meta itemprop="wordCount" content="311">
+<meta itemprop="wordCount" content="377">
 
 
 
@@ -376,7 +376,7 @@
     <div class="article-header">
       <h1 itemprop="name">
   <a
-    class=""
+    class="article-title"
     href="/2020/01/duelboot/"
     >Manjaro 雙系統安裝</a
   >
@@ -404,7 +404,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/duelboot/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 311字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 377字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 1分 </span>
       </div>
     </div>
@@ -412,7 +412,7 @@
       <h1 id="切出空間">切出空間</h1>
 <p>在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。</p>
 <h1 id="安裝">安裝</h1>
-<p>在EFI磁區加入:</p>
+<p>在EFI磁區加入掛載點:</p>
 <ul>
 <li><code>/boot/efi</code></li>
 </ul>
@@ -435,13 +435,14 @@
 </code></pre>
 <h2 id="macos">MacOS</h2>
 <ul>
-<li>
-<p>插上電源，關閉FileVault。</p>
-</li>
-<li>
-<p>安裝 <code>apfs-fuse</code></p>
-</li>
+<li>插上電源，關閉FileVault。</li>
 </ul>
+<p>然後到Linux系統下：</p>
+<ul>
+<li>安裝 <code>apfs-fuse</code></li>
+</ul>
+<p>apfs比較麻煩的地方是不會自動掛載，要打指令，這個應該可以使用別的方法解決。</p>
+<p>反正就暫時記錄如何掛載。</p>
 <pre><code class="language-sh">~
 sudo fdisk -l # 我的apfs在sda2
 mkdir macos

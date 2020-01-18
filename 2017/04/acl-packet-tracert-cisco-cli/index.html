@@ -23,7 +23,7 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z." />
+  <meta name="description" content="提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration" />
   <meta name="generator" content="Hugo 0.62.2 with theme pure" />
   <title>ACL Packet Tracert Cisco CLI - 隨手筆記</title>
   
@@ -33,22 +33,22 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
   <meta property="og:title" content="ACL Packet Tracert Cisco CLI" />
-<meta property="og:description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z." />
+<meta property="og:description" content="提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/" />
 <meta property="article:published_time" content="2017-04-15T02:28:58+00:00" />
 <meta property="article:modified_time" content="2017-04-15T02:28:58+00:00" />
 <meta itemprop="name" content="ACL Packet Tracert Cisco CLI">
-<meta itemprop="description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z.">
+<meta itemprop="description" content="提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration">
 <meta itemprop="datePublished" content="2017-04-15T02:28:58&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-15T02:28:58&#43;00:00" />
-<meta itemprop="wordCount" content="513">
+<meta itemprop="wordCount" content="520">
 
 
 
 <meta itemprop="keywords" content="網路," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ACL Packet Tracert Cisco CLI"/>
-<meta name="twitter:description" content="簡報 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration commands, one per line. End with CNTL/Z."/>
+<meta name="twitter:description" content="提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -401,12 +401,14 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2017/04/acl-packet-tracert-cisco-cli/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 513字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 520字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p><a href="/presentation/networks_tracer/%E6%9C%9F%E6%9C%AB%E8%80%83%E5%AF%A6%E4%BD%9C.html">簡報</a></p>
+      <h1 id="提供的檔案">提供的檔案</h1>
+<p><a href="/presentation/networks_tracer/%E6%9C%9F%E6%9C%AB%E8%80%83%E5%AF%A6%E4%BD%9C.html">簡報</a></p>
+<p><a href="/presentation/networks_tracer/Final_Exam(6.0).pkt">Final Exam(6.0).pkt</a></p>
 <h1 id="要求">要求</h1>
 <p><img src="/media/request.jpg" alt="request"></p>
 <h1 id="切網段">切網段</h1>

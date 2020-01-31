@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 隨手筆記</title>
+    <link>https://shihchun.github.io/tags/python/</link>
+    <description>Recent content in python on 隨手筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 31 Jan 2020 19:43:16 +0800</lastBuildDate>
+    
+        <atom:link href="https://shihchun.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 文件搜索指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:40:11 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</guid>
+      <description>不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知</description>
+    </item>
+    
+    <item>
+      <title>Linux 鍵結指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:39:37 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</guid>
+      <description>ln [option] [source file] [target file] 選項 -s 建立軟鏈接 鏈接指令分為硬鏈接和軟連接，沒有加上任何選項，軟鏈接要加上-s 硬鏈接 硬鏈接的特征 硬鏈接和原本文件有相同的inod</description>
+    </item>
+    
+    <item>
+      <title>Linux目錄指令</title>
+      <link>https://shihchun.github.io/2017/04/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:38:50 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</guid>
+      <description>mkdir 目錄創建 mkdir [option] [parameter] 選項 -p遞歸創建（創建/Gumdan/...） [user@localhost~]$ mkdir ~/Desktop/Gumdan [user@localhost~]$ mkdir ~/Desktop/Gumdan/season mkdir: /Users/Gumdam/Desktop/Gumdan: No such file or directory [user@localhost~]$ mkdir -p ~/Desktop/Gumdan/season 當要創建/Gumdan/season的時候/</description>
+    </item>
+    
+    <item>
+      <title>Linux命令基本格式</title>
+      <link>https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Fri, 14 Apr 2017 01:38:03 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</guid>
+      <description>[root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般使</description>
+    </item>
+    
+    <item>
+      <title>M51AC-457AANE Hackintosh</title>
+      <link>https://shihchun.github.io/2017/04/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/</link>
+      <pubDate>Wed, 12 Apr 2017 01:36:46 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/</guid>
+      <description>核心：Intel Haswell Core i5-4570(3.2 GHz,turbo 3.6GHz) 板子：H87M-PRO 記憶體：8GB DDR3 顯示介面：NVIDIA GeForce GT630 2GB GDDR3獨顯 音效：ALC 892 $$ 安裝 \begin{cases} EFI \ 分割 &amp;amp; \text{Clover</description>
+    </item>
+    
+  </channel>
+</rss>

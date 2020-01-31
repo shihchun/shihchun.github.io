@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on 隨手筆記</title>
+    <title>Linux on 隨手筆記</title>
     <link>https://shihchun.github.io/categories/linux/</link>
-    <description>Recent content in linux on 隨手筆記</description>
+    <description>Recent content in Linux on 隨手筆記</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 18 Jan 2020 19:36:48 +0800</lastBuildDate>
     
         <atom:link href="https://shihchun.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python 基本</title>
+      <link>https://shihchun.github.io/2020/01/jupyter/</link>
+      <pubDate>Fri, 31 Jan 2020 19:43:16 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/jupyter/</guid>
+      <description>JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &amp;gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函</description>
+    </item>
     
     <item>
       <title>Manjaro 雙系統安裝</title>
@@ -190,15 +199,6 @@ tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388
       
       <guid>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</guid>
       <description>提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration</description>
-    </item>
-    
-    <item>
-      <title>Linux 文件搜索指令</title>
-      <link>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</link>
-      <pubDate>Fri, 14 Apr 2017 01:40:11 +0000</pubDate>
-      
-      <guid>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</guid>
-      <description>不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知</description>
     </item>
     
   </channel>

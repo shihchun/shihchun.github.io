@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 隨手筆記</title>
+    <link>https://shihchun.github.io/categories/python/</link>
+    <description>Recent content in python on 隨手筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 31 Jan 2020 19:43:16 +0800</lastBuildDate>
+    
+        <atom:link href="https://shihchun.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python 基本</title>
+      <link>https://shihchun.github.io/2020/01/jupyter/</link>
+      <pubDate>Fri, 31 Jan 2020 19:43:16 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/jupyter/</guid>
+      <description>JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &amp;gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函</description>
+    </item>
+    
+    <item>
+      <title>Manjaro 雙系統安裝</title>
+      <link>https://shihchun.github.io/2020/01/duelboot/</link>
+      <pubDate>Sat, 18 Jan 2020 19:36:48 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/duelboot/</guid>
+      <description>切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁</description>
+    </item>
+    
+    <item>
+      <title>Jack2&#43;cadence 低延遲輸出</title>
+      <link>https://shihchun.github.io/2020/01/jack2/</link>
+      <pubDate>Mon, 13 Jan 2020 14:47:28 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/jack2/</guid>
+      <description>安裝Jack2、qJackCtl、cadence 我是使用Manjaro community的版本。 然後打開qjackCtl設備調整成地延遲的D</description>
+    </item>
+    
+    <item>
+      <title>從Hexo到Hugo</title>
+      <link>https://shihchun.github.io/2020/01/hugo-math/</link>
+      <pubDate>Sat, 11 Jan 2020 18:51:35 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/hugo-math/</guid>
+      <description>原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明</description>
+    </item>
+    
+    <item>
+      <title>關於我</title>
+      <link>https://shihchun.github.io/about/</link>
+      <pubDate>Sat, 11 Jan 2020 17:53:25 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/about/</guid>
+      <description>Hello HA ~</description>
+    </item>
+    
+    <item>
+      <title>Express.js 簡單整理</title>
+      <link>https://shihchun.github.io/2019/04/node-js-4/</link>
+      <pubDate>Tue, 23 Apr 2019 21:48:51 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/04/node-js-4/</guid>
+      <description>Express.js Web應用框架（Web application framework），和一般HTTP server功能上的差別就是，他們有多用HTTP網路編程，提供了可靠度高的方案</description>
+    </item>
+    
+    <item>
+      <title>用Javascript將圖片轉換成Base64</title>
+      <link>https://shihchun.github.io/2019/03/web-img/</link>
+      <pubDate>Thu, 28 Mar 2019 20:46:39 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/03/web-img/</guid>
+      <description>使用FileReader &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;!-- Word.value=&amp;amp;#39;&amp;amp;#39; --&amp;gt; &amp;lt;input id=&amp;quot;upload_file&amp;quot; type=&amp;quot;file&amp;quot;&amp;gt; &amp;lt;input value=&amp;quot;顯示Base64成圖片：&amp;quot; type=&amp;quot;button&amp;quot; onclick=&amp;quot;prev();&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;strong</description>
+    </item>
+    
+    <item>
+      <title>mongodb日期儲存問題</title>
+      <link>https://shihchun.github.io/2019/03/node-js-3/</link>
+      <pubDate>Mon, 18 Mar 2019 15:26:54 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/03/node-js-3/</guid>
+      <description>mongodb日期儲存問題 今天在試著儲存日期到mongodb的時候，它出現一個錯誤碼，大概console.log，出來就長得像是下面那個樣子</description>
+    </item>
+    
+    <item>
+      <title>webpack 安裝</title>
+      <link>https://shihchun.github.io/2019/03/webpack-1/</link>
+      <pubDate>Tue, 12 Mar 2019 16:38:22 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/03/webpack-1/</guid>
+      <description>webpack 使用 ## webpack 3.x &amp;amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結果應該要一樣 ## 裡面寫了 console.log(&amp;quot;test&amp;quot;); λ node hello.js test</description>
+    </item>
+    
+    <item>
+      <title>cuda</title>
+      <link>https://shihchun.github.io/2019/02/cuda/</link>
+      <pubDate>Fri, 22 Feb 2019 21:21:09 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/02/cuda/</guid>
+      <description>安裝ubuntu driver 是ubuntu他們測試過的版本，當然也可以裝nvidia自己釋出的檔案 ## 列出driver ubuntu-devices drivers ## 自動安裝 ubuntu-devices autoinstall 安裝cuda、c</description>
+    </item>
+    
+    <item>
+      <title>Git 使用</title>
+      <link>https://shihchun.github.io/2019/02/git-set/</link>
+      <pubDate>Mon, 18 Feb 2019 15:17:29 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/02/git-set/</guid>
+      <description>編輯現有的project $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &amp;quot;commit message 可以寫做什麼修改&amp;quot; ## 上傳 $ git push -u orgin master ## push 到叫做orgin的xx</description>
+    </item>
+    
+    <item>
+      <title>node.js body-parser &#43; swig 處理HTML表單</title>
+      <link>https://shihchun.github.io/2018/12/node-js-2/</link>
+      <pubDate>Wed, 26 Dec 2018 12:16:22 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2018/12/node-js-2/</guid>
+      <description>安裝curl # 打開cmd用Chocolatey（Windows下的軟體包管理器） choco install curl # 安裝curl 用curl測試post router.get(&#39;/test&#39;, function (req, res, next) { // curl http://localhost:4000/test</description>
+    </item>
+    
+    <item>
+      <title>kvm 安裝</title>
+      <link>https://shihchun.github.io/2018/10/kvm/</link>
+      <pubDate>Tue, 30 Oct 2018 19:04:06 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2018/10/kvm/</guid>
+      <description>KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &amp;hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計</description>
+    </item>
+    
+    <item>
+      <title>C# 練習1</title>
+      <link>https://shihchun.github.io/2018/05/csharp-pratrice/</link>
+      <pubDate>Tue, 08 May 2018 20:43:05 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2018/05/csharp-pratrice/</guid>
+      <description>前一陣子寫了一點C#當做記錄吧！ C# PPT {% post_link &amp;lsquo;Babun Permission denied (publickey)&amp;rsquo; 点击这里查看这篇文章 %} 這是我資料庫的架構，這是試著用PHP寫的，當然也是參考網路上面的。 Create Database</description>
+    </item>
+    
+    <item>
+      <title>Gource — GitHub Log Visualization</title>
+      <link>https://shihchun.github.io/2017/05/gource-github-log-visualization/</link>
+      <pubDate>Thu, 04 May 2017 10:27:01 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/05/gource-github-log-visualization/</guid>
+      <description>Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&amp;lt;(￣︶￣)↗</description>
+    </item>
+    
+    <item>
+      <title>Linux 掛載命令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 27 Apr 2017 18:44:11 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;h1 id=&#34;mount-查看已經掛載的設備&#34;&gt;mount 查看已經掛載的設備&lt;/h1&gt;
+&lt;p&gt;在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到&lt;code&gt;/mnt&lt;/code&gt;下面&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# mount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime,seclabel)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+devtmpfs on /dev type devtmpfs (rw,nosuid,seclabel,size=231216k,nr_inodes=57804,mode=755)
+.
+.
+.
+/dev/sda1 on /boot type xfs (rw,relatime,seclabel,attr2,inode64,noquota)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388k,mode=700,uid=1000,gid=1000)
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 關機重啟命令</title>
+      <link>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 27 Apr 2017 17:17:25 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</guid>
+      <description>shutdown shutdown [option] [time] option: -c 取消關機命令 -h 關機 -r 重新開機 $ shutdown now $ shutdown -r now [cyberjun@localhost ~]$ shutdown -r 05:30 Must be root. [cyberjun@localhost ~]$ su 密碼： [root@localhost cyberjun]# shutdown -r 05:30 Shutdown scheduled for 五 2017-04-28 05:30:00 CST, use &#39;shutdown -c&#39; to cancel. [root@localhost cyberjun]# shutdown -c Broadcast message from root@localhost.localdomain (Thu 2017-04-27 17:21:20 CST):</description>
+    </item>
+    
+    <item>
+      <title>Linux 壓縮與解壓縮</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</link>
+      <pubDate>Wed, 26 Apr 2017 18:34:29 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
+      <description>檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的</description>
+    </item>
+    
+    <item>
+      <title>Linux 幫助指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Wed, 26 Apr 2017 14:11:20 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
+      <description>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 $ man ls LS(1) NAME ls - list directory contents SYNOPSIS ls [OPTION]... [FILE]... DESCRIPTION List information about the FILEs (the current directory by default). Sort entries alphabetically if none</description>
+    </item>
+    
+    <item>
+      <title>ACL Packet Tracert Cisco CLI</title>
+      <link>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</link>
+      <pubDate>Sat, 15 Apr 2017 02:28:58 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</guid>
+      <description>提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration</description>
+    </item>
+    
+  </channel>
+</rss>

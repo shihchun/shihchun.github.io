@@ -5,10 +5,19 @@
     <link>https://shihchun.github.io/posts/</link>
     <description>Recent content in Posts on 隨手筆記</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 31 Jan 2020 19:43:16 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 17:49:36 +0800</lastBuildDate>
     
         <atom:link href="https://shihchun.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Aqua-Sim NS3.26 安裝</title>
+      <link>https://shihchun.github.io/2020/06/aqua-sim/</link>
+      <pubDate>Thu, 04 Jun 2020 17:49:36 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/06/aqua-sim/</guid>
+      <description>Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認</description>
+    </item>
     
     <item>
       <title>python 基本</title>
@@ -190,15 +199,6 @@ tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388
       
       <guid>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
       <description>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 $ man ls LS(1) NAME ls - list directory contents SYNOPSIS ls [OPTION]... [FILE]... DESCRIPTION List information about the FILEs (the current directory by default). Sort entries alphabetically if none</description>
-    </item>
-    
-    <item>
-      <title>ACL Packet Tracert Cisco CLI</title>
-      <link>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</link>
-      <pubDate>Sat, 15 Apr 2017 02:28:58 +0000</pubDate>
-      
-      <guid>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</guid>
-      <description>提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration</description>
     </item>
     
   </channel>

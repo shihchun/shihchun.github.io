@@ -42,7 +42,7 @@
 <meta itemprop="description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認">
 <meta itemprop="datePublished" content="2020-06-04T17:49:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-04T17:49:36&#43;08:00" />
-<meta itemprop="wordCount" content="1560">
+<meta itemprop="wordCount" content="1556">
 
 
 
@@ -407,7 +407,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/aqua-sim/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1560字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1556字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
       </div>
     </div>
@@ -467,7 +467,7 @@ pip install pygccxml
 <p><img src="/media/Deepin_select-area_20200604180155.png" alt="Deepin 截圖_select-area_20200604180155"></p>
 <p><img src="/media/Deepin_select-area_20200604180218.png" alt="Deepin 截圖_select-area_20200604180218"></p>
 <h2 id="安裝anaconda-python3">安裝Anaconda (Python3)</h2>
-<p>ns-3.29開始使用python3，其他使用還在python2，很多發行版本的電腦已經無法使用</p>
+<p>ns-3.29使用python3，有些不確定哪些還是python2，pip2已經漸漸的快淘汰</p>
 <pre><code class="language-sh">curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-ppc64le.sh
 sudo chmod 755 Anaconda3-2020.02-Linux-ppc64le.sh # rwx rwx rwx 給755 都給執行權限
 # read write exec Linux三個user group的權限定義 root user other
@@ -494,9 +494,9 @@ choco install hg
 <h2 id="ns3-install-and-build">NS3 install and Build</h2>
 <p>Manjaro（<em>Arch Linux</em> 的Linux 發行版）上安裝3.24~3.26版本的NS-3，<del>aqua-sim是使用舊版的NS3（python2去做compile），所以使用的python要加上alias讓shell知道我們是使用python2來做compile</del></p>
 <blockquote>
-<p>Begin by downloading ns-3 (version 3.29 and 3.24 have been tested with aqua-sim-ng) from</p>
+<p>Begin by downloading ns-3 (version 3.24~3.26 have been tested with aqua-sim-ng) from</p>
 <p><a href="https://www.nsnam.org/releases/ns-3-29/">here</a></p>
-<p><a href="https://github.com/nsnam/ns-3-dev-git/releases">Github Release</a></p>
+<p>[Github Release(https://github.com/nsnam/ns-3-dev-git/releases)</p>
 </blockquote>
 <pre><code class="language-sh"># 我直接複製下載鏈接網址
 curl -O https://www.nsnam.org/release/ns-allinone-3.26.tar.bz2

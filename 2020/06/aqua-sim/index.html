@@ -42,7 +42,7 @@
 <meta itemprop="description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認">
 <meta itemprop="datePublished" content="2020-06-04T17:49:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-04T17:49:36&#43;08:00" />
-<meta itemprop="wordCount" content="1686">
+<meta itemprop="wordCount" content="1767">
 
 
 
@@ -407,7 +407,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/aqua-sim/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1686字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1767字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
       </div>
     </div>
@@ -609,11 +609,34 @@ At time 2.00737s client received 1024 bytes from 10.1.1.2 port 9
 <p>由於pyviz要用到pybindgen，這個東西是要用python2弄的</p>
 <pre><code class="language-sh">./waf configure --enable-tests --enables-examples --with-python=python2
 ...
-看到Pyviz enable 就行
-./waf
+# 看到Pyviz: enable 就行
+./waf #build
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis #Run sample
 </code></pre>
 <p>這個東西真的蠻酷的，有動畫的方式顯示做模擬，Node碰久一點還可以看ipaddr之類的模擬參數。</p>
 <p><img src="/media/Deepin_plasmashell_20200616015518.png" alt="Deepin_plasmashell_20200616015518"></p>
+<h1 id="netanim">NetAnim</h1>
+<p>另外還有一個視覺化的工具</p>
+<pre><code class="language-sh">➜  ns-3.29 ./waf --run &quot;dumbbell-animation --nLeftLeaf=5 --nRightLeaf=5 --animFile=dumbbell.xml&quot;
+(base) ➜  aquasim-ng_manjaro tree -L 1            
+.
+├── AquaSim-NG_Installation
+├── bake
+├── build.py
+├── constants.py
+├── netanim-3.108
+├── ns-3.29
+├── pybindgen-0.17.0.post58+ngcf00cc0
+├── README
+└── util.py
+cd netanim-3.108
+make clean 
+qmake NetAnim.pro
+make
+./NetAnim
+</code></pre>
+<p><img src="/media/Deepin_plasmashell_20200616030357.png" alt="Deepin_plasmashell_20200616030357"></p>
+<p><img src="/media/Deepin_select-area_20200616030433.png" alt="Deepin_select-area_20200616030433.png"></p>
 
     </div>
     <div class="article-footer">

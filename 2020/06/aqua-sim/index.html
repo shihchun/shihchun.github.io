@@ -499,6 +499,26 @@ pip install pygccxml
 </code></pre>
 <p><img src="/media/Deepin_select-area_20200604180155.png" alt="Deepin 截圖_select-area_20200604180155"></p>
 <p><img src="/media/Deepin_select-area_20200604180218.png" alt="Deepin 截圖_select-area_20200604180218"></p>
+<h2 id="ns3-in-wsl">NS3 in WSL</h2>
+<p>在WSL上面裝基本上差不多，不過有點繁瑣，自己裝覺得裝的比Manjaro還要久，一樣是庫、pip套件裝上，configure的地方檢查完有就行build了。</p>
+<p><a href="https://www.nsnam.org/wiki/Installation">NS3 Installation</a></p>
+<p>不過他要注意一個問題，要加上CXXFLAG，略過一些命名錯誤。</p>
+<blockquote>
+<p><a href="https://www.nsnam.org/wiki/Ns-3.28-errata">Ns-3.28-errata</a></p>
+<pre><code class="language-sh">CXXFLAGS=&quot;-Wall -Werror -Wno-parentheses&quot; ./waf configure --enable-examples --enable-tests
+</code></pre>
+</blockquote>
+<p>另外要執行PyViz的話要使用下面的設定，<code>--with-python=python2</code>。</p>
+<pre><code class="language-sh">CXXFLAGS=&quot;-Wall -Werror -Wno-parentheses&quot; ./waf configure --enable-examples --enable-tests --with-python=python2
+</code></pre>
+<ul>
+<li>下面是在wsl build 的過程</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FHd4pBPzXDw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
 <h2 id="安裝anaconda-python3">安裝Anaconda (Python3)</h2>
 <p>ns-3.29使用python3，有些不確定哪些還是python2，pip2已經漸漸的快淘汰</p>
 <pre><code class="language-sh">curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-ppc64le.sh
@@ -524,26 +544,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # then install the hg
 choco install hg
 </code></pre>
-<h1 id="ns3-in-wsl">NS3 in WSL</h1>
-<p>在WSL上面裝基本上差不多，不過有點繁瑣，自己裝覺得裝的比Manjaro還要久，一樣是庫、pip套件裝上，configure的地方檢查完有就行build了。</p>
-<p><a href="https://www.nsnam.org/wiki/Installation">NS3 Installation</a></p>
-<p>不過他要注意一個問題，要加上CXXFLAG，略過一些命名錯誤。</p>
-<blockquote>
-<p><a href="https://www.nsnam.org/wiki/Ns-3.28-errata">Ns-3.28-errata</a></p>
-<pre><code class="language-sh">CXXFLAGS=&quot;-Wall -Werror -Wno-parentheses&quot; ./waf configure --enable-examples --enable-tests
-</code></pre>
-</blockquote>
-<p>另外要執行PyViz的話要使用下面的設定，<code>--with-python=python2</code>。</p>
-<pre><code class="language-sh">CXXFLAGS=&quot;-Wall -Werror -Wno-parentheses&quot; ./waf configure --enable-examples --enable-tests --with-python=python2
-</code></pre>
-<ul>
-<li>下面是在wsl build 的過程</li>
-</ul>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/FHd4pBPzXDw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
 <h2 id="ns3-install-and-build">NS3 install and Build</h2>
 <p>Manjaro（<em>Arch Linux</em> 的Linux 發行版）上安裝3.24~3.26版本的NS-3，<del>aqua-sim是使用舊版的NS3（python2去做compile），所以使用的python要加上alias讓shell知道我們是使用python2來做compile</del></p>
 <blockquote>

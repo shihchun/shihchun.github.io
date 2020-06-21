@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認" />
-  <meta name="generator" content="Hugo 0.65.1 with theme pure" />
+  <meta name="generator" content="Hugo 0.72.0 with theme pure" />
   <title>Aqua-Sim NS3.29 安裝 - 隨手筆記</title>
   
   
@@ -42,7 +42,7 @@
 <meta itemprop="description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認">
 <meta itemprop="datePublished" content="2020-06-04T17:49:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-04T17:49:36&#43;08:00" />
-<meta itemprop="wordCount" content="1951">
+<meta itemprop="wordCount" content="2175">
 
 
 
@@ -407,8 +407,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/aqua-sim/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1951字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2175字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 5分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -441,12 +441,55 @@ find ./src/applications/model/ -name 'onoff-app*'
 ./src/applications/model/onoff-application-random-destination.h
 ./src/applications/model/onoff-application.cc
 ./src/applications/model/onoff-application.h
-cp ./src/applications/model/onoff-application* ./build/ns3 # 我是複製這些檔案結果build 成功
+cp ./src/applications/model/onoff-application.h ./build/ns3
+vim ./src/aqua-sim-ng/model/aqua-sim-signal-cache.cc # creal-&gt; std::real, cexp-&gt;exp
+
 ./waf clean
-./waf configure --build-profile=debug --enable-examples
-./waf
+./waf configure --build-profile=debug --enable-examples --enable-tests
+./waf # build 要有 aqua-sim-ng
+Waf: Entering directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/build'
+wscript:166: Warning: (in /run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/src/aqua-sim-ng) Requested to build modular python bindings, but apidefs dir not found =&gt; skipped the bindings.
+  &quot; just like 'make' does by default.&quot;),
+Waf: Leaving directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (45.893s)
+
+Modules built:
+antenna                   aodv                      applications              
+aqua-sim-ng               bridge                    brite (no Python)         
+buildings                 config-store              core                      
+csma                      csma-layout               dsdv                      
+dsr                       energy                    fd-net-device             
+flow-monitor              internet                  internet-apps             
+lr-wpan                   lte                       mesh                      
+mobility                  mpi                       netanim (no Python)       
+network                   nix-vector-routing        olsr                      
+point-to-point            point-to-point-layout     propagation               
+sixlowpan                 spectrum                  stats                     
+tap-bridge                test (no Python)          topology-read             
+traffic-control           uan                       virtual-net-device        
+visualizer                wave                      wifi                      
+wimax                     
+
+Modules not built (see ns-3 tutorial for explanation):
+click                     openflow
+
+./test.py # validating
+623 of 627 tests passed (623 passed, 3 skipped, 1 failed, 0 crashed, 0 valgrind errors)
+List of SKIPped tests:
+    ns3-tcp-cwnd
+    ns3-tcp-interoperability
+    nsc-tcp-loss
+List of FAILed tests:
+    pcap-file # 因爲沒有權限使用tcpdump
+    
+    
+$ tcpdump
+tcpdump: wlp2s0: You don't have permission to capture on that device
+(socket: Operation not permitted)
+$ su # 用 --with-python=python2 configure好像會不能使用 --enable-sudo
+./test.py # validating
 </code></pre>
-<p><img src="/media/Deepin_select-area_20200604173838.png" alt="Deepin 截圖_select-area_20200604173838"></p>
 <ul>
 <li>
 <p>Run Example</p>
@@ -456,7 +499,7 @@ cp ./src/applications/model/onoff-application* ./build/ns3 # 我是複製這些�
 <pre><code class="language-sh">cp -R src/aqua-sim-ng/examples/broadcastMAC_example.cc scratch/ 
 ./waf --run scratch/broadcastMAC_example # --vis
 </code></pre>
-<p><img src="/media/Deepin_select-area_20200604174005.png" alt="Deepin 截圖_select-area_20200604174005"></p>
+<p><img src="/media/Deepin_select-area_20200604173838.png" alt="Deepin 截圖_select-area_20200604173838"></p>
 <h1 id="pyviz">PyViz</h1>
 <p>另外我測試了一下pyviz在上面build</p>
 <p>由於pyviz要用到pybindgen，這個東西是要用python2弄的</p>
@@ -467,7 +510,13 @@ cp ./src/applications/model/onoff-application* ./build/ns3 # 我是複製這些�
 ./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis #Run sample
 </code></pre>
 <p>這個東西真的蠻酷的，有動畫的方式顯示做模擬，Node碰久一點還可以看ipaddr之類的模擬參數。</p>
+<p>或是使用Anaconda安裝<a href="https://anaconda.org/pyviz/pyviz">PyViz</a></p>
+<pre><code class="language-sh">conda install -c pyviz pyviz
+./waf configure --enable-tests --enables-examples
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis #Run sample
+</code></pre>
 <p><img src="/media/Deepin_plasmashell_20200616015518.png" alt="Deepin_plasmashell_20200616015518"></p>
+<p><img src="/media/Peek_2020-06-21_13-37.gif" alt="Deepin_plasmashell_20200616015518"></p>
 <h1 id="netanim">NetAnim</h1>
 <p>另外還有一個視覺化的工具</p>
 <pre><code class="language-sh">➜  ns-3.29 ./waf --run &quot;dumbbell-animation --nLeftLeaf=5 --nRightLeaf=5 --animFile=dumbbell.xml&quot;
@@ -490,6 +539,7 @@ make
 </code></pre>
 <p><img src="/media/Deepin_plasmashell_20200616030357.png" alt="Deepin_plasmashell_20200616030357"></p>
 <p><img src="/media/Deepin_select-area_20200616030433.png" alt="Deepin_select-area_20200616030433.png"></p>
+<p><img src="/media/Peek_2020-06-21_13-33.gif" alt="Deepin_select-area_20200616030433.png"></p>
 <h1 id="ns3-install">NS3 install</h1>
 <p>由於NS3需要這些庫所以可能要先安裝一下，這個套件管理這裏沒辦法構建成功，所以要一個個Google一下了。</p>
 <p>其中python的部分，因爲我不是很肯定它NS3的3.26~3.29那邊用了python2、python3，所以我都有把pip2、pip3的庫儘量能裝的都裝進去。</p>
@@ -544,7 +594,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # then install the hg
 choco install hg
 </code></pre>
-<h2 id="ns3-install-and-build">NS3 install and Build</h2>
+<h2 id="ns3-install-and-build-bassic">NS3 install and Build (Bassic)</h2>
 <p>Manjaro（<em>Arch Linux</em> 的Linux 發行版）上安裝3.24~3.26版本的NS-3，<del>aqua-sim是使用舊版的NS3（python2去做compile），所以使用的python要加上alias讓shell知道我們是使用python2來做compile</del></p>
 <blockquote>
 <p>Begin by downloading ns-3 (version 3.24~3.26 have been tested with aqua-sim-ng) from</p>

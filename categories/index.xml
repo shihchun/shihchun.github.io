@@ -5,10 +5,19 @@
     <link>https://shihchun.github.io/categories/</link>
     <description>Recent content in Categories on 隨手筆記</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Jun 2020 17:49:36 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 19:54:10 +0800</lastBuildDate>
     
         <atom:link href="https://shihchun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NS3 Cpp Basic</title>
+      <link>https://shihchun.github.io/2020/06/ns3-cpp-basic/</link>
+      <pubDate>Sun, 21 Jun 2020 19:54:10 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/06/ns3-cpp-basic/</guid>
+      <description>NS3有很多文檔都是用gnuplot做繪圖的，這裏Run一個範例，試着在ns3製圖，動態鏈結感覺好用很多，不過暫時還是先存成csv再用mat</description>
+    </item>
     
     <item>
       <title>Aqua-Sim NS3.29 安裝</title>
@@ -190,15 +199,6 @@ tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388
       
       <guid>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
       <description>檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的</description>
-    </item>
-    
-    <item>
-      <title>Linux 幫助指令</title>
-      <link>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</link>
-      <pubDate>Wed, 26 Apr 2017 14:11:20 +0000</pubDate>
-      
-      <guid>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
-      <description>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 $ man ls LS(1) NAME ls - list directory contents SYNOPSIS ls [OPTION]... [FILE]... DESCRIPTION List information about the FILEs (the current directory by default). Sort entries alphabetically if none</description>
     </item>
     
   </channel>

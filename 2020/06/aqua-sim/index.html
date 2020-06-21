@@ -42,7 +42,7 @@
 <meta itemprop="description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認">
 <meta itemprop="datePublished" content="2020-06-04T17:49:36&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-04T17:49:36&#43;08:00" />
-<meta itemprop="wordCount" content="2175">
+<meta itemprop="wordCount" content="2208">
 
 
 
@@ -169,7 +169,7 @@
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E9%9B%BB%E8%85%A6/" class="category-list-link">電腦</a><span class="category-list-count">1</span></li>
         </ul>
     </div>
@@ -297,7 +297,7 @@
             
             
             <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
-                    class="tag-list-count">2</span></li>
+                    class="tag-list-count">3</span></li>
             
         </ul>
 
@@ -308,6 +308,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/ns3-cpp-basic/" class="title">NS3 Cpp Basic</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 19:54:10 &#43;0800 CST" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -345,16 +355,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-13 14:47:28 &#43;0800 CST" itemprop="datePublished">2020-01-13</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/01/hugo-math/" class="title">從Hexo到Hugo</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-11 18:51:35 &#43;0800 CST" itemprop="datePublished">2020-01-11</time>
                     </p>
                 </div>
             </li>
@@ -407,7 +407,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/aqua-sim/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2175字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2208字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 5分 </span>
       </div>
     </div>
@@ -419,6 +419,9 @@
 <p>之前測試了很多次GitHub上面的檔案，結果最後發現作者並沒有放在Github上面，是放在他的Wiki，而且改了170多個內容（GitLens看到），在安裝之前請先去確定你的NS3可以使用。</p>
 <p><img src="/media/Deepin_select-area_20200604104358.png" alt="Deepin 截圖_select-area_20200604104358"></p>
 <!-- raw HTML omitted -->
+<pre><code class="language-sh"># 方便debug 略過 unuse variable 之類的問題 cc1plus: all warnings being treated as errors
+移除 ns3/build/c4che/_c4che.py 裏面的所有 -Werror
+</code></pre>
 <pre><code class="language-sh">curl -O http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz
 tar-zxvf aquasim-ng.tgz
 cd aquasim-ng 
@@ -750,6 +753,11 @@ At time 2.00737s client received 1024 bytes from 10.1.1.2 port 9
                 <a href="https://shihchun.github.io/2020/01/jupyter/" title="python 基本"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://shihchun.github.io/2020/06/ns3-cpp-basic/"
+                    title="NS3 Cpp Basic"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

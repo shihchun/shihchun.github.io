@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         python 基本 - 隨手筆記
       </title>
-        <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no,adress=no">
-    
-    <meta name="theme-color" content="#000000" />
-    
-    <meta http-equiv="window-target" content="_top" />
-    
-    
-    <meta name="description" content="JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &amp;gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函" />
-    <meta name="generator" content="Hugo 0.72.0 with theme pure" />
-    <title>python 基本 - 隨手筆記</title>
-    
-    
-    <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
-    
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="python 基本" />
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &amp;gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函" />
+  <meta name="generator" content="Hugo 0.72.0 with theme pure" />
+  <title>python 基本 - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="python 基本" />
 <meta property="og:description" content="JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2020/01/jupyter/" />
@@ -47,14 +50,16 @@
 <meta name="twitter:title" content="python 基本"/>
 <meta name="twitter:description" content="JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &gt; bassic.md Part I 基礎不討論算法 Day1 # # clear all variable in python # import sys # sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函"/>
 
-    <!--[if lte IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-      <![endif]-->
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
 
-    <!--[if lt IE 9]>
-        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-      <![endif]-->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
   </head>
 
   
@@ -73,7 +78,7 @@
         </div><div class="search" id="search-form-wrap">
     <form class="search-form sidebar-form">
         <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
             <span class="input-group-btn">
                 <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
                         class="icon icon-search"></i></button>
@@ -153,7 +158,7 @@
 </div>
 
       <div class="widget">
-    <h3 class="widget-title"> 分类</h3>
+    <h3 class="widget-title"> 分類</h3>
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
@@ -170,7 +175,7 @@
     </div>
 </div>
       <div class="widget">
-    <h3 class="widget-title"> 标签</h3>
+    <h3 class="widget-title"> 標籤</h3>
     <div class="widget-body">
         <ul class="tag-list">
             
@@ -363,12 +368,13 @@
     
 <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    <h4 class="toc-title">文章目录</h4>
+    <h4 class="toc-title">文章目錄</h4>
     <nav id="toc" class="js-toc toc">
 
     </nav>
   </div>
 </aside>
+
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -401,9 +407,9 @@
   </span>
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/jupyter/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 8486字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17分 </span>
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 8486字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 17分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -1601,7 +1607,7 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
 <blockquote class="mt-2x">
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
-      <strong>本文链接: </strong>
+      <strong>本文鏈結: </strong>
       <a href="https://shihchun.github.io/2020/01/jupyter/" title="python 基本" target="_blank" rel="external">https://shihchun.github.io/2020/01/jupyter/</a>
     </li>
     <li class="post-copyright-license">
@@ -1625,11 +1631,28 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">
 </section>
 
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    console.log('rufus3597');
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'rufus3597';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
@@ -1646,8 +1669,8 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
             
             <li class="toggle-toc">
                 <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
-                    title="文章目录" role="button">
-                    <span>[&nbsp;</span><span>文章目录</span>
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
                     <i class="text-collapsed icon icon-anchor"></i>
                     <i class="text-in icon icon-close"></i>
                     <span>]</span>
@@ -1702,7 +1725,7 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://shihchun.github.io/js/application.min.a360d075a502be194c9465b78ae2bd56b85d0524b61b6724cc05033ab13d7743.js"></script>
 <script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
 
 <script>
@@ -1710,9 +1733,9 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
                 UNTITLED: '(未命名)',
             },
             ROOT_URL: 'https:\/\/shihchun.github.io',
@@ -1728,14 +1751,19 @@ print(' s:',s,'\n mapping:',a,'\n 轉換結果：',b)
         
         tocSelector: '.js-toc',
         
-        contentSelector: '.js-toc-content',
+        
         
         headingSelector: 'h1, h2, h3',
         
         hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
     });
 </script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -1747,6 +1775,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+
 
   </body>
 </html>

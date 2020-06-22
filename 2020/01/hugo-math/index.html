@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         從Hexo到Hugo - 隨手筆記
       </title>
-        <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no,email=no,adress=no">
-    
-    <meta name="theme-color" content="#000000" />
-    
-    <meta http-equiv="window-target" content="_top" />
-    
-    
-    <meta name="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
-    <meta name="generator" content="Hugo 0.72.0 with theme pure" />
-    <title>從Hexo到Hugo - 隨手筆記</title>
-    
-    
-    <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.7dc20efbc53647d41aa9ddea0c48e59300223d084e66ea0cbe7c30bd88903acc.css">
-    
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="從Hexo到Hugo" />
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
+  <meta name="generator" content="Hugo 0.72.0 with theme pure" />
+  <title>從Hexo到Hugo - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="從Hexo到Hugo" />
 <meta property="og:description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2020/01/hugo-math/" />
@@ -39,7 +42,7 @@
 <meta itemprop="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明">
 <meta itemprop="datePublished" content="2020-01-11T18:51:35&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-11T18:51:35&#43;08:00" />
-<meta itemprop="wordCount" content="1093">
+<meta itemprop="wordCount" content="1369">
 
 
 
@@ -47,14 +50,16 @@
 <meta name="twitter:title" content="從Hexo到Hugo"/>
 <meta name="twitter:description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明"/>
 
-    <!--[if lte IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-      <![endif]-->
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
 
-    <!--[if lt IE 9]>
-        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-      <![endif]-->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
   </head>
 
   
@@ -73,7 +78,7 @@
         </div><div class="search" id="search-form-wrap">
     <form class="search-form sidebar-form">
         <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
             <span class="input-group-btn">
                 <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
                         class="icon icon-search"></i></button>
@@ -153,7 +158,7 @@
 </div>
 
       <div class="widget">
-    <h3 class="widget-title"> 分类</h3>
+    <h3 class="widget-title"> 分類</h3>
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
@@ -170,7 +175,7 @@
     </div>
 </div>
       <div class="widget">
-    <h3 class="widget-title"> 标签</h3>
+    <h3 class="widget-title"> 標籤</h3>
     <div class="widget-body">
         <ul class="tag-list">
             
@@ -363,12 +368,13 @@
     
 <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    <h4 class="toc-title">文章目录</h4>
+    <h4 class="toc-title">文章目錄</h4>
     <nav id="toc" class="js-toc toc">
 
     </nav>
   </div>
 </aside>
+
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -401,9 +407,9 @@
   </span>
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/hugo-math/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1093字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1369字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -424,7 +430,7 @@ $ cp site_name/themes/exampleSite/config.yml config.yml
 $ hugo server
 </code></pre>
 <h1 id="上傳到之前的-github-page">上傳到之前的 github page</h1>
-<p>首先是這個theme的設定檔案<code>./config.yml</code>的<code>baseURL</code>要填入你的github page的網址，hugo官方也有提到相關的問題，如果沒有加入的話會導致css無法讀取，踩過地雷，記錄一下。另外如果disqus有問題的話，可能要刪掉profile，再建一個。</p>
+<p>首先是這個theme的設定檔案<code>./config.yml</code>的<code>baseURL</code>要填入你的github page的網址，hugo官方也有提到相關的問題，如果沒有加入的話會導致css無法讀取，踩過地雷，記錄一下。</p>
 <pre><code class="language-sh">baseURL: https://xxxxxxx.github.io
 theme: pure
 title: Pure theme for Hugo
@@ -459,6 +465,42 @@ $ git pull &amp;&amp; hugo ## 要先拉再推
 $ git add .
 $ git commit -m &quot;update to hugo from hexo&quot;
 $ git push -u origin master # 還是不行就加-f
+</code></pre>
+<h1 id="disqus">Disqus</h1>
+<p>pure的disqus不能用，<code>./config.yml</code>的地方要把disqus註解掉，按照官方的做法去做。</p>
+<pre><code class="language-sh"># 手動加入disque，/layouts/partials/: 裡新增 disqus.html
+# /layouts/partials/article:
+# &lt;div class=&quot;disqus markdown&quot;&gt;
+#     {{ partial &quot;disqus.html&quot; . }}
+# &lt;/div&gt;
+  # Comment
+  comment:
+    type:  #disqus # type disqus/gitalk/valine 启用哪种评论系统
+    disqus: #xxxxxxxx # enter disqus shortname here
+disqusShortname: rufus3597
+</code></pre>
+<p>然後手動加入disqus，<code>/layouts/partials/</code> 裡新增 <code>disqus.html</code></p>
+<pre><code class="language-html">&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    console.log('{{ .Site.DisqusShortname }}');
+    (function() {
+        // if (window.location.hostname == &quot;localhost&quot;)
+        //     return;
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '{{ .Site.DisqusShortname }}';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;a href=&quot;http://disqus.com/&quot; class=&quot;dsq-brlink&quot;&gt;comments powered by &lt;span class=&quot;logo-disqus&quot;&gt;Disqus&lt;/span&gt;&lt;/a&gt;
+</code></pre>
+<p>再來在<code>/layouts/partials/article</code>的<code>&lt;/article&gt;</code> ，加載在之前的<code>pure</code>做的comment的位置就行了</p>
+<pre><code class="language-html">  &lt;/article&gt;
+  {{- partial &quot;post/comment.html&quot; . }}
+  &lt;div class=&quot;disqus markdown&quot;&gt;
+    {{ partial &quot;disqus.html&quot; . }}
+  &lt;/div&gt;
 </code></pre>
 <h1 id="hugo-mathjax顯示">hugo mathjax顯示</h1>
 <p>有些themes沒有辦法辨識mathjax，通常這樣可以解決，我用的theme不用作者有做了。</p>
@@ -498,7 +540,7 @@ $ git push -u origin master # 還是不行就加-f
 <blockquote class="mt-2x">
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
-      <strong>本文链接: </strong>
+      <strong>本文鏈結: </strong>
       <a href="https://shihchun.github.io/2020/01/hugo-math/" title="從Hexo到Hugo" target="_blank" rel="external">https://shihchun.github.io/2020/01/hugo-math/</a>
     </li>
     <li class="post-copyright-license">
@@ -522,11 +564,28 @@ $ git push -u origin master # 還是不行就加-f
     </figure>
   </div>
 </div>
+
     </div>
   </article>
 <section id="comments">
 </section>
 
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    console.log('rufus3597');
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'rufus3597';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
@@ -543,8 +602,8 @@ $ git push -u origin master # 還是不行就加-f
             
             <li class="toggle-toc">
                 <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
-                    title="文章目录" role="button">
-                    <span>[&nbsp;</span><span>文章目录</span>
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
                     <i class="text-collapsed icon icon-anchor"></i>
                     <i class="text-in icon icon-close"></i>
                     <span>]</span>
@@ -599,7 +658,7 @@ $ git push -u origin master # 還是不行就加-f
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://shihchun.github.io/js/application.min.a360d075a502be194c9465b78ae2bd56b85d0524b61b6724cc05033ab13d7743.js"></script>
 <script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
 
 <script>
@@ -607,9 +666,9 @@ $ git push -u origin master # 還是不行就加-f
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
                 UNTITLED: '(未命名)',
             },
             ROOT_URL: 'https:\/\/shihchun.github.io',
@@ -625,14 +684,19 @@ $ git push -u origin master # 還是不行就加-f
         
         tocSelector: '.js-toc',
         
-        contentSelector: '.js-toc-content',
+        
         
         headingSelector: 'h1, h2, h3',
         
         hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
     });
 </script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -644,6 +708,7 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+
 
   </body>
 </html>

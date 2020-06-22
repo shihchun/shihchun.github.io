@@ -42,7 +42,7 @@
 <meta itemprop="description" content="NS3有很多文檔都是用gnuplot做繪圖的，這裏Run一個範例，試着在ns3製圖，動態鏈結感覺好用很多，不過暫時還是先存成csv再用mat">
 <meta itemprop="datePublished" content="2020-06-21T19:54:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-21T19:54:10&#43;08:00" />
-<meta itemprop="wordCount" content="977">
+<meta itemprop="wordCount" content="1432">
 
 
 
@@ -407,8 +407,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/ns3-cpp-basic/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 977字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1432字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -475,9 +475,9 @@ int main (int argc, char *argv[])
   CommandLine cmd;
   cmd.AddValue (&quot;FrameSize&quot;, &quot;The frame size in bytes&quot;, FrameSize);
   cmd.Parse (argc, argv);
-  // introduce the yans and nist rate model
+  // introduce the yans and nist rate model // initial class with smart pointer
   Ptr &lt;YansErrorRateModel&gt; yans = CreateObject&lt;YansErrorRateModel&gt; ();
-  WifiTxVector txVector;
+  WifiTxVector txVector; // class defined constructor
   //std::vector&lt; int &gt; arr; // 1d
   //std::vector&lt;std::vector&lt;int&gt;&gt; arr; // 2d
   std::vector&lt;std::vector&lt;double&gt;&gt; x;
@@ -519,7 +519,38 @@ int main (int argc, char *argv[])
   out.close();
 }
 </code></pre>
-<p>然後用<code>pandas</code>讀取處理並出圖</p>
+<p>其中這裏有用到智慧指標（smart pointer）去初始化物件，<code>Ptr</code>是ns3 自定義的一個指標，智慧指標的優點是可以自行清理記憶體之類的，不用手動<code>delete</code>，當然還有很多設計上的問題，不瞭解就不說了。</p>
+<pre><code class="language-cpp">Ptr &lt;YansErrorRateModel&gt; yans = CreateObject&lt;YansErrorRateModel&gt; ();
+</code></pre>
+<p>再來就是<code>vector</code>的用法，我是參考<a href="https://mropengate.blogspot.com/2015/07/cc-vector-stl.html">這裏</a>的，只能說<code>vector</code>真的是好用很多，不過對它的瞭解還不是很深就是了，還是會跳warning，debug設定沒設定的話ns3還是會直接不執行。</p>
+<blockquote>
+<p>移除 ns3/build/c4che/_c4che.py 裏面的所有 -Werror</p>
+</blockquote>
+<p>再來這裏是用一個物件指標訪問物件成員，下面成員要填什麼這個問題還要思考一下，ns3的文檔還看不是很懂。</p>
+<pre><code class="language-sh">double ns3::YansErrorRateModel::GetChunkSuccessRate	(	WifiMode 	mode,
+                                                    WifiTxVector 	txVector,
+                                                    double 	snr,
+                                                    uint64_t 	nbits 
+                                                    )		const
+</code></pre>
+<ul>
+<li>
+<p><code>WifiMode</code>是我們設定的<code>modes</code> vector，裏面存的是字串，這個字串可以指定什麼還要看一下<code>yansmodel</code>，看到是這樣的格式<code>OfdmRate6Mbps</code>。</p>
+</li>
+<li>
+<p><code>txVector</code>是輸入一個Class defined constructor產生的輸入格式之後進行填值後給<code>yansmodel</code>。</p>
+</li>
+<li>
+<p>snr填入</p>
+<p>$$10^{\frac{snr}{10}}$$</p>
+</li>
+<li>
+<p>FrameSize就是bits的數量</p>
+</li>
+</ul>
+<pre><code class="language-cpp">double ps = yans-&gt;GetChunkSuccessRate (WifiMode (modes[i]), txVector, std::pow (10.0,snr / 10.0), FrameSize * 8);
+</code></pre>
+<p>最後用<code>pandas</code>讀取處理並出圖</p>
 <pre><code class="language-python">import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_csv('./test.csv')

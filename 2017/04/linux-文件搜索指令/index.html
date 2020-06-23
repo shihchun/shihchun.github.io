@@ -24,7 +24,7 @@
   
   
   <meta name="description" content="不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知" />
-  <meta name="generator" content="Hugo 0.72.0 with theme pure" />
+  <meta name="generator" content="Hugo 0.65.3 with theme pure" />
   <title>Linux 文件搜索指令 - 隨手筆記</title>
   
   
@@ -42,7 +42,7 @@
 <meta itemprop="description" content="不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知">
 <meta itemprop="datePublished" content="2017-04-14T01:40:11&#43;00:00" />
 <meta itemprop="dateModified" content="2017-04-14T01:40:11&#43;00:00" />
-<meta itemprop="wordCount" content="4175">
+<meta itemprop="wordCount" content="4173">
 
 
 
@@ -70,7 +70,7 @@
       <div class="navbar-header">
         <div class="profile-block text-center">
           <a id="avatar" href="https://github.com/shihchun" target="_blank">
-            <img class="img-circle img-rotate" src="https://shihchun.github.io/avator.jpg" width="200" height="200">
+            <img class="img-circle img-rotate" src="https://shihchun.github.io/avat.jpg" width="200" height="200">
           </a>
           <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
           <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
@@ -408,7 +408,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 4175字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 4173字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 9分 </span>
       </div>
     </div>
@@ -634,7 +634,7 @@ find: -size: -25K: illegal trailing character
 [user@localhost ~]$ find /etc -size +32k -o -mtime -10
 ## 搜索/etc 目錄下大於32KB或十天內有修改過內容的文件
 </code></pre>
-<h2 id="find-搜索後面加上--exec-命令--">find 搜索後面加上 <code>-exec 命令 {} \;</code></h2>
+<h2 id="find-搜索後面加上--exec-命令-">find 搜索後面加上 `-exec 命令</h2>
 <pre><code class="language-bash">find  [directory]  [Option]  [condition] -exec [command] {} \;
 </code></pre>
 <p>這個命令代表把find命令的搜尋結果用<code>-exec</code>後面的命令去處理，其中<code>-exec [command]$ {} \;</code>是通用格式，是要記起來的。</p>
@@ -704,7 +704,7 @@ you lose
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="https://shihchun.github.io/avator.jpg" class="img-rounded w-full" alt="">
+          <img src="https://shihchun.github.io/avat.jpg" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">

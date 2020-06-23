@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        從Hexo到Hugo - 隨手筆記
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
+  <meta name="generator" content="Hugo 0.65.3 with theme pure" />
+  <title>從Hexo到Hugo - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="從Hexo到Hugo" />
+<meta property="og:description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/2020/01/hugo-math/" />
+<meta property="article:published_time" content="2020-01-11T18:51:35+08:00" />
+<meta property="article:modified_time" content="2020-01-11T18:51:35+08:00" />
+<meta itemprop="name" content="從Hexo到Hugo">
+<meta itemprop="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明">
+<meta itemprop="datePublished" content="2020-01-11T18:51:35&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-11T18:51:35&#43;08:00" />
+<meta itemprop="wordCount" content="1369">
+
+
+
+<meta itemprop="keywords" content="hugo,mathjax," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="從Hexo到Hugo"/>
+<meta name="twitter:description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/shihchun" target="_blank">
+            <img class="img-circle img-rotate" src="https://shihchun.github.io/avat.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Taoyuan, Taiwan</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">首頁</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">檔案</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分類</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">標籤</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">關於我</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>沒有公告</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分類</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">11</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/node.js/" class="category-list-link">node.js</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/web/" class="category-list-link">web</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E9%9B%BB%E8%85%A6/" class="category-list-link">電腦</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 標籤</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/body-parser/" class="tag-list-link">body-parser</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/c#/" class="tag-list-link">c#</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cuda/" class="tag-list-link">cuda</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/cudnn/" class="tag-list-link">cudnn</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/express.js/" class="tag-list-link">express.js</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ffmpeg/" class="tag-list-link">ffmpeg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/gource/" class="tag-list-link">gource</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hackintosh/" class="tag-list-link">hackintosh</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/html/" class="tag-list-link">html</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/js/" class="tag-list-link">js</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/kvm/" class="tag-list-link">kvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/libvirt/" class="tag-list-link">libvirt</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="tag-list-link">linux-學習筆記</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" class="tag-list-link">linux基本指令</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mongoodb/" class="tag-list-link">mongoodb</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mongoose/" class="tag-list-link">mongoose</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/qemu/" class="tag-list-link">qemu</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/swig/" class="tag-list-link">swig</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ubuntu/" class="tag-list-link">ubuntu</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/vm/" class="tag-list-link">vm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/webpack/" class="tag-list-link">webpack</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
+                    class="tag-list-count">3</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/ns3-cpp-basic/" class="title">NS3 Cpp Basic</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-21 19:54:10 &#43;0800 CST" itemprop="datePublished">2020-06-21</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/aqua-sim/" class="title">Aqua-Sim NS3.29 安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/jupyter/" class="title">python 基本</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-31 19:43:16 &#43;0800 CST" itemprop="datePublished">2020-01-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/01/jack2/" class="title">Jack2&#43;cadence 低延遲輸出</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-13 14:47:28 &#43;0800 CST" itemprop="datePublished">2020-01-13</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目錄</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/01/hugo-math/"
+    >從Hexo到Hugo</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://shihchun.github.io/2020/01/hugo-math/" class="article-date">
+  <time datetime="2020-01-11 18:51:35 &#43;0800 CST" itemprop="datePublished">2020-01-11</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/hugo/"> hugo </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/hugo/"> hugo </a>
+    <a class="article-tag-link" href="/tags/mathjax/"> mathjax </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/hugo-math/#comments"
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1369字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="原因">原因</h1>
+<p>隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的<strong>速度</strong>漸漸的變慢了，發現Hexo的速度以及它<code>plugin</code>過度依賴的問題太過於明顯，前一陣子因為<code>plugin</code>的問題弄了很久，放假時間就試着使用hugo了。</p>
+<p>之前使用的是Hexo-NexT的主題，就不介紹了，是一個我很喜歡的主題，有我喜歡的Local Search的功能，也不知道為什麼很多的都不寫，雖然網路上看到一些高手想到的解決方案，但是如果可以直接有的主題還是我的首選，所以我就使用<a href="https://github.com/xiaoheiAh/hugo-theme-pure">hugo-theme-pure</a>了。</p>
+<p>下面是我轉到Hugo下面的主題架構檔案大小，之前用Hexo的時候，檔案非常難以移動，現在比較好搬動了，下面的檔案大小還是我將轉出來的<code>public</code>，也就是上傳到github page的部分刪掉的大小，相對而言，Hugo實在是優秀太多了，只是hexo對剛開始使用的人真的也是非常友好，上傳github有hexo d的指令可以使用，如果用hugo的話，就要自己重新add remote xx.git，然後重新add、commit、push一次。</p>
+<p><img src="/media/Screenshot_from_2020-01-11_22-56-03.png" alt="2"></p>
+<p>這篇文章大概整理一下換hugo使用的過程遇到的地方。</p>
+<h1 id="hugo-安裝">hugo 安裝</h1>
+<p>我在Manjaro linux上面使用，所以直接在Add/Remove Software加上去就解決了。不過<a href="https://gohugo.io/getting-started/installing/">官方</a>也有說怎麼做安裝的動作，Windows用Chocolatey，Macos用Homebrew。</p>
+<pre><code class="language-sh">～
+$ hugo new site site_name
+$ cd site_name/themes
+$ git clone https://github.com/xiaoheiAh/hugo-theme-pure.git pure
+$ cd ~/site_name
+$ cp site_name/themes/exampleSite/config.yml config.yml
+$ hugo server
+</code></pre>
+<h1 id="上傳到之前的-github-page">上傳到之前的 github page</h1>
+<p>首先是這個theme的設定檔案<code>./config.yml</code>的<code>baseURL</code>要填入你的github page的網址，hugo官方也有提到相關的問題，如果沒有加入的話會導致css無法讀取，踩過地雷，記錄一下。</p>
+<pre><code class="language-sh">baseURL: https://xxxxxxx.github.io
+theme: pure
+title: Pure theme for Hugo
+defaultContentLanguage: zh  # en/zh/...
+footnoteReturnLinkContents: ↩
+hasCJKLanguage: true
+paginate: 7
+enableEmoji: true
+PygmentsCodeFences: false
+googleAnalytics: &quot;UA-97401827-1&quot;      # UA-XXXXXXXX-X 
+permalinks:
+  posts: /:year/:month/:filename/
+</code></pre>
+<p>首先假設你已經設定好github的指令。</p>
+<ul>
+<li>用clone的方式</li>
+</ul>
+<pre><code class="language-sh">$ cd site_name &amp;&amp; rm -rf public
+$ git clone https://www.gitxxx/xxx/xxx.git
+$ mv xxx.github.io public &amp;&amp; hugo
+$ cd public &amp;&amp; git add. &amp;&amp; git commit -m &quot;add&quot; 
+$ git push -u origin master
+</code></pre>
+<ul>
+<li>另一種</li>
+</ul>
+<pre><code class="language-sh">$ cd site_name/public
+$ git init
+$ git remote -v # 有的話就不用加了
+$ git remote add origin https://www.gitxxx/xxx/xxx.git
+$ git pull &amp;&amp; hugo ## 要先拉再推
+$ git add .
+$ git commit -m &quot;update to hugo from hexo&quot;
+$ git push -u origin master # 還是不行就加-f
+</code></pre>
+<h1 id="disqus">Disqus</h1>
+<p>pure的disqus不能用，<code>./config.yml</code>的地方要把disqus註解掉，按照官方的做法去做。</p>
+<pre><code class="language-sh"># 手動加入disque，/layouts/partials/: 裡新增 disqus.html
+# /layouts/partials/article:
+# &lt;div class=&quot;disqus markdown&quot;&gt;
+#     {{ partial &quot;disqus.html&quot; . }}
+# &lt;/div&gt;
+  # Comment
+  comment:
+    type:  #disqus # type disqus/gitalk/valine 启用哪种评论系统
+    disqus: #xxxxxxxx # enter disqus shortname here
+disqusShortname: rufus3597
+</code></pre>
+<p>然後手動加入disqus，<code>/layouts/partials/</code> 裡新增 <code>disqus.html</code></p>
+<pre><code class="language-html">&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    console.log('{{ .Site.DisqusShortname }}');
+    (function() {
+        // if (window.location.hostname == &quot;localhost&quot;)
+        //     return;
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '{{ .Site.DisqusShortname }}';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;a href=&quot;http://disqus.com/&quot; class=&quot;dsq-brlink&quot;&gt;comments powered by &lt;span class=&quot;logo-disqus&quot;&gt;Disqus&lt;/span&gt;&lt;/a&gt;
+</code></pre>
+<p>再來在<code>/layouts/partials/article</code>的<code>&lt;/article&gt;</code> ，加載在之前的<code>pure</code>做的comment的位置就行了</p>
+<pre><code class="language-html">  &lt;/article&gt;
+  {{- partial &quot;post/comment.html&quot; . }}
+  &lt;div class=&quot;disqus markdown&quot;&gt;
+    {{ partial &quot;disqus.html&quot; . }}
+  &lt;/div&gt;
+</code></pre>
+<h1 id="hugo-mathjax顯示">hugo mathjax顯示</h1>
+<p>有些themes沒有辦法辨識mathjax，通常這樣可以解決，我用的theme不用作者有做了。</p>
+<p>在<code>themes/theme-name/layouts/head.html</code>貼上</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; async
+  src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; },
+         extensions: [&quot;AMSmath.js&quot;, &quot;AMSsymbols.js&quot;] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix &lt;code&gt; tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; } }
+  });
+&lt;/script&gt;
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文鏈結: </strong>
+      <a href="https://shihchun.github.io/2020/01/hugo-math/" title="從Hexo到Hugo" target="_blank" rel="external">https://shihchun.github.io/2020/01/hugo-math/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://shihchun.github.io/avat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/shihchun" target="_blank"><span class="text-dark">shihchun</span><small class="ml-1x">一天忘記一件事</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    console.log('shihchunk');
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'shihchunk';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://shihchun.github.io/about/" title="關於我"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://shihchun.github.io/2020/01/jack2/"
+                    title="Jack2&#43;cadence 低延遲輸出"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter"
+                data-mobile-sites="facebook, twitter"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/shihchun" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://shihchun.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://shihchun.github.io/js/application.min.a360d075a502be194c9465b78ae2bd56b85d0524b61b6724cc05033ab13d7743.js"></script>
+<script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/shihchun.github.io',
+            CONTENT_URL: 'https:\/\/shihchun.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://shihchun.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
+    });
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-97401827-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </body>
+</html>

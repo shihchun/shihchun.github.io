@@ -511,13 +511,26 @@ var chart = new Chart(ctx, {
             label: 'My First dataset',
             data: x,
             backgroundColor: 'blue',
-            borderColor: 'rgb(255, 99, 132)',
+            borderColor: 'green',
+            fill: false
         }]
     },
     
     // Configuration options go here
-    options: {}
+    options: {scales: {
+        xAxes: [
+          {
+            // aqui controlas la cantidad de elementos en el eje horizontal con autoSkip
+            ticks: {
+              autoSkip: true,
+              maxRotation: 0,
+              minRotation: 0
+            }
+          }
+        ]
+      }}
 });
+
 </script>
 
 

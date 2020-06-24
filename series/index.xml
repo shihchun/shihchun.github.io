@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Hugo 加入 char.js</title>
+      <link>https://shihchun.github.io/2020/06/hugo_char/</link>
+      <pubDate>Wed, 24 Jun 2020 22:17:10 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/06/hugo_char/</guid>
+      <description>加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html 下面是char.</description>
+    </item>
+    
+    <item>
       <title>NS3 Cpp Basic</title>
       <link>https://shihchun.github.io/2020/06/ns3-cpp-basic/</link>
       <pubDate>Sun, 21 Jun 2020 19:54:10 +0800</pubDate>
@@ -189,15 +198,6 @@ tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388
       
       <guid>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</guid>
       <description>shutdown shutdown [option] [time] option: -c 取消關機命令 -h 關機 -r 重新開機 $ shutdown now $ shutdown -r now [cyberjun@localhost ~]$ shutdown -r 05:30 Must be root. [cyberjun@localhost ~]$ su 密碼： [root@localhost cyberjun]# shutdown -r 05:30 Shutdown scheduled for 五 2017-04-28 05:30:00 CST, use &#39;shutdown -c&#39; to cancel. [root@localhost cyberjun]# shutdown -c Broadcast message from root@localhost.localdomain (Thu 2017-04-27 17:21:20 CST):</description>
-    </item>
-    
-    <item>
-      <title>Linux 壓縮與解壓縮</title>
-      <link>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</link>
-      <pubDate>Wed, 26 Apr 2017 18:34:29 +0000</pubDate>
-      
-      <guid>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
-      <description>檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的</description>
     </item>
     
   </channel>

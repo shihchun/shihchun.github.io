@@ -42,7 +42,7 @@
 <meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
 <meta itemprop="datePublished" content="2020-06-24T22:17:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-24T22:17:10&#43;08:00" />
-<meta itemprop="wordCount" content="812">
+<meta itemprop="wordCount" content="814">
 
 
 
@@ -400,7 +400,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_char/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 812字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 814字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
@@ -424,7 +424,7 @@ html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
 <h1 id="chartjs-用法">chart.js 用法</h1>
 <p>下面是<code>chart.js</code>範例使用的程式碼。</p>
 <pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
-&lt;canvas id=&quot;myChart&quot;&gt;&lt;/canvas&gt;
+&lt;canvas id=&quot;myChart&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
 &lt;script&gt;
 function linspace(startValue, stopValue, cardinality) {
     var arr = [];
@@ -473,7 +473,7 @@ var chart = new Chart(ctx, {
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<canvas id="myChart"></canvas>
+<canvas id="myChart" width="300" height="300"></canvas>
 <script>
 function linspace(startValue, stopValue, cardinality) {
     var arr = [];

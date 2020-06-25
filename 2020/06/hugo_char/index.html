@@ -42,7 +42,7 @@
 <meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
 <meta itemprop="datePublished" content="2020-06-24T22:17:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-24T22:17:10&#43;08:00" />
-<meta itemprop="wordCount" content="886">
+<meta itemprop="wordCount" content="1179">
 
 
 
@@ -400,8 +400,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_char/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 886字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1179字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -426,6 +426,9 @@ html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
 <pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
 &lt;canvas id=&quot;myChart&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
 &lt;script&gt;
+function roundXX(val, precision) {
+  return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
+}
 function linspace(startValue, stopValue, cardinality) {
     var arr = [];
     var step = (stopValue - startValue) / (cardinality - 1);
@@ -434,56 +437,7 @@ function linspace(startValue, stopValue, cardinality) {
     }
     return arr;
   }
-t = linspace(1,5,100);
-var x = new Array;
-var x2 = new Array;
-for (i = 1; t[i] != t.end; ++i){
-    x.push(Math.sin(t[i]) );
-    x2.push(Math.cos(t[i]) );
-}
-// draw
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    // The data for our dataset
-    data: {
-        labels: t,
-        datasets: [{
-            data: x,
-            label: 'sine',
-            borderColor: 'blue',
-            // backgroundColor: 'green',
-            // fill: false
-        },
-        {
-            data: x2,
-            label: 'cosine',
-            borderColor: 'green',
-            // backgroundColor: 'green',
-            // fill: false
-        }
-        ],
-    },
-    // Configuration options go here
-    options: options_sets
-});
-&lt;/script&gt;
-</code></pre>
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<canvas id="myChart" width="300" height="300"></canvas>
-<script>
-function linspace(startValue, stopValue, cardinality) {
-    var arr = [];
-    var step = (stopValue - startValue) / (cardinality - 1);
-    for (var i = 0; i < cardinality; i++) {
-      arr.push(startValue + (step * i));
-    }
-    return arr;
-  }
-t = linspace(1,5,100);
+t = linspace(1,8,100);
 var x1 = new Array;
 var x2 = new Array;
 for (i = 1; t[i] != t.end; ++i){
@@ -502,6 +456,7 @@ var chart = new Chart(ctx, {
             data: x1,
             label: 'sine',
             borderColor: 'blue',
+            pointStyle: 'rect',
             // backgroundColor: 'green',
             // fill: false
         },
@@ -509,8 +464,63 @@ var chart = new Chart(ctx, {
             data: x2,
             label: 'cosine',
             borderColor: 'green',
+            pointStyle: 'triangle',
             // backgroundColor: 'green',
             // fill: false
+        }
+        ],
+    },
+    // Configuration options go here
+    options: options_sets
+});
+</code></pre>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+<canvas id="myChart" width="300" height="300"></canvas>
+<script>
+function roundXX(val, precision) {
+  return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
+}
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i < cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+// draw
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+    // The data for our dataset
+    data: {
+        labels: t,
+        datasets: [{
+            data: x1,
+            label: 'sine',
+            borderColor: 'blue',
+            pointStyle: 'rect',
+            // backgroundColor: 'green',
+            fill: false
+        },
+        {
+            data: x2,
+            label: 'cosine',
+            borderColor: 'green',
+            pointStyle: 'triangle',
+            // backgroundColor: 'green',
+            fill: false
         }
         ],
     },
@@ -542,9 +552,10 @@ var chart = new Chart(ctx, {
               maxTicksLimit: 7,
               maxRotation: 0, // 資料多會自動轉向
               minRotation: 0,
+              precision: 0,
               callback: function(value, index, values) {
               //    if (Math.floor(value) === value) { // 只擷取整數的部分
-                     return Math.round(value)+' 秒';
+                     return roundXX(value,2) + ' 秒';
                 //  }
               },
             }
@@ -561,6 +572,7 @@ var chart = new Chart(ctx, {
             ticks: {
               // max: 100,
               // min: 0,
+              // precision: 0, 不用stepSize時，將yAxes取整數
               stepSize: 0.25,
               beginAtZero: false,
             }
@@ -600,7 +612,7 @@ var chart = new Chart(ctx, {
               minRotation: 0,
               callback: function(value, index, values) {//透過callback fcn加入一些別的符號
               //    if (Math.floor(value) === value) { // 只擷取整數的部分
-                     return Math.round(value)+' 秒';
+                     return roundXX(value,2)+' 秒';
                 //  }
               },
             }
@@ -623,6 +635,93 @@ var chart = new Chart(ctx, {
           }]
         },
     }
+</code></pre>
+<h1 id="自動配色-colorschemes">自動配色 colorschemes</h1>
+<p><a href="https://nagix.github.io/chartjs-plugin-colorschemes/">chartjs-plugin-colorschemes</a>自動配色，記得加上cdn:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+
+<canvas id="myChart2" width="300" height="300"></canvas>
+<script>
+t2 = linspace(1,8,100);
+var x3 = new Array;
+var x4 = new Array;
+for (i = 1; t2[i] != t2.end; ++i){
+    x3.push( Math.sin(t[i]) );
+    x4.push(Math.cos(t[i]) );
+}
+var ctx = document.getElementById('myChart2').getContext('2d');
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+        labels: t2,
+        datasets: [{
+            data: x3,
+            label: 'sine',
+            fill: false
+        },
+        {
+            data: x4,
+            label: 'cosine',
+            fill: false
+        }
+        ],
+    },
+    options: {
+      scales: {
+          xAxes: [{
+            ticks: {
+              maxTicksLimit: 7, maxRotation: 0, minRotation: 0, callback: function(value, index, values) {return roundXX(value,2)+' 秒';} 
+              } }]},
+       plugins: {
+         colorschemes: {
+           scheme: 'office.Angles6'
+         }
+      }
+  }
+});
+</script>
+
+<pre><code class="language-html">&lt;canvas id=&quot;myChart2&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+t2 = linspace(1,8,100);
+var x3 = new Array;
+var x4 = new Array;
+for (i = 1; t2[i] != t2.end; ++i){
+    x3.push( Math.sin(t[i]) );
+    x4.push(Math.cos(t[i]) );
+}
+var ctx = document.getElementById('myChart2').getContext('2d');
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+        labels: t2,
+        datasets: [{
+            data: x3,
+            label: 'sine',
+        },
+        {
+            data: x4,
+            label: 'cosine',
+        }
+        ],
+    },
+    options: {
+      scales: {
+          xAxes: [{
+            ticks: {
+              maxTicksLimit: 7, maxRotation: 0, minRotation: 0, callback: function(value, index, values) {return roundXX(value,2)+' 秒';} 
+              } }]},
+       plugins: {
+         colorschemes: {
+           scheme: 'office.Angles6'
+         }
+      }
+  }
+});
+&lt;/script&gt;
 </code></pre>
 <h1 id="csv-讀取">CSV 讀取</h1>
 <p>c++ 產生的資料：</p>

@@ -423,62 +423,11 @@ html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
 </code></pre>
 <h1 id="chartjs-用法">chart.js 用法</h1>
 <p>下面是<code>chart.js</code>範例使用的程式碼。</p>
-<pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
-&lt;canvas id=&quot;myChart&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
-&lt;script&gt;
-function roundXX(val, precision) {
-  return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
-}
-function linspace(startValue, stopValue, cardinality) {
-    var arr = [];
-    var step = (stopValue - startValue) / (cardinality - 1);
-    for (var i = 0; i &lt; cardinality; i++) {
-      arr.push(startValue + (step * i));
-    }
-    return arr;
-  }
-t = linspace(1,8,100);
-var x1 = new Array;
-var x2 = new Array;
-for (i = 1; t[i] != t.end; ++i){
-    x1.push( Math.sin(t[i]) );
-    x2.push(Math.cos(t[i]) );
-}
-// draw
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    // The data for our dataset
-    data: {
-        labels: t,
-        datasets: [{
-            data: x1,
-            label: 'sine',
-            borderColor: 'blue',
-            pointStyle: 'rect',
-            // backgroundColor: 'green',
-            // fill: false
-        },
-        {
-            data: x2,
-            label: 'cosine',
-            borderColor: 'green',
-            pointStyle: 'triangle',
-            // backgroundColor: 'green',
-            // fill: false
-        }
-        ],
-    },
-    // Configuration options go here
-    options: options_sets
-});
-</code></pre>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
-<canvas id="myChart" width="300" height="300"></canvas>
+<canvas id="myChart" width="300" height="300" ></canvas>
 <script>
 function roundXX(val, precision) {
   return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
@@ -582,6 +531,57 @@ var chart = new Chart(ctx, {
 });
 </script>
 
+<pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
+&lt;canvas id=&quot;myChart&quot; width=&quot;300&quot; height=&quot;300&quot;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+function roundXX(val, precision) {
+  return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
+}
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i &lt; cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+// draw
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+    // The data for our dataset
+    data: {
+        labels: t,
+        datasets: [{
+            data: x1,
+            label: 'sine',
+            borderColor: 'blue',
+            pointStyle: 'rect',
+            // backgroundColor: 'green',
+            // fill: false
+        },
+        {
+            data: x2,
+            label: 'cosine',
+            borderColor: 'green',
+            pointStyle: 'triangle',
+            // backgroundColor: 'green',
+            // fill: false
+        }
+        ],
+    },
+    // Configuration options go here
+    options: options_sets
+});
+</code></pre>
 <p><code>chart.js</code> 設定的部分，比較麻煩，整理了一下，以後用貼的應該還是不會太久，比較需要注意的大概是ticks地方。</p>
 <pre><code class="language-js">options_sets= {
       title: {
@@ -737,7 +737,7 @@ var chart = new Chart(ctx, {
 
 
  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
- <div id="graph" width="300" height="300"></div>
+ <div id="graph"></div>
  <script>
 var n = 100;
 var x = [], y = [], z = [];

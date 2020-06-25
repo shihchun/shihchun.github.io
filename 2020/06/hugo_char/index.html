@@ -42,7 +42,7 @@
 <meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
 <meta itemprop="datePublished" content="2020-06-24T22:17:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-24T22:17:10&#43;08:00" />
-<meta itemprop="wordCount" content="814">
+<meta itemprop="wordCount" content="886">
 
 
 
@@ -400,7 +400,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_char/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 814字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 886字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
@@ -434,11 +434,11 @@ function linspace(startValue, stopValue, cardinality) {
     }
     return arr;
   }
-t = linspace(1,10,100);
+t = linspace(1,5,100);
 var x = new Array;
 var x2 = new Array;
 for (i = 1; t[i] != t.end; ++i){
-    x.push( Math.sin(t[i]) );
+    x.push(Math.sin(t[i]) );
     x2.push(Math.cos(t[i]) );
 }
 // draw
@@ -483,11 +483,11 @@ function linspace(startValue, stopValue, cardinality) {
     }
     return arr;
   }
-t = linspace(1,10,100);
-var x = new Array;
+t = linspace(1,5,100);
+var x1 = new Array;
 var x2 = new Array;
 for (i = 1; t[i] != t.end; ++i){
-    x.push( Math.sin(t[i]) );
+    x1.push( Math.sin(t[i]) );
     x2.push(Math.cos(t[i]) );
 }
 // draw
@@ -499,7 +499,7 @@ var chart = new Chart(ctx, {
     data: {
         labels: t,
         datasets: [{
-            data: x,
+            data: x1,
             label: 'sine',
             borderColor: 'blue',
             // backgroundColor: 'green',
@@ -527,17 +527,26 @@ var chart = new Chart(ctx, {
       // maintainAspectRatio: true,
       scales: {
           xAxes: [{
+            // beginAtZero: false,
             scaleLabel: {
               display: true,
               labelString: 'time(s)'
             },
             // gridLines: {
-            //   display: true
+            //   display: true,
             // },
             ticks: {
+              // max: 100,
+              // min: 0,
+              // beginAtZero: false,
+              maxTicksLimit: 7,
+              maxRotation: 0, // 資料多會自動轉向
+              minRotation: 0,
               callback: function(value, index, values) {
-                return value.toLocaleString();
-              }
+              //    if (Math.floor(value) === value) { // 只擷取整數的部分
+                     return Math.round(value)+' 秒';
+                //  }
+              },
             }
           }],
           yAxes: [{
@@ -549,12 +558,12 @@ var chart = new Chart(ctx, {
             // gridLines: {
             //   display: true,
             // },
-            // ticks: {
-            //   // beginAtZero: false,
-            //   callback: function(value, index, values) {
-            //     return value.toLocaleString()
-            //   }
-            // }
+            ticks: {
+              // max: 100,
+              // min: 0,
+              stepSize: 0.25,
+              beginAtZero: false,
+            }
           }]
         },
     }
@@ -574,17 +583,26 @@ var chart = new Chart(ctx, {
       // maintainAspectRatio: true,
       scales: {
           xAxes: [{
+            // beginAtZero: false,
             scaleLabel: {
               display: true,
               labelString: 'time(s)'
             },
             // gridLines: {
-            //   display: true
+            //   display: true,
             // },
             ticks: {
-              callback: function(value, index, values) {
-                return value.toLocaleString();
-              }
+              // max: 100,
+              // min: 0,
+              // beginAtZero: false,
+              maxTicksLimit: 7, // stepSize 不會運作，用這個
+              maxRotation: 0, // 資料多會自動轉向
+              minRotation: 0,
+              callback: function(value, index, values) {//透過callback fcn加入一些別的符號
+              //    if (Math.floor(value) === value) { // 只擷取整數的部分
+                     return Math.round(value)+' 秒';
+                //  }
+              },
             }
           }],
           yAxes: [{
@@ -596,12 +614,12 @@ var chart = new Chart(ctx, {
             // gridLines: {
             //   display: true,
             // },
-            // ticks: {
-            //   // beginAtZero: false,
-            //   callback: function(value, index, values) {
-            //     return value.toLocaleString()
-            //   }
-            // }
+            ticks: {
+              // max: 100,
+              // min: 0,
+              stepSize: 0.25,
+              beginAtZero: false,
+            }
           }]
         },
     }

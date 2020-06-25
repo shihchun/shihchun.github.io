@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Hugo 加入 chart.js - 隨手筆記
+        Hugo 加入 chart.js、plotly.js - 隨手筆記
       </title>
     <head>
   <meta charset="utf-8">
@@ -25,29 +25,29 @@
   
   <meta name="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html hugo中加入一" />
   <meta name="generator" content="Hugo 0.65.3 with theme pure" />
-  <title>Hugo 加入 chart.js - 隨手筆記</title>
+  <title>Hugo 加入 chart.js、plotly.js - 隨手筆記</title>
   
   
   <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="Hugo 加入 chart.js" />
+  <meta property="og:title" content="Hugo 加入 chart.js、plotly.js" />
 <meta property="og:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2020/06/hugo_char/" />
 <meta property="article:published_time" content="2020-06-24T22:17:10+08:00" />
 <meta property="article:modified_time" content="2020-06-24T22:17:10+08:00" />
-<meta itemprop="name" content="Hugo 加入 chart.js">
+<meta itemprop="name" content="Hugo 加入 chart.js、plotly.js">
 <meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
 <meta itemprop="datePublished" content="2020-06-24T22:17:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-24T22:17:10&#43;08:00" />
-<meta itemprop="wordCount" content="1179">
+<meta itemprop="wordCount" content="1722">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hugo 加入 chart.js"/>
+<meta name="twitter:title" content="Hugo 加入 chart.js、plotly.js"/>
 <meta name="twitter:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一"/>
 
   <!--[if lte IE 9]>
@@ -311,7 +311,7 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/06/hugo_char/" class="title">Hugo 加入 chart.js</a>
+                        <a href="https://shihchun.github.io/2020/06/hugo_char/" class="title">Hugo 加入 chart.js、plotly.js</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-06-24 22:17:10 &#43;0800 CST" itemprop="datePublished">2020-06-24</time>
@@ -384,7 +384,7 @@
   <a
     class="article-title"
     href="/2020/06/hugo_char/"
-    >Hugo 加入 chart.js</a
+    >Hugo 加入 chart.js、plotly.js</a
   >
 </h1>
 
@@ -400,8 +400,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_char/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1179字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1722字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -636,7 +636,7 @@ var chart = new Chart(ctx, {
         },
     }
 </code></pre>
-<h1 id="自動配色-colorschemes">自動配色 colorschemes</h1>
+<h1 id="chartjs-自動配色-colorschemes">chart.js 自動配色 colorschemes</h1>
 <p><a href="https://nagix.github.io/chartjs-plugin-colorschemes/">chartjs-plugin-colorschemes</a>自動配色，記得加上cdn:</p>
 <pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@2.8.0&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes&quot;&gt;&lt;/script&gt;
@@ -649,8 +649,8 @@ t2 = linspace(1,8,100);
 var x3 = new Array;
 var x4 = new Array;
 for (i = 1; t2[i] != t2.end; ++i){
-    x3.push( Math.sin(t[i]) );
-    x4.push(Math.cos(t[i]) );
+    x3.push( Math.sin(t2[i]) );
+    x4.push(Math.cos(t2[i]) );
 }
 var ctx = document.getElementById('myChart2').getContext('2d');
 var chart = new Chart(ctx, {
@@ -672,9 +672,12 @@ var chart = new Chart(ctx, {
     options: {
       scales: {
           xAxes: [{
+            scaleLabel: { display: true, labelString: 'time(s)' },
             ticks: {
               maxTicksLimit: 7, maxRotation: 0, minRotation: 0, callback: function(value, index, values) {return roundXX(value,2)+' 秒';} 
-              } }]},
+              } }],
+          yAxes: [{ scaleLabel: { display: true, labelString: 'voltage' } }]
+              },
        plugins: {
          colorschemes: {
            scheme: 'office.Angles6'
@@ -690,8 +693,8 @@ t2 = linspace(1,8,100);
 var x3 = new Array;
 var x4 = new Array;
 for (i = 1; t2[i] != t2.end; ++i){
-    x3.push( Math.sin(t[i]) );
-    x4.push(Math.cos(t[i]) );
+    x3.push( Math.sin(t2[i]) );
+    x4.push(Math.cos(t2[i]) );
 }
 var ctx = document.getElementById('myChart2').getContext('2d');
 var chart = new Chart(ctx, {
@@ -701,19 +704,24 @@ var chart = new Chart(ctx, {
         datasets: [{
             data: x3,
             label: 'sine',
+            fill: false
         },
         {
             data: x4,
             label: 'cosine',
+            fill: false
         }
         ],
     },
     options: {
       scales: {
           xAxes: [{
+            scaleLabel: { display: true, labelString: 'time(s)' },
             ticks: {
               maxTicksLimit: 7, maxRotation: 0, minRotation: 0, callback: function(value, index, values) {return roundXX(value,2)+' 秒';} 
-              } }]},
+              } }],
+          yAxes: [{ scaleLabel: { display: true, labelString: 'voltage' } }]
+              },
        plugins: {
          colorschemes: {
            scheme: 'office.Angles6'
@@ -723,6 +731,141 @@ var chart = new Chart(ctx, {
 });
 &lt;/script&gt;
 </code></pre>
+<h1 id="plotly">Plotly</h1>
+<p>除了chart.js以外還有plotly可以拿來畫圖，就用法還有使用性上的話plotly在python上面也可以使用，感覺學起來比較好，功能也很多，文檔也蠻多的。</p>
+<p>下面是一個plotly的範例，比較嚴重的缺點就是在手機上瀏覽可能效果會很差。</p>
+
+
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <div id="graph" width="300" height="300"></div>
+ <script>
+var n = 100;
+var x = [], y = [], z = [];
+var dt = 0.015;
+for (i = 0; i < n; i++) {
+  x[i] = Math.random() * 2 - 1;
+  y[i] = Math.random() * 2 - 1;
+  z[i] = 30 + Math.random() * 10;
+}
+Plotly.plot('graph', [{
+  x: x,
+  y: z,
+  mode: 'markers'
+}], {
+  xaxis: {range: [-40, 40]},
+  yaxis: {range: [0, 60]}
+}, {showSendToCloud:true})
+function compute () {
+  var s = 10, b = 8/3, r = 28;
+  var dx, dy, dz;
+  var xh, yh, zh;
+  for (var i = 0; i < n; i++) {
+    dx = s * (y[i] - x[i]);
+    dy = x[i] * (r - z[i]) - y[i];
+    dz = x[i] * y[i] - b * z[i];
+    xh = x[i] + dx * dt * 0.5;
+    yh = y[i] + dy * dt * 0.5;
+    zh = z[i] + dz * dt * 0.5;
+    dx = s * (yh - xh);
+    dy = xh * (r - zh) - yh;
+    dz = xh * yh - b * zh;
+    x[i] += dx * dt;
+    y[i] += dy * dt;
+    z[i] += dz * dt;
+  }
+}
+function update () {
+  compute();
+  
+  Plotly.animate('graph', {
+    data: [{x: x, y: z}]
+  }, {
+    transition: {
+      duration: 0,
+    },
+    frame: {
+      duration: 0,
+      redraw: false,
+    }
+  });
+  requestAnimationFrame(update);
+}
+requestAnimationFrame(update);
+ </script>
+
+
+
+<div id="graph2"></div>
+<script>
+var trace1 = {
+  x: t2,
+  y: x3,
+  type: 'scatter'
+};
+var trace2 = {
+  x: t2,
+  y: x4,
+  type: 'scatter'
+};
+var data = [trace1, trace2];
+Plotly.newPlot('graph2', data);
+</script>
+
+<pre><code class="language-js">&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;graph2&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+var trace1 = {
+  x: t2,
+  y: x3,
+  name: 'sine',
+  type: 'scatter'
+};
+var trace2 = {
+  x: t2,
+  y: x4,
+  name: 'cosine',
+  type: 'scatter'
+};
+var data = [trace1, trace2];
+Plotly.newPlot('graph2', data);
+&lt;/script&gt;
+</code></pre>
+<p>調整圖表，將<a href="https://plotly.com/javascript/tick-formatting/">Layout的部分</a>填入，使用layout的話不只是要多寫一些code以外，框選圖表的話，tick也不會更新新的位置了，所以大概不要調整比較好吧，除了不能在手機上友好的顯示，plotly還是不錯用的。</p>
+<pre><code class="language-js">Plotly.newPlot('graph2', data, layout);
+var layout = {
+  xaxis: {
+    tick0: 0.5,
+    dtick: 0.75
+  }
+}
+Plotly.newPlot('graph2', data, layout);
+</code></pre>
+
+
+<div id="graph3"></div>
+<script>
+var trace1 = {
+  x: t2,
+  y: x3,
+  name: 'sine',
+  type: 'scatter'
+};
+var trace2 = {
+  x: t2,
+  y: x4,
+  name: 'cosine',
+  type: 'scatter'
+};
+var layout = {
+  xaxis: {
+    tick0: 0.01, // resolution
+    dtick: 0.5 // stepSize
+  }
+}
+var data = [trace1, trace2];
+Plotly.newPlot('graph3', data, layout);
+</script>
+
 <h1 id="csv-讀取">CSV 讀取</h1>
 <p>c++ 產生的資料：</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
@@ -782,20 +925,23 @@ int main()
   return 0;
 }
 </code></pre>
-<p>後面是<code>chart.js</code>的部分</p>
+<p>在讀取之前我們先知道，hugo的static file在<code>hugo_directory/static/</code></p>
+<p>所以如果我把檔案放在<code>hugo_directory/static/csv/test.csv</code>，會在<code>http://localhost:1313/csv/test.csv</code>可以訪問。</p>
+<p>透過一些方法可以的到當前的URL</p>
+<pre><code class="language-js">console.log(document.URL); // http://localhost:1313/2020/06/hugo_char/
+console.log(document.location.origin); // http://localhost:1313/
+csv_url = document.location.origin+ '/csv/test.csv'; //http://localhost:1313/csv/test.csv
+</code></pre>
 <pre><code class="language-html">&lt;script&gt;
 console.log(document.URL);
 console.log(document.location.origin);
 csv_url = document.location.origin+ '/csv/test.csv';
 
 $(document).ready(function() {
-
   // Read data file and create a chart
   $.get(csv_url, function(csvString) {
-
     var data = Papa.parse(csvString).data;
     var timeLabels = data.slice(1).map(function(row) { return row[0]; });
-
     var datasets = [];
     for (var i = 1; i &lt; data[0].length; i++) {
       datasets.push(
@@ -806,30 +952,10 @@ $(document).ready(function() {
         }
       )
     }
-    // Get container for the chart
-    var ctx = document.getElementById('chart-container').getContext('2d');
-
-    new Chart(ctx, {
-      type: 'line',
-
-      data: {
-        labels: timeLabels,
-        datasets: datasets,
-      },
-    });
   });
 });
 &lt;/script&gt;
 </code></pre>
-
-
-<script>
-console.log(document.URL);
-console.log(document.location.origin);
-csv_url = document.location.origin+ '/csv/test.csv';
-console.log(data);
-</script>
-
 
     </div>
     <div class="article-footer">
@@ -837,7 +963,7 @@ console.log(data);
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文鏈結: </strong>
-      <a href="https://shihchun.github.io/2020/06/hugo_char/" title="Hugo 加入 chart.js" target="_blank" rel="external">https://shihchun.github.io/2020/06/hugo_char/</a>
+      <a href="https://shihchun.github.io/2020/06/hugo_char/" title="Hugo 加入 chart.js、plotly.js" target="_blank" rel="external">https://shihchun.github.io/2020/06/hugo_char/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
@@ -869,7 +995,6 @@ console.log(data);
   <div class="disqus markdown">
     <div id="disqus_thread"></div>
 <script type="text/javascript">
-    console.log('shihchunk');
     (function() {
         
         

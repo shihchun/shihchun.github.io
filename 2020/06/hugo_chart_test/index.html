@@ -23,7 +23,7 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {" />
+  <meta name="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { // console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality)" />
   <meta name="generator" content="Hugo 0.65.3 with theme pure" />
   <title>Plotly csv 讀取 - 隨手筆記</title>
   
@@ -33,22 +33,22 @@
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
   <meta property="og:title" content="Plotly csv 讀取" />
-<meta property="og:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {" />
+<meta property="og:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { // console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2020/06/hugo_chart_test/" />
 <meta property="article:published_time" content="2020-06-27T13:29:30+08:00" />
 <meta property="article:modified_time" content="2020-06-27T13:29:30+08:00" />
 <meta itemprop="name" content="Plotly csv 讀取">
-<meta itemprop="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {">
+<meta itemprop="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { // console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality)">
 <meta itemprop="datePublished" content="2020-06-27T13:29:30&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-27T13:29:30&#43;08:00" />
-<meta itemprop="wordCount" content="586">
+<meta itemprop="wordCount" content="695">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Plotly csv 讀取"/>
-<meta name="twitter:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {"/>
+<meta name="twitter:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { // console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality)"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -400,7 +400,7 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_chart_test/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 586字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 695字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
@@ -418,7 +418,7 @@ function makeplot() {
   Plotly.d3.csv(url, function(data){ processData(data) } );
 };
 function processData(allRows) {
-  console.log(allRows);
+  // console.log(allRows);
   var x = [], y = [];
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
@@ -427,7 +427,7 @@ function processData(allRows) {
     // x.push( row['t'] );
     // y.push( row['v'] );
   }
-  console.log( 'X',x, 'Y',y);
+  // console.log( 'X',x, 'Y',y);
   makePlotly( x, y);
 }
 
@@ -495,8 +495,8 @@ Plotly.d3.csv(url, function(data){
     x.push( row['t'] );
     y.push( row['v'] );
   }
-  console.log(x)
-  console.log(y)
+  // console.log(x)
+  // console.log(y)
   var trace1 = {
     x: x,
     y: y,
@@ -517,10 +517,12 @@ Plotly.d3.csv(url, function(data){
   var layout = {
     title: 'semilog scale test',
     xaxis: {
+      title: 'time(s)',
       type: 'linear',
       autorange: true
     },
     yaxis: {
+      title: 'v(t)',
       type: 'log',
       autorange: true
     }
@@ -578,13 +580,19 @@ Plotly.d3.csv(url, function(data){
 &lt;div id=&quot;graph4&quot;&gt;&lt;/div&gt;
 </code></pre>
 <p>再來title和axis，type的部分，也可以設定，下面是semilog的例子，填到後面layout就可以用了</p>
+
+
+<div id="graph4"></div>
+
 <pre><code class="language-js">var layout = {
   title: 'semilog scale test',
   xaxis: {
+    title: 'time(s)',
     type: 'linear',
     autorange: true
   },
   yaxis: {
+    title: 'v(t)',
     type: 'log',
     autorange: true
   }
@@ -592,9 +600,9 @@ Plotly.d3.csv(url, function(data){
 
 Plotly.newPlot('myDiv', data, layout);
 </code></pre>
+<p>再來是suffix，可以加在前面後面，<code>showexponent： all</code>看起來不用加</p>
 
 
-<div id="graph4"></div>
 
 <div id="graph5"></div>
 
@@ -616,11 +624,19 @@ var data = [trace1, trace2];
 var layout = {
   title: 'semilog scale test',
   xaxis: {
+    title: 'time(s)',
     type: 'linear',
+    tickprefix: '-> ', 
+    ticksuffix: ' s', 
+    // showexponent: 'all',
     autorange: true
   },
   yaxis: {
+    title: 'v(t)',
     type: 'log',
+    tickprefix: '-> ', 
+    ticksuffix: ' volt', 
+    // showexponent: 'all',
     autorange: true
   }
 };
@@ -628,7 +644,27 @@ var layout = {
 Plotly.newPlot('graph5', data, layout);
 </script>
 
-<p>從cpp中產生的csv檔案</p>
+<pre><code class="language-js">var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    title: 'time(s)',
+    type: 'linear',
+    tickprefix: '-&gt; ', 
+    ticksuffix: ' s', 
+    // showexponent: 'all',
+    autorange: true
+  },
+  yaxis: {
+    title: 'v(t)',
+    type: 'log',
+    tickprefix: '-&gt; ', 
+    ticksuffix: ' volt', 
+    // showexponent: 'all',
+    autorange: true
+  }
+};
+</code></pre>
+<p>從cpp中產生檔案</p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;vector&gt;
@@ -805,7 +841,7 @@ int main()
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://shihchun.github.io/js/application.min.a360d075a502be194c9465b78ae2bd56b85d0524b61b6724cc05033ab13d7743.js"></script>
+<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
 <script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
 
 <script>

@@ -42,7 +42,7 @@
 <meta itemprop="description" content="原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明">
 <meta itemprop="datePublished" content="2020-01-11T18:51:35&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-11T18:51:35&#43;08:00" />
-<meta itemprop="wordCount" content="1369">
+<meta itemprop="wordCount" content="1531">
 
 
 
@@ -408,8 +408,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/01/hugo-math/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1369字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1531字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -534,6 +534,21 @@ disqusShortname: rufus3597
   });
 &lt;/script&gt;
 </code></pre>
+<h1 id="自動跳文章目錄">自動跳文章目錄</h1>
+<p>在<code>pure/assets/js/application.js</code>，23行左右加入，最後我也拿掉了，感覺沒什麼用</p>
+<pre><code>  $('#collapseToc').on('shown.bs.collapse', function() {
+    // do something…
+    // slimscroll
+    if (typeof $.fn.slimScroll != 'undefined') {
+      $(&quot;.sidebar .slimContent&quot;).slimScroll().on('slimscroll');
+    }
+  });
+  
+  // s 自動切換至 文章目錄（用toc-list), 
+  // tocbot.init在/theme/layout/partial/script.html裏面設定 
+  //$('.collapse').collapse()
+  $('#collapseToc.collapse').collapse()
+</code></pre>
 
     </div>
     <div class="article-footer">
@@ -657,7 +672,7 @@ disqusShortname: rufus3597
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://shihchun.github.io/js/application.min.a360d075a502be194c9465b78ae2bd56b85d0524b61b6724cc05033ab13d7743.js"></script>
+<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
 <script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
 
 <script>

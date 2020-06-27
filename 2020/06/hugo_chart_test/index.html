@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        webpack 安裝 - 隨手筆記
+        Plotly csv 讀取 - 隨手筆記
       </title>
     <head>
   <meta charset="utf-8">
@@ -23,32 +23,32 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="webpack 使用 ## webpack 3.x &amp;amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結果應該要一樣 ## 裡面寫了 console.log(&amp;quot;test&amp;quot;); λ node hello.js test" />
+  <meta name="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {" />
   <meta name="generator" content="Hugo 0.65.3 with theme pure" />
-  <title>webpack 安裝 - 隨手筆記</title>
+  <title>Plotly csv 讀取 - 隨手筆記</title>
   
   
   <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
   
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="webpack 安裝" />
-<meta property="og:description" content="webpack 使用 ## webpack 3.x &amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結果應該要一樣 ## 裡面寫了 console.log(&quot;test&quot;); λ node hello.js test" />
+  <meta property="og:title" content="Plotly csv 讀取" />
+<meta property="og:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://shihchun.github.io/2019/03/webpack-1/" />
-<meta property="article:published_time" content="2019-03-12T16:38:22+00:00" />
-<meta property="article:modified_time" content="2019-03-12T16:38:22+00:00" />
-<meta itemprop="name" content="webpack 安裝">
-<meta itemprop="description" content="webpack 使用 ## webpack 3.x &amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結果應該要一樣 ## 裡面寫了 console.log(&quot;test&quot;); λ node hello.js test">
-<meta itemprop="datePublished" content="2019-03-12T16:38:22&#43;00:00" />
-<meta itemprop="dateModified" content="2019-03-12T16:38:22&#43;00:00" />
-<meta itemprop="wordCount" content="427">
+<meta property="og:url" content="https://shihchun.github.io/2020/06/hugo_chart_test/" />
+<meta property="article:published_time" content="2020-06-27T13:29:30+08:00" />
+<meta property="article:modified_time" content="2020-06-27T13:29:30+08:00" />
+<meta itemprop="name" content="Plotly csv 讀取">
+<meta itemprop="description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {">
+<meta itemprop="datePublished" content="2020-06-27T13:29:30&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-27T13:29:30&#43;08:00" />
+<meta itemprop="wordCount" content="586">
 
 
 
-<meta itemprop="keywords" content="webpack," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="webpack 安裝"/>
-<meta name="twitter:description" content="webpack 使用 ## webpack 3.x &amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結果應該要一樣 ## 裡面寫了 console.log(&quot;test&quot;); λ node hello.js test"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Plotly csv 讀取"/>
+<meta name="twitter:description" content="csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; url = &#34;https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv&#34;; function makeplot() { Plotly.d3.csv(url, function(data){ processData(data) } ); }; function processData(allRows) { console.log(allRows); var x = [], y = []; for (var i=0; iAAPL_x,AAPL_y 2014-01-02,77.44539475 2014-01-03,77.04557544 2014-01-06,74.89697204 2014-01-07,75.856461 2014-01-08,75.09194679 2014-01-09,76.20263178 2014-01-10,75.2301837 2014-01-13,73.84891755 2014-01-14,75.0113527 2014-01-15,77.14481412 2014-01-16,77.33058367 2014-01-17,76.85652616 2014-01-21,75.39394758 2014-01-22,76.7763823 2014-01-23,76.64038513 2014-01-24,77.20512022 2014-01-27,76.66007339 讀取我自己hugo的檔案： csv_url = document.location.origin&#43; &#39;/csv/test.csv&#39;; function linspace(startValue, stopValue, cardinality) {"/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -383,8 +383,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/03/webpack-1/"
-    >webpack 安裝</a
+    href="/2020/06/hugo_chart_test/"
+    >Plotly csv 讀取</a
   >
 </h1>
 
@@ -392,72 +392,301 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://shihchun.github.io/2019/03/webpack-1/" class="article-date">
-  <time datetime="2019-03-12 16:38:22 &#43;0000 UTC" itemprop="datePublished">2019-03-12</time>
+<a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="article-date">
+  <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
 </a>
 </span>
-<span class="article-category">
-  <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/web/"> web </a>
-</span>  
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/webpack/"> webpack </a>
-  </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2019/03/webpack-1/#comments"
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_chart_test/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 427字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 586字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="webpack-使用">webpack 使用</h1>
-<pre><code class="language-sh">## webpack 3.x &amp; 之前
-webpack hello.js hello.bundle.js
+      
 
-## npx 可寫可不寫 webpack 4.x
-npx webpack hello.js --output-filename hello.bundle.js --output-path  --mode development 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<div id="myDiv" ></div>
 
- main  [emitted]  main
-Entrypoint main = hello.bundle.js
-[./hello.js] 20 bytes {main} [built]
+<script>
+csv_url = document.location.origin+ '/csv/test.csv';
+url = "https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv";
+function makeplot() {
+  Plotly.d3.csv(url, function(data){ processData(data) } );
+};
+function processData(allRows) {
+  console.log(allRows);
+  var x = [], y = [];
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['AAPL_x'] );
+    y.push( row['AAPL_y'] );
+    // x.push( row['t'] );
+    // y.push( row['v'] );
+  }
+  console.log( 'X',x, 'Y',y);
+  makePlotly( x, y);
+}
 
-## bundle出來的檔案結果應該要一樣
-## 裡面寫了 console.log(&quot;test&quot;);
-λ node hello.js
-test
-λ node hello.bundle.js
-test
+function makePlotly( x, y){
+  var traces = [{
+    x: x,
+    y: y
+  }];
+
+  Plotly.newPlot('myDiv', traces,
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+</script>
+
+<pre><code>AAPL_x,AAPL_y
+2014-01-02,77.44539475
+2014-01-03,77.04557544
+2014-01-06,74.89697204
+2014-01-07,75.856461
+2014-01-08,75.09194679
+2014-01-09,76.20263178
+2014-01-10,75.2301837
+2014-01-13,73.84891755
+2014-01-14,75.0113527
+2014-01-15,77.14481412
+2014-01-16,77.33058367
+2014-01-17,76.85652616
+2014-01-21,75.39394758
+2014-01-22,76.7763823
+2014-01-23,76.64038513
+2014-01-24,77.20512022
+2014-01-27,76.66007339
 </code></pre>
-<!-- raw HTML omitted -->
-<h1 id="環境設定">環境設定</h1>
-<p>這裡使用chocolatey管理器安裝nvm（node.js版本管理器）</p>
-<h2 id="安裝chocolatey">安裝chocolatey</h2>
-<p>打開CMD安裝<a href="https://chocolatey.org/install">chocolatey</a></p>
-<pre><code class="language-sh">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;
+<p>讀取我自己hugo的檔案：</p>
+<pre><code class="language-js">csv_url = document.location.origin+ '/csv/test.csv';
 </code></pre>
-<h2 id="安裝nvm和node">安裝nvm和node</h2>
-<pre><code class="language-sh">choco install nvm
+
+
+<div id="graph3"></div>
+
+<script>
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i < cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+
+url = document.location.origin+ '/csv/test.csv';
+Plotly.d3.csv(url, function(data){
+  var x = [], y = []
+  for (var i=0; i<data.length; i++) {
+    row = data[i];
+    x.push( row['t'] );
+    y.push( row['v'] );
+  }
+  console.log(x)
+  console.log(y)
+  var trace1 = {
+    x: x,
+    y: y,
+    name: 'sine from csv data',
+    type: 'scatter'
+  };
+  var trace2 = {
+    x: t,
+    y: x2,
+    name: 'cosine',
+    type: 'scatter'
+  };
+  var data = [trace1,trace2];
+  layout = {
+    title: 'test dataset',
+  };
+  Plotly.newPlot('graph3', data, layout);
+  var layout = {
+    title: 'semilog scale test',
+    xaxis: {
+      type: 'linear',
+      autorange: true
+    },
+    yaxis: {
+      type: 'log',
+      autorange: true
+    }
+  };
+  Plotly.newPlot('graph4', data, layout);
+});
+</script>
+
+<pre><code class="language-html">&lt;div id=&quot;graph3&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i &lt; cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+
+url = document.location.origin+ '/csv/test.csv';
+Plotly.d3.csv(url, function(data){
+  var x = [], y = []
+  for (var i=0; i&lt;data.length; i++) {
+    row = data[i];
+    x.push( row['t'] );
+    y.push( row['v'] );
+  }
+  console.log(x)
+  console.log(y)
+  var trace1 = {
+    x: x,
+    y: y,
+    name: 'sine from csv data',
+    type: 'scatter'
+  };
+  var trace2 = {
+    x: t,
+    y: x2,
+    name: 'cosine',
+    type: 'scatter'
+  };
+  var data = [trace1,trace2];
+  Plotly.newPlot('graph3', data, {title: 'test dataset'} );
+});
+&lt;/script&gt;
+&lt;div id=&quot;graph4&quot;&gt;&lt;/div&gt;
 </code></pre>
-<p>安裝<a href="https://nodejs.org/en/">node.js</a> LTS版本</p>
-<p><img src="/media/Snipaste_2019-03-12_16-52-22.png" alt=""></p>
-<pre><code class="language-sh">nvm install 10.15.3
-nvm on
+<p>再來title和axis，type的部分，也可以設定，下面是semilog的例子，填到後面layout就可以用了</p>
+<pre><code class="language-js">var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    type: 'linear',
+    autorange: true
+  },
+  yaxis: {
+    type: 'log',
+    autorange: true
+  }
+};
+
+Plotly.newPlot('myDiv', data, layout);
 </code></pre>
-<h2 id="設定npm環境變量">設定npm環境變量</h2>
-<p>由於之前chocolatey安裝過nvm了，所以環境變量已經加好了，但是npm global的變數沒有加進去，右下圖可知路徑是</p>
-<pre><code class="language-sh">C:\ProgramData\nvm\v10.15.3\node_modules\npm
+
+
+<div id="graph4"></div>
+
+<div id="graph5"></div>
+
+<script>
+var trace1 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [8, 7, 6, 5, 4, 3, 2, 1, 0],
+  type: 'scatter'
+};
+
+var trace2 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  type: 'scatter'
+};
+
+var data = [trace1, trace2];
+
+var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    type: 'linear',
+    autorange: true
+  },
+  yaxis: {
+    type: 'log',
+    autorange: true
+  }
+};
+
+Plotly.newPlot('graph5', data, layout);
+</script>
+
+<p>從cpp中產生的csv檔案</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+
+template&lt;typename T&gt;
+std::vector&lt;double&gt; linspace(T start_in, T end_in, int num_in)
+{
+
+  std::vector&lt;double&gt; linspaced;
+
+  double start = static_cast&lt;double&gt;(start_in);
+  double end = static_cast&lt;double&gt;(end_in);
+  double num = static_cast&lt;double&gt;(num_in);
+
+  if (num == 0) { return linspaced; }
+  if (num == 1) 
+    {
+      linspaced.push_back(start);
+      return linspaced;
+    }
+
+  double delta = (end - start) / (num - 1);
+
+  for(int i=0; i &lt; num-1; ++i)
+    {
+      linspaced.push_back(start + delta * i);
+    }
+  linspaced.push_back(end); // I want to ensure that start and end
+                            // are exactly the same as the input
+  return linspaced;
+}
+
+void print_vector(std::vector&lt;double&gt; vec)
+{
+  std::cout &lt;&lt; &quot;size: &quot; &lt;&lt; vec.size() &lt;&lt; std::endl;
+  for (double d : vec)
+    std::cout &lt;&lt; d &lt;&lt; &quot; &quot;;
+  std::cout &lt;&lt; std::endl;
+}
+
+int main()
+{
+  std::ofstream out(&quot;test.csv&quot;); // sefl-define
+  std::vector&lt; int &gt; arr; // 1d
+  std::vector&lt;double&gt;  t = linspace(1,8,100);
+  std::vector&lt;double&gt; x;
+  print_vector(t);
+  out&lt;&lt; 't' &lt;&lt; ',' &lt;&lt; 'v' &lt;&lt; std::endl;
+  for (int i = 0; i &lt;= t.size()-1; ++i){
+    x.push_back( std::sin(t[i]) );
+    out&lt;&lt; t[i] &lt;&lt; ',' &lt;&lt; x[i] &lt;&lt; std::endl;
+  }
+  print_vector(x);
+  out.close();
+  return 0;
+}
 </code></pre>
-<p><img src="/media/Snipaste_2019-03-12_16-58-42.png" alt=""></p>
-<p>然後加入環境變量即可</p>
-<p><img src="/media/Snipaste_2019-03-12_17-03-13.png" alt=""></p>
-<h2 id="備份環境變數">備份環境變數</h2>
-<p>以防萬一記得備份環境變量哦，在Environment右鍵匯出，下次出事的時候又沒有<code>COMPUTER\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002</code>、<code>WINDOWS/System32/config/Regbackup</code>備份的時候才不會焦頭爛額。</p>
-<pre><code class="language-sh">## 打開regedit註冊表
-COMPUTER\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment
-</code></pre>
-<p><img src="/media/Snipaste_2019-03-12_17-12-11.png" alt=""></p>
 
     </div>
     <div class="article-footer">
@@ -465,7 +694,7 @@ COMPUTER\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文鏈結: </strong>
-      <a href="https://shihchun.github.io/2019/03/webpack-1/" title="webpack 安裝" target="_blank" rel="external">https://shihchun.github.io/2019/03/webpack-1/</a>
+      <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" title="Plotly csv 讀取" target="_blank" rel="external">https://shihchun.github.io/2020/06/hugo_chart_test/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
@@ -513,14 +742,9 @@ COMPUTER\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Env
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://shihchun.github.io/2019/02/cuda/" title="cuda"><i
+                <a href="https://shihchun.github.io/2020/06/ns3-cpp-basic/" title="NS3 Cpp Basic"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://shihchun.github.io/2019/03/node-js-3/"
-                    title="mongodb日期儲存問題"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

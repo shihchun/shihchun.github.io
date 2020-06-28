@@ -42,7 +42,7 @@
 <meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
 <meta itemprop="datePublished" content="2020-06-27T13:29:30&#43;08:00" />
 <meta itemprop="dateModified" content="2020-06-27T13:29:30&#43;08:00" />
-<meta itemprop="wordCount" content="902">
+<meta itemprop="wordCount" content="2009">
 
 
 
@@ -345,8 +345,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_chart_test/#comments"
             class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 902字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2009字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 5分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -366,8 +366,206 @@
 html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
 {&lt; /rawhtml &gt;}
 </code></pre>
+<h1 id="python產生plotly的html">python產生plotly的html</h1>
+<p>python安裝要用到的庫</p>
+<pre><code class="language-sh">conda install pandas
+conda install -c plotly chart-studio 
+conda install -c conda-forge cufflinks-py 
+</code></pre>
+<p>加入iframe之後會跑掉格式，找到一個比較可以的例子：</p>
+<pre><code class="language-html">&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class='embed-container'&gt;
+
+&lt;iframe frameborder='0' scrolling='no' 
+src='/plotly/ns3_ofdm_yans_wifi_model.html'&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+</code></pre>
+<p>加入shortcode，hugo中加入一個檔案<code>layouts/shortcodes/plotly.html</code>，檔案放在</p>
+<pre><code class="language-html">&lt;!-- plotly html --&gt;
+&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class='embed-container'&gt;
+{{.Inner}}    
+&lt;/div&gt;
+</code></pre>
+<p>以後直接使用，一樣怕<code>{{}}</code>被識別，紀錄就少寫一個，檔案放在<code>static/plotly/</code></p>
+<pre><code>{&lt; plotly &gt;}
+&lt;iframe frameborder='0' scrolling='no' 
+src='/plotly/ns3_ofdm_yans_wifi_model.html'&gt;&lt;/iframe&gt;
+{&lt; /plotly &gt;}
+</code></pre>
+<h1 id="多個trace用pandas更快">多個trace用pandas更快</h1>
+<p>這個辦法很快，但是如果要plot子圖的話就還是要用上面的。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class='embed-container'>
+
+<iframe frameborder='0' scrolling='no' 
+src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
+    
+</div>
+<pre><code class="language-python"># with plotly + pandas
+import pandas as pd
+pd.options.plotting.backend = &quot;plotly&quot;
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model&quot;,
+template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line'
+)
+fig.update_layout(xaxis_title='SNR(dB)',yaxis_title='Frame Success')
+fig.update_yaxes(exponentformat=&quot;power&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
+fig.add_annotation(x=1.1, y=1, text=&quot;success transmit&quot;) # add note
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+</code></pre>
+<p>用matplotlib的不用設定backend，當然除了plotly這個<code>backend</code>，pandas還支援其他的backend。</p>
+<h2 id="multiple-plot-facet_col">multiple plot facet_col</h2>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class='embed-container'>
+
+<iframe frameborder='0' scrolling='no' 
+src='/plotly/ns3_ofdm_yans_wifi_model_col trace.html'></iframe>
+    
+</div>
+<pre><code class="language-python"># with plotly + pandas + subplot col trace
+import pandas as pd
+pd.options.plotting.backend = &quot;plotly&quot;
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model col trace&quot;,
+template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line',
+facet_col=&quot;variable&quot;,facet_col_wrap=2 # express way facet_raw=&quot;variable&quot;, wrap col only
+)
+fig.update_layout(xaxis_title='SNR(dB)', yaxis_title='Frame Success' ) # showlegend=True
+fig.update_yaxes(exponentformat=&quot;power&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+</code></pre>
+<p>這個方法雖然很快，不過很多設定還是要用plotly本身的工具:</p>
+<pre><code class="language-python"># with plotly + pandas + make_subplots
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+fig = make_subplots(rows=1, cols=2)
+
+for i in range(1, 5):
+    fig.add_trace(
+        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
+        row=1, col=1
+    )
+    pass
+
+for i in range(1, 5):
+    fig.add_trace(
+        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
+        row=1, col=2
+    )
+    pass
+
+fig.update_layout(title=&quot;ns3 ofdm yans wifi model subplot&quot;, xaxis_title='SNR(dB)', yaxis_title='Frame Success', template=&quot;none&quot;)
+fig.update_yaxes(exponentformat=&quot;power&quot;, rangemode=&quot;tozero&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;, range=[-3, 10])
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+# mode [maker | lines ]
+# theme template: [&quot;plotly&quot;, &quot;plotly_white&quot;, &quot;plotly_dark&quot;, &quot;ggplot2&quot;, &quot;seaborn&quot;, &quot;simple_white&quot;, &quot;none&quot;]
+# exponentformat &quot;none&quot; | &quot;e&quot; | &quot;E&quot; | &quot;power&quot; | &quot;SI&quot; | &quot;B&quot;
+</code></pre>
+<h1 id="matplotlib-with-plotly-display">Matplotlib with plotly display</h1>
+<p>另外Matplotlib也可以用來產生plotly的圖表。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class='embed-container'>
+
+<iframe frameborder='0' scrolling='no' 
+src='/plotly/matplotlib_pandas_subplot.html'></iframe>
+    
+</div>
+<pre><code class="language-python"># with matplot + plotly.offline
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+from plotly.offline import iplot_mpl, init_notebook_mode, enable_mpl_offline
+from plotly.offline.offline import plot_mpl
+
+# init_notebook_mode()
+# plotly.offline.init_notebook_mode(connected=True)
+enable_mpl_offline()
+
+mean = [10,12,16,22,25]
+variance = [3,6,8,10,12]
+x = np.linspace(0,40,1000)
+
+fig = plt.figure()
+for i in range(4):
+    sigma = np.sqrt(variance[i])
+    y = norm.pdf(x,mean[i],sigma)
+    plt.plot(x,y, label=r'$v_{}$'.format(i+1))
+    pass
+
+plt.xlabel(&quot;X&quot;)
+plt.ylabel(&quot;P(X)&quot;)
+plt.title(&quot;Standard Deviation&quot;)
+plot_mpl(fig, filename='temp-plot.html', auto_open=False)
+# plt.show()
+</code></pre>
+<h2 id="matplotlib-pandas-subplot">Matplotlib pandas subplot</h2>
+<p>用pandas的時候，要返回<code>plt.figure()</code>的物件的方法是用<code>df.get_figure()</code>，返回之後就可以plot了。</p>
+<p>用<code>plt_mpl</code>做的html相對於plotly直接做的有點缺點，大小控制的沒這麼好，我都刪除一個div了還是有一點大小問題。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }</style>
+<div class='embed-container'>
+
+<iframe frameborder='0' scrolling='no' 
+src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
+    
+</div>
+<pre><code class="language-python"># with matplotlib + pandas
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig =df.plot(x=df.columns[0], y=df.columns[1:])
+# plt.show()
+plot_mpl(fig.get_figure(), filename='temp-plot.html', auto_open=False)
+</code></pre>
+<p>不過也有例外，比如下面這樣寫，<code>df.get_figure()</code>我就沒找到，因該是<code>subplot=True</code>，加上的關係。</p>
+<pre><code class="language-python">
+# with matplotlib + pandas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+# Plotting
+fig = df.plot(kind='line', subplots=True, grid=True, title=&quot;Sample Data (Unit)&quot;,
+    layout=(4, 3), sharex=True, sharey=False, legend=False,    
+    style=['r', 'r', 'r', 'g', 'g', 'g', 'b', 'b', 'b', 'r', 'r', 'r'],
+    xticks=np.arange(0, len(df), 16))
+
+[ax.legend(loc=1) for ax in plt.gcf().axes]
+  df.plot(x=df.columns[0], y=df.columns[1:5])
+
+plt.show()
+</code></pre>
 <h1 id="plotlyjs">Plotly.js</h1>
-<p>需要的cdn</p>
+<p>直接寫的話比較不好寫，需要的cdn</p>
 <pre><code class="language-html">&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 

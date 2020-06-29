@@ -234,3 +234,43 @@ ax.plot([0, 1, 2], [0.5, 1.5, 2.5], 'o-', label='b')
 ax.legend()
 
 plotly.offline.plot_mpl(fig, filename='temp-plot.html')
+
+# with plotly + pandas + subplot + csv
+import pandas as pd
+import plotly.graph_objects as go # to ajust layout
+from plotly.subplots import make_subplots
+pd.options.plotting.backend = "plotly"
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0],y=df.columns[1:], title="ns3 ofdm yans wifi model",
+template="none", labels=dict( index="", value="success", variable=""),log_x=False, log_y=False, kind='line',
+)
+fig.update_layout(xaxis_title='SNR(dB)', yaxis_title='Frame Success' ) # showlegend=True
+fig.update_yaxes(exponentformat="power")
+fig.update_xaxes(tickprefix=">", ticksuffix = "dB")
+# fig.show()
+# fig.write_html("file.html")
+
+# >>> fig.get_subplot(1,1), fig.to_dict(), 
+# fig.to_ordered_dict(), fig.to_json(), fig.to_plotly_json()
+# console 按tab看到這個拿來用用看
+# pickle.dump; pickle.dump(obj, open("s.txt","wb"))
+# f = open("s.txt","wb"); pickle.dump(dict,f); f.close()
+# 'wb 'write byte format 應該沒問題
+# with open("data.txt", "w") as f: # with write
+#     	f.write(json.dumps(data, ensure_ascii=False))
+# 看了看可能是因為是collection 產生的dict類型不一樣
+# <class 'dict'>, <class 'collections.OrderedDict'>
+# plotly.subplots.SubplotXY 的 source 中看到用
+# collections.namedtuple
+
+
+from plotly.subplots import make_subplots
+fig2 = make_subplots(rows=1, cols=2)
+for i in range(1, 5):
+    fig2.add_trace(
+        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
+        row=1, col=2
+    )
+    pass
+
+

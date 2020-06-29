@@ -1,574 +1,526 @@
 <!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Plotly csv 讀取 - 隨手筆記
-      </title>
+<html lang="zh-CN">
     <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html hugo中加入一" />
-  <meta name="generator" content="Hugo 0.65.3 with theme pure" />
-  <title>Plotly csv 讀取 - 隨手筆記</title>
-  
-  
-  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.8d367ca699f7dd3b4de584bb236d5baf2471acb8656725cbfcac800ffeb2a066.css">
-  
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="Plotly csv 讀取" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Plotly csv 讀取 - 隨手筆記</title><meta name="Description" content=""><meta property="og:title" content="Plotly csv 讀取" />
 <meta property="og:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/2020/06/hugo_chart_test/" />
 <meta property="article:published_time" content="2020-06-27T13:29:30+08:00" />
 <meta property="article:modified_time" content="2020-06-27T13:29:30+08:00" />
-<meta itemprop="name" content="Plotly csv 讀取">
-<meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
-<meta itemprop="datePublished" content="2020-06-27T13:29:30&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-27T13:29:30&#43;08:00" />
-<meta itemprop="wordCount" content="2009">
-
-
-
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Plotly csv 讀取"/>
 <meta name="twitter:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/2020/06/hugo_chart_test/" /><link rel="prev" href="https://shihchun.github.io/2020/06/ns3-cpp-basic/" /><link rel="next" href="https://shihchun.github.io/2020/06/mindmap/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Plotly csv 讀取",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/2020\/06\/hugo_chart_test\/"
+        },"genre": "posts","wordcount":  2294 ,
+        "url": "https:\/\/shihchun.github.io\/2020\/06\/hugo_chart_test\/","datePublished": "2020-06-27T13:29:30+08:00","dateModified": "2020-06-27T13:29:30+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Shih Chun"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
-
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-  </head>
-
-  
-  
-
-  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
-    <div class="slimContent">
-      <div class="navbar-header">
-        <div class="profile-block text-center">
-          <a id="avatar" href="https://github.com/shihchun" target="_blank">
-            <img class="img-circle img-rotate" src="https://shihchun.github.io/avat.jpg" width="200" height="200">
-          </a>
-          <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
-          <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
-          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Taoyuan, Taiwan</small>
-        </div><div class="search" id="search-form-wrap">
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
-                        class="icon icon-search"></i></button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記">隨手筆記</a>
         </div>
-        <div class="ins-search">
-            <div class="ins-search-mask"></div>
-            <div class="ins-search-container">
-                <div class="ins-input-wrapper">
-                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
-                        x-webkit-speech />
-                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
-                        aria-label="Close"><span aria-hidden="true">×</span></button>
-                </div>
-                <div class="ins-section-wrapper">
-                    <div class="ins-section-container"></div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-        <ul class="nav navbar-nav main-nav">
-            <li class="menu-item menu-item-home">
-                <a href="/">
-                    <i class="icon icon-home-fill"></i>
-                  <span class="menu-title">首頁</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li class="menu-item menu-item-archives">
-                <a href="/posts/">
-                    <i class="icon icon-archives-fill"></i>
-                  <span class="menu-title">檔案</span>
-                </a>
-            </li>
-            <li class="menu-item menu-item-categories">
-                <a href="/categories/">
-                    <i class="icon icon-folder"></i>
-                  <span class="menu-title">分類</span>
-                </a>
-            </li>
-            <li class="menu-item menu-item-tags">
-                <a href="/tags/">
-                    <i class="icon icon-tags"></i>
-                  <span class="menu-title">標籤</span>
-                </a>
-            </li>
-            <li class="menu-item menu-item-about">
-                <a href="/about/">
-                    <i class="icon icon-cup-fill"></i>
-                  <span class="menu-title">關於我</span>
-                </a>
-            </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content"><p>沒有公告</p>
             </div>
         </div>
     </div>
-</div>
-
-      <div class="widget">
-    <h3 class="widget-title"> 分類</h3>
-    <div class="widget-body">
-        <ul class="category-list">
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">2</span></li>
-        </ul>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記">隨手筆記</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
     </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
 </div>
-      <div class="widget">
-    <h3 class="widget-title"> 標籤</h3>
-    <div class="widget-body">
-        <ul class="tag-list">
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ffmpeg/" class="tag-list-link">ffmpeg</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/git/" class="tag-list-link">git</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/gource/" class="tag-list-link">gource</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/kvm/" class="tag-list-link">kvm</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/libvirt/" class="tag-list-link">libvirt</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="tag-list-link">linux-學習筆記</a><span
-                    class="tag-list-count">8</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" class="tag-list-link">linux基本指令</a><span
-                    class="tag-list-count">8</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/python/" class="tag-list-link">python</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/qemu/" class="tag-list-link">qemu</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/vm/" class="tag-list-link">vm</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
-                    class="tag-list-count">1</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
-                    class="tag-list-count">2</span></li>
-            
-        </ul>
-
-    </div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
 </div>
-      
-<div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-        <ul class="recent-post-list list-unstyled no-thumbnail">
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="title">Plotly csv 讀取</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
-                    </p>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Plotly csv 讀取</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-27">2020-06-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/06/aqua-sim/" class="title">Aqua-Sim NS3.29 安裝</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/01/jupyter/" class="title">python 基本</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-31 19:43:16 &#43;0800 CST" itemprop="datePublished">2020-01-31</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/01/duelboot/" class="title">Manjaro 雙系統安裝</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-18 19:36:48 &#43;0800 CST" itemprop="datePublished">2020-01-18</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://shihchun.github.io/2020/01/jack2/" class="title">Jack2&#43;cadence 低延遲輸出</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2020-01-13 14:47:28 &#43;0800 CST" itemprop="datePublished">2020-01-13</time>
-                    </p>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-  </div>
-</aside>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#multiple-plot-facet_col">multiple plot facet_col</a></li>
+  </ul>
 
-    
-    
-<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    <h4 class="toc-title">文章目錄</h4>
-    <nav id="toc" class="js-toc toc">
-
-    </nav>
-  </div>
-</aside>
-
-<main class="main" role="main"><div class="content">
-  <article id="-" class="article article-type-" itemscope
-    itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
-      <h1 itemprop="name">
-  <a
-    class="article-title"
-    href="/2020/06/hugo_chart_test/"
-    >Plotly csv 讀取</a
-  >
-</h1>
-
-      <div class="article-meta">
-        
-<span class="article-date">
-  <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="article-date">
-  <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
-</a>
-</span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_chart_test/#comments"
-            class="article-comment-link">評論</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2009字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 5分 </span>
-      </div>
-    </div>
-    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="加入自定義-shortcodes">加入自定義 ShortCodes</h1>
-<p><a href="https://gohugo.io/templates/shortcode-templates/">Hugo 的文檔</a>有提到我們可以自己製作<code>shortcodes</code>，這篇文章紀錄我把<code>char.js</code>放到我自己hugo的過程。</p>
+  <ul>
+    <li><a href="#matplotlib-pandas-subplot">Matplotlib pandas subplot</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="加入自定義-shortcodes">加入自定義 ShortCodes</h1>
+<p><a href="https://gohugo.io/templates/shortcode-templates/" target="_blank" rel="noopener noreffer">Hugo 的文檔</a>有提到我們可以自己製作<code>shortcodes</code>，這篇文章紀錄我把<code>char.js</code>放到我自己hugo的過程。</p>
 <ol>
 <li><code>/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
 <li><code>/themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
 </ol>
 <p>hugo中加入一個檔案<code>layouts/shortcodes/rawhtml.html</code></p>
-<pre><code class="language-html">&lt;!-- raw html --&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- raw html --&gt;</span>
 {{.Inner}}
-</code></pre>
-<h1 id="用法">用法</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="用法">用法</h1>
 <p>最後只要在文章中加入，其實就是加入html的程式碼而已，之後可以再修改。</p>
-<pre><code class="language-text">{&lt; rawhtml &gt;}
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">{&lt; rawhtml &gt;}
 html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
 {&lt; /rawhtml &gt;}
-</code></pre>
-<h1 id="python產生plotly的html">python產生plotly的html</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="python產生plotly的html">python產生plotly的html</h1>
 <p>python安裝要用到的庫</p>
-<pre><code class="language-sh">conda install pandas
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">conda install pandas
 conda install -c plotly chart-studio 
 conda install -c conda-forge cufflinks-py 
-</code></pre>
-<p>加入iframe之後會跑掉格式，找到一個比較可以的例子：</p>
-<pre><code class="language-html">&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class='embed-container'&gt;
-
-&lt;iframe frameborder='0' scrolling='no' 
-src='/plotly/ns3_ofdm_yans_wifi_model.html'&gt;&lt;/iframe&gt;
-
-&lt;/div&gt;
-</code></pre>
-<p>加入shortcode，hugo中加入一個檔案<code>layouts/shortcodes/plotly.html</code>，檔案放在</p>
-<pre><code class="language-html">&lt;!-- plotly html --&gt;
-&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
-&lt;div class='embed-container'&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>加入iframe之後會跑掉格式，找到一個比較可以的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- plotly html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;.</span><span class="nc">embed-container</span> <span class="p">{</span> <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span> <span class="k">padding-bottom</span><span class="p">:</span> <span class="mf">56.25</span><span class="kt">%</span><span class="p">;</span>      
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span> <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span> <span class="p">.</span><span class="nc">embed-container</span> <span class="nt">iframe</span><span class="o">,</span> 
+    <span class="p">.</span><span class="nc">embed-container</span> <span class="nt">object</span><span class="o">,</span> <span class="p">.</span><span class="nc">embed-container</span> <span class="nt">embed</span> <span class="p">{</span> <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>   
+    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;embed-container&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#39;0&#39;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&#39;no&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;/plotly/{ index .Params 0 }.html&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    
+</code></pre></td></tr></table>
+</div>
+</div><p>加入shortcode，hugo中加入一個檔案<code>layouts/shortcodes/plotly.html</code>，檔案放在</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- plotly html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;.</span><span class="nc">embed-container</span> <span class="p">{</span> <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span> <span class="k">padding-bottom</span><span class="p">:</span> <span class="mf">56.25</span><span class="kt">%</span><span class="p">;</span>      
+<span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span> <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span> <span class="p">.</span><span class="nc">embed-container</span> <span class="nt">iframe</span><span class="o">,</span> 
+<span class="p">.</span><span class="nc">embed-container</span> <span class="nt">object</span><span class="o">,</span> <span class="p">.</span><span class="nc">embed-container</span> <span class="nt">embed</span> <span class="p">{</span> <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>   
+<span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;embed-container&#39;</span><span class="p">&gt;</span>
 {{.Inner}}    
-&lt;/div&gt;
-</code></pre>
-<p>以後直接使用，一樣怕<code>{{}}</code>被識別，紀錄就少寫一個，檔案放在<code>static/plotly/</code></p>
-<pre><code>{&lt; plotly &gt;}
-&lt;iframe frameborder='0' scrolling='no' 
-src='/plotly/ns3_ofdm_yans_wifi_model.html'&gt;&lt;/iframe&gt;
-{&lt; /plotly &gt;}
-</code></pre>
-<h1 id="多個trace用pandas更快">多個trace用pandas更快</h1>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以後直接使用，一樣怕<code>{{}}</code>被識別，紀錄就少寫一個，檔案放在<code>static/plotly/</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&lt; plotly ns3_ofdm_yans_wifi_model&gt;}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="多個trace用pandas更快">多個trace用pandas更快</h1>
 <p>這個辦法很快，但是如果要plot子圖的話就還是要用上面的。</p>
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }</style>
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
 <div class='embed-container'>
-
-<iframe frameborder='0' scrolling='no' 
-src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
-    
+    <iframe frameborder='0' scrolling='no' src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
-<pre><code class="language-python"># with plotly + pandas
-import pandas as pd
-pd.options.plotting.backend = &quot;plotly&quot;
-df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
-fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model&quot;,
-template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line'
-)
-fig.update_layout(xaxis_title='SNR(dB)',yaxis_title='Frame Success')
-fig.update_yaxes(exponentformat=&quot;power&quot;)
-fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
-fig.add_annotation(x=1.1, y=1, text=&quot;success transmit&quot;) # add note
-fig.show()
-# fig.write_html(&quot;file.html&quot;)
-</code></pre>
-<p>用matplotlib的不用設定backend，當然除了plotly這個<code>backend</code>，pandas還支援其他的backend。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with plotly + pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&#34;plotly&#34;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ns3_ofdm_yans_wifi_model.csv&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&#34;ns3 ofdm yans wifi model&#34;</span><span class="p">,</span>
+<span class="n">template</span><span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span> <span class="n">index</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">),</span><span class="n">log_x</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">log_y</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;SNR(dB)&#39;</span><span class="p">,</span><span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Frame Success&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">exponentformat</span><span class="o">=</span><span class="s2">&#34;power&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">tickprefix</span><span class="o">=</span><span class="s2">&#34;&gt;&#34;</span><span class="p">,</span> <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s2">&#34;dB&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;success transmit&#34;</span><span class="p">)</span> <span class="c1"># add note</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># fig.write_html(&#34;file.html&#34;)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用matplotlib的不用設定backend，當然除了plotly這個<code>backend</code>，pandas還支援其他的backend。</p>
 <h2 id="multiple-plot-facet_col">multiple plot facet_col</h2>
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }</style>
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
 <div class='embed-container'>
-
-<iframe frameborder='0' scrolling='no' 
-src='/plotly/ns3_ofdm_yans_wifi_model_col trace.html'></iframe>
-    
+    <iframe frameborder='0' scrolling='no' src='/plotly/ns3_ofdm_yans_wifi_model_col_trace.html'></iframe>
 </div>
-<pre><code class="language-python"># with plotly + pandas + subplot col trace
-import pandas as pd
-pd.options.plotting.backend = &quot;plotly&quot;
-df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
-fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model col trace&quot;,
-template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line',
-facet_col=&quot;variable&quot;,facet_col_wrap=2 # express way facet_raw=&quot;variable&quot;, wrap col only
-)
-fig.update_layout(xaxis_title='SNR(dB)', yaxis_title='Frame Success' ) # showlegend=True
-fig.update_yaxes(exponentformat=&quot;power&quot;)
-fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
-fig.show()
-# fig.write_html(&quot;file.html&quot;)
-</code></pre>
-<p>這個方法雖然很快，不過很多設定還是要用plotly本身的工具:</p>
-<pre><code class="language-python"># with plotly + pandas + make_subplots
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-fig = make_subplots(rows=1, cols=2)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with plotly + pandas + subplot col trace</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&#34;plotly&#34;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ns3_ofdm_yans_wifi_model.csv&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">title</span><span class="o">=</span><span class="s2">&#34;ns3 ofdm yans wifi model col trace&#34;</span><span class="p">,</span>
+<span class="n">template</span><span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span> <span class="n">index</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&#34;success&#34;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">),</span><span class="n">log_x</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">log_y</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
+<span class="n">facet_col</span><span class="o">=</span><span class="s2">&#34;variable&#34;</span><span class="p">,</span><span class="n">facet_col_wrap</span><span class="o">=</span><span class="mi">2</span> <span class="c1"># express way facet_raw=&#34;variable&#34;, wrap col only</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;SNR(dB)&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Frame Success&#39;</span> <span class="p">)</span> <span class="c1"># showlegend=True</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">exponentformat</span><span class="o">=</span><span class="s2">&#34;power&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">tickprefix</span><span class="o">=</span><span class="s2">&#34;&gt;&#34;</span><span class="p">,</span> <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s2">&#34;dB&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># fig.write_html(&#34;file.html&#34;)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>這個方法雖然很快，不過很多設定還是要用plotly本身的工具:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with plotly + pandas + make_subplots</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="kn">as</span> <span class="nn">go</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-for i in range(1, 5):
-    fig.add_trace(
-        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
-        row=1, col=1
-    )
-    pass
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="k">pass</span>
 
-for i in range(1, 5):
-    fig.add_trace(
-        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
-        row=1, col=2
-    )
-    pass
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]]),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="k">pass</span>
 
-fig.update_layout(title=&quot;ns3 ofdm yans wifi model subplot&quot;, xaxis_title='SNR(dB)', yaxis_title='Frame Success', template=&quot;none&quot;)
-fig.update_yaxes(exponentformat=&quot;power&quot;, rangemode=&quot;tozero&quot;)
-fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;, range=[-3, 10])
-fig.show()
-# fig.write_html(&quot;file.html&quot;)
-# mode [maker | lines ]
-# theme template: [&quot;plotly&quot;, &quot;plotly_white&quot;, &quot;plotly_dark&quot;, &quot;ggplot2&quot;, &quot;seaborn&quot;, &quot;simple_white&quot;, &quot;none&quot;]
-# exponentformat &quot;none&quot; | &quot;e&quot; | &quot;E&quot; | &quot;power&quot; | &quot;SI&quot; | &quot;B&quot;
-</code></pre>
-<h1 id="matplotlib-with-plotly-display">Matplotlib with plotly display</h1>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;ns3 ofdm yans wifi model subplot&#34;</span><span class="p">,</span> <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;SNR(dB)&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Frame Success&#39;</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">exponentformat</span><span class="o">=</span><span class="s2">&#34;power&#34;</span><span class="p">,</span> <span class="n">rangemode</span><span class="o">=</span><span class="s2">&#34;tozero&#34;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">tickprefix</span><span class="o">=</span><span class="s2">&#34;&gt;&#34;</span><span class="p">,</span> <span class="n">ticksuffix</span> <span class="o">=</span> <span class="s2">&#34;dB&#34;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># fig.write_html(&#34;file.html&#34;)</span>
+<span class="c1"># mode [maker | lines ]</span>
+<span class="c1"># theme template: [&#34;plotly&#34;, &#34;plotly_white&#34;, &#34;plotly_dark&#34;, &#34;ggplot2&#34;, &#34;seaborn&#34;, &#34;simple_white&#34;, &#34;none&#34;]</span>
+<span class="c1"># exponentformat &#34;none&#34; | &#34;e&#34; | &#34;E&#34; | &#34;power&#34; | &#34;SI&#34; | &#34;B&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="matplotlib-with-plotly-display">Matplotlib with plotly display</h1>
 <p>另外Matplotlib也可以用來產生plotly的圖表。</p>
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }</style>
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
 <div class='embed-container'>
-
-<iframe frameborder='0' scrolling='no' 
-src='/plotly/matplotlib_pandas_subplot.html'></iframe>
-    
+    <iframe frameborder='0' scrolling='no' src='/plotly/matplotlib_pandas_subplot.html'></iframe>
 </div>
-<pre><code class="language-python"># with matplot + plotly.offline
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.stats import norm
-from plotly.offline import iplot_mpl, init_notebook_mode, enable_mpl_offline
-from plotly.offline.offline import plot_mpl
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with matplot + plotly.offline</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">iplot_mpl</span><span class="p">,</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">enable_mpl_offline</span>
+<span class="kn">from</span> <span class="nn">plotly.offline.offline</span> <span class="kn">import</span> <span class="n">plot_mpl</span>
 
-# init_notebook_mode()
-# plotly.offline.init_notebook_mode(connected=True)
-enable_mpl_offline()
+<span class="c1"># init_notebook_mode()</span>
+<span class="c1"># plotly.offline.init_notebook_mode(connected=True)</span>
+<span class="n">enable_mpl_offline</span><span class="p">()</span>
 
-mean = [10,12,16,22,25]
-variance = [3,6,8,10,12]
-x = np.linspace(0,40,1000)
+<span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
 
-fig = plt.figure()
-for i in range(4):
-    sigma = np.sqrt(variance[i])
-    y = norm.pdf(x,mean[i],sigma)
-    plt.plot(x,y, label=r'$v_{}$'.format(i+1))
-    pass
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$v_{}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">pass</span>
 
-plt.xlabel(&quot;X&quot;)
-plt.ylabel(&quot;P(X)&quot;)
-plt.title(&quot;Standard Deviation&quot;)
-plot_mpl(fig, filename='temp-plot.html', auto_open=False)
-# plt.show()
-</code></pre>
-<h2 id="matplotlib-pandas-subplot">Matplotlib pandas subplot</h2>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;X&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;P(X)&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Standard Deviation&#34;</span><span class="p">)</span>
+<span class="n">plot_mpl</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;temp-plot.html&#39;</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># plt.show()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="matplotlib-pandas-subplot">Matplotlib pandas subplot</h2>
 <p>用pandas的時候，要返回<code>plt.figure()</code>的物件的方法是用<code>df.get_figure()</code>，返回之後就可以plot了。</p>
 <p>用<code>plt_mpl</code>做的html相對於plotly直接做的有點缺點，大小控制的沒這麼好，我都刪除一個div了還是有一點大小問題。</p>
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%;      
-height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
-.embed-container object, .embed-container embed { position: absolute;   
-top: 0; left: 0; width: 100%; height: 100%; }</style>
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
 <div class='embed-container'>
-
-<iframe frameborder='0' scrolling='no' 
-src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
-    
+    <iframe frameborder='0' scrolling='no' src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
-<pre><code class="language-python"># with matplotlib + pandas
-import pandas as pd
-import matplotlib.pyplot as plt
-df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
-fig =df.plot(x=df.columns[0], y=df.columns[1:])
-# plt.show()
-plot_mpl(fig.get_figure(), filename='temp-plot.html', auto_open=False)
-</code></pre>
-<p>不過也有例外，比如下面這樣寫，<code>df.get_figure()</code>我就沒找到，因該是<code>subplot=True</code>，加上的關係。</p>
-<pre><code class="language-python">
-# with matplotlib + pandas
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
-# Plotting
-fig = df.plot(kind='line', subplots=True, grid=True, title=&quot;Sample Data (Unit)&quot;,
-    layout=(4, 3), sharex=True, sharey=False, legend=False,    
-    style=['r', 'r', 'r', 'g', 'g', 'g', 'b', 'b', 'b', 'r', 'r', 'r'],
-    xticks=np.arange(0, len(df), 16))
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with matplotlib + pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ns3_ofdm_yans_wifi_model.csv&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="c1"># plt.show()</span>
+<span class="n">plot_mpl</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">get_figure</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;temp-plot.html&#39;</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不過也有例外，比如下面這樣寫，<code>df.get_figure()</code>我就沒找到，因該是<code>subplot=True</code>，加上的關係。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">
+<span class="c1"># with matplotlib + pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ns3_ofdm_yans_wifi_model.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Plotting</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&#34;Sample Data (Unit)&#34;</span><span class="p">,</span>
+    <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>    
+    <span class="n">style</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">],</span>
+    <span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span>
 
-[ax.legend(loc=1) for ax in plt.gcf().axes]
-  df.plot(x=df.columns[0], y=df.columns[1:5])
+<span class="p">[</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">axes</span><span class="p">]</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 
-plt.show()
-</code></pre>
-<h1 id="plotlyjs">Plotly.js</h1>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="plotlyjs">Plotly.js</h1>
 <p>直接寫的話比較不好寫，需要的cdn</p>
-<pre><code class="language-html">&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.plot.ly/plotly-latest.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script> -->
@@ -606,7 +558,29 @@ function makePlotly( x, y){
   makeplot();
 </script>
 
-<pre><code>AAPL_x,AAPL_y
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">AAPL_x,AAPL_y
 2014-01-02,77.44539475
 2014-01-03,77.04557544
 2014-01-06,74.89697204
@@ -624,12 +598,19 @@ function makePlotly( x, y){
 2014-01-23,76.64038513
 2014-01-24,77.20512022
 2014-01-27,76.66007339
-</code></pre>
-<h1 id="讀檔">讀檔</h1>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="讀檔">讀檔</h1>
 <p>讀取我自己hugo的檔案：</p>
-<pre><code class="language-js">csv_url = document.location.origin+ '/csv/test.csv';
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">csv_url</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="o">+</span> <span class="s1">&#39;/csv/test.csv&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 
 <div id="graph3"></div>
 
@@ -695,77 +676,149 @@ Plotly.d3.csv(url, function(data){
 });
 </script>
 
-<pre><code class="language-html">&lt;div id=&quot;graph3&quot;&gt;&lt;/div&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;graph3&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-function linspace(startValue, stopValue, cardinality) {
-    var arr = [];
-    var step = (stopValue - startValue) / (cardinality - 1);
-    for (var i = 0; i &lt; cardinality; i++) {
-      arr.push(startValue + (step * i));
-    }
-    return arr;
-  }
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">function</span> <span class="nx">linspace</span><span class="p">(</span><span class="nx">startValue</span><span class="p">,</span> <span class="nx">stopValue</span><span class="p">,</span> <span class="nx">cardinality</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">step</span> <span class="o">=</span> <span class="p">(</span><span class="nx">stopValue</span> <span class="o">-</span> <span class="nx">startValue</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">cardinality</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cardinality</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">startValue</span> <span class="o">+</span> <span class="p">(</span><span class="nx">step</span> <span class="o">*</span> <span class="nx">i</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+  <span class="p">}</span>
 
-t = linspace(1,8,100);
-var x1 = new Array;
-var x2 = new Array;
-for (i = 1; t[i] != t.end; ++i){
-    x1.push( Math.sin(t[i]) );
-    x2.push(Math.cos(t[i]) );
-}
+<span class="nx">t</span> <span class="o">=</span> <span class="nx">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">end</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">){</span>
+    <span class="nx">x1</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">);</span>
+    <span class="nx">x2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">t</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">);</span>
+<span class="p">}</span>
 
-url = document.location.origin+ '/csv/test.csv';
-Plotly.d3.csv(url, function(data){
-  var x = [], y = []
-  for (var i=0; i&lt;data.length; i++) {
-    row = data[i];
-    x.push( row['t'] );
-    y.push( row['v'] );
-  }
-  console.log(x)
-  console.log(y)
-  var trace1 = {
-    x: x,
-    y: y,
-    name: 'sine from csv data',
-    type: 'scatter'
-  };
-  var trace2 = {
-    x: t,
-    y: x2,
-    name: 'cosine',
-    type: 'scatter'
-  };
-  var data = [trace1,trace2];
-  Plotly.newPlot('graph3', data, {title: 'test dataset'} );
-});
-&lt;/script&gt;
-&lt;div id=&quot;graph4&quot;&gt;&lt;/div&gt;
-</code></pre>
-<h1 id="layout-和-line-type">layout 和 line type</h1>
+<span class="nx">url</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="o">+</span> <span class="s1">&#39;/csv/test.csv&#39;</span><span class="p">;</span>
+<span class="nx">Plotly</span><span class="p">.</span><span class="nx">d3</span><span class="p">.</span><span class="nx">csv</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">row</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">x</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">row</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="p">);</span>
+    <span class="nx">y</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">row</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">trace1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="nx">y</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;sine from csv data&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;scatter&#39;</span>
+  <span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">trace2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x</span><span class="o">:</span> <span class="nx">t</span><span class="p">,</span>
+    <span class="nx">y</span><span class="o">:</span> <span class="nx">x2</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;cosine&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;scatter&#39;</span>
+  <span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="nx">trace1</span><span class="p">,</span><span class="nx">trace2</span><span class="p">];</span>
+  <span class="nx">Plotly</span><span class="p">.</span><span class="nx">newPlot</span><span class="p">(</span><span class="s1">&#39;graph3&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;test dataset&#39;</span><span class="p">}</span> <span class="p">);</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;graph4&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="layout-和-line-type">layout 和 line type</h1>
 <p>再來title和axis，type的部分，也可以設定，下面是semilog的例子，填到後面layout就可以用了</p>
 
 
 <div id="graph4"></div>
 
-<pre><code class="language-js">var layout = {
-  title: 'semilog scale test',
-  xaxis: {
-    title: 'time(s)',
-    type: 'linear',
-    autorange: true
-  },
-  yaxis: {
-    title: 'v(t)',
-    type: 'log',
-    autorange: true
-  }
-};
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;semilog scale test&#39;</span><span class="p">,</span>
+  <span class="nx">xaxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;time(s)&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="nx">autorange</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nx">yaxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;v(t)&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="nx">autorange</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 
-Plotly.newPlot('myDiv', data, layout);
-</code></pre>
-<h1 id="suffix">suffix</h1>
+<span class="nx">Plotly</span><span class="p">.</span><span class="nx">newPlot</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">layout</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="suffix">suffix</h1>
 <p>再來是suffix，可以加在前面後面，<code>showexponent： all</code>看起來不用加</p>
 
 
@@ -810,254 +863,218 @@ var layout = {
 Plotly.newPlot('graph5', data, layout);
 </script>
 
-<pre><code class="language-js">var layout = {
-  title: 'semilog scale test',
-  xaxis: {
-    title: 'time(s)',
-    type: 'linear',
-    tickprefix: '-&gt; ', 
-    ticksuffix: ' s', 
-    // showexponent: 'all',
-    autorange: true
-  },
-  yaxis: {
-    title: 'v(t)',
-    type: 'log',
-    tickprefix: '-&gt; ', 
-    ticksuffix: ' volt', 
-    // showexponent: 'all',
-    autorange: true
-  }
-};
-</code></pre>
-<p>上面用的是cpp產生的sine csv。</p>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-#include &lt;vector&gt;
-#include &lt;cmath&gt;
-
-template&lt;typename T&gt;
-std::vector&lt;double&gt; linspace(T start_in, T end_in, int num_in)
-{
-
-  std::vector&lt;double&gt; linspaced;
-
-  double start = static_cast&lt;double&gt;(start_in);
-  double end = static_cast&lt;double&gt;(end_in);
-  double num = static_cast&lt;double&gt;(num_in);
-
-  if (num == 0) { return linspaced; }
-  if (num == 1) 
-    {
-      linspaced.push_back(start);
-      return linspaced;
-    }
-
-  double delta = (end - start) / (num - 1);
-
-  for(int i=0; i &lt; num-1; ++i)
-    {
-      linspaced.push_back(start + delta * i);
-    }
-  linspaced.push_back(end); // I want to ensure that start and end
-                            // are exactly the same as the input
-  return linspaced;
-}
-
-void print_vector(std::vector&lt;double&gt; vec)
-{
-  std::cout &lt;&lt; &quot;size: &quot; &lt;&lt; vec.size() &lt;&lt; std::endl;
-  for (double d : vec)
-    std::cout &lt;&lt; d &lt;&lt; &quot; &quot;;
-  std::cout &lt;&lt; std::endl;
-}
-
-int main()
-{
-  std::ofstream out(&quot;test.csv&quot;); // sefl-define
-  std::vector&lt; int &gt; arr; // 1d
-  std::vector&lt;double&gt;  t = linspace(1,8,100);
-  std::vector&lt;double&gt; x;
-  print_vector(t);
-  out&lt;&lt; 't' &lt;&lt; ',' &lt;&lt; 'v' &lt;&lt; std::endl;
-  for (int i = 0; i &lt;= t.size()-1; ++i){
-    x.push_back( std::sin(t[i]) );
-    out&lt;&lt; t[i] &lt;&lt; ',' &lt;&lt; x[i] &lt;&lt; std::endl;
-  }
-  print_vector(x);
-  out.close();
-  return 0;
-}
-</code></pre>
-
-    </div>
-    <div class="article-footer">
-<blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文鏈結: </strong>
-      <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" title="Plotly csv 讀取" target="_blank" rel="external">https://shihchun.github.io/2020/06/hugo_chart_test/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
-    </li>
-  </ul>
-</blockquote>
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="https://shihchun.github.io/avat.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/shihchun" target="_blank"><span class="text-dark">shihchun</span><small class="ml-1x">一天忘記一件事</small></a></h3>
-        <div>Good Good Study, Day Day Up~</div>
-      </div>
-    </figure>
-  </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;semilog scale test&#39;</span><span class="p">,</span>
+  <span class="nx">xaxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;time(s)&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+    <span class="nx">tickprefix</span><span class="o">:</span> <span class="s1">&#39;-&gt; &#39;</span><span class="p">,</span> 
+    <span class="nx">ticksuffix</span><span class="o">:</span> <span class="s1">&#39; s&#39;</span><span class="p">,</span> 
+    <span class="c1">// showexponent: &#39;all&#39;,
+</span><span class="c1"></span>    <span class="nx">autorange</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="nx">yaxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;v(t)&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="nx">tickprefix</span><span class="o">:</span> <span class="s1">&#39;-&gt; &#39;</span><span class="p">,</span> 
+    <span class="nx">ticksuffix</span><span class="o">:</span> <span class="s1">&#39; volt&#39;</span><span class="p">,</span> 
+    <span class="c1">// showexponent: &#39;all&#39;,
+</span><span class="c1"></span>    <span class="nx">autorange</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>上面用的是cpp產生的sine csv。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">linspace</span><span class="p">(</span><span class="n">T</span> <span class="n">start_in</span><span class="p">,</span> <span class="n">T</span> <span class="n">end_in</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num_in</span><span class="p">)</span>
+<span class="p">{</span>
 
-    </div>
-  </article>
-<section id="comments">
-</section>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">linspaced</span><span class="p">;</span>
 
-  <div class="disqus markdown">
-    <div id="disqus_thread"></div>
-<script type="text/javascript">
-    (function() {
-        
-        
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        var disqus_shortname = 'shihchunk';
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  </div>
-</div><nav class="bar bar-footer clearfix" data-stick-bottom>
-    <div class="bar-inner">
-        <ul class="pager pull-left">
-            <li class="prev">
-                <a href="https://shihchun.github.io/2020/06/aqua-sim/" title="Aqua-Sim NS3.29 安裝"><i
-                        class="icon icon-angle-left"
-                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            
-            <li class="toggle-toc">
-                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
-                    title="文章目錄" role="button">
-                    <span>[&nbsp;</span><span>文章目錄</span>
-                    <i class="text-collapsed icon icon-anchor"></i>
-                    <i class="text-in icon icon-close"></i>
-                    <span>]</span>
-                </a>
-            </li>
-        </ul>
-        <div class="bar-right">
-            <div class="share-component" data-sites="facebook,twitter"
-                data-mobile-sites="facebook, twitter"></div>
+  <span class="kt">double</span> <span class="n">start</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">start_in</span><span class="p">);</span>
+  <span class="kt">double</span> <span class="n">end</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">end_in</span><span class="p">);</span>
+  <span class="kt">double</span> <span class="n">num</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_in</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">linspaced</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> 
+    <span class="p">{</span>
+      <span class="n">linspaced</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">start</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">linspaced</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="kt">double</span> <span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">linspaced</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="n">linspaced</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">end</span><span class="p">);</span> <span class="c1">// I want to ensure that start and end
+</span><span class="c1"></span>                            <span class="c1">// are exactly the same as the input
+</span><span class="c1"></span>  <span class="k">return</span> <span class="n">linspaced</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_vector</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;size: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">double</span> <span class="nl">d</span> <span class="p">:</span> <span class="n">vec</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">out</span><span class="p">(</span><span class="s">&#34;test.csv&#34;</span><span class="p">);</span> <span class="c1">// sefl-define
+</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="kt">int</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">;</span> <span class="c1">// 1d
+</span><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span>  <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n">print_vector</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+  <span class="n">out</span><span class="o">&lt;&lt;</span> <span class="sc">&#39;t&#39;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;,&#39;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;v&#39;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span> <span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">);</span>
+    <span class="n">out</span><span class="o">&lt;&lt;</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;,&#39;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">print_vector</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+  <span class="n">out</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/2020/06/hugo_chart_test/" data-title="Plotly csv 讀取"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/2020/06/hugo_chart_test/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/2020/06/hugo_chart_test/" data-title="Plotly csv 讀取"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a></span>
+            </div>
         </div>
     </div>
-</nav>
 
-</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-<ul class="social-links">
-    <li><a href="https://github.com/shihchun" target="_blank" title="github" data-toggle=tooltip data-placement=top >
-            <i class="icon icon-github"></i></a></li>
-    <li><a href="https://shihchun.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
-            <i class="icon icon-rss"></i></a></li>
-</ul>
-  <div class="copyright">
-    &copy;2017  -
-    2020
-    <div class="publishby">
-        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
     </div>
-  </div>
-</footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-            showMathMenu: false, //disables context menu
-            tex2jax: {
-            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-           }
-    });
-</script>
+    <div class="post-nav"><a href="/2020/06/ns3-cpp-basic/" class="prev" rel="prev" title="NS3 Cpp Basic"><i class="fas fa-angle-left fa-fw"></i>NS3 Cpp Basic</a>
+            <a href="/2020/06/mindmap/" class="next" rel="next" title="ShortCode 整理">ShortCode 整理<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script>
-    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
-    hljs.configure({
-        tabReplace: '    ', 
-        classPrefix: ''     
-        
-    })
-    hljs.initHighlightingOnLoad();
-</script>
-<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
-<script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
-
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '頁面',
-                CATEGORIES: '分類',
-                TAGS: '標籤',
-                UNTITLED: '(未命名)',
-            },
-            ROOT_URL: 'https:\/\/shihchun.github.io',
-            CONTENT_URL: 'https:\/\/shihchun.github.io\/searchindex.json ',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script type="text/javascript" src="https://shihchun.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-<script>
-    tocbot.init({
-        
-        tocSelector: '.js-toc',
-        
-        
-        
-        headingSelector: 'h1, h2, h3',
-        
-        hasInnerContainers: true,
-        
-  				
-  				
-  				
-  				
-  				collapseDepth: 2,
-    });
-</script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-97401827-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-  </body>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

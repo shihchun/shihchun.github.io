@@ -7,39 +7,6 @@
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 11 Jan 2020 17:53:25 &#43;0800</lastBuildDate>
             <atom:link href="https://shihchun.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>我的第一篇文章</title>
-    <link>https://shihchun.github.io/new/</link>
-    <pubDate>Tue, 30 Jun 2020 02:03:36 &#43;0800</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/new/</guid>
-    <description><![CDATA[<h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
-<p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># mount</span>
-sysfs on /sys <span class="nb">type</span> sysfs <span class="o">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span class="o">)</span>
-proc on /proc <span class="nb">type</span> proc <span class="o">(</span>rw,nosuid,nodev,noexec,relatime<span class="o">)</span>
-devtmpfs on /dev <span class="nb">type</span> devtmpfs <span class="o">(</span>rw,nosuid,seclabel,size<span class="o">=</span>231216k,nr_inodes<span class="o">=</span>57804,mode<span class="o">=</span>755<span class="o">)</span>
-.
-.
-.
-/dev/sda1 on /boot <span class="nb">type</span> xfs <span class="o">(</span>rw,relatime,seclabel,attr2,inode64,noquota<span class="o">)</span>
-tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</span>rw,nosuid,nodev,relatime,seclabel,size<span class="o">=</span>48388k,mode<span class="o">=</span>700,uid<span class="o">=</span>1000,gid<span class="o">=</span>1000<span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
     <title>ShortCode 整理</title>
     <link>https://shihchun.github.io/mindmap/</link>
     <pubDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</pubDate>
@@ -102,5 +69,12 @@ tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</sp
     <author></author>
     <guid>https://shihchun.github.io/git-set/</guid>
     <description><![CDATA[編輯現有的project 1 2 3 4 5 6 $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &#34;commit message 可以寫做什麼修改&#34; ## 上傳 $ git push -u orgin master ## push 到叫做org]]></description>
+</item><item>
+    <title>kvm 安裝</title>
+    <link>https://shihchun.github.io/kvm/</link>
+    <pubDate>Tue, 30 Oct 2018 19:04:06 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/kvm/</guid>
+    <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
 </item></channel>
 </rss>

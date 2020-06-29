@@ -3,27 +3,27 @@
         <title>網路 - tag - 隨手筆記</title>
         <link>https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/</link>
         <description>網路 - tag - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sun, 21 Jun 2020 19:54:10 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" rel="self" type="application/rss+xml" /><item>
     <title>NS3 Cpp Basic</title>
-    <link>https://shihchun.github.io/2020/06/ns3-cpp-basic/</link>
+    <link>https://shihchun.github.io/ns3-cpp-basic/</link>
     <pubDate>Sun, 21 Jun 2020 19:54:10 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/ns3-cpp-basic/</guid>
+    <guid>https://shihchun.github.io/ns3-cpp-basic/</guid>
     <description><![CDATA[NS3有很多文檔都是用gnuplot做繪圖的，這裏Run一個範例，試着在ns3製圖，動態鏈結感覺好用很多，不過暫時還是先存成csv再用mat]]></description>
 </item><item>
     <title>Aqua-Sim NS3.29 安裝</title>
-    <link>https://shihchun.github.io/2020/06/aqua-sim/</link>
+    <link>https://shihchun.github.io/aqua-sim/</link>
     <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/aqua-sim/</guid>
+    <guid>https://shihchun.github.io/aqua-sim/</guid>
     <description><![CDATA[Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認]]></description>
 </item><item>
     <title>ACL Packet Tracert Cisco CLI</title>
-    <link>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</link>
+    <link>https://shihchun.github.io/acl-packet-tracert-cisco-cli/</link>
     <pubDate>Sat, 15 Apr 2017 02:28:58 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</guid>
+    <guid>https://shihchun.github.io/acl-packet-tracert-cisco-cli/</guid>
     <description><![CDATA[提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 1 2 3 4 5 6 7 [Router]$confi Configuring from]]></description>
 </item></channel>
 </rss>

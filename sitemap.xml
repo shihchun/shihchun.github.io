@@ -3,51 +3,52 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
             <loc>https://shihchun.github.io/posts/</loc><lastmod>2020-06-28T20:20:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/2020/06/mindmap/</loc><lastmod>2020-06-28T20:20:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/2020/06/hugo_chart_test/</loc><lastmod>2020-06-27T13:29:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://shihchun.github.io/new/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/mindmap/</loc><lastmod>2020-06-28T20:20:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://shihchun.github.io/hugo_chart_test/</loc><lastmod>2020-06-27T13:29:30&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://shihchun.github.io/categories/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://shihchun.github.io/2020/06/ns3-cpp-basic/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://shihchun.github.io/ns3-cpp-basic/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>https://shihchun.github.io/tags/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/</loc><lastmod>2020-06-21T19:54:10&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://shihchun.github.io/2020/06/aqua-sim/</loc><lastmod>2020-06-04T17:49:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>https://shihchun.github.io/aqua-sim/</loc><lastmod>2020-06-04T17:49:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://shihchun.github.io/tags/python/</loc><lastmod>2020-01-31T19:43:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/python/</loc><lastmod>2020-01-31T19:43:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2020/01/jupyter/</loc><lastmod>2020-01-31T19:43:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/jupyter/</loc><lastmod>2020-01-31T19:43:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/</loc><lastmod>2020-01-31T19:43:16&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/duelboot/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/linux/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/macbook/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/manjaro/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2020/01/duelboot/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/duelboot/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/windows/</loc><lastmod>2020-01-18T19:36:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2020/01/jack2/</loc><lastmod>2020-01-13T14:47:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/jack2/</loc><lastmod>2020-01-13T14:47:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/hugo/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/hugo/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/mathjax/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2020/01/hugo-math/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/hugo-math/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/about/</loc><lastmod>2020-01-11T17:53:25&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/</loc><lastmod>2020-01-11T17:53:25&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/git/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/git/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2019/02/git-set/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/git-set/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/kvm/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2018/10/kvm/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/kvm/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/libvirt/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/qemu/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/vm/</loc><lastmod>2018-10-30T19:04:06&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/ffmpeg/</loc><lastmod>2017-05-04T10:27:01&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/gource/</loc><lastmod>2017-05-04T10:27:01&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/gource/</loc><lastmod>2017-05-04T10:27:01&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/05/gource-github-log-visualization/</loc><lastmod>2017-05-04T10:27:01&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/gource-github-log-visualization/</loc><lastmod>2017-05-04T10:27:01&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</loc><lastmod>2017-04-27T18:44:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</loc><lastmod>2017-04-27T18:44:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</loc><lastmod>2017-04-27T18:44:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-27T18:44:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</loc><lastmod>2017-04-27T17:17:25&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</loc><lastmod>2017-04-26T18:34:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-26T14:11:20&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</loc><lastmod>2017-04-15T02:28:58&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:40:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:39:37&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:38:50&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc><lastmod>2017-04-14T01:38:03&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+            <loc>https://shihchun.github.io/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</loc><lastmod>2017-04-27T17:17:25&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</loc><lastmod>2017-04-26T18:34:29&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-26T14:11:20&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/acl-packet-tracert-cisco-cli/</loc><lastmod>2017-04-15T02:28:58&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:40:11&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:39:37&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</loc><lastmod>2017-04-14T01:38:50&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc><lastmod>2017-04-14T01:38:03&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

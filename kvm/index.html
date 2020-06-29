@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>kvm 安裝 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="kvm 安裝" />
+<meta property="og:description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/kvm/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2018-10-30T19:04:06+00:00" />
+<meta property="article:modified_time" content="2018-10-30T19:04:06+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="kvm 安裝"/>
+<meta name="twitter:description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/kvm/" /><link rel="prev" href="https://shihchun.github.io/gource-github-log-visualization/" /><link rel="next" href="https://shihchun.github.io/git-set/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "kvm 安裝",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/kvm\/"
+        },"genre": "posts","keywords": "vm, kvm, libvirt, qemu","wordcount":  1292 ,
+        "url": "https:\/\/shihchun.github.io\/kvm\/","datePublished": "2018-10-30T19:04:06+00:00","dateModified": "2018-10-30T19:04:06+00:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">kvm 安裝</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-category"></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2018-10-30">2018-10-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#kvm">KVM</a>
+      <ul>
+        <li><a href="#how-it-works">How it works</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation-kvm">Installation KVM</a>
+      <ul>
+        <li><a href="#vnc-server">vnc server</a></li>
+      </ul>
+    </li>
+    <li><a href="#virsh-list-查看啟動刪除-kvm">virsh list 查看/啟動/刪除 kvm</a></li>
+    <li><a href="#虛擬機管理">虛擬機管理</a></li>
+    <li><a href="#虛擬機網路管理">虛擬機網路管理</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="kvm">KVM</h1>
+<p>KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor.</p>
+<p>&hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計算，實現位置監控以及自動化</p>
+<!-- more -->
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Kernel-based_Virtual_Machine.svg"
+        data-srcset="/media/Kernel-based_Virtual_Machine.svg, /media/Kernel-based_Virtual_Machine.svg 1.5x, /media/Kernel-based_Virtual_Machine.svg 2x"
+        data-sizes="auto"
+        alt="/media/Kernel-based_Virtual_Machine.svg"
+        title="KVM structure" /></p>
+<h2 id="how-it-works">How it works</h2>
+<p>It works with</p>
+<p>GNU / LINUX</p>
+<ul>
+<li>User Space</li>
+<li>Kernel Space</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># top</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通常如果User Space使用率高是正常的，如果Kernel Space（sys）的部分使用率過高的話就要注意一下了。</p>
+<script id="asciicast-nXUBDZIFTOYryF3lr9k9Vwr7S" src="https://asciinema.org/a/nXUBDZIFTOYryF3lr9k9Vwr7S.js" async></script>
+<p>而KVM的虛擬機virtual machine就是透過QEMU去做安裝的，如果要使用虛擬機KVM的話用像VMware一樣有嵌套虛擬化的VM工具，可以在虛擬機下面執行虛擬機，還有V-td（Intel）的功能也要打開，AMD系列主機板則是AMD-V。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># kvm -qemu</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/qemu.JPG"
+        data-srcset="/media/qemu.JPG, /media/qemu.JPG 1.5x, /media/qemu.JPG 2x"
+        data-sizes="auto"
+        alt="/media/qemu.JPG"
+        title="kvm QEMU" /></p>
+<h1 id="installation-kvm">Installation KVM</h1>
+<p>Determine the if Hardware virtualization is Enabled or not.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># grep -E &#39;(vmx|svm)&#39; /proc/cpuinfo 
+or
+# egrep &#34;vmx|svm&#34; /proc/cpuinfo
+</code></pre></td></tr></table>
+</div>
+</div><p>kvm需要安裝<code>qemu-kvm</code>、<code>libvirt</code>，kvm就不用說明了，libvirt是做虛擬機管理用的。</p>
+<p>使用指令建立虛擬機的優點就是可以選擇建立的各個參數，例如磁碟鏡像使用raw聽說是相對而言最快的，但是virt-manager卻只可以建立建立qcow2，當然格式這些可以互相轉換。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install qemu-kvm libvirt-bin virtinst
+$ systemctl <span class="nb">enable</span> libvirtd
+$ systemctl start libvirtd
+$
+<span class="c1">## 建立10GB的虛擬硬碟</span>
+qemu-img create -f qcow2 /var/lib/libvirt/images/ubuntu_vm1.qcow2 10G
+qemu-img info ubuntu_vm1.qcow2
+<span class="c1">## 用virtinst 安裝 （預設vnc port=5900）</span>
+$ virt-install --virt-type kvm --name ubuntu_vm1 --ram <span class="m">1024</span> <span class="se">\
+</span><span class="se"></span>--cdrom<span class="o">=</span>/opt/ubuntu-18.04.1-desktop-amd64.iso <span class="se">\
+</span><span class="se"></span>--disk /var/lib/libvirt/images/ubuntu_vm1.qcow2,format<span class="o">=</span>qcow2,format<span class="o">=</span>qcow2,size<span class="o">=</span>10,sparse<span class="o">=</span>true<span class="p">|</span><span class="nb">false</span> <span class="se">\
+</span><span class="se"></span>--network <span class="nv">network</span><span class="o">=</span>default <span class="se">\
+</span><span class="se"></span>--graphics vnc,listen<span class="o">=</span>0.0.0.0 --noautoconsole <span class="se">\
+</span><span class="se"></span>--os-type<span class="o">=</span>linux --os-variant<span class="o">=</span>ubuntutrusty
+
+WARNING  No operating system detected, VM performance may suffer. Specify an OS with --os-variant <span class="k">for</span> optimal results.
+ERROR    Couldn<span class="s1">&#39;t create storage volume &#39;</span>ubuntu_vm1.qcow2<span class="s1">&#39;: &#39;</span><span class="o">[</span>Errno 32<span class="o">]</span> Broken pipe<span class="err">&#39;</span>
+Domain installation does not appear to have been successful.
+If it was, you can restart your domain by running:
+  virsh --connect qemu:///system start ubuntu_vm1
+
+<span class="c1">## 重新執行一次</span>
+
+$ virsh --connect qemu:///system start ubuntu_vm1
+$ virt-install --virt-type kvm --name ubuntu_vm1 --ram <span class="m">1024</span> <span class="se">\
+</span><span class="se"></span>--cdrom<span class="o">=</span>/opt/ubuntu-18.04.1-desktop-amd64.iso <span class="se">\
+</span><span class="se"></span>--disk /var/lib/libvirt/images/ubuntu_vm1.qcow2,format<span class="o">=</span>qcow2,format<span class="o">=</span>qcow2,size<span class="o">=</span>10,sparse<span class="o">=</span>true<span class="p">|</span><span class="nb">false</span> <span class="se">\
+</span><span class="se"></span>--network <span class="nv">network</span><span class="o">=</span>default <span class="se">\
+</span><span class="se"></span>--graphics vnc,listen<span class="o">=</span>0.0.0.0 --noautoconsole <span class="se">\
+</span><span class="se"></span>--os-type<span class="o">=</span>linux --os-variant<span class="o">=</span>ubuntutrusty
+
+<span class="c1">## 格式轉換 ： qcow2 , qed , raw , vdi , vpc , vmdk</span>
+<span class="c1">## The qcow2 type can be created if the qemu-img tool is present. The others are dependent on support of the qemu-img tool.</span>
+
+<span class="c1"># example kvm -&gt; vmware</span>
+$ qemu-img convert -f raw -O vmdk -p windows.raw /run/media/geek/2TB/Virtual<span class="se">\ </span>Machines/Windows/windows.vmdk
+$ vmkfstools -i windows.vmdk -d thin windows_transfered.vmdk
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/kvm_install2.JPG"
+        data-srcset="/media/kvm_install2.JPG, /media/kvm_install2.JPG 1.5x, /media/kvm_install2.JPG 2x"
+        data-sizes="auto"
+        alt="/media/kvm_install2.JPG"
+        title="kvm 安裝" /></p>
+<p>在經過折騰一陣之後我發現直接用<code>virt-manager</code>安裝就行了，指令安裝可能有它的好處在吧！</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install qemu-kvm libvirt-bin virtinst virt-manager
+$ systemctl <span class="nb">enable</span> libvirtd
+$ systemctl start libvirtd
+$ virt-manager
+<span class="c1"># 圖形界面</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/kvm_install.JPG"
+        data-srcset="/media/kvm_install.JPG, /media/kvm_install.JPG 1.5x, /media/kvm_install.JPG 2x"
+        data-sizes="auto"
+        alt="/media/kvm_install.JPG"
+        title="kvm manager" /></p>
+<h2 id="vnc-server">vnc server</h2>
+<p>安裝vnc server，並且啟動vncserver，可以在遠端透過vnc遙控vm主機</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt install xfce4 xfce4-goodies
+$ sudo apt install tightvncserver
+$ vncserver
+
+You will require a password to access your desktops.
+
+Password: 
+Verify:   
+Would you like to enter a view-only password <span class="o">(</span>y/n<span class="o">)</span>? y
+Password: 
+Verify:   
+
+New <span class="s1">&#39;X&#39;</span> desktop is geek-virtual-machine:1
+
+Creating default startup script /home/geek/.vnc/xstartup
+Starting applications specified in /home/geek/.vnc/xstartup
+Log file is /home/geek/.vnc/geek-virtual-machine:1.log
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="virsh-list-查看啟動刪除-kvm">virsh list 查看/啟動/刪除 kvm</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ virsh list --all
+ Id    Name                           State
+----------------------------------------------------
+ -     ubuntu_vm1                     shut off
+$ virsh start ubuntu_vm1
+Domain ubuntu_vm1 started
+
+<span class="c1">## 如果要刪除 KVM</span>
+$ virsh undefine ubuntu_vm1 --remove-all-storage
+Domain ubuntu_vm1 has been undefined
+Volume <span class="s1">&#39;hda&#39;</span><span class="o">(</span>/opt/ubuntu_vm1.qcow2<span class="o">)</span> removed.
+
+<span class="c1">## 遠端連線範例</span>
+$ virsh --connect qemu+ssh://geek@192.168.59.129/system list --all
+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="虛擬機管理">虛擬機管理</h1>
+<p>libvirt管理虛擬機有一個很大的優點，就是在管理的過程中，如果libvirt不動作了，不會影響到KVM，他們沒有依賴關係。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">pwd</span>
+/etc/libvirt/qemu
+$ ll
+total 12K
+drwxr-xr-x <span class="m">3</span> root root 4.0K Oct <span class="m">31</span> 23:01 networks
+-rw------- <span class="m">1</span> root root 4.1K Nov  <span class="m">1</span> 20:22 ubuntu_vm1.xml
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--
+</span><span class="c">WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+</span><span class="c">OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+</span><span class="c">  virsh edit ubuntu_vm1
+</span><span class="c">or other application using the libvirt API.
+</span><span class="c">--&gt;</span>
+
+<span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">&#39;kvm&#39;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;name&gt;</span>ubuntu_vm1<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;uuid&gt;</span>eb6f6313-ba45-4255-8df3-89773ef183b4<span class="nt">&lt;/uuid&gt;</span>
+  <span class="nt">&lt;memory</span> <span class="na">unit=</span><span class="s">&#39;KiB&#39;</span><span class="nt">&gt;</span>1048576<span class="nt">&lt;/memory&gt;</span>
+.
+.
+.
+</code></pre></td></tr></table>
+</div>
+</div><p>在<code>etc</code>目錄下面<code>libvirt</code>個設定檔案，告訴我們說他的設定是自動生成的，要我們自行去用指令做設定。</p>
+<p>ip addr del dev eth0 192.168.56.32/24</p>
+<h1 id="虛擬機網路管理">虛擬機網路管理</h1>
+<p>libvert networking 可以使用Linux Virtual Networking的virtual network switch來達到layer2使用TAP指令、layer3 使用TUN(tunnel) 指令。</p>
+<p>&hellip;..To be continue</p>
+</div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/kvm/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/kvm/" data-title="kvm 安裝" data-via="xxxx" data-hashtags="vm,kvm,libvirt,qemu"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/kvm/" data-hashtag="vm"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/kvm/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/kvm/" data-title="kvm 安裝"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/kvm/" data-title="kvm 安裝"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/kvm/" data-title="kvm 安裝" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/kvm/" data-title="kvm 安裝"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vm/">vm</a>,&nbsp;<a href="/tags/kvm/">kvm</a>,&nbsp;<a href="/tags/libvirt/">libvirt</a>,&nbsp;<a href="/tags/qemu/">qemu</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/gource-github-log-visualization/" class="prev" rel="prev" title="Gource — GitHub Log Visualization"><i class="fas fa-angle-left fa-fw"></i>Gource — GitHub Log Visualization</a>
+            <a href="/git-set/" class="next" rel="next" title="Git 使用">Git 使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"","link":"","message":""},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

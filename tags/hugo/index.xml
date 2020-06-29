@@ -3,13 +3,13 @@
         <title>hugo - tag - 隨手筆記</title>
         <link>https://shihchun.github.io/tags/hugo/</link>
         <description>hugo - tag - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 11 Jan 2020 18:51:35 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>從Hexo到Hugo</title>
-    <link>https://shihchun.github.io/2020/01/hugo-math/</link>
+    <link>https://shihchun.github.io/hugo-math/</link>
     <pubDate>Sat, 11 Jan 2020 18:51:35 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/hugo-math/</guid>
+    <guid>https://shihchun.github.io/hugo-math/</guid>
     <description><![CDATA[原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明]]></description>
 </item></channel>
 </rss>

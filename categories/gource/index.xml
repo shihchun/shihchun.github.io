@@ -3,13 +3,13 @@
         <title>gource - category - 隨手筆記</title>
         <link>https://shihchun.github.io/categories/gource/</link>
         <description>gource - category - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Thu, 04 May 2017 10:27:01 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/categories/gource/" rel="self" type="application/rss+xml" /><item>
     <title>Gource — GitHub Log Visualization</title>
-    <link>https://shihchun.github.io/2017/05/gource-github-log-visualization/</link>
+    <link>https://shihchun.github.io/gource-github-log-visualization/</link>
     <pubDate>Thu, 04 May 2017 10:27:01 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/05/gource-github-log-visualization/</guid>
+    <guid>https://shihchun.github.io/gource-github-log-visualization/</guid>
     <description><![CDATA[Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&lt;(￣︶￣)↗]]></description>
 </item></channel>
 </rss>

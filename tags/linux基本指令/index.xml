@@ -3,13 +3,13 @@
         <title>Linux基本指令 - tag - 隨手筆記</title>
         <link>https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/</link>
         <description>Linux基本指令 - tag - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Thu, 27 Apr 2017 18:44:11 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" rel="self" type="application/rss+xml" /><item>
     <title>Linux 掛載命令</title>
-    <link>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
     <pubDate>Thu, 27 Apr 2017 18:44:11 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
     <description><![CDATA[<h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
 <p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
 <div class="highlight"><div class="chroma">
@@ -39,52 +39,52 @@ tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</sp
 </div>]]></description>
 </item><item>
     <title>Linux 關機重啟命令</title>
-    <link>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</link>
     <pubDate>Thu, 27 Apr 2017 17:17:25 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</guid>
     <description><![CDATA[shutdown shutdown [option] [time] option: -c 取消關機命令 -h 關機 -r 重新開機 1 2 $ shutdown now $ shutdown -r now 1 2 3 4 5 6 7 8 9 10 11 [cyberjun@localhost ~]$ shutdown -r 05:30 Must be root. [cyberjun@localhost ~]$ su 密碼： [root@localhost cyberjun]# shutdown -r 05:30 Shutdown scheduled for 五 2017-04-28 05:30:00 CST, use &#39;shutdown -c&#39; to]]></description>
 </item><item>
     <title>Linux 壓縮與解壓縮</title>
-    <link>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</link>
+    <link>https://shihchun.github.io/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</link>
     <pubDate>Wed, 26 Apr 2017 18:34:29 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
+    <guid>https://shihchun.github.io/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
     <description><![CDATA[檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的]]></description>
 </item><item>
     <title>Linux 幫助指令</title>
-    <link>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</link>
     <pubDate>Wed, 26 Apr 2017 14:11:20 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
     <description><![CDATA[Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 1 $ man ls 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26]]></description>
 </item><item>
     <title>Linux 文件搜索指令</title>
-    <link>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</link>
     <pubDate>Fri, 14 Apr 2017 01:40:11 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</guid>
     <description><![CDATA[不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知]]></description>
 </item><item>
     <title>Linux 鍵結指令</title>
-    <link>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</link>
     <pubDate>Fri, 14 Apr 2017 01:39:37 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</guid>
     <description><![CDATA[ln [option] [source file] [target file] 選項 -s 建立軟鏈接 鏈接指令分為硬鏈接和軟連接，沒有加上任何選項，軟鏈接要加上-s 硬鏈接 硬鏈接的特征 硬鏈接和原本文件有相同的inod]]></description>
 </item><item>
     <title>Linux目錄指令</title>
-    <link>https://shihchun.github.io/2017/04/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</link>
+    <link>https://shihchun.github.io/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</link>
     <pubDate>Fri, 14 Apr 2017 01:38:50 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</guid>
+    <guid>https://shihchun.github.io/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/</guid>
     <description><![CDATA[mkdir 目錄創建 mkdir [option] [parameter] 選項 -p遞歸創建（創建/Gumdan/...） 1 [user@localhost~]$ mkdir ~/Desktop/Gumdan 1 2 [user@localhost~]$ mkdir ~/Desktop/Gumdan/season mkdir: /Users/Gumdam/Desktop/Gumdan: No such file or directory 1 [user@localhost~]$ mkdir -p ~/Desktop/Gumdan/season 當要創建/Gumdan/season]]></description>
 </item><item>
     <title>Linux命令基本格式</title>
-    <link>https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</link>
+    <link>https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</link>
     <pubDate>Fri, 14 Apr 2017 01:38:03 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2017/04/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</guid>
+    <guid>https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/</guid>
     <description><![CDATA[1 [root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般]]></description>
 </item></channel>
 </rss>

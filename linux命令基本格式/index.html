@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linux命令基本格式 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Linux命令基本格式" />
+<meta property="og:description" content="1 [root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2017-04-14T01:38:03+00:00" />
+<meta property="article:modified_time" content="2017-04-14T01:38:03+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="Linux命令基本格式"/>
+<meta name="twitter:description" content="1 [root@localhost~]# 其中表示意義如下表： 標記 意義 root： 當前登錄的目錄 localhost 主機名稱 ~ 家目錄（這個位置放當前所在目錄） # 表示超級用戶（普通用戶為$） $ 表示一般"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" /><link rel="next" href="https://shihchun.github.io/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux命令基本格式",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F\/"
+        },"genre": "posts","keywords": "Linux 學習筆記, Linux基本指令","wordcount":  2072 ,
+        "url": "https:\/\/shihchun.github.io\/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F\/","datePublished": "2017-04-14T01:38:03+00:00","dateModified": "2017-04-14T01:38:03+00:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linux命令基本格式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-category"></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2017-04-14">2017-04-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pwd">pwd</a></li>
+        <li><a href="#命令格式">命令格式</a></li>
+        <li><a href="#ls--a">ls -a</a></li>
+        <li><a href="#ls--l">ls -l</a>
+          <ul>
+            <li><a href="#權限">權限</a></li>
+          </ul>
+        </li>
+        <li><a href="#ls--d">ls -d</a></li>
+        <li><a href="#ls--h">ls -h</a>
+          <ul>
+            <li><a href="#ls--lh-等於-ll">ls -lh 等於 ll</a></li>
+            <li><a href="#ls--i">ls -i</a>
+              <ul>
+                <li><a href="#inode-number-介紹">inode number 介紹</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~<span class="o">]</span>#
+</code></pre></td></tr></table>
+</div>
+</div><p>其中表示意義如下表：</p>
+<table>
+<thead>
+<tr>
+<th>標記</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root：</td>
+<td>當前登錄的目錄</td>
+</tr>
+<tr>
+<td>localhost</td>
+<td>主機名稱</td>
+</tr>
+<tr>
+<td>~</td>
+<td>家目錄（這個位置放當前所在目錄）</td>
+</tr>
+<tr>
+<td>#</td>
+<td>表示超級用戶（普通用戶為$）</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>表示一般使用者</td>
+</tr>
+</tbody>
+</table>
+<!-- more -->
+<h2 id="pwd">pwd</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># pwd</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>pwd</code>指令可以顯示當前的絕對路徑，所以如果我在<code>~</code>的目錄下面使用<code>pwd</code>的話，用該要顯示<code>/root/home/</code>這個家目錄才對。</p>
+<h2 id="命令格式">命令格式</h2>
+<p>命令  [option]  [parameter]</p>
+<p>其中選項（Option）又分為簡化選項和完整選項比如<code>ls</code>中的簡化選項<code>-a</code>的完整選項就是<code>--all</code>，簡化選項和完整選項的功能是一樣的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ls  <span class="o">[</span>Option<span class="o">]</span>  <span class="o">[</span>file or directory<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>選項：</p>
+<ul>
+<li><code>-a</code>  顯示所有文件，包括隱藏文件</li>
+<li><code>-l</code>  顯示詳細訊息</li>
+<li><code>-d</code>  查看目錄屬性</li>
+<li><code>-h</code>  人性化的顯示文件大小（2023389-&gt;1.9M）</li>
+<li><code>-i</code>  顯示inode number</li>
+</ul>
+<h2 id="ls--a">ls -a</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># ls -a</span>
+      anaconda-ks.cfg     .bash_profile   .cshrc
+</code></pre></td></tr></table>
+</div>
+</div><p>Linux裡面(.)開頭的文件就是隱藏文件，這個指令下了之後會顯示所有文件，包括隱藏的文件，在上面的範例之中<code>.cshrc</code>就是隱藏文件。</p>
+<h2 id="ls--l">ls -l</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls -l</span>
+-rwxrwxrwx@ <span class="m">1</span>     root  staff    <span class="m">7056122</span>  <span class="m">8</span> <span class="m">11</span>  <span class="m">2015</span> the-swift.pdf
+drwxr-xr-x  <span class="m">4</span>     root  staff        <span class="m">136</span>  <span class="m">3</span>  <span class="m">8</span> 20:21 Rmd to pptx
+<span class="c1">#權限 #軟連接次數  #所文件用者     ##檔案大小  ##日期    ##檔案名稱</span>
+      <span class="c1">#引用計數           ##檔案大小不人性化</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="權限">權限</h3>
+<p><code>-</code>rw&ndash;r&ndash;r&ndash;</p>
+<p>在說權限之前，要先比較一下Linux和Windows之間文件類型，Linux不像是Windows有明顯區分擴展名，Linux的軟體、硬體都是以文件形式儲存的，不管是目錄、設備&hellip;都是以文件的方式儲存的，他們的差別就只有權限。</p>
+<p>權限默認一般有十位的字，其中第一位<code>-</code>為文件類型，文件類型最常見的有三個分別是文件<code>-</code>、目錄<code>d</code>、軟連接文件<code>l</code>，後面九個數字分別代表各種用戶所持有的權限，每三位數為一組，分別為檔案擁有者、加入此群組之帳號的權限、非本人且沒有加入本群組之其他帳號的權限，簡略的說有三個組：u所屬者、g所屬組、o其他人，而顯示的字符有讀（r）、寫（w）、執行（x）三種權限。</p>
+<p>權限說白了就是文件和用戶之間的關係，明確各個身份所持有的權限（讀、寫、執行）</p>
+<p>其實文件類型除了這些以外還有四種文件類型塊設備文件<code>b</code>、字符設備文件<code>c</code>、套接字文件<code>s</code>、管道文件<code>p</code>，但是並不常用只要大概知道就可以了，因為這些內容不需要普通用戶做操作。</p>
+<p>最近的Linux權限有時候在十個位數後面會有一個(<code>.</code>),例如：<code>-</code>rw&ndash;r&ndash;r&ndash;.，這個(<code>.</code>)官方並沒有明確定義，但是在使用經驗上面知道這個大概是代表（ACL權限），除此之外在Mac OS上面甚至還有<code>@</code>，例如：-rw-r&ndash;r&ndash;@，這些類型大概知道一下就可以了。</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>rw-</th>
+<th>r&ndash;</th>
+<th>r&ndash;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-</code>、<code>d</code>、<code>l</code></td>
+<td>u所屬者</td>
+<td>g所屬組</td>
+<td>o其他人</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ls--d">ls -d</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls -d</span>
+.
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls -ld</span>
+drwxr-xr-x+ <span class="m">53</span> Gumdam  staff  <span class="m">1802</span>  <span class="m">3</span> <span class="m">11</span> 16:46 .
+</code></pre></td></tr></table>
+</div>
+</div><p><code>-d</code>這個選項單獨使用時是沒有意義的，因為<code>ls -l</code>並沒有辦法顯示當前目錄的資料，因為我的Desktop沒有檔案，所以沒有任何的資訊，Linux當中目錄也是檔案，而這個檔案的權限我們無法得知，而這個<code>-d</code>可以讓我們可以查看目錄的屬性。</p>
+<h2 id="ls--h">ls -h</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls -h</span>
+Adlm                 Downloads            Untitled-figure
+Applications         Library              Untitled.Rpres
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls -lh \dev</span>
+crw-------  <span class="m">1</span> root         wheel           13,   <span class="m">1</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 afsc_type5
+crw-rw-rw-  <span class="m">1</span> root         wheel           18,   <span class="m">1</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 cu.Bluetooth-Incoming-Port
+brw-r-----  <span class="m">1</span> root         operator         1,   <span class="m">0</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 disk0
+brw-r-----  <span class="m">1</span> root         operator         1,   <span class="m">1</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 disk0s1
+brw-r-----  <span class="m">1</span> root         operator         1,   <span class="m">3</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 disk0s2
+brw-r-----  <span class="m">1</span> root         operator         1,   <span class="m">2</span>  <span class="m">3</span>  <span class="m">7</span> 21:10 disk0s3
+<span class="c1">### ....etc</span>
+<span class="c1">###權限                              ##檔案大小人性化</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>-h</code>這個選項單獨使用時是沒有什麼意義的，因為這個選項是讓我的<code>ls</code>指令中的內容可以人性化的顯示檔案大小，但是單是在<code>ls -h</code>這個指令下面並不會有檔案大小所以使用的效果和<code>ls</code>是一樣的。</p>
+<h3 id="ls--lh-等於-ll">ls -lh 等於 ll</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## ls -lh 等同 ll</span>
+<span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># type -a ll</span>
+ll is an <span class="nb">alias</span> <span class="k">for</span> ls -lh
+</code></pre></td></tr></table>
+</div>
+</div><p>這兩個指令是等同的，可以使用搜索指令去查<code>ll</code>會顯示如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## which 查詢命令的別名（wereis 可查詢命令、幫助文檔的位置）</span>
+<span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># which ll</span>
+ll: aliased to ls -lh
+</code></pre></td></tr></table>
+</div>
+</div><p>除了這個樣子查詢以外，還可以使用<code>alias</code>透過指令的別名查詢指令指令的全名，比如我看到一個叫做<code>gstd</code>的指令，我不知道它是什麼指令，我就可以使用<code>alias</code>來查詢：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># alias _</span>
+<span class="nv">_</span><span class="o">=</span>sudo
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ls--i">ls -i</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># ls -i  ~/Desktop</span>
+<span class="m">3355431</span> <span class="nv">$RECYCLE</span>.BIN
+ <span class="m">454344</span> -the-swift-programming-language-.pdf
+<span class="m">4753760</span> Orphans no Namida.mp3
+ <span class="m">453557</span> Command_line.pdf
+<span class="c1">#inode number  #filename</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="inode-number-介紹">inode number 介紹</h4>
+<p>Unix的時候，利用inode來取資料的方式就已經有了，在Linux上面也是使用這種資料查找資料，在Linux上面每一個檔案都有一個inode number，就大家所知道的檔案儲存在硬碟的位置是不固定的，首先，假設你的硬碟被格式化成了ex4檔案系統，會建立一個inocde table查找表，你的硬碟被切成了好幾個等大小的數據塊，每一個數據塊可以儲存4KB的檔案，如果我有一個10KB的檔案儲存了進去，它並不會連續的儲存，假設它分別儲存了4KB在Proc A、4KB在Proc B、2KB在Proc C。</p>
+<p>講到這裡有一個問題，我這個10KB的文件儲存了進去有一個區塊只有儲存2KB的資料，那麼這個區塊還可以儲存其他的資料嗎？答案是不行的，有興趣可以自己去研究，數據塊不是只能切成每4KB一個區塊，默認是4KB，但是其實是可以0KB、2KB、4KB三種的。</p>
+<p>在查找表裡面會記錄inode nuber（ID號碼）、修改時間、權限以及要抓資料的區塊位置。Linux中檔案在開啟的時候就是利用這個概念去抓資料的，首先讀取到inode number，再確認權限，如果不匹配就直接拒絕，匹配的話就會把數據塊中的資料抓給使用者使用。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/uploads/linux/inode.jpg"
+        data-srcset="/uploads/linux/inode.jpg, /uploads/linux/inode.jpg 1.5x, /uploads/linux/inode.jpg 2x"
+        data-sizes="auto"
+        alt="/uploads/linux/inode.jpg"
+        title="圖3-1.1 Linux檔案系統抓資料示意圖" /></p>
+</div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-title="Linux命令基本格式" data-via="xxxx" data-hashtags="Linux 學習筆記,Linux基本指令"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-hashtag="Linux 學習筆記"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-title="Linux命令基本格式"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-title="Linux命令基本格式"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-title="Linux命令基本格式" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" data-title="Linux命令基本格式"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">Linux 學習筆記</a>,&nbsp;<a href="/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/">Linux基本指令</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/linux%E7%9B%AE%E9%8C%84%E6%8C%87%E4%BB%A4/" class="next" rel="next" title="Linux目錄指令">Linux目錄指令<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"","link":"","message":""},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

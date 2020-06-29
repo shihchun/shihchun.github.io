@@ -3,13 +3,13 @@
         <title>macbook - tag - 隨手筆記</title>
         <link>https://shihchun.github.io/tags/macbook/</link>
         <description>macbook - tag - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 18 Jan 2020 19:36:48 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/tags/macbook/" rel="self" type="application/rss+xml" /><item>
     <title>Manjaro 雙系統安裝</title>
-    <link>https://shihchun.github.io/2020/01/duelboot/</link>
+    <link>https://shihchun.github.io/duelboot/</link>
     <pubDate>Sat, 18 Jan 2020 19:36:48 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/duelboot/</guid>
+    <guid>https://shihchun.github.io/duelboot/</guid>
     <description><![CDATA[切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁]]></description>
 </item></channel>
 </rss>

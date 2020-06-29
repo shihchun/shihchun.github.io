@@ -2,79 +2,105 @@
     <channel>
         <title>隨手筆記</title>
         <link>https://shihchun.github.io/</link>
-        <description>隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <description>这是我的全新 Hugo 网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 11 Jan 2020 17:53:25 &#43;0800</lastBuildDate>
             <atom:link href="https://shihchun.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>我的第一篇文章</title>
+    <link>https://shihchun.github.io/new/</link>
+    <pubDate>Tue, 30 Jun 2020 02:03:36 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/new/</guid>
+    <description><![CDATA[<h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
+<p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># mount</span>
+sysfs on /sys <span class="nb">type</span> sysfs <span class="o">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span class="o">)</span>
+proc on /proc <span class="nb">type</span> proc <span class="o">(</span>rw,nosuid,nodev,noexec,relatime<span class="o">)</span>
+devtmpfs on /dev <span class="nb">type</span> devtmpfs <span class="o">(</span>rw,nosuid,seclabel,size<span class="o">=</span>231216k,nr_inodes<span class="o">=</span>57804,mode<span class="o">=</span>755<span class="o">)</span>
+.
+.
+.
+/dev/sda1 on /boot <span class="nb">type</span> xfs <span class="o">(</span>rw,relatime,seclabel,attr2,inode64,noquota<span class="o">)</span>
+tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</span>rw,nosuid,nodev,relatime,seclabel,size<span class="o">=</span>48388k,mode<span class="o">=</span>700,uid<span class="o">=</span>1000,gid<span class="o">=</span>1000<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>ShortCode 整理</title>
-    <link>https://shihchun.github.io/2020/06/mindmap/</link>
+    <link>https://shihchun.github.io/mindmap/</link>
     <pubDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/mindmap/</guid>
+    <guid>https://shihchun.github.io/mindmap/</guid>
     <description><![CDATA[整理一下最近加入的shortcode，{{}}會錯誤所以都用{}代替，不然會變成這樣，今天換了Loveit發現主題內建了mermaid，所以]]></description>
 </item><item>
     <title>Plotly csv 讀取</title>
-    <link>https://shihchun.github.io/2020/06/hugo_chart_test/</link>
+    <link>https://shihchun.github.io/hugo_chart_test/</link>
     <pubDate>Sat, 27 Jun 2020 13:29:30 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/hugo_chart_test/</guid>
+    <guid>https://shihchun.github.io/hugo_chart_test/</guid>
     <description><![CDATA[加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一]]></description>
 </item><item>
     <title>NS3 Cpp Basic</title>
-    <link>https://shihchun.github.io/2020/06/ns3-cpp-basic/</link>
+    <link>https://shihchun.github.io/ns3-cpp-basic/</link>
     <pubDate>Sun, 21 Jun 2020 19:54:10 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/ns3-cpp-basic/</guid>
+    <guid>https://shihchun.github.io/ns3-cpp-basic/</guid>
     <description><![CDATA[NS3有很多文檔都是用gnuplot做繪圖的，這裏Run一個範例，試着在ns3製圖，動態鏈結感覺好用很多，不過暫時還是先存成csv再用mat]]></description>
 </item><item>
     <title>Aqua-Sim NS3.29 安裝</title>
-    <link>https://shihchun.github.io/2020/06/aqua-sim/</link>
+    <link>https://shihchun.github.io/aqua-sim/</link>
     <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/06/aqua-sim/</guid>
+    <guid>https://shihchun.github.io/aqua-sim/</guid>
     <description><![CDATA[Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認]]></description>
 </item><item>
     <title>python 基本</title>
-    <link>https://shihchun.github.io/2020/01/jupyter/</link>
+    <link>https://shihchun.github.io/jupyter/</link>
     <pubDate>Fri, 31 Jan 2020 19:43:16 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/jupyter/</guid>
+    <guid>https://shihchun.github.io/jupyter/</guid>
     <description><![CDATA[JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 1 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &gt; bassic.md Part I 基礎不討論算法 Day1 1 2 3 # clear all variable in python import sys sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter]]></description>
 </item><item>
     <title>Manjaro 雙系統安裝</title>
-    <link>https://shihchun.github.io/2020/01/duelboot/</link>
+    <link>https://shihchun.github.io/duelboot/</link>
     <pubDate>Sat, 18 Jan 2020 19:36:48 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/duelboot/</guid>
+    <guid>https://shihchun.github.io/duelboot/</guid>
     <description><![CDATA[切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁]]></description>
 </item><item>
     <title>Jack2&#43;cadence 低延遲輸出</title>
-    <link>https://shihchun.github.io/2020/01/jack2/</link>
+    <link>https://shihchun.github.io/jack2/</link>
     <pubDate>Mon, 13 Jan 2020 14:47:28 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/jack2/</guid>
+    <guid>https://shihchun.github.io/jack2/</guid>
     <description><![CDATA[安裝Jack2、qJackCtl、cadence 我是使用Manjaro community的版本。 然後打開qjackCtl設備調整成地延遲的D]]></description>
 </item><item>
     <title>從Hexo到Hugo</title>
-    <link>https://shihchun.github.io/2020/01/hugo-math/</link>
+    <link>https://shihchun.github.io/hugo-math/</link>
     <pubDate>Sat, 11 Jan 2020 18:51:35 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2020/01/hugo-math/</guid>
+    <guid>https://shihchun.github.io/hugo-math/</guid>
     <description><![CDATA[原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明]]></description>
 </item><item>
     <title>Git 使用</title>
-    <link>https://shihchun.github.io/2019/02/git-set/</link>
+    <link>https://shihchun.github.io/git-set/</link>
     <pubDate>Mon, 18 Feb 2019 15:17:29 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2019/02/git-set/</guid>
+    <guid>https://shihchun.github.io/git-set/</guid>
     <description><![CDATA[編輯現有的project 1 2 3 4 5 6 $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &#34;commit message 可以寫做什麼修改&#34; ## 上傳 $ git push -u orgin master ## push 到叫做org]]></description>
-</item><item>
-    <title>kvm 安裝</title>
-    <link>https://shihchun.github.io/2018/10/kvm/</link>
-    <pubDate>Tue, 30 Oct 2018 19:04:06 &#43;0000</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/2018/10/kvm/</guid>
-    <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
 </item></channel>
 </rss>

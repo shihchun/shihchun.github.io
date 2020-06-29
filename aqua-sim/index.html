@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Aqua-Sim NS3.29 安裝 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Aqua-Sim NS3.29 安裝" />
+<meta property="og:description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/aqua-sim/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2020-06-04T17:49:36+08:00" />
+<meta property="article:modified_time" content="2020-06-04T17:49:36+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="Aqua-Sim NS3.29 安裝"/>
+<meta name="twitter:description" content="Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/aqua-sim/" /><link rel="prev" href="https://shihchun.github.io/jupyter/" /><link rel="next" href="https://shihchun.github.io/ns3-cpp-basic/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Aqua-Sim NS3.29 安裝",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/aqua-sim\/"
+        },"genre": "posts","keywords": "網路","wordcount":  2425 ,
+        "url": "https:\/\/shihchun.github.io\/aqua-sim\/","datePublished": "2020-06-04T17:49:36+08:00","dateModified": "2020-06-04T17:49:36+08:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre">@fas fa-pencil-alt</span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Aqua-Sim NS3.29 安裝</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-category"></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-06-04">2020-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#aqua-sim-安裝">Aqua-Sim 安裝</a></li>
+    <li><a href="#pyviz">PyViz</a></li>
+    <li><a href="#netanim">NetAnim</a></li>
+    <li><a href="#ns3-install">NS3 install</a>
+      <ul>
+        <li><a href="#ns3-in-wsl">NS3 in WSL</a></li>
+        <li><a href="#安裝anaconda-python3">安裝Anaconda (Python3)</a></li>
+        <li><a href="#mercurial-hg-clone">Mercurial hg clone</a></li>
+        <li><a href="#ns3-install-and-build-bassic">NS3 install and Build (Bassic)</a></li>
+        <li><a href="#waf-run-examples">waf Run Examples</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。</p>
+<p>我是使用Manjaro進行安裝的，在安裝之前必須先確認自己的電腦有沒有把需要的庫給安裝上了。</p>
+<p>我是參考AUR上面的依賴庫一個一個裝上去的，首先先讓NS3可以compile，然後才裝Aqua-sim。</p>
+<h1 id="aqua-sim-安裝">Aqua-Sim 安裝</h1>
+<p>之前測試了很多次GitHub上面的檔案，結果最後發現作者並沒有放在Github上面，是放在他的Wiki，而且改了170多個內容（GitLens看到），在安裝之前請先去確定你的NS3可以使用。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200604104358.png"
+        data-srcset="/media/Deepin_select-area_20200604104358.png, /media/Deepin_select-area_20200604104358.png 1.5x, /media/Deepin_select-area_20200604104358.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200604104358.png"
+        title="Deepin 截圖_select-area_20200604104358" /></p>
+<!-- more -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 方便debug 略過 unuse variable 之類的問題 cc1plus: all warnings being treated as errors</span>
+移除 ns3/build/c4che/_c4che.py 裏面的所有 -Werror
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">curl -O http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz
+tar-zxvf aquasim-ng.tgz
+<span class="nb">cd</span> aquasim-ng 
+<span class="o">(</span>base<span class="o">)</span> ➜  aquasim-ng tree -L <span class="m">1</span>
+.
+├── AquaSim-NG_Installation <span class="c1">#這裏提到要複製 onoff-application.h</span>
+├── bake
+├── build.py
+├── constants.py
+├── netanim-3.108
+├── ns-3.29
+├── pybindgen-0.17.0.post58+ngcf00cc0
+├── README
+└── util.py
+</code></pre></td></tr></table>
+</div>
+</div><p>所以使用這個去安裝</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> aquasim-ng/ns-3.29
+find ./src/applications/model/ -name <span class="s1">&#39;onoff-app*&#39;</span>
+./src/applications/model/onoff-application-random-destination.cc
+./src/applications/model/onoff-application-random-destination.h
+./src/applications/model/onoff-application.cc
+./src/applications/model/onoff-application.h
+cp ./src/applications/model/onoff-application.h ./build/ns3
+vim ./src/aqua-sim-ng/model/aqua-sim-signal-cache.cc <span class="c1"># creal-&gt; std::real, cexp-&gt;exp</span>
+
+./waf clean
+./waf configure --build-profile<span class="o">=</span>debug --enable-examples --enable-tests
+./waf <span class="c1"># build 要有 aqua-sim-ng</span>
+Waf: Entering directory <span class="sb">`</span>/run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/build<span class="s1">&#39;
+</span><span class="s1">wscript:166: Warning: (in /run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/src/aqua-sim-ng) Requested to build modular python bindings, but apidefs dir not found =&gt; skipped the bindings.
+</span><span class="s1">  &#34; just like &#39;</span>make<span class="s1">&#39; does by default.&#34;),
+</span><span class="s1">Waf: Leaving directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/aquasim-ng_manjaro/ns-3.29/build&#39;</span>
+Build commands will be stored in build/compile_commands.json
+<span class="s1">&#39;build&#39;</span> finished successfully <span class="o">(</span>45.893s<span class="o">)</span>
+
+Modules built:
+antenna                   aodv                      applications              
+aqua-sim-ng               bridge                    brite <span class="o">(</span>no Python<span class="o">)</span>         
+buildings                 config-store              core                      
+csma                      csma-layout               dsdv                      
+dsr                       energy                    fd-net-device             
+flow-monitor              internet                  internet-apps             
+lr-wpan                   lte                       mesh                      
+mobility                  mpi                       netanim <span class="o">(</span>no Python<span class="o">)</span>       
+network                   nix-vector-routing        olsr                      
+point-to-point            point-to-point-layout     propagation               
+sixlowpan                 spectrum                  stats                     
+tap-bridge                <span class="nb">test</span> <span class="o">(</span>no Python<span class="o">)</span>          topology-read             
+traffic-control           uan                       virtual-net-device        
+visualizer                wave                      wifi                      
+wimax                     
+
+Modules not built <span class="o">(</span>see ns-3 tutorial <span class="k">for</span> explanation<span class="o">)</span>:
+click                     openflow
+
+./test.py <span class="c1"># validating</span>
+<span class="m">623</span> of <span class="m">627</span> tests passed <span class="o">(</span><span class="m">623</span> passed, <span class="m">3</span> skipped, <span class="m">1</span> failed, <span class="m">0</span> crashed, <span class="m">0</span> valgrind errors<span class="o">)</span>
+List of SKIPped tests:
+    ns3-tcp-cwnd
+    ns3-tcp-interoperability
+    nsc-tcp-loss
+List of FAILed tests:
+    pcap-file <span class="c1"># 因爲沒有權限使用tcpdump</span>
+    
+    
+$ tcpdump
+tcpdump: wlp2s0: You don<span class="err">&#39;</span>t have permission to capture on that device
+<span class="o">(</span>socket: Operation not permitted<span class="o">)</span>
+$ su <span class="c1"># 用 --with-python=python2 configure好像會不能使用 --enable-sudo</span>
+./test.py <span class="c1"># validating</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Run Example</p>
+<p>waf-tool python pip 封裝原則上要在<code>/ns3/scratch/</code>這個資料夾執行</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cp -R src/aqua-sim-ng/examples/broadcastMAC_example.cc scratch/ 
+./waf --run scratch/broadcastMAC_example <span class="c1"># --vis</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200604173838.png"
+        data-srcset="/media/Deepin_select-area_20200604173838.png, /media/Deepin_select-area_20200604173838.png 1.5x, /media/Deepin_select-area_20200604173838.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200604173838.png"
+        title="Deepin 截圖_select-area_20200604173838" /></p>
+<h1 id="pyviz">PyViz</h1>
+<p>另外我測試了一下pyviz在上面build</p>
+<p>由於pyviz要用到pybindgen，這個東西是要用python2弄的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf configure --enable-tests --enables-examples --with-python<span class="o">=</span>python2
+...
+<span class="c1"># 看到Pyviz: enable 就行</span>
+./waf <span class="c1">#build</span>
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis <span class="c1">#Run sample</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>這個東西真的蠻酷的，有動畫的方式顯示做模擬，Node碰久一點還可以看ipaddr之類的模擬參數。</p>
+<p>或是使用Anaconda安裝<a href="https://anaconda.org/pyviz/pyviz" target="_blank" rel="noopener noreffer">PyViz</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">conda install -c pyviz pyviz
+./waf configure --enable-tests --enables-examples
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis <span class="c1">#Run sample</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_plasmashell_20200616015518.png"
+        data-srcset="/media/Deepin_plasmashell_20200616015518.png, /media/Deepin_plasmashell_20200616015518.png 1.5x, /media/Deepin_plasmashell_20200616015518.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_plasmashell_20200616015518.png"
+        title="Deepin_plasmashell_20200616015518" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Peek_2020-06-21_13-37.gif"
+        data-srcset="/media/Peek_2020-06-21_13-37.gif, /media/Peek_2020-06-21_13-37.gif 1.5x, /media/Peek_2020-06-21_13-37.gif 2x"
+        data-sizes="auto"
+        alt="/media/Peek_2020-06-21_13-37.gif"
+        title="Deepin_plasmashell_20200616015518" /></p>
+<h1 id="netanim">NetAnim</h1>
+<p>另外還有一個視覺化的工具</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">➜  ns-3.29 ./waf --run <span class="s2">&#34;dumbbell-animation --nLeftLeaf=5 --nRightLeaf=5 --animFile=dumbbell.xml&#34;</span>
+<span class="o">(</span>base<span class="o">)</span> ➜  aquasim-ng_manjaro tree -L <span class="m">1</span>            
+.
+├── AquaSim-NG_Installation
+├── bake
+├── build.py
+├── constants.py
+├── netanim-3.108
+├── ns-3.29
+├── pybindgen-0.17.0.post58+ngcf00cc0
+├── README
+└── util.py
+<span class="nb">cd</span> netanim-3.108
+make clean 
+qmake NetAnim.pro
+make
+./NetAnim
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_plasmashell_20200616030357.png"
+        data-srcset="/media/Deepin_plasmashell_20200616030357.png, /media/Deepin_plasmashell_20200616030357.png 1.5x, /media/Deepin_plasmashell_20200616030357.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_plasmashell_20200616030357.png"
+        title="Deepin_plasmashell_20200616030357" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200616030433.png"
+        data-srcset="/media/Deepin_select-area_20200616030433.png, /media/Deepin_select-area_20200616030433.png 1.5x, /media/Deepin_select-area_20200616030433.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200616030433.png"
+        title="Deepin_select-area_20200616030433.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Peek_2020-06-21_13-33.gif"
+        data-srcset="/media/Peek_2020-06-21_13-33.gif, /media/Peek_2020-06-21_13-33.gif 1.5x, /media/Peek_2020-06-21_13-33.gif 2x"
+        data-sizes="auto"
+        alt="/media/Peek_2020-06-21_13-33.gif"
+        title="Deepin_select-area_20200616030433.png" /></p>
+<h1 id="ns3-install">NS3 install</h1>
+<p>由於NS3需要這些庫所以可能要先安裝一下，這個套件管理這裏沒辦法構建成功，所以要一個個Google一下了。</p>
+<p>其中python的部分，因爲我不是很肯定它NS3的3.26~3.29那邊用了python2、python3，所以我都有把pip2、pip3的庫儘量能裝的都裝進去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pip2 install pygccxml <span class="c1">#例如</span>
+pip3 install pygccxml
+pip install pygccxml
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200604180155.png"
+        data-srcset="/media/Deepin_select-area_20200604180155.png, /media/Deepin_select-area_20200604180155.png 1.5x, /media/Deepin_select-area_20200604180155.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200604180155.png"
+        title="Deepin 截圖_select-area_20200604180155" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200604180218.png"
+        data-srcset="/media/Deepin_select-area_20200604180218.png, /media/Deepin_select-area_20200604180218.png 1.5x, /media/Deepin_select-area_20200604180218.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200604180218.png"
+        title="Deepin 截圖_select-area_20200604180218" /></p>
+<h2 id="ns3-in-wsl">NS3 in WSL</h2>
+<p>在WSL上面裝基本上差不多，不過有點繁瑣，自己裝覺得裝的比Manjaro還要久，一樣是庫、pip套件裝上，configure的地方檢查完有就行build了。</p>
+<p><a href="https://www.nsnam.org/wiki/Installation" target="_blank" rel="noopener noreffer">NS3 Installation</a></p>
+<p>不過他要注意一個問題，要加上CXXFLAG，略過一些命名錯誤。</p>
+<blockquote>
+<p><a href="https://www.nsnam.org/wiki/Ns-3.28-errata" target="_blank" rel="noopener noreffer">Ns-3.28-errata</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&#34;-Wall -Werror -Wno-parentheses&#34;</span> ./waf configure --enable-examples --enable-tests
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>另外要執行PyViz的話要使用下面的設定，<code>--with-python=python2</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&#34;-Wall -Werror -Wno-parentheses&#34;</span> ./waf configure --enable-examples --enable-tests --with-python<span class="o">=</span>python2
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>下面是在wsl build 的過程</li>
+</ul>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/FHd4pBPzXDw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="安裝anaconda-python3">安裝Anaconda (Python3)</h2>
+<p>ns-3.29使用python3，有些不確定哪些還是python2，pip2已經漸漸的快淘汰</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-ppc64le.sh
+sudo chmod <span class="m">755</span> Anaconda3-2020.02-Linux-ppc64le.sh <span class="c1"># rwx rwx rwx 給755 都給執行權限</span>
+<span class="c1"># read write exec Linux三個user group的權限定義 root user other</span>
+./Anaconda3-2020.02-Linux-ppc64le.sh <span class="c1"># 安裝到 /home/usename/anaconda3/bin/conda 要調用它</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/geek/anaconda3/bin
+<span class="nb">type</span> -a conda
+conda is /home/geek/anaconda3/bin/conda
+conda update conda
+conda init bash <span class="c1"># 或是你用zsh, cmd.exe 環境變量自動加到 *.bashrc, *.zshrc, windows path foloder</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://shihchun.github.io/categories/linux/" target="_blank" rel="noopener noreffer">我的Linux筆記，一些基本筆記</a></p>
+<h2 id="mercurial-hg-clone">Mercurial hg clone</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo pacman -S mercurial
+hg clone http://..... <span class="c1"># ns3 有些資料要用mercurial下載</span>
+hg clone http://code.nsnam.org/jabraham3/ns-3-win2 <span class="c1">#example</span>
+
+<span class="c1"># windows 上</span>
+<span class="c1"># install chocolatey</span>
+Set-ExecutionPolicy Bypass -Scope Process -Force<span class="p">;</span> <span class="o">[</span>System.Net.ServicePointManager<span class="o">]</span>::SecurityProtocol <span class="o">=</span> <span class="o">[</span>System.Net.ServicePointManager<span class="o">]</span>::SecurityProtocol -bor 3072<span class="p">;</span> iex <span class="o">((</span>New-Object System.Net.WebClient<span class="o">)</span>.DownloadString<span class="o">(</span><span class="s1">&#39;https://chocolatey.org/install.ps1&#39;</span><span class="o">))</span>
+
+<span class="c1"># then install the hg</span>
+choco install hg
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ns3-install-and-build-bassic">NS3 install and Build (Bassic)</h2>
+<p>Manjaro（<em>Arch Linux</em> 的Linux 發行版）上安裝3.24~3.26版本的NS-3，<del>aqua-sim是使用舊版的NS3（python2去做compile），所以使用的python要加上alias讓shell知道我們是使用python2來做compile</del></p>
+<blockquote>
+<p>Begin by downloading ns-3 (version 3.24~3.26 have been tested with aqua-sim-ng) from</p>
+<p><a href="https://www.nsnam.org/releases/ns-3-29/" target="_blank" rel="noopener noreffer">here</a></p>
+<p>[Github Release(https://github.com/nsnam/ns-3-dev-git/releases)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 我直接複製下載鏈接網址</span>
+curl -O https://www.nsnam.org/release/ns-allinone-3.26.tar.bz2
+wget https://github.com/nsnam/ns-3-dev-git/archive/ns-3.29.tar.gz <span class="c1"># github</span>
+wget http://www.nsnam.org/release/ns-allinone-3.30.tar.bz2 <span class="c1"># 官網</span>
+git clone https://github.com/nsnam/ns-3-dev-git.git <span class="c1"># 最新</span>
+<span class="c1"># 3.29之後用Manjaro試過的都可以compile過</span>
+<span class="c1">###############################################################################</span>
+<span class="c1"># tar -z 包cvf 解xvf tar.gz</span>
+<span class="c1"># tar -j 包cvf 解xvf tar.bz2</span>
+tar -jxvf ns-allinone-3.29.tar.bz2 
+<span class="nb">cd</span> ns-allinone-3.29/ns-3.29
+
+ls -lh <span class="p">|</span> grep <span class="s2">&#34;waf&#34;</span>
+-rwxrwxrwx <span class="m">1</span> geek geek 100K  6月  <span class="m">3</span> 15:10 waf
+-rwxrwxrwx <span class="m">1</span> geek geek   <span class="m">28</span>  6月  <span class="m">3</span> 15:10 waf.bat	<span class="c1"># windows 用</span>
+drwxrwxrwx <span class="m">1</span> geek geek 4.0K  6月  <span class="m">3</span> 15:10 waf-tools
+
+./waf configure --enable-examples
+./waf build <span class="c1"># C語言編譯 ./configure, make, make install 已經包裝成./waf裏面 應該吧。。。。</span>
+
+<span class="o">[</span>0001/2402<span class="o">]</span> ...
+...
+...
+<span class="o">[</span>2400/2402<span class="o">]</span> Compiling src/fd-net-device/helper/encode-decode.cc
+<span class="o">[</span>2401/2402<span class="o">]</span> Compiling src/fd-net-device/helper/tap-device-creator.cc
+<span class="o">[</span>2402/2402<span class="o">]</span> Linking build/src/fd-net-d
+<span class="o">[</span>2403/2406<span class="o">]</span> Compiling src/fd-net-device/helper/creator-utils.cc
+<span class="o">[</span>2404/2406<span class="o">]</span> Compiling src/fd-net-device/helper/encode-decode.cc
+<span class="o">[</span>2405/2406<span class="o">]</span> Compiling src/fd-net-device/helper/raw-sock-creator.cc
+<span class="o">[</span>2406/2406<span class="o">]</span> Linking build/src/fd-net-device/ns3-dev-raw-sock-creator-debug
+<span class="o">[</span>2407/2409<span class="o">]</span> Compiling src/tap-bridge/model/tap-encode-decode.cc
+<span class="o">[</span>2408/2409<span class="o">]</span> Compiling src/tap-bridge/model/tap-creator.cc
+<span class="o">[</span>2409/2409<span class="o">]</span> Linking build/src/tap-bridge/ns3-dev-tap-creator-debug
+Waf: Leaving directory <span class="sb">`</span>/run/media/geek/2TB/Documents/PYTHON/NS-3/ns-3-dev-git/build<span class="s1">&#39;
+</span><span class="s1">Build commands will be stored in build/compile_commands.json
+</span><span class="s1">&#39;</span>build<span class="err">&#39;</span> finished successfully <span class="o">(</span>3m23.327s<span class="o">)</span>
+
+Modules built:
+antenna                   aodv                      applications
+bridge                    buildings                 config-store
+core                      csma                      csma-layout
+dsdv                      dsr                       energy
+fd-net-device             flow-monitor              internet
+internet-apps             lr-wpan                   lte
+mesh                      mobility                  netanim
+network                   nix-vector-routing        olsr
+point-to-point            point-to-point-layout     propagation
+sixlowpan                 spectrum                  stats
+tap-bridge                <span class="nb">test</span> <span class="o">(</span>no Python<span class="o">)</span>          topology-read
+traffic-control           uan                       virtual-net-device
+wave                      wifi                      wimax
+
+Modules not built <span class="o">(</span>see ns-3 tutorial <span class="k">for</span> explanation<span class="o">)</span>:
+brite                     click                     mpi
+openflow                  visualizer
+ns3-dev-tap-bridge-debug.so
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_plasmashell_20200602203521.png"
+        data-srcset="/media/Deepin_plasmashell_20200602203521.png, /media/Deepin_plasmashell_20200602203521.png 1.5x, /media/Deepin_plasmashell_20200602203521.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_plasmashell_20200602203521.png"
+        title="Deepin 截圖_plasmashell_20200602203521" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run simple-global-routing
+Waf: Entering directory <span class="sb">`</span>/run/media/geek/2TB/Documents/PYTHON/NS-3/ns-allinone-3.29/ns-3.29/build<span class="s1">&#39;
+</span><span class="s1">Waf: Leaving directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/ns-allinone-3.29/ns-3.29/build&#39;</span>
+Build commands will be stored in build/compile_commands.json
+<span class="s1">&#39;build&#39;</span> finished successfully <span class="o">(</span>1.882s<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Deepin_select-area_20200602203815.png"
+        data-srcset="/media/Deepin_select-area_20200602203815.png, /media/Deepin_select-area_20200602203815.png 1.5x, /media/Deepin_select-area_20200602203815.png 2x"
+        data-sizes="auto"
+        alt="/media/Deepin_select-area_20200602203815.png"
+        title="Deepin 截圖_select-area_20200602203815" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">
+<span class="o">(</span>base<span class="o">)</span> ➜  NS-3 tree -L <span class="m">1</span>
+.
+├── aqua-sim-ng   <span class="c1"># 要執行/examples/broadcastMAC_example.cc</span>
+└── ns-allinone  <span class="c1"># ./waf在這裏 要把Models 丟到/src這裏使用</span>
+
+<span class="m">2</span> directories, <span class="m">0</span> files
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="waf-run-examples">waf Run Examples</h2>
+<p>build samples</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-allinone-3.29/ns-3.29 git:<span class="o">(</span>master<span class="o">)</span> <span class="c1"># directory</span>
+cp -R examples/tutorial/first.cc scratch/ <span class="c1"># 把example移動在ns-3-dev-git/scratch</span>
+
+<span class="c1">## 這樣不行</span>
+./waf --run scratch/first.cc <span class="c1"># get error 不能打 *.cc</span>
+program <span class="s1">&#39;scratch/first.cc&#39;</span> not found<span class="p">;</span> available programs are: <span class="o">[</span><span class="s1">&#39;first&#39;</span>, <span class="s1">&#39;scratch/first&#39;</span>, <span class="s1">&#39;scratch-simulator&#39;</span>, <span class="s1">&#39;scratch/scratch-simulator&#39;</span>, <span class="s1">&#39;subdir&#39;</span>, <span class="s1">&#39;scratch/subdir/subdir&#39;</span>, <span class="s1">&#39;test-runner&#39;</span>, <span class="s1">&#39;utils/test-runner&#39;</span>, <span class="s1">&#39;bench-simulator&#39;</span>, <span class="s1">&#39;utils/bench-simulator&#39;</span>, <span class="s1">&#39;bench-packets&#39;</span>, <span class="s1">&#39;utils/bench-packets&#39;</span>, <span class="s1">&#39;print-introspected-doxygen&#39;</span>, <span class="s1">&#39;utils/print-introspected-doxygen&#39;</span>, <span class="s1">&#39;tap-device-creator&#39;</span>, <span class="s1">&#39;src/fd-net-device/tap-device-creator&#39;</span>, <span class="s1">&#39;raw-sock-creator&#39;</span>, <span class="s1">&#39;src/fd-net-device/raw-sock-creator&#39;</span>, <span class="s1">&#39;tap-creator&#39;</span>, <span class="s1">&#39;src/tap-bridge/tap-creator&#39;</span><span class="o">]</span>
+
+<span class="c1">## 要這樣執行</span>
+<span class="c1">#./waf --python=/usr/bin/python2 configure #...# 或是alias python=&#39;python2&#39;</span>
+./waf --run scratch/first <span class="c1"># 去除副檔名 加上-v 或是--vis 看更多debug訊息</span>
+Waf: Entering directory <span class="sb">`</span>/home/geek/ns-allinone-3.29/ns-3.29/build<span class="s1">&#39;
+</span><span class="s1">[1861/1913] Compiling scratch/first.cc
+</span><span class="s1">[1863/1913] Compiling scratch/scratch-simulator.cc
+</span><span class="s1">[1870/1913] Compiling scratch/subdir/scratch-simulator-subdir.cc
+</span><span class="s1">[1872/1913] Linking build/scratch/scratch-simulator
+</span><span class="s1">[1873/1913] Linking build/scratch/subdir/subdir
+</span><span class="s1">[1874/1913] Linking build/scratch/first
+</span><span class="s1">Waf: Leaving directory `/home/geek/ns-allinone-3.29/ns-3.29/build&#39;</span>
+Build commands will be stored in build/compile_commands.json
+<span class="s1">&#39;build&#39;</span> finished successfully <span class="o">(</span>2.395s<span class="o">)</span>
+At <span class="nb">time</span> 2s client sent <span class="m">1024</span> bytes to 10.1.1.2 port <span class="m">9</span>
+At <span class="nb">time</span> 2.00369s server received <span class="m">1024</span> bytes from 10.1.1.1 port <span class="m">49153</span>
+At <span class="nb">time</span> 2.00369s server sent <span class="m">1024</span> bytes to 10.1.1.1 port <span class="m">49153</span>
+At <span class="nb">time</span> 2.00737s client received <span class="m">1024</span> bytes from 10.1.1.2 port <span class="m">9</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中下面這部分是Example的執行結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">At <span class="nb">time</span> 2s client sent <span class="m">1024</span> bytes to 10.1.1.2 port <span class="m">9</span>
+At <span class="nb">time</span> 2.00369s server received <span class="m">1024</span> bytes from 10.1.1.1 port <span class="m">49153</span>
+At <span class="nb">time</span> 2.00369s server sent <span class="m">1024</span> bytes to 10.1.1.1 port <span class="m">49153</span>
+At <span class="nb">time</span> 2.00737s client received <span class="m">1024</span> bytes from 10.1.1.2 port <span class="m">9</span>
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/aqua-sim/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/aqua-sim/" data-title="Aqua-Sim NS3.29 安裝" data-via="xxxx" data-hashtags="網路"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/aqua-sim/" data-hashtag="網路"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/aqua-sim/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/aqua-sim/" data-title="Aqua-Sim NS3.29 安裝"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/aqua-sim/" data-title="Aqua-Sim NS3.29 安裝"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/aqua-sim/" data-title="Aqua-Sim NS3.29 安裝" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/aqua-sim/" data-title="Aqua-Sim NS3.29 安裝"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%B6%B2%E8%B7%AF/">網路</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/jupyter/" class="prev" rel="prev" title="python 基本"><i class="fas fa-angle-left fa-fw"></i>python 基本</a>
+            <a href="/ns3-cpp-basic/" class="next" rel="next" title="NS3 Cpp Basic">NS3 Cpp Basic<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"","link":"","message":""},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

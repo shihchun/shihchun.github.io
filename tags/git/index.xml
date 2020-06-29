@@ -3,13 +3,13 @@
         <title>git - tag - 隨手筆記</title>
         <link>https://shihchun.github.io/tags/git/</link>
         <description>git - tag - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Mon, 18 Feb 2019 15:17:29 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>Git 使用</title>
-    <link>https://shihchun.github.io/2019/02/git-set/</link>
+    <link>https://shihchun.github.io/git-set/</link>
     <pubDate>Mon, 18 Feb 2019 15:17:29 &#43;0000</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/2019/02/git-set/</guid>
+    <guid>https://shihchun.github.io/git-set/</guid>
     <description><![CDATA[編輯現有的project 1 2 3 4 5 6 $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &#34;commit message 可以寫做什麼修改&#34; ## 上傳 $ git push -u orgin master ## push 到叫做org]]></description>
 </item></channel>
 </rss>

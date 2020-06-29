@@ -189,7 +189,9 @@ add other kontakt with Roland JV-1080 vst
 
 # Map
 
-{{< mapbox 121.485 31.233 12 >}}
+再找個時間看一下語言設定
+
+{{< mapbox lng=-122.252 lat=37.453 zoom=10 marked=false light-style="mapbox://styles/mapbox/navigation-preview-day-v4" dark-style="mapbox://styles/mapbox/navigation-preview-night-v4" >}}
 
 ```markdown
 {< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/streets-zh-v1" >}

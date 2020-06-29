@@ -58,7 +58,7 @@
 
 我是直接對`kityminder`、`kitty`這兩個物件名稱做判斷（在瀏覽器找到就直接用了），原因就是每次會用到它的時候大概也是用在這裡，不過似乎不行，可能跟hugo的內部執行順序有關，所以最後還是加到theme裡面，我自己是加載在`theme/layout/posts/single.html`的`</article>`上面一點的地方。
 
-```js
+```html
 <script>
 if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
 	// do something  不能用document.write

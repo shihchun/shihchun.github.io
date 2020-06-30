@@ -4,7 +4,14 @@
         <link>https://shihchun.github.io/posts/</link>
         <description> | 隨手筆記</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
-            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 27 Jun 2020 13:29:30 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>ShortCode 整理</title>
+    <link>https://shihchun.github.io/mindmap/</link>
+    <pubDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/mindmap/</guid>
+    <description><![CDATA[整理一下最近加入的shortcode，{{}}會錯誤所以都用{}代替，不然會變成這樣，今天換了Loveit發現主題內建了mermaid，所以]]></description>
+</item><item>
     <title>Plotly csv 讀取</title>
     <link>https://shihchun.github.io/hugo_chart_test/</link>
     <pubDate>Sat, 27 Jun 2020 13:29:30 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author></author>
     <guid>https://shihchun.github.io/kvm/</guid>
     <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
-</item><item>
-    <title>Gource — GitHub Log Visualization</title>
-    <link>https://shihchun.github.io/gource-github-log-visualization/</link>
-    <pubDate>Thu, 04 May 2017 10:27:01 &#43;0000</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/gource-github-log-visualization/</guid>
-    <description><![CDATA[Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&lt;(￣︶￣)↗]]></description>
 </item></channel>
 </rss>

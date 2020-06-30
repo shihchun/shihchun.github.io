@@ -166,9 +166,8 @@ df = pd.read_csv('./test.csv')
 df.plot(x=df.columns[0], y=df.columns[1:])
 plt.show()
 ```
-![testplot](/svg/test_ns3plot.svg)
 
-![testplot](/media/test_ns3plot.png)
+![testplot](/svg/test_ns3plot.svg)
 
 ## Enable Boost
 

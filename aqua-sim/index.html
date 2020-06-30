@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/aqua-sim\/"
-        },"genre": "posts","keywords": "網路","wordcount":  2425 ,
+        },"genre": "posts","keywords": "網路","wordcount":  2478 ,
         "url": "https:\/\/shihchun.github.io\/aqua-sim\/","datePublished": "2020-06-04T17:49:36+08:00","dateModified": "2020-06-04T17:49:36+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -312,10 +312,16 @@ $ su <span class="c1"># 用 --with-python=python2 configure好像會不能使用
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sh" data-lang="sh">cp -R src/aqua-sim-ng/examples/broadcastMAC_example.cc scratch/ 
 ./waf --run scratch/broadcastMAC_example <span class="c1"># --vis</span>
+<span class="c1"># --build-profile=debug 要configure，讓ns3.commandline可以用</span>
+./waf --run <span class="s2">&#34;broadcastMAC_example --simStop=1000 --nodes=5 --sinks=2&#34;</span> <span class="c1"># 注意`“`符號格式問題</span>
+
 </code></pre></td></tr></table>
 </div>
 </div><p><img

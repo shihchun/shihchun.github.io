@@ -109,6 +109,9 @@ $ su # 用 --with-python=python2 configure好像會不能使用 --enable-sudo
 ```sh
 cp -R src/aqua-sim-ng/examples/broadcastMAC_example.cc scratch/ 
 ./waf --run scratch/broadcastMAC_example # --vis
+# --build-profile=debug 要configure，讓ns3.commandline可以用
+./waf --run "broadcastMAC_example --simStop=1000 --nodes=5 --sinks=2" # 注意`“`符號格式問題
+
 ```
 
 ![Deepin 截圖_select-area_20200604173838](/media/Deepin_select-area_20200604173838.png)

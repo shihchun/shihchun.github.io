@@ -19,20 +19,6 @@
     <guid>https://shihchun.github.io/hugo_chart_test/</guid>
     <description><![CDATA[加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一]]></description>
 </item><item>
-    <title>NS3 Cpp Basic</title>
-    <link>https://shihchun.github.io/ns3-cpp-basic/</link>
-    <pubDate>Sun, 21 Jun 2020 19:54:10 &#43;0800</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/ns3-cpp-basic/</guid>
-    <description><![CDATA[NS3有很多文檔都是用gnuplot做繪圖的，這裏Run一個範例，試着在ns3製圖，動態鏈結感覺好用很多，不過暫時還是先存成csv再用mat]]></description>
-</item><item>
-    <title>Aqua-Sim NS3.29 安裝</title>
-    <link>https://shihchun.github.io/aqua-sim/</link>
-    <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/aqua-sim/</guid>
-    <description><![CDATA[Aqua-sim 是一個用來模擬UWSNs網路的一個好工具，最近安裝遇到了一些問題，不過最後有裝出來。 我是使用Manjaro進行安裝的，在安裝之前必須先確認]]></description>
-</item><item>
     <title>python 基本</title>
     <link>https://shihchun.github.io/jupyter/</link>
     <pubDate>Fri, 31 Jan 2020 19:43:16 &#43;0800</pubDate>
@@ -74,5 +60,45 @@
     <author></author>
     <guid>https://shihchun.github.io/kvm/</guid>
     <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
+</item><item>
+    <title>Gource — GitHub Log Visualization</title>
+    <link>https://shihchun.github.io/gource-github-log-visualization/</link>
+    <pubDate>Thu, 04 May 2017 10:27:01 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/gource-github-log-visualization/</guid>
+    <description><![CDATA[Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&lt;(￣︶￣)↗]]></description>
+</item><item>
+    <title>Linux 掛載命令</title>
+    <link>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
+    <pubDate>Thu, 27 Apr 2017 18:44:11 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
+    <description><![CDATA[<h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
+<p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># mount</span>
+sysfs on /sys <span class="nb">type</span> sysfs <span class="o">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span class="o">)</span>
+proc on /proc <span class="nb">type</span> proc <span class="o">(</span>rw,nosuid,nodev,noexec,relatime<span class="o">)</span>
+devtmpfs on /dev <span class="nb">type</span> devtmpfs <span class="o">(</span>rw,nosuid,seclabel,size<span class="o">=</span>231216k,nr_inodes<span class="o">=</span>57804,mode<span class="o">=</span>755<span class="o">)</span>
+.
+.
+.
+/dev/sda1 on /boot <span class="nb">type</span> xfs <span class="o">(</span>rw,relatime,seclabel,attr2,inode64,noquota<span class="o">)</span>
+tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</span>rw,nosuid,nodev,relatime,seclabel,size<span class="o">=</span>48388k,mode<span class="o">=</span>700,uid<span class="o">=</span>1000,gid<span class="o">=</span>1000<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>

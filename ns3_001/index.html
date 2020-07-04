@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Ns3_001 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Ns3_001" />
+<meta property="og:description" content="ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/ns3_001/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2020-07-04T14:41:22+08:00" />
+<meta property="article:modified_time" content="2020-07-04T14:41:22+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="Ns3_001"/>
+<meta name="twitter:description" content="ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/ns3_001/" /><link rel="prev" href="https://shihchun.github.io/mindmap/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ns3_001",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/ns3_001\/"
+        },"genre": "posts","wordcount":  927 ,
+        "url": "https:\/\/shihchun.github.io\/ns3_001\/","datePublished": "2020-07-04T14:41:22+08:00","dateModified": "2020-07-04T14:41:22+08:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ns3_001</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-04">2020-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#bassic-useage">Bassic useage</a>
+      <ul>
+        <li><a href="#full-build">Full build</a></li>
+        <li><a href="#build-core-module-only">Build core module only</a></li>
+      </ul>
+    </li>
+    <li><a href="#running-program">Running Program</a></li>
+    <li><a href="#build-variations">Build variations</a></li>
+    <li><a href="#add-modules-and-check-dependency">Add modules and check dependency</a></li>
+    <li><a href="#running-code">Running code</a>
+      <ul>
+        <li><a href="#add-subdir">Add subdir</a></li>
+      </ul>
+    </li>
+    <li><a href="#other-configure-parameters">Other configure parameters</a></li>
+    <li><a href="#gcc-compile-parameters">GCC compile parameters</a></li>
+    <li><a href="#to-run-test-and-example-file">To run test and example file</a></li>
+    <li><a href="#debug-the-program">Debug the program</a></li>
+    <li><a href="#ref">Ref</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it.</p>
+<p>First，copy the links.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Screenshot_20200704_144302.png"
+        data-srcset="/media/Screenshot_20200704_144302.png, /media/Screenshot_20200704_144302.png 1.5x, /media/Screenshot_20200704_144302.png 2x"
+        data-sizes="auto"
+        alt="/media/Screenshot_20200704_144302.png"
+        title="Screenshot_20200704_144302" /></p>
+<p>switch to terminal and download</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">wget url
+tar -jxvf file
+<span class="c1"># make alias or not</span>
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-Z4Yip8Uut840XQu3JbD29sw4p" src="https://asciinema.org/a/Z4Yip8Uut840XQu3JbD29sw4p.js" async></script>
+<h1 id="bassic-useage">Bassic useage</h1>
+
+
+<div id="" class="mindmap mindmap-lg" style="width:99%;height:300px;border:3px #cccccc dashed;">
+    <ul>
+<li>waf
+<ul>
+<li>configure
+<ul>
+<li>&ldquo;&ndash;enable-tests&rdquo;</li>
+<li>&ldquo;&ndash;enable-examples&rdquo;</li>
+<li>&ldquo;&ndash;build-profile=debug&rdquo;</li>
+<li>&ldquo;&ndash;with-python=python2&rdquo;</li>
+<li>&ldquo;&ndash;disable-python&rdquo;</li>
+<li>&ldquo;&ndash;enable-modules&rdquo;</li>
+</ul>
+</li>
+<li>build</li>
+<li>run</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="/mind/mindmap.css" rel="stylesheet">
+<script src="/mind/kity.min.js"></script>
+<script src="/mind/kityminder.core.min.js"></script>
+
+
+
+
+
+<h2 id="full-build">Full build</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf confiugre --enable-tests --enable-examples
+./waf
+or
+./waf build
+or
+./waf -vvv
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-50aIrGsOOeg3M3DEum1pAm1Zy" src="https://asciinema.org/a/50aIrGsOOeg3M3DEum1pAm1Zy.js" async></script>
+<h2 id="build-core-module-only">Build core module only</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf confiugre --enable-tests --enable-examples --enable-modules<span class="o">=</span>core
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-EKKZp60dxkwn6txIBxn1oqvPt" src="https://asciinema.org/a/EKKZp60dxkwn6txIBxn1oqvPt.js" async></script>
+<p>building log is at build/config.log</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cat build/config.log
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="running-program">Running Program</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run sample-simulator
+./waf --run src/core/examples/sample-simulator <span class="c1"># file.cc</span>
+<span class="c1">## configure add --with-python=python2 need pybindgen</span>
+./waf --pyrun src/core/examples/sample-simulator.py
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="build-variations">Build variations</h1>
+
+
+<div id="" class="mindmap mindmap-lg" style="width:99%;height:300px;border:3px #cccccc dashed;">
+    <ul>
+<li>waf
+<ul>
+<li>debuging code enable
+<ul>
+<li>&ldquo;./waf -d debug configure&rdquo;</li>
+</ul>
+</li>
+<li>optimized
+<ul>
+<li>&ldquo;./waf -d optimized configure&rdquo;</li>
+</ul>
+</li>
+<li>static libraries
+<ul>
+<li>&ldquo;./waf &ndash;enable-static configure&rdquo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="/mind/mindmap.css" rel="stylesheet">
+<script src="/mind/kity.min.js"></script>
+<script src="/mind/kityminder.core.min.js"></script>
+
+
+
+
+
+<h1 id="add-modules-and-check-dependency">Add modules and check dependency</h1>
+<p>cat the file of wscript in the src/module_name</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">cat</span> <span class="n">src</span><span class="o">/</span><span class="n">propagation</span><span class="o">/</span><span class="n">wscript</span> <span class="o">|</span> <span class="n">more</span>
+<span class="c1">## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-</span>
+
+<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">bld</span><span class="p">):</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">bld</span><span class="o">.</span><span class="n">create_ns3_module</span><span class="p">(</span><span class="s1">&#39;propagation&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="s1">&#39;mobility&#39;</span><span class="p">])</span>
+    <span class="n">module</span><span class="o">.</span><span class="n">includes</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+    <span class="n">module</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;model/propagation-delay-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/jakes-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/jakes-process.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/cost231-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/okumura-hata-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/itu-r-1411-los-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/itu-r-1411-nlos-over-rooftop-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/kun-2600-mhz-propagation-loss-model.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/channel-condition-model.cc&#39;</span><span class="p">,</span>
+<span class="o">--</span><span class="err">更多</span><span class="o">--</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this script we know the propagation module need the network and mobility modules, and build the source file (modulename/model/*) to ns3/model_name.</p>
+<p>and call with, more you can see the example of core module <code>sample-simulator.cc</code> and <code>sample-simulator.py</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;ns3/jakes-propagation-loss-model.h&#34;</span><span class="cp">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">ns.propagation</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">module_test</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;test/propagation-loss-model-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/okumura-hata-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/itu-r-1411-los-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/kun-2600-mhz-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/itu-r-1411-nlos-over-rooftop-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/channel-condition-model-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;test/three-gpp-propagation-loss-model-test-suite.cc&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="c1"># Tests encapsulating example programs should be listed here</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bld</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;ENABLE_EXAMPLES&#39;</span><span class="p">]):</span>
+        <span class="n">module_test</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+        <span class="c1">#   &#39;test/propagation-examples-test-suite.cc&#39;,</span>
+            <span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can try if you build propagation module, if you <code>--enable-tests</code>, <code>--enable-examples</code>, it can recognize the file without full path.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf configure --enable-tests --enable-examples --enable-module<span class="o">=</span>core 
+./waf <span class="c1"># build</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="n">headers</span> <span class="o">=</span> <span class="n">bld</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="s1">&#39;ns3header&#39;</span><span class="p">)</span>
+    <span class="n">headers</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="s1">&#39;propagation&#39;</span>
+    <span class="n">headers</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;model/propagation-delay-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/jakes-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/jakes-process.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/propagation-cache.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/cost231-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/propagation-environment.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/okumura-hata-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/itu-r-1411-los-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/itu-r-1411-nlos-over-rooftop-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/kun-2600-mhz-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/channel-condition-model.h&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;model/three-gpp-propagation-loss-model.h&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">bld</span><span class="o">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;ENABLE_EXAMPLES&#39;</span><span class="p">]):</span>
+        <span class="n">bld</span><span class="o">.</span><span class="n">recurse</span><span class="p">(</span><span class="s1">&#39;examples&#39;</span><span class="p">)</span>
+
+    <span class="n">bld</span><span class="o">.</span><span class="n">ns3_python_bindings</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It is the API headers of the module, should be the public API, but some of them may private.</p>
+<h1 id="running-code">Running code</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf --run scratch-simulator
+./waf --run scratch/scratch-simulator
+cp scratch/scratch-simulator.cc scratch/wss.cc
+./waf
+./waf wss
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-n2L9eVwqq4LjYJf4GfcK2gycv" src="https://asciinema.org/a/n2L9eVwqq4LjYJf4GfcK2gycv.js" async></script>
+<h2 id="add-subdir">Add subdir</h2>
+<p>You can build more complicated example with this functionality.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd scratch/
+tree
+.
+├── scratch-simulator.cc
+└── subdir
+    └── scratch-simulator-subdir.cc
+cd ..
+./waf --run scratch/subdir/scratch-simulator-subdir # failed
+./waf --run scratch/subdir # failed
+./waf --run subdir # correct
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-AC67jPbIW5CbIIqV8t4HH4c6h" src="https://asciinema.org/a/AC67jPbIW5CbIIqV8t4HH4c6h.js" async></script>
+<h1 id="other-configure-parameters">Other configure parameters</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-3.31 ls -alh utils <span class="p">|</span> grep <span class="s2">&#34;.ns3rc&#34;</span>
+-rwxrwxrwx <span class="m">1</span> geek geek  <span class="m">405</span>  7月  <span class="m">4</span> 14:55 .ns3rc
+cat utils/.ns3rc
+<span class="c1">#! /usr/bin/env python</span>
+
+<span class="c1"># A list of the modules that will be enabled when ns-3 is run.</span>
+<span class="c1"># Modules that depend on the listed modules will be enabled also.</span>
+#
+<span class="c1"># All modules can be enabled by choosing &#39;all_modules&#39;.</span>
+<span class="nv">modules_enabled</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;all_modules&#39;</span><span class="o">]</span>
+
+<span class="c1"># Set this equal to true if you want examples to be run.</span>
+<span class="nv">examples_enabled</span> <span class="o">=</span> False
+
+<span class="c1"># Set this equal to true if you want tests to be run.</span>
+<span class="nv">tests_enabled</span> <span class="o">=</span> False
+</code></pre></td></tr></table>
+</div>
+</div><p>In this file you can set something for waf configure.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cp utils/.ns3rc .
+vi utils/.ns3rc
+./waf configure --enable-modules<span class="o">=</span><span class="s1">&#39;core&#39;</span>,<span class="s1">&#39;network&#39;</span>,<span class="s1">&#39;mobility&#39;</span>,<span class="s1">&#39;propagation&#39;</span> --with-python<span class="o">=</span>python2
+./waf
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-I4yWyDxBxKGLVP01mK7xECvx4" src="https://asciinema.org/a/I4yWyDxBxKGLVP01mK7xECvx4.js" async></script>
+<h1 id="gcc-compile-parameters">GCC compile parameters</h1>
+<p><code>ns3/build/c4che/_c4che.py</code> have the very detial settings of the gcc compiler. If you familier with gcc, you can change your compiler flags when it need.</p>
+<p>for example you can remove all the <code>-Werror</code> in the file, you can look at <a href="https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html" target="_blank" rel="noopener noreffer">doc</a> and <a href="https://embeddedartistry.com/blog/2017/05/22/werror-is-not-your-friend/" target="_blank" rel="noopener noreffer">-Werror is Not Your Friend</a> for more info.</p>
+<p>That flag means <code>cc1plus: all warnings being treated as error</code>, I disable this flag.</p>
+<h1 id="to-run-test-and-example-file">To run test and example file</h1>
+<p>if I configure with <code>--enable-modules='core','network','mobility','propagation'</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf configure --enable-modules=&#39;core&#39;,&#39;network&#39;,&#39;mobility&#39;,&#39;propagation&#39;  --enable-tests --enable-examples
+cp src/propagation/examples/jakes-propagation-model-example.cc scratch
+./waf # build success
+./waf --run jakes-propagation-model-example # ok
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="debug-the-program">Debug the program</h1>
+<p>Debug the program by using waf-tool, the debuger based on gdb.</p>
+
+
+<div id="" class="mindmap mindmap-lg" style="width:99%;height:300px;border:3px #cccccc dashed;">
+    <ul>
+<li>gdb
+<ul>
+<li>Print
+<ul>
+<li>PrintHelp (or just &ndash;help)</li>
+<li>PrintGlobals</li>
+<li>PrintTypeIds</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="/mind/mindmap.css" rel="stylesheet">
+<script src="/mind/kity.min.js"></script>
+<script src="/mind/kityminder.core.min.js"></script>
+
+
+
+
+
+<ul>
+<li>PrintHelp</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-3.31 ./waf --run  <span class="s2">&#34;sample-simulator --help&#34;</span>
+sample-simulator <span class="o">[</span>General Arguments<span class="o">]</span>
+
+General Arguments:
+    --PrintGlobals:              Print the list of globals.
+    --PrintGroups:               Print the list of groups.
+    --PrintGroup<span class="o">=[</span>group<span class="o">]</span>:        Print all TypeIds of group.
+    --PrintTypeIds:              Print all TypeIds.
+    --PrintAttributes<span class="o">=[</span>typeid<span class="o">]</span>:  Print all attributes of typeid.
+    --PrintHelp:                 Print this <span class="nb">help</span> message.
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>PrintGlobals</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-3.31 ./waf --run  <span class="s2">&#34;sample-simulator --PrintGlobals&#34;</span>
+Global values:
+    --RngRun<span class="o">=[</span>1<span class="o">]</span>
+        The substream index used <span class="k">for</span> all streams
+    --RngSeed<span class="o">=[</span>1<span class="o">]</span>
+        The global seed of all rng streams
+    --SchedulerType<span class="o">=[</span>ns3::MapScheduler<span class="o">]</span>
+        The object class to use as the scheduler implementation
+    --SimulatorImplementationType<span class="o">=[</span>ns3::DefaultSimulatorImpl<span class="o">]</span>
+        The object class to use as the simulator implementation
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>PrintTypeIds</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-3.31 ./waf --run  <span class="s2">&#34;sample-simulator --PrintTypeIds&#34;</span>
+Registered TypeIds:
+    ns3::CalendarScheduler
+    ns3::ConstantRandomVariable
+    ns3::DefaultSimulatorImpl
+    ns3::DeterministicRandomVariable
+    ns3::EmpiricalRandomVariable
+    ns3::ErlangRandomVariable
+    ns3::ExponentialRandomVariable
+    ns3::GammaRandomVariable
+    ns3::HeapScheduler
+    ns3::ListScheduler
+    ns3::LogNormalRandomVariable
+    ns3::MapScheduler
+    ns3::NormalRandomVariable
+    ns3::Object
+    ns3::ObjectBase
+    ns3::ParetoRandomVariable
+    ns3::PriorityQueueScheduler
+    ns3::RandomVariableStream
+    ns3::RealtimeSimulatorImpl
+    ns3::Scheduler
+    ns3::SequentialRandomVariable
+    ns3::SimulatorImpl
+    ns3::Synchronizer
+    ns3::TriangularRandomVariable
+    ns3::UniformRandomVariable
+    ns3::WallClockSynchronizer
+    ns3::WeibullRandomVariable
+    ns3::ZetaRandomVariable
+    ns3::ZipfRandomVariable
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="ref">Ref</h1>
+<p>Ref the ns3 2015 traning videos and ppts:</p>
+<!-- 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://player.vimeo.com/video/133503055" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="vimeo video" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ </div>
+ -->
+<p>
+
+<br>
+<div class="slide_container" style="width:100%; height:500px;"><iframe src="http://view.officeapps.live.com/op/view.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pptx&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
+    width: 95%;
+    height: 100%;
+" class="slide_content"></iframe></div>
+<br>
+
+
+
+<br>
+<div class="slide_container" style="width:100%; height:500px;"><iframe src="http://view.officeapps.live.com/op/view.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
+    width: 95%;
+    height: 100%;
+" class="slide_content"></iframe></div>
+<br>
+
+<br><br>
+
+
+<br><!--
+<div class="slide_container" style="width:100%; height:800px;"><iframe src="https://docs.google.com/viewer?url=https://&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
+    width: 95%;
+    height: 100%;
+" class="slide_content"></iframe></div> -->
+<br>
+</p>
+</div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/ns3_001/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3_001" data-via="xxxx"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3_001"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3_001"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3_001" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3_001"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/mindmap/" class="prev" rel="prev" title="ShortCode 整理"><i class="fas fa-angle-left fa-fw"></i>ShortCode 整理</a></div>
+</div>
+<div id="comments">
+            
+
+            <div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060; 
+                var HYVOR_TALK_CONFIG = {
+                    url: window.location.hostname,
+                    id: window.location.pathname
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

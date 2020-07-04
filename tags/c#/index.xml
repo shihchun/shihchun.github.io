@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>C# - tag - 隨手筆記</title>
+        <link>https://shihchun.github.io/tags/c#/</link>
+        <description>C# - tag - 隨手筆記</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Tue, 08 May 2018 20:43:05 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/c#/" rel="self" type="application/rss+xml" /><item>
+    <title>C# 練習1</title>
+    <link>https://shihchun.github.io/csharp-pratrice/</link>
+    <pubDate>Tue, 08 May 2018 20:43:05 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/csharp-pratrice/</guid>
+    <description><![CDATA[前一陣子寫了一點C#當做記錄吧！ C# PPT {% post_link &lsquo;Babun Permission denied (publickey)&rsquo; 点击这里查看这篇文章 %} 這是我資料庫的架構，這是試著用PHP寫的，當然也是參考網路上面的。 Create Database]]></description>
+</item></channel>
+</rss>

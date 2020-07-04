@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>M51AC-457AANE Hackintosh - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="M51AC-457AANE Hackintosh" />
+<meta property="og:description" content="核心：Intel Haswell Core i5-4570(3.2 GHz,turbo 3.6GHz) 板子：H87M-PRO 記憶體：8GB DDR3 顯示介面：NVIDIA GeForce GT630 2GB GDDR3獨顯 音效：ALC 892 $$ 安裝 \begin{cases} EFI \ 分割 &amp; \text{Clover" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2017-04-12T01:36:46+00:00" />
+<meta property="article:modified_time" content="2017-04-12T01:36:46+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="M51AC-457AANE Hackintosh"/>
+<meta name="twitter:description" content="核心：Intel Haswell Core i5-4570(3.2 GHz,turbo 3.6GHz) 板子：H87M-PRO 記憶體：8GB DDR3 顯示介面：NVIDIA GeForce GT630 2GB GDDR3獨顯 音效：ALC 892 $$ 安裝 \begin{cases} EFI \ 分割 &amp; \text{Clover"/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" /><link rel="next" href="https://shihchun.github.io/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "M51AC-457AANE Hackintosh",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97\/"
+        },"genre": "posts","keywords": "Hackintosh","wordcount":  697 ,
+        "url": "https:\/\/shihchun.github.io\/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97\/","datePublished": "2017-04-12T01:36:46+00:00","dateModified": "2017-04-12T01:36:46+00:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">M51AC-457AANE Hackintosh</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-category"></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2017-04-12">2017-04-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#unibeast-usb-installer">Unibeast USB Installer</a></li>
+    <li><a href="#multibeast-驅動安裝">MultiBeast 驅動安裝：</a></li>
+    <li><a href="#參考">參考：</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li>核心：Intel Haswell Core i5-4570(3.2 GHz,turbo 3.6GHz)</li>
+<li>板子：H87M-PRO</li>
+<li>記憶體：8GB DDR3</li>
+<li>顯示介面：NVIDIA GeForce GT630 2GB GDDR3獨顯</li>
+<li>音效：ALC 892</li>
+</ul>
+<!-- more -->
+<p>$$
+安裝
+\begin{cases}
+EFI \ 分割  &amp; \text{Clover Bootloader 開機選單} \\<br>
+DSDT \ Free（NO \ DSDT)  &amp; \text{Haswell 以後 CPU 不需要} \\<br>
+Bootloader \ Arguments   &amp; \text{dart＝0 disable Bios Vtd} \\<br>
+有可能要的 &amp; \text{darkwake=0、npci=0x2000、nv_disable=1 with first boot}
+\end{cases}
+$$</p>
+<h1 id="unibeast-usb-installer">Unibeast USB Installer</h1>
+<ul>
+<li>Mac OS X EI Capitan</li>
+<li>UEFI Boot</li>
+<li><em><strong>Inject Nvidia</strong></em></li>
+</ul>
+<blockquote>
+<p>For desktop systems with older NVIDIA graphics cards as GeForce 8xxxx, 9xxxx, 2xx, 4xx, 610, and 630. Equivalent to Chimera/Chameleon GraphicsEnabler=Yes</p>
+</blockquote>
+<p>不知道是什麼原因，使用Unibeast安裝並不能使用，進入直接黑屏，連選單都沒有，所以我把USB格式化成Fat32，並用下面指令將安裝檔案複製到隨身碟裡面之後使用clover EFI bootloader安裝Bootloader，但是開機後還是不能進入安裝畫面，雖然比之前Unibeast格式化成Mac OS Extended （Journaled）好一些，還讀的到Bootloader，但是還是給我一個scan entries的訊息，根本進不去，<code>HFSPlus.efi</code>，我確實有放進去，但是還是沒有順利進入選單。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/UNTITLED --applicationpath /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app --nointeraction
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/boot_scaning.jpg"
+        data-srcset="/media/boot_scaning.jpg, /media/boot_scaning.jpg 1.5x, /media/boot_scaning.jpg 2x"
+        data-sizes="auto"
+        alt="/media/boot_scaning.jpg"
+        title="boot_scaning" /></p>
+<h1 id="multibeast-驅動安裝">MultiBeast 驅動安裝：</h1>
+<ul>
+<li>ALC 892 (for Audio)</li>
+<li>FakeSMC Tool (for Power moniter)</li>
+</ul>
+<p>額外安裝下載的 RealtekRTL8111.kext 網卡用 Kext Utility 驗證權限，放到 <code>/System/Library/Extensions</code>，若是權限問題再以下面指令安裝：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo chown -R root:wheel /System/Library/Extensions/RealtekRTL8111.kext
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo chmod -R <span class="m">755</span> /System/Library/Extensions/RealtekRTL8111.kext
+</code></pre></td></tr></table>
+</div>
+</div><p>清除 Kext 快取</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">rm /System/Library/Extensions.kextcache
+
+rm /System/Library/Extensions.mkext
+
+kextcache -k /System/Library/Extensions
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="參考">參考：</h1>
+<p><a href="https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/" target="_blank" rel="noopener noreffer">UniBeast: Install macOS Sierra on Any Supported Intel-based PC</a></p>
+<p><a href="https://www.tonymacx86.com/threads/how-to-install-os-x-yosemite-using-clover.144426/" target="_blank" rel="noopener noreffer">How To Install OS X Yosemite Using Clover</a></p>
+<p><a href="https://www.tonymacx86.com/threads/asus-h87m-pro-bios-ami.152170/" target="_blank" rel="noopener noreffer">Asus H87m pro bios Ami tonymacx86</a></p>
+<p><a href="http://bbs.feng.com/read-htm-tid-1449.html" target="_blank" rel="noopener noreffer">Mac 硬體驅動(.kext)安裝方法</a></p>
+<p><a href="http://www.ithtw.com/8335.html" target="_blank" rel="noopener noreffer">Clover安装黑苹果之Config.plist必看</a></p>
+<p><a href="http://benyouhui.it168.com/thread-2261865-1-1.html" target="_blank" rel="noopener noreffer">不敢独享，转发解决 黑苹果花屏问题方法！！（部分类型）</a></p>
+<p><a href="http://www.fitzweekly.com/2016/04/hackintosh-boot-flags.html?m=1" target="_blank" rel="noopener noreffer">Hackintosh Boot Flags</a></p>
+<p><a href="http://www.jianshu.com/p/b156b0177a24" target="_blank" rel="noopener noreffer">黑苹果引导工具 Clover 配置详解</a></p>
+<p><a href="https://www.firewolf.science/2015/08/skylake-intel-hd-graphics-family-processors-new-macs-hackintosh/" target="_blank" rel="noopener noreffer">Skylake Skylake Intel HD Graphics Family, Processors and new Macs &amp; Hackintosh</a></p>
+<p><a href="https://www.firewolf.science/?s=HD&#43;4600" target="_blank" rel="noopener noreffer">[GUIDE] Intel HD Graphics 5500 on OS X Yosemite 10.10.3</a></p>
+</div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-title="M51AC-457AANE Hackintosh" data-via="xxxx" data-hashtags="Hackintosh"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-hashtag="Hackintosh"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-title="M51AC-457AANE Hackintosh"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-title="M51AC-457AANE Hackintosh"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-title="M51AC-457AANE Hackintosh" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/m51ac-457aane-hackintosh-%E5%A4%B1%E6%95%97/" data-title="M51AC-457AANE Hackintosh"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hackintosh/">Hackintosh</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/linux%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" class="next" rel="next" title="Linux命令基本格式">Linux命令基本格式<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments">
+            
+
+            <div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060; 
+                var HYVOR_TALK_CONFIG = {
+                    url: window.location.hostname,
+                    id: window.location.pathname
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

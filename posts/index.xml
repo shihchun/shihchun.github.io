@@ -4,7 +4,14 @@
         <link>https://shihchun.github.io/posts/</link>
         <description> | 隨手筆記</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
-            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 04 Jul 2020 14:41:22 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Ns3_001</title>
+    <link>https://shihchun.github.io/ns3_001/</link>
+    <pubDate>Sat, 04 Jul 2020 14:41:22 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/ns3_001/</guid>
+    <description><![CDATA[ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1]]></description>
+</item><item>
     <title>ShortCode 整理</title>
     <link>https://shihchun.github.io/mindmap/</link>
     <pubDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</pubDate>
@@ -67,38 +74,5 @@
     <author></author>
     <guid>https://shihchun.github.io/gource-github-log-visualization/</guid>
     <description><![CDATA[Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&lt;(￣︶￣)↗]]></description>
-</item><item>
-    <title>Linux 掛載命令</title>
-    <link>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
-    <pubDate>Thu, 27 Apr 2017 18:44:11 &#43;0000</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
-    <description><![CDATA[<h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
-<p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># mount</span>
-sysfs on /sys <span class="nb">type</span> sysfs <span class="o">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span class="o">)</span>
-proc on /proc <span class="nb">type</span> proc <span class="o">(</span>rw,nosuid,nodev,noexec,relatime<span class="o">)</span>
-devtmpfs on /dev <span class="nb">type</span> devtmpfs <span class="o">(</span>rw,nosuid,seclabel,size<span class="o">=</span>231216k,nr_inodes<span class="o">=</span>57804,mode<span class="o">=</span>755<span class="o">)</span>
-.
-.
-.
-/dev/sda1 on /boot <span class="nb">type</span> xfs <span class="o">(</span>rw,relatime,seclabel,attr2,inode64,noquota<span class="o">)</span>
-tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</span>rw,nosuid,nodev,relatime,seclabel,size<span class="o">=</span>48388k,mode<span class="o">=</span>700,uid<span class="o">=</span>1000,gid<span class="o">=</span>1000<span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>

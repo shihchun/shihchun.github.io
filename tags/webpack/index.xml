@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>webpack - tag - 隨手筆記</title>
+        <link>https://shihchun.github.io/tags/webpack/</link>
+        <description>webpack - tag - 隨手筆記</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Tue, 12 Mar 2019 16:38:22 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/webpack/" rel="self" type="application/rss+xml" /><item>
+    <title>webpack 安裝</title>
+    <link>https://shihchun.github.io/webpack-1/</link>
+    <pubDate>Tue, 12 Mar 2019 16:38:22 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/webpack-1/</guid>
+    <description><![CDATA[webpack 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ## webpack 3.x &amp; 之前 webpack hello.js hello.bundle.js ## npx 可寫可不寫 webpack 4.x npx webpack hello.js --output-filename hello.bundle.js --output-path --mode development main [emitted] main Entrypoint main = hello.bundle.js [./hello.js] 20 bytes {main} [built] ## bundle出來的檔案結]]></description>
+</item></channel>
+</rss>

@@ -11,7 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://shihchun.github.io/" />
 <meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
-<meta property="og:updated_time" content="2020-06-28T20:20:51+08:00" />
+<meta property="og:updated_time" content="2020-07-04T14:41:22+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
 
@@ -103,6 +103,37 @@
         alt="/lo_img/shihchun.gif"
         title="/lo_img/shihchun.gif" /></a></div><h1 class="home-title">Shih Chun</h1><h2 class="home-subtitle"><div id="id-3" class="typeit"></div></h2><div class="links"><a href="https://github.com/shihchun" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/xxxx" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/xxxx" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="https://facebook.com/xxxx" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/xxxx" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://open.spotify.com/user/xxxx" title="Spotify" target="_blank" rel="noopener noreffer me"><i class="fab fa-spotify fa-fw"></i></a><a href="https://www.goodreads.com/user/show/xxxx" title="Goodreads" target="_blank" rel="noopener noreffer me"><i class="fab fa-goodreads fa-fw"></i></a><a href="https://www.twitch.tv/xxxx" title="Twitch" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitch fa-fw"></i></a><a href="mailto:shihchun13@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/">Linux 掛載命令</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-publish"></span>&nbsp;<span class="post-category"></span></div><div class="content"><h1 id="mount-查看已經掛載的設備">mount 查看已經掛載的設備</h1>
+<p>在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到<code>/mnt</code>下面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># mount</span>
+sysfs on /sys <span class="nb">type</span> sysfs <span class="o">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span class="o">)</span>
+proc on /proc <span class="nb">type</span> proc <span class="o">(</span>rw,nosuid,nodev,noexec,relatime<span class="o">)</span>
+devtmpfs on /dev <span class="nb">type</span> devtmpfs <span class="o">(</span>rw,nosuid,seclabel,size<span class="o">=</span>231216k,nr_inodes<span class="o">=</span>57804,mode<span class="o">=</span>755<span class="o">)</span>
+.
+.
+.
+/dev/sda1 on /boot <span class="nb">type</span> xfs <span class="o">(</span>rw,relatime,seclabel,attr2,inode64,noquota<span class="o">)</span>
+tmpfs on /run/user/1000 <span class="nb">type</span> tmpfs <span class="o">(</span>rw,nosuid,nodev,relatime,seclabel,size<span class="o">=</span>48388k,mode<span class="o">=</span>700,uid<span class="o">=</span>1000,gid<span class="o">=</span>1000<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer">
+        <a href="/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/"></a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">Linux 學習筆記</a>,&nbsp;<a href="/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/">Linux基本指令</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/">Linux 關機重啟命令</a>
     </h1><div class="post-meta"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span>&nbsp;<span class="post-publish"></span>&nbsp;<span class="post-category"></span></div><div class="content">shutdown shutdown [option] [time] option: -c 取消關機命令 -h 關機 -r 重新開機 1 2 $ shutdown now $ shutdown -r now 1 2 3 4 5 6 7 8 9 10 11 [cyberjun@localhost ~]$ shutdown -r 05:30 Must be root. [cyberjun@localhost ~]$ su 密碼： [root@localhost cyberjun]# shutdown -r 05:30 Shutdown scheduled for 五 2017-04-28 05:30:00 CST, use &#39;shutdown -c&#39; to</div><div class="post-footer">
         <a href="/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/"></a><div class="post-tags">

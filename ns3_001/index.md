@@ -341,27 +341,23 @@ Registered TypeIds:
 Ref the ns3 2015 traning videos and ppts:
 
 <!-- {{< vimeo 133503055 >}} -->
+{{< rawhtml >}}
+<br>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pptx' width='98%' height='500px' frameborder='0'>
+</iframe>
+<br>
+<br>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx' width='98%' height='500px' frameborder='0'>
+</iframe>
+<br>
+<iframe src='https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true' width='98%' height='500px' frameborder='0'>
+</iframe>
+<br>
+{{< /rawhtml >}}
 
 {{< rawhtml >}}
-<br>
-<div class="slide_container" style="width:100%; height:500px;"><iframe src="http://view.officeapps.live.com/op/view.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pptx&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
-    width: 95%;
-    height: 100%;
-" class="slide_content"></iframe></div>
-<br>
-{{< /rawhtml >}}
-{{< rawhtml >}}
-<br>
-<div class="slide_container" style="width:100%; height:500px;"><iframe src="http://view.officeapps.live.com/op/view.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
-    width: 95%;
-    height: 100%;
-" class="slide_content"></iframe></div>
-<br>
-{{< /rawhtml >}}
-<br><br>
-{{< rawhtml >}}
 <br><!--
-<div class="slide_container" style="width:100%; height:800px;"><iframe src="https://docs.google.com/viewer?url=https://&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
+<div class="slide_container" style="width:100%; height:800px;"><iframe src="https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
     width: 95%;
     height: 100%;
 " class="slide_content"></iframe></div> -->

@@ -350,16 +350,9 @@ Ref the ns3 2015 traning videos and ppts:
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx' width='98%' height='500px' frameborder='0'>
 </iframe>
 <br>
-<iframe src='https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true' width='98%' height='500px' frameborder='0'>
-</iframe>
+<!--
+<iframe src='https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true' width='98%' height='700px' frameborder='0'>
+</iframe> -->
 <br>
 {{< /rawhtml >}}
 
-{{< rawhtml >}}
-<br><!--
-<div class="slide_container" style="width:100%; height:800px;"><iframe src="https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="
-    width: 95%;
-    height: 100%;
-" class="slide_content"></iframe></div> -->
-<br>
-{{< /rawhtml >}}

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>ns3 day 1 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="ns3 day 1" />
+        <title>Ns3 day 1 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Ns3 day 1" />
 <meta property="og:description" content="ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/ns3_001/" />
@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
 
-<meta name="twitter:title" content="ns3 day 1"/>
+<meta name="twitter:title" content="Ns3 day 1"/>
 <meta name="twitter:description" content="ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1"/>
 <meta name="application-name" content="隨手筆記">
 <meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -24,12 +24,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "ns3 day 1",
+        "headline": "Ns3 day 1",
         "inLanguage": "zh-TW",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/ns3_001\/"
-        },"genre": "posts","wordcount":  927 ,
+        },"genre": "posts","wordcount":  1138 ,
         "url": "https:\/\/shihchun.github.io\/ns3_001\/","datePublished": "2020-07-04T14:41:22+08:00","dateModified": "2020-07-04T14:41:22+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -104,7 +104,7 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title"></h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">ns3 day 1</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ns3 day 1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-04">2020-07-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
@@ -132,8 +132,21 @@
     <li><a href="#other-configure-parameters">Other configure parameters</a></li>
     <li><a href="#gcc-compile-parameters">GCC compile parameters</a></li>
     <li><a href="#to-run-test-and-example-file">To run test and example file</a></li>
-    <li><a href="#debug-the-program">Debug the program</a></li>
-    <li><a href="#ref">Ref</a></li>
+    <li><a href="#debug-the-program">Debug the program</a>
+      <ul>
+        <li><a href="#pure-gdb">Pure gdb</a>
+          <ul>
+            <li><a href="#cpp">Cpp</a></li>
+            <li><a href="#python">Python</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#ref">Ref</a>
+      <ul>
+        <li><a href="#for-more-gdb-skills">For more gdb skills</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it.</p>
@@ -291,6 +304,38 @@ or
 
 <h1 id="add-modules-and-check-dependency">Add modules and check dependency</h1>
 <p>cat the file of wscript in the src/module_name</p>
+
+
+<div id="" class="mindmap mindmap-lg" style="width:99%;height:300px;border:3px #cccccc dashed;">
+    <ul>
+<li>wscript
+<ul>
+<li>Contents for waf-tools
+<ul>
+<li>module files index</li>
+<li>test file index</li>
+<li>example file index</li>
+<li>API header index</li>
+<li>pybindgen binding</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="/mind/mindmap.css" rel="stylesheet">
+<script src="/mind/kity.min.js"></script>
+<script src="/mind/kityminder.core.min.js"></script>
+
+
+
+
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -457,7 +502,7 @@ or
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf --run scratch-simulator
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run scratch-simulator
 ./waf --run scratch/scratch-simulator
 cp scratch/scratch-simulator.cc scratch/wss.cc
 ./waf
@@ -481,16 +526,16 @@ cp scratch/scratch-simulator.cc scratch/wss.cc
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd scratch/
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> scratch/
 tree
 .
 ├── scratch-simulator.cc
 └── subdir
     └── scratch-simulator-subdir.cc
-cd ..
-./waf --run scratch/subdir/scratch-simulator-subdir # failed
-./waf --run scratch/subdir # failed
-./waf --run subdir # correct
+<span class="nb">cd</span> ..
+./waf --run scratch/subdir/scratch-simulator-subdir <span class="c1"># failed</span>
+./waf --run scratch/subdir <span class="c1"># failed</span>
+./waf --run subdir <span class="c1"># correct</span>
 </code></pre></td></tr></table>
 </div>
 </div><script id="asciicast-AC67jPbIW5CbIIqV8t4HH4c6h" src="https://asciinema.org/a/AC67jPbIW5CbIIqV8t4HH4c6h.js" async></script>
@@ -563,15 +608,49 @@ vi utils/.ns3rc
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf configure --enable-modules=&#39;core&#39;,&#39;network&#39;,&#39;mobility&#39;,&#39;propagation&#39;  --enable-tests --enable-examples
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf configure --enable-modules<span class="o">=</span><span class="s1">&#39;core&#39;</span>,<span class="s1">&#39;network&#39;</span>,<span class="s1">&#39;mobility&#39;</span>,<span class="s1">&#39;propagation&#39;</span>  --enable-tests --enable-examples
 cp src/propagation/examples/jakes-propagation-model-example.cc scratch
-./waf # build success
-./waf --run jakes-propagation-model-example # ok
+./waf <span class="c1"># build success</span>
+./waf --run jakes-propagation-model-example <span class="c1"># ok</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="debug-the-program">Debug the program</h1>
-<p>Debug the program by using waf-tool, the debuger based on gdb.</p>
-
+<p>Debug the program by using waf-tool, the debuger based on gdb, if you use this tool, you need to add the code below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;ns3/command-line.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">ns3</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="n">CommandLine</span> <span class="n">cmd</span> <span class="p">(</span><span class="n">__FILE__</span><span class="p">);</span>
+  <span class="n">cmd</span><span class="p">.</span><span class="n">Parse</span> <span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">ns.core</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">dummy_argv</span><span class="p">):</span>
+    <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">CommandLine</span><span class="p">()</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">dummy_argv</span><span class="p">)</span>
+    <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 
 <div id="" class="mindmap mindmap-lg" style="width:99%;height:300px;border:3px #cccccc dashed;">
     <ul>
@@ -730,8 +809,87 @@ Registered TypeIds:
     ns3::ZipfRandomVariable
 </code></pre></td></tr></table>
 </div>
+</div><ul>
+<li>Example</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run  <span class="s2">&#34;sample-simulator --PrintAttributes=ns3::UniformRandomVariable&#34;</span>
+Attributes <span class="k">for</span> TypeId ns3::UniformRandomVariable
+    --ns3::UniformRandomVariable::Max<span class="o">=[</span>1<span class="o">]</span>
+        The upper bound on the values returned by this RNG stream.
+    --ns3::UniformRandomVariable::Min<span class="o">=[</span>0<span class="o">]</span>
+        The lower bound on the values returned by this RNG stream.
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Change Global value to test</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run <span class="s2">&#34;sample-simulator --SimulatorImplementationType=ns3::RealtimeSimulatorImpl&#34;</span>
+<span class="s1">&#39;build&#39;</span> finished successfully <span class="o">(</span>2.940s<span class="o">)</span>
+ExampleFunction received event at 10s
+RandomFunction received event at 18.1653s
+Member method received event at 20s started at 10s
+^CInterrupted
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="pure-gdb">Pure gdb</h2>
+<h3 id="cpp">Cpp</h3>
+<p>See more at <a href="https://www.nsnam.org/wiki/HOWTO_use_gdb_to_debug_program_errors" target="_blank" rel="noopener noreffer">doc</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf --command-template=&#34;gdb %s&#34; --run third
+(gdb) r --help
+(gdb) run --nWifi=0
+...
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000413ac9 in ns3::PeekPointer&lt;ns3::Node&gt; (p=...) at ./ns3/ptr.h:282
+282	  return p.m_ptr;
+(gdb) 
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="python">Python</h3>
+<p>See more at <a href="https://www.nsnam.org/docs/manual/html/python.html" target="_blank" rel="noopener noreffer">doc</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">./waf shell
+$ gdb --args python examples/wireless/mixed-wireless.py
+</code></pre></td></tr></table>
+</div>
 </div><h1 id="ref">Ref</h1>
-<p>Ref the ns3 2015 traning videos and ppts:</p>
+<p>The ns3 2015 training videos and ppts, the videos is available at their official website. <a href="https://vimeo.com/showcase/3480129" target="_blank" rel="noopener noreffer">video</a></p>
 <!-- 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://player.vimeo.com/video/133503055" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="vimeo video" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -747,10 +905,12 @@ Registered TypeIds:
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx' width='98%' height='500px' frameborder='0'>
 </iframe>
 <br>
-<!--
-<iframe src='https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true' width='98%' height='700px' frameborder='0'>
-</iframe> -->
-<br>
+
+<h2 id="for-more-gdb-skills">For more gdb skills</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/PorfLSr3DDI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
 
 </div>
         <script>
@@ -773,7 +933,7 @@ Registered TypeIds:
                             <a class="link-to-markdown" href="/ns3_001/index.md" target="_blank"></a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/ns3_001/" data-title="ns3 day 1" data-via="xxxx"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/ns3_001/" data-title="ns3 day 1"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/ns3_001/" data-title="ns3 day 1"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/ns3_001/" data-title="ns3 day 1" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/ns3_001/" data-title="ns3 day 1"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3 day 1" data-via="xxxx"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/ns3_001/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3 day 1"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3 day 1"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3 day 1" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/ns3_001/" data-title="Ns3 day 1"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>

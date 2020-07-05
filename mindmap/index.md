@@ -195,3 +195,49 @@ add other kontakt with Roland JV-1080 vst
 ```markdown
 {< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/streets-zh-v1" >}
 ```
+
+
+# MS view
+
+
+```html
+<br>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=your_URL' width='98%' height='500px' frameborder='0'>
+</iframe>
+<br>
+```
+
+- Office file
+    - ('.ppt' '.pptx' '.doc', '.docx', '.xls', '.xlsx')
+
+
+
+# Google view
+
+```html
+<br>
+<iframe src='https://docs.google.com/viewer?url=you_URL&embedded=true' width='98%' height='700px' frameborder='0'>
+</iframe>
+<br>
+```
+
+- Image files (.JPEG, .PNG, .GIF, .TIFF, .BMP)
+- Video files (WebM, .MPEG4, .3GPP, .MOV, .AVI, .MPEGPS, .WMV, .FLV)
+- Text files (.TXT)
+- Markup/Code (.CSS, .HTML, .PHP, .C, .CPP, .H, .HPP, .JS)
+- Microsoft Word (.DOC and .DOCX)
+- Microsoft Excel (.XLS and .XLSX)
+- Microsoft PowerPoint (.PPT and .PPTX)
+- Adobe Portable Document Format (.PDF)
+- Apple Pages (.PAGES)
+- Adobe Illustrator (.AI)
+- Adobe Photoshop (.PSD)
+- Tagged Image File Format (.TIFF)
+- Autodesk AutoCad (.DXF)
+- Scalable Vector Graphics (.SVG)
+- PostScript (.EPS, .PS)
+- TrueType (.TTF)
+- XML Paper Specification (.XPS)
+- Archive file types (.ZIP and .RAR)
+
+

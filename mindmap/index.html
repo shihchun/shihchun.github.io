@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/mindmap\/"
-        },"genre": "posts","wordcount":  1014 ,
+        },"genre": "posts","wordcount":  1135 ,
         "url": "https:\/\/shihchun.github.io\/mindmap\/","datePublished": "2020-06-28T20:20:51+08:00","dateModified": "2020-06-28T20:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -121,6 +121,8 @@
     <li><a href="#rawhtml">rawhtml</a></li>
     <li><a href="#music">Music</a></li>
     <li><a href="#map">Map</a></li>
+    <li><a href="#ms-view">MS view</a></li>
+    <li><a href="#google-view">Google view</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>整理一下最近加入的shortcode，<code>{{}}</code>會錯誤所以都用<code>{}</code>代替，不然會變成這樣，今天換了Loveit發現主題內建了mermaid，所以就改檔案名，暫時擺著，順便加上Loveit有的shortcode，文檔有蠻多可以用的，就去不全部放了。</p>
@@ -416,7 +418,64 @@
 <pre class="chroma"><code class="language-markdown" data-lang="markdown">{<span class="p">&lt;</span> <span class="nt">mapbox</span> <span class="na">-122</span><span class="err">.</span><span class="na">252</span> <span class="na">37</span><span class="err">.</span><span class="na">453</span> <span class="na">10</span> <span class="na">false</span> <span class="err">&#34;</span><span class="na">mapbox:</span><span class="err">//</span><span class="na">styles</span><span class="err">/</span><span class="na">mapbox</span><span class="err">/</span><span class="na">streets-zh-v1</span><span class="err">&#34;</span> <span class="p">&gt;</span>}
 </code></pre></td></tr></table>
 </div>
-</div></div>
+</div><h1 id="ms-view">MS view</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://view.officeapps.live.com/op/embed.aspx?src=your_URL&#39;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#39;98%&#39;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#39;500px&#39;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#39;0&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Office file
+<ul>
+<li>('.ppt&rsquo; &lsquo;.pptx&rsquo; &lsquo;.doc&rsquo;, &lsquo;.docx&rsquo;, &lsquo;.xls&rsquo;, &lsquo;.xlsx&rsquo;)</li>
+</ul>
+</li>
+</ul>
+<h1 id="google-view">Google view</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://docs.google.com/viewer?url=you_URL&amp;embedded=true&#39;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#39;98%&#39;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#39;700px&#39;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#39;0&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Image files (.JPEG, .PNG, .GIF, .TIFF, .BMP)</li>
+<li>Video files (WebM, .MPEG4, .3GPP, .MOV, .AVI, .MPEGPS, .WMV, .FLV)</li>
+<li>Text files (.TXT)</li>
+<li>Markup/Code (.CSS, .HTML, .PHP, .C, .CPP, .H, .HPP, .JS)</li>
+<li>Microsoft Word (.DOC and .DOCX)</li>
+<li>Microsoft Excel (.XLS and .XLSX)</li>
+<li>Microsoft PowerPoint (.PPT and .PPTX)</li>
+<li>Adobe Portable Document Format (.PDF)</li>
+<li>Apple Pages (.PAGES)</li>
+<li>Adobe Illustrator (.AI)</li>
+<li>Adobe Photoshop (.PSD)</li>
+<li>Tagged Image File Format (.TIFF)</li>
+<li>Autodesk AutoCad (.DXF)</li>
+<li>Scalable Vector Graphics (.SVG)</li>
+<li>PostScript (.EPS, .PS)</li>
+<li>TrueType (.TTF)</li>
+<li>XML Paper Specification (.XPS)</li>
+<li>Archive file types (.ZIP and .RAR)</li>
+</ul>
+</div>
         <script>
             if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
                 
@@ -450,7 +509,7 @@
     </div>
 
     <div class="post-nav"><a href="/hugo_chart_test/" class="prev" rel="prev" title="Plotly csv 讀取"><i class="fas fa-angle-left fa-fw"></i>Plotly csv 讀取</a>
-            <a href="/ns3_001/" class="next" rel="next" title="ns3 day 1">ns3 day 1<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/ns3_001/" class="next" rel="next" title="Ns3 day 1">Ns3 day 1<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments">
             

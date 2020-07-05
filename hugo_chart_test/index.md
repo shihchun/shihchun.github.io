@@ -34,7 +34,7 @@ python安裝要用到的庫
 
 ```sh
 conda install pandas
-conda install -c plotly chart-studio 
+conda install -c plotly plotly
 conda install -c conda-forge cufflinks-py 
 ```
 

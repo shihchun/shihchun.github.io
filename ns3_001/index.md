@@ -1,4 +1,4 @@
-# ns3 day 1
+# Ns3 day 1
 
 
 
@@ -85,6 +85,16 @@ cat build/config.log
 # Add modules and check dependency
 
 cat the file of wscript in the src/module_name
+
+{{< mind >}}
+- wscript
+    - Contents for waf-tools
+        - module files index
+        - test file index
+        - example file index
+        - API header index
+        - pybindgen binding
+{{< /mind >}}
 
 ```python
 cat src/propagation/wscript | more
@@ -173,7 +183,7 @@ It is the API headers of the module, should be the public API, but some of them 
 
 # Running code
 
-```
+```sh
 ./waf --run scratch-simulator
 ./waf --run scratch/scratch-simulator
 cp scratch/scratch-simulator.cc scratch/wss.cc
@@ -187,7 +197,7 @@ cp scratch/scratch-simulator.cc scratch/wss.cc
 
 You can build more complicated example with this functionality.
 
-```
+```sh
 cd scratch/
 tree
 .
@@ -251,7 +261,7 @@ That flag means `cc1plus: all warnings being treated as error`, I disable this f
 
 if I configure with `--enable-modules='core','network','mobility','propagation'`
 
-```
+```sh
 ./waf configure --enable-modules='core','network','mobility','propagation'  --enable-tests --enable-examples
 cp src/propagation/examples/jakes-propagation-model-example.cc scratch
 ./waf # build success
@@ -260,7 +270,24 @@ cp src/propagation/examples/jakes-propagation-model-example.cc scratch
 
 # Debug the program
 
-Debug the program by using waf-tool, the debuger based on gdb.
+Debug the program by using waf-tool, the debuger based on gdb, if you use this tool, you need to add the code below.
+
+```cpp
+#include "ns3/command-line.h"
+using namespace ns3;
+int main (int argc, char *argv[])
+{
+  CommandLine cmd (__FILE__);
+  cmd.Parse (argc, argv);
+}
+```
+
+```python
+import ns.core
+def main(dummy_argv):
+    ns.core.CommandLine().Parse(dummy_argv)
+    pass
+```
 
 {{< mind >}}
 - gdb
@@ -336,11 +363,61 @@ Registered TypeIds:
     ns3::ZipfRandomVariable
 ```
 
+- Example
+
+```sh
+./waf --run  "sample-simulator --PrintAttributes=ns3::UniformRandomVariable"
+Attributes for TypeId ns3::UniformRandomVariable
+    --ns3::UniformRandomVariable::Max=[1]
+        The upper bound on the values returned by this RNG stream.
+    --ns3::UniformRandomVariable::Min=[0]
+        The lower bound on the values returned by this RNG stream.
+```
+
+- Change Global value to test
+
+```sh
+./waf --run "sample-simulator --SimulatorImplementationType=ns3::RealtimeSimulatorImpl"
+'build' finished successfully (2.940s)
+ExampleFunction received event at 10s
+RandomFunction received event at 18.1653s
+Member method received event at 20s started at 10s
+^CInterrupted
+```
+
+## Pure gdb
+
+
+### Cpp
+
+See more at [doc](https://www.nsnam.org/wiki/HOWTO_use_gdb_to_debug_program_errors)
+
+```
+./waf --command-template="gdb %s" --run third
+(gdb) r --help
+(gdb) run --nWifi=0
+...
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000413ac9 in ns3::PeekPointer<ns3::Node> (p=...) at ./ns3/ptr.h:282
+282	  return p.m_ptr;
+(gdb) 
+```
+
+### Python
+
+See more at [doc](https://www.nsnam.org/docs/manual/html/python.html)
+
+```
+./waf shell
+$ gdb --args python examples/wireless/mixed-wireless.py
+```
+
 # Ref
 
-Ref the ns3 2015 traning videos and ppts:
+The ns3 2015 training videos and ppts, the videos is available at their official website. [video](https://vimeo.com/showcase/3480129)
 
 <!-- {{< vimeo 133503055 >}} -->
+
 {{< rawhtml >}}
 <br>
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pptx' width='98%' height='500px' frameborder='0'>
@@ -350,9 +427,8 @@ Ref the ns3 2015 traning videos and ppts:
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx' width='98%' height='500px' frameborder='0'>
 </iframe>
 <br>
-<!--
-<iframe src='https://docs.google.com/viewer?url=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part1.pdf&embedded=true' width='98%' height='700px' frameborder='0'>
-</iframe> -->
-<br>
 {{< /rawhtml >}}
 
+## For more gdb skills
+
+{{< youtube PorfLSr3DDI >}}

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/hugo_chart_test\/"
-        },"genre": "posts","wordcount":  2294 ,
+        },"genre": "posts","wordcount":  2298 ,
         "url": "https:\/\/shihchun.github.io\/hugo_chart_test\/","datePublished": "2020-06-27T13:29:30+08:00","dateModified": "2020-06-27T13:29:30+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -239,13 +239,13 @@ conda install -c conda-forge cufflinks-py
 </div><h1 id="多個trace用pandas更快">多個trace用pandas更快</h1>
 <p>這個辦法很快，但是如果要plot子圖的話就還是要用上面的。</p>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%;      
-    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
     .embed-container object, .embed-container embed { position: absolute;   
     top: 0; left: 0; width: 100%; height: 100%; }
 </style>
 <div class='embed-container'>
-    <iframe frameborder='0' scrolling='no' src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -282,13 +282,13 @@ conda install -c conda-forge cufflinks-py
 </div><p>用matplotlib的不用設定backend，當然除了plotly這個<code>backend</code>，pandas還支援其他的backend。</p>
 <h2 id="multiple-plot-facet_col">multiple plot facet_col</h2>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%;      
-    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
     .embed-container object, .embed-container embed { position: absolute;   
     top: 0; left: 0; width: 100%; height: 100%; }
 </style>
 <div class='embed-container'>
-    <iframe frameborder='0' scrolling='no' src='/plotly/ns3_ofdm_yans_wifi_model_col_trace.html'></iframe>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model_col_trace.html'></iframe>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -386,13 +386,13 @@ conda install -c conda-forge cufflinks-py
 </div><h1 id="matplotlib-with-plotly-display">Matplotlib with plotly display</h1>
 <p>另外Matplotlib也可以用來產生plotly的圖表。</p>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%;      
-    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
     .embed-container object, .embed-container embed { position: absolute;   
     top: 0; left: 0; width: 100%; height: 100%; }
 </style>
 <div class='embed-container'>
-    <iframe frameborder='0' scrolling='no' src='/plotly/matplotlib_pandas_subplot.html'></iframe>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandas_subplot.html'></iframe>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -458,13 +458,13 @@ conda install -c conda-forge cufflinks-py
 <p>用pandas的時候，要返回<code>plt.figure()</code>的物件的方法是用<code>df.get_figure()</code>，返回之後就可以plot了。</p>
 <p>用<code>plt_mpl</code>做的html相對於plotly直接做的有點缺點，大小控制的沒這麼好，我都刪除一個div了還是有一點大小問題。</p>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%;      
-    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
     .embed-container object, .embed-container embed { position: absolute;   
     top: 0; left: 0; width: 100%; height: 100%; }
 </style>
 <div class='embed-container'>
-    <iframe frameborder='0' scrolling='no' src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -33,7 +33,7 @@ Main program First we look at the main porgram
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/ns3_002\/"
-        },"genre": "posts","wordcount":  1044 ,
+        },"genre": "posts","wordcount":  1142 ,
         "url": "https:\/\/shihchun.github.io\/ns3_002\/","datePublished": "2020-07-05T13:53:45+08:00","dateModified": "2020-07-05T13:53:45+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -305,7 +305,7 @@ Main program First we look at the main porgram
 <pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="p">();</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>How can we use this object ? we can check it from the gdb debug tool, remember we use can use the tool to trace down the header we included, this object is also there.</p>
+</div><p>How can we use this object ? we can check it from the gdb debug tool, remember we use can use the tool to trace down the header we included, attribute is there.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -320,6 +320,32 @@ Registered TypeIds:
 .....
     ns3::UniformRandomVariable
 ....
+</code></pre></td></tr></table>
+</div>
+</div><p>This functionality is not working for only gdb, it works only if you use commandline in your program, only works in ns3.</p>
+<p>Here is the example I run with some code, it will print nothing, gdb is a debug tool</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cmake CMakeList.txt
+gdb Heap
+(gdb) r --help
+Starting program: /run/media/geek/04-Heap/Heap/Heap --help
+Heap Sort Using Max Heap : 0.35696 s
+Heap Sort Using Index Max Heap : 0.752176 s
+Heap Sort Using Min Heap : 0.367752 s
+Heap Sort Using Index Min Heap : 0.699219 s
+[Inferior 1 (process 96271) exited normally]
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="pass-value-to-object">Pass value to object</h2>

@@ -101,7 +101,8 @@ The model is defined by using smart pointer, the code below will initial the mod
 Ptr<UniformRandomVariable> v = CreateObject<UniformRandomVariable> ();
 ```
 
-How can we use this object ? we can check it from the gdb debug tool, remember we use can use the tool to trace down the header we included, this object is also there.
+How can we use this object ? we can check it from the gdb debug tool, remember we use can use the tool to trace down the header we included, attribute is there.
+
 
 ```sh
 (base) ➜  ns-3.31 ./waf --run  "sample-simulator --PrintTypeIds"
@@ -109,6 +110,22 @@ Registered TypeIds:
 .....
     ns3::UniformRandomVariable
 ....
+```
+
+This functionality is not working for only gdb, it works only if you use commandline in your program, only works in ns3.
+
+Here is the example I run with some code, it will print nothing, gdb is a debug tool
+
+```
+cmake CMakeList.txt
+gdb Heap
+(gdb) r --help
+Starting program: /run/media/geek/04-Heap/Heap/Heap --help
+Heap Sort Using Max Heap : 0.35696 s
+Heap Sort Using Index Max Heap : 0.752176 s
+Heap Sort Using Min Heap : 0.367752 s
+Heap Sort Using Index Min Heap : 0.699219 s
+[Inferior 1 (process 96271) exited normally]
 ```
 
 ## Pass value to object

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Ns3 day 2 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Ns3 day 2" />
+<meta property="og:description" content="I going to look at the ns3/src/core/examples/sample-simulator.cc today.
+Main program First we look at the main porgram
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  #include &lt;iostream&gt;#include &#34;ns3/simulator.h&#34;#include &#34;ns3/nstime.h&#34;#include &#34;ns3/command-line.h&#34;#include &#34;ns3/double.h&#34;#include &#34;ns3/random-variable-stream.h&#34;/* ....... */ int main (int argc, char *argv[]) { CommandLine cmd (__FILE__); cmd.Parse (argc, argv); MyModel model; Ptr&lt;UniformRandomVariable&gt; v = CreateObject&lt;UniformRandomVariable&gt; (); v-&gt;SetAttribute (&#34;Min&#34;, DoubleValue (10)); v-&gt;SetAttribute (&#34;Max&#34;, DoubleValue (20)); Simulator::Schedule (Seconds (10." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/ns3_002/" />
+<meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+<meta property="article:published_time" content="2020-07-05T13:53:45+08:00" />
+<meta property="article:modified_time" content="2020-07-05T13:53:45+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
+
+<meta name="twitter:title" content="Ns3 day 2"/>
+<meta name="twitter:description" content="I going to look at the ns3/src/core/examples/sample-simulator.cc today.
+Main program First we look at the main porgram
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  #include &lt;iostream&gt;#include &#34;ns3/simulator.h&#34;#include &#34;ns3/nstime.h&#34;#include &#34;ns3/command-line.h&#34;#include &#34;ns3/double.h&#34;#include &#34;ns3/random-variable-stream.h&#34;/* ....... */ int main (int argc, char *argv[]) { CommandLine cmd (__FILE__); cmd.Parse (argc, argv); MyModel model; Ptr&lt;UniformRandomVariable&gt; v = CreateObject&lt;UniformRandomVariable&gt; (); v-&gt;SetAttribute (&#34;Min&#34;, DoubleValue (10)); v-&gt;SetAttribute (&#34;Max&#34;, DoubleValue (20)); Simulator::Schedule (Seconds (10."/>
+<meta name="application-name" content="隨手筆記">
+<meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/ns3_002/" /><link rel="prev" href="https://shihchun.github.io/ns3_001/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ns3 day 2",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.github.io\/ns3_002\/"
+        },"genre": "posts","wordcount":  963 ,
+        "url": "https:\/\/shihchun.github.io\/ns3_002\/","datePublished": "2020-07-05T13:53:45+08:00","dateModified": "2020-07-05T13:53:45+08:00","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
+                "@type": "Person",
+                "name": "Shih Chun"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/about/"> 關於 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre fas fa-pencil-alt"> </span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/about/" title="">關於</a><a href="javascript:void(0);" class="menu-item theme-switch" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title"></h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ns3 day 2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="http://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shih Chun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-07-05">2020-07-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#main-program">Main program</a>
+      <ul>
+        <li><a href="#command-line-tools">Command line tools</a></li>
+        <li><a href="#constructor">Constructor</a></li>
+        <li><a href="#initial-object">Initial Object</a></li>
+        <li><a href="#pass-value-to-object">Pass value to object</a></li>
+        <li><a href="#start-simulation">Start Simulation</a></li>
+        <li><a href="#for-more-distribution">for more distribution</a></li>
+        <li><a href="#add-to-plotly">add to plotly</a></li>
+      </ul>
+    </li>
+    <li><a href="#ref">Ref</a>
+      <ul>
+        <li><a href="#for-more-gdb-skills">For more gdb skills</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>I going to look at the <code>ns3/src/core/examples/sample-simulator.cc</code> today.</p>
+<h1 id="main-program">Main program</h1>
+<p>First we look at the main porgram</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;ns3/simulator.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;ns3/nstime.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;ns3/command-line.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;ns3/double.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;ns3/random-variable-stream.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cm">/*
+</span><span class="cm">.......
+</span><span class="cm">*/</span>
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="n">CommandLine</span> <span class="n">cmd</span> <span class="p">(</span><span class="n">__FILE__</span><span class="p">);</span>
+  <span class="n">cmd</span><span class="p">.</span><span class="n">Parse</span> <span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+  <span class="n">MyModel</span> <span class="n">model</span><span class="p">;</span>
+  <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="p">();</span>
+  <span class="n">v</span><span class="o">-&gt;</span><span class="n">SetAttribute</span> <span class="p">(</span><span class="s">&#34;Min&#34;</span><span class="p">,</span> <span class="n">DoubleValue</span> <span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+  <span class="n">v</span><span class="o">-&gt;</span><span class="n">SetAttribute</span> <span class="p">(</span><span class="s">&#34;Max&#34;</span><span class="p">,</span> <span class="n">DoubleValue</span> <span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">ExampleFunction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">model</span><span class="p">);</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">GetValue</span> <span class="p">()),</span> <span class="o">&amp;</span><span class="n">RandomFunction</span><span class="p">);</span>
+
+  <span class="n">EventId</span> <span class="n">id</span> <span class="o">=</span> <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="mf">30.0</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">CancelledEvent</span><span class="p">);</span>
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Cancel</span> <span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Run</span> <span class="p">();</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Destroy</span> <span class="p">();</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="command-line-tools">Command line tools</h2>
+<p>In the program command line is for the gdb debug of the command line tools.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">CommandLine</span> <span class="nf">cmd</span> <span class="p">(</span><span class="n">__FILE__</span><span class="p">);</span>
+  <span class="n">cmd</span><span class="p">.</span><span class="n">Parse</span> <span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="constructor">Constructor</h2>
+<p>My model is a class defined constructor</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">MyModel</span> <span class="n">model</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>We can see the class MyModel which is defined in namespace</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/** Simple model object to illustrate event handling. */</span>
+<span class="k">class</span> <span class="nc">MyModel</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="cm">/** Start model execution by scheduling a HandleEvent. */</span>
+  <span class="kt">void</span> <span class="n">Start</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="cm">/**
+</span><span class="cm">   *  Simple event handler.
+</span><span class="cm">   *
+</span><span class="cm">   * \param [in] eventValue Event argument.
+</span><span class="cm">   */</span>
+  <span class="kt">void</span> <span class="n">HandleEvent</span> <span class="p">(</span><span class="kt">double</span> <span class="n">eventValue</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kt">void</span>
+<span class="n">MyModel</span><span class="o">::</span><span class="n">Start</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">),</span>
+                       <span class="o">&amp;</span><span class="n">MyModel</span><span class="o">::</span><span class="n">HandleEvent</span><span class="p">,</span>
+                       <span class="k">this</span><span class="p">,</span> <span class="n">Simulator</span><span class="o">::</span><span class="n">Now</span> <span class="p">().</span><span class="n">GetSeconds</span> <span class="p">());</span>
+<span class="p">}</span>
+<span class="kt">void</span>
+<span class="n">MyModel</span><span class="o">::</span><span class="n">HandleEvent</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Member method received event at &#34;</span>
+            <span class="o">&lt;&lt;</span> <span class="n">Simulator</span><span class="o">::</span><span class="n">Now</span> <span class="p">().</span><span class="n">GetSeconds</span> <span class="p">()</span>
+            <span class="o">&lt;&lt;</span> <span class="s">&#34;s started at &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;s&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="initial-object">Initial Object</h2>
+<p>The model is defined by using smart pointer, the code below will initial the model as a object.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="o">&lt;</span><span class="n">UniformRandomVariable</span><span class="o">&gt;</span> <span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>How can we use this object ? we can check it from the gdb debug tool, remember we use can use the tool to trace down the header we included, this object is also there.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="o">(</span>base<span class="o">)</span> ➜  ns-3.31 ./waf --run  <span class="s2">&#34;sample-simulator --PrintTypeIds&#34;</span>
+Registered TypeIds:
+.....
+    ns3::UniformRandomVariable
+....
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="pass-value-to-object">Pass value to object</h2>
+<p>We can simply check it by this way, then you know the data type is attributes (random number generator).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># --PrintAttributes=[typeid] # check (gdb) r --help</span>
+./waf --run  <span class="s2">&#34;sample-simulator --PrintAttributes=ns3::UniformRandomVariable&#34;</span>
+Attributes <span class="k">for</span> TypeId ns3::UniformRandomVariable
+    --ns3::UniformRandomVariable::Max<span class="o">=[</span>1<span class="o">]</span>
+        The upper bound on the values returned by this RNG stream.
+    --ns3::UniformRandomVariable::Min<span class="o">=[</span>0<span class="o">]</span>
+        The lower bound on the values returned by this RNG stream.
+</code></pre></td></tr></table>
+</div>
+</div><p>Pass the value to <code>Min</code> and <code>Max</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">v</span><span class="o">-&gt;</span><span class="n">SetAttribute</span> <span class="p">(</span><span class="s">&#34;Min&#34;</span><span class="p">,</span> <span class="n">DoubleValue</span> <span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+  <span class="n">v</span><span class="o">-&gt;</span><span class="n">SetAttribute</span> <span class="p">(</span><span class="s">&#34;Max&#34;</span><span class="p">,</span> <span class="n">DoubleValue</span> <span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="start-simulation">Start Simulation</h2>
+<p>The Simulator can be Scheduled, and the Event can be create and cancelled by the Id.</p>
+<ul>
+<li><code>Simulator</code>, <code>SimulatorImpl</code>, <code>Scheduler</code> class at <code>Simulator.h</code></li>
+<li>at <code>nstime.h</code>
+<ul>
+<li>(int), <code>Seconds()</code>, <code>Minutes()</code></li>
+<li>(double), <code>MiliSeconds()</code>, <code>MicroSeconds()</code>, <code>PicoSeconds()</code></li>
+<li>Double time = t.GetSeconds() // set to double</li>
+</ul>
+</li>
+<li><code>EventImpl.EventId</code> is class defined constructor</li>
+<li><code>UniformRandomVariable::GetValue()</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">ExampleFunction</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">model</span><span class="p">);</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">GetValue</span> <span class="p">()),</span> <span class="o">&amp;</span><span class="n">RandomFunction</span><span class="p">);</span>
+
+  <span class="n">EventId</span> <span class="n">id</span> <span class="o">=</span> <span class="n">Simulator</span><span class="o">::</span><span class="n">Schedule</span> <span class="p">(</span><span class="n">Seconds</span> <span class="p">(</span><span class="mf">30.0</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">CancelledEvent</span><span class="p">);</span>
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Cancel</span> <span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Run</span> <span class="p">();</span>
+
+  <span class="n">Simulator</span><span class="o">::</span><span class="n">Destroy</span> <span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="for-more-distribution">for more distribution</h2>
+<p>In the powerpoint page 11, we know it&rsquo;s not only uniform distribution, we can plot from matplotlib</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pip2 install numpy pandas plotly matplotlib cufflinks
+./waf configure --enable-modules<span class="o">=</span><span class="s1">&#39;core&#39;</span>,<span class="s1">&#39;network&#39;</span>,<span class="s1">&#39;mobility&#39;</span>,<span class="s1">&#39;propagation&#39;</span> --with-python<span class="o">=</span>python2
+./waf
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sample-rng-plot</code>,the random number generator of the ns3</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- Mode:Python; -*-</span>
+<span class="c1"># /*</span>
+<span class="c1">#  * This program is free software; you can redistribute it and/or modify</span>
+<span class="c1">#  * it under the terms of the GNU General Public License version 2 as</span>
+<span class="c1">#  * published by the Free Software Foundation</span>
+<span class="c1">#  *</span>
+<span class="c1">#  * This program is distributed in the hope that it will be useful,</span>
+<span class="c1">#  * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1">#  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1">#  * GNU General Public License for more details.</span>
+<span class="c1">#  *</span>
+<span class="c1">#  * You should have received a copy of the GNU General Public License</span>
+<span class="c1">#  * along with this program; if not, write to the Free Software</span>
+<span class="c1">#  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</span>
+<span class="c1">#  */</span>
+
+<span class="c1">## @file</span>
+<span class="c1">#  @ingroup core-examples</span>
+<span class="c1">#  @ingroup randomvariable</span>
+<span class="c1">#  Demonstrate use of ns-3 as a random number generator integrated with</span>
+<span class="c1">#  plotting tools.</span>
+<span class="c1">#  </span>
+<span class="c1">#  This is adapted from Gustavo Carneiro&#39;s ns-3 tutorial</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">ns.core</span>
+
+<span class="c1"># mu, var = 100, 225</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">NormalRandomVariable</span><span class="p">()</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s2">&#34;Mean&#34;</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DoubleValue</span><span class="p">(</span><span class="mf">100.0</span><span class="p">))</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s2">&#34;Variance&#34;</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DoubleValue</span><span class="p">(</span><span class="mf">225.0</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+
+<span class="c1"># the histogram of the data</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ns-3 histogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">.</span><span class="mo">025</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\mu=100,\ \sigma=15$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling='no' src='/plotly/normal.html'></iframe>
+</div>
+<p>other example is uniform below</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling='no' src='/plotly/uniform.html'></iframe>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># mu, var = 100, 225</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">UniformRandomVariable</span><span class="p">()</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s2">&#34;Min&#34;</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DoubleValue</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s2">&#34;Max&#34;</span><span class="p">,</span> <span class="n">ns</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">DoubleValue</span><span class="p">(</span><span class="mf">225.0</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="add-to-plotly">add to plotly</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span>
+<span class="c1">#plot things</span>
+<span class="kn">from</span> <span class="nn">plotly.offline.offline</span> <span class="kn">import</span> <span class="n">plot_mpl</span>
+<span class="n">plot_mpl</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">get_figure</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;temp-plot.html&#39;</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="ref">Ref</h1>
+<p>The ns3 2015 training videos and ppts, the videos is available at their official website. <a href="https://vimeo.com/showcase/3480129" target="_blank" rel="noopener noreffer">video</a></p>
+<!-- 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://player.vimeo.com/video/133503055" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="vimeo video" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ </div>
+ -->
+
+
+<br>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://www.nsnam.org/tutorials/consortium15/ns-3-training-part2.pptx' width='98%' height='500px' frameborder='0'>
+</iframe>
+<br>
+
+<h2 id="for-more-gdb-skills">For more gdb skills</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/PorfLSr3DDI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</div>
+        <script>
+            if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
+                
+                var s=document.createElement('script');
+                s.src='/mind/mindmap.min.js';
+                document.body.appendChild(s);
+            }
+        </script><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/ns3_002/index.md" target="_blank"></a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title=" Twitter" data-sharer="twitter" data-url="https://shihchun.github.io/ns3_002/" data-title="Ns3 day 2" data-via="xxxx"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title=" Facebook" data-sharer="facebook" data-url="https://shihchun.github.io/ns3_002/"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title=" Linkedin" data-sharer="linkedin" data-url="https://shihchun.github.io/ns3_002/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title=" Line" data-sharer="line" data-url="https://shihchun.github.io/ns3_002/" data-title="Ns3 day 2"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title=" 微博" data-sharer="weibo" data-url="https://shihchun.github.io/ns3_002/" data-title="Ns3 day 2"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title=" Blogger" data-sharer="blogger" data-url="https://shihchun.github.io/ns3_002/" data-title="Ns3 day 2" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title=" Evernote" data-sharer="evernote" data-url="https://shihchun.github.io/ns3_002/" data-title="Ns3 day 2"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/ns3_001/" class="prev" rel="prev" title="Ns3 day 1"><i class="fas fa-angle-left fa-fw"></i>Ns3 day 1</a></div>
+</div>
+<div id="comments">
+            
+
+            <div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060; 
+                var HYVOR_TALK_CONFIG = {
+                    url: window.location.hostname,
+                    id: window.location.pathname
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="https://shihchunk.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

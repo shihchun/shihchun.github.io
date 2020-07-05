@@ -4,9 +4,18 @@
         <link>https://shihchun.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
-            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sat, 04 Jul 2020 14:41:22 &#43;0800</lastBuildDate>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Sun, 05 Jul 2020 13:53:45 &#43;0800</lastBuildDate>
             <atom:link href="https://shihchun.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Ns3 day 2</title>
+    <link>https://shihchun.github.io/ns3_002/</link>
+    <pubDate>Sun, 05 Jul 2020 13:53:45 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/ns3_002/</guid>
+    <description><![CDATA[I going to look at the ns3/src/core/examples/sample-simulator.cc today.
+Main program First we look at the main porgram
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  #include &lt;iostream&gt;#include &#34;ns3/simulator.h&#34;#include &#34;ns3/nstime.h&#34;#include &#34;ns3/command-line.h&#34;#include &#34;ns3/double.h&#34;#include &#34;ns3/random-variable-stream.h&#34;/* ....... */ int main (int argc, char *argv[]) { CommandLine cmd (__FILE__); cmd.Parse (argc, argv); MyModel model; Ptr&lt;UniformRandomVariable&gt; v = CreateObject&lt;UniformRandomVariable&gt; (); v-&gt;SetAttribute (&#34;Min&#34;, DoubleValue (10)); v-&gt;SetAttribute (&#34;Max&#34;, DoubleValue (20)); Simulator::Schedule (Seconds (10.]]></description>
+</item><item>
     <title>Ns3 day 1</title>
     <link>https://shihchun.github.io/ns3_001/</link>
     <pubDate>Sat, 04 Jul 2020 14:41:22 &#43;0800</pubDate>
@@ -69,12 +78,5 @@
     <author></author>
     <guid>https://shihchun.github.io/kvm/</guid>
     <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
-</item><item>
-    <title>Gource — GitHub Log Visualization</title>
-    <link>https://shihchun.github.io/gource-github-log-visualization/</link>
-    <pubDate>Thu, 04 May 2017 10:27:01 &#43;0000</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/gource-github-log-visualization/</guid>
-    <description><![CDATA[Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&lt;(￣︶￣)↗]]></description>
 </item></channel>
 </rss>

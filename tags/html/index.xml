@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>html - tag - 隨手筆記</title>
+        <link>https://shihchun.github.io/tags/html/</link>
+        <description>html - tag - 隨手筆記</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Thu, 28 Mar 2019 20:46:39 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/html/" rel="self" type="application/rss+xml" /><item>
+    <title>用Javascript將圖片轉換成Base64</title>
+    <link>https://shihchun.github.io/web-img/</link>
+    <pubDate>Thu, 28 Mar 2019 20:46:39 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/web-img/</guid>
+    <description><![CDATA[使用FileReader 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;ie=edge&#34;&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- Word.value=&amp;#39;&amp;#39; --&gt; &lt;input id=&#34;upload_file&#34; type=&#34;file&#34;&gt; &lt;input v]]></description>
+</item></channel>
+</rss>

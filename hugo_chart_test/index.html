@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/hugo_chart_test\/"
-        },"genre": "posts","wordcount":  2298 ,
+        },"genre": "posts","wordcount":  2447 ,
         "url": "https:\/\/shihchun.github.io\/hugo_chart_test\/","datePublished": "2020-06-27T13:29:30+08:00","dateModified": "2020-06-27T13:29:30+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -247,6 +247,15 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <div class='embed-container'>
     <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -290,6 +299,15 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <div class='embed-container'>
     <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model_col_trace.html'></iframe>
 </div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -394,6 +412,15 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <div class='embed-container'>
     <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandas_subplot.html'></iframe>
 </div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -423,6 +450,10 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with matplot + plotly.offline</span>
@@ -452,6 +483,10 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Standard Deviation&#34;</span><span class="p">)</span>
 <span class="n">plot_mpl</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;temp-plot.html&#39;</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="c1"># plt.show()</span>
+<span class="kn">from</span> <span class="nn">plotly.tools</span> <span class="kn">import</span> <span class="n">mpl_to_plotly</span>
+<span class="n">plotly_fig</span> <span class="o">=</span> <span class="n">mpl_to_plotly</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">plotly_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">)</span>
+<span class="n">plotly_fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">&#34;temp-plot.html&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="matplotlib-pandas-subplot">Matplotlib pandas subplot</h2>
@@ -466,24 +501,47 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <div class='embed-container'>
     <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
 </div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># with matplotlib + pandas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ns3_ofdm_yans_wifi_model.csv&#39;</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="c1"># plt.show()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="c1">#plt.show()</span>
+<span class="kn">from</span> <span class="nn">plotly.offline.offline</span> <span class="kn">import</span> <span class="n">plot_mpl</span>
 <span class="n">plot_mpl</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">get_figure</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;temp-plot.html&#39;</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># more setting with plotly</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">plotly.tools</span> <span class="kn">import</span> <span class="n">mpl_to_plotly</span>
+<span class="n">plotly_fig</span> <span class="o">=</span> <span class="n">mpl_to_plotly</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">plotly_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="s2">&#34;none&#34;</span><span class="p">,</span><span class="n">showlegend</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">annotations</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)])</span>
+<span class="n">plotly_fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">&#34;temp-plot.html&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>不過也有例外，比如下面這樣寫，<code>df.get_figure()</code>我就沒找到，因該是<code>subplot=True</code>，加上的關係。</p>

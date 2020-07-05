@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/mindmap\/"
-        },"genre": "posts","wordcount":  1136 ,
+        },"genre": "posts","wordcount":  1163 ,
         "url": "https:\/\/shihchun.github.io\/mindmap\/","datePublished": "2020-06-28T20:20:51+08:00","dateModified": "2020-06-28T20:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -360,6 +360,15 @@ height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container 
 <div class='embed-container'>
     <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model_subplot.html'></iframe>
 </div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

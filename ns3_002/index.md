@@ -236,7 +236,13 @@ import matplotlib.pyplot as plt
 fig = plt.figure
 #plot things
 from plotly.offline.offline import plot_mpl
-plot_mpl(fig.get_figure(), filename='temp-plot.html', auto_open=False)
+# plot_mpl(fig, filename='temp-plot.html', auto_open=False) 
+# df.plot.get_figure() when use pandas
+# setting other property
+from plotly.tools import mpl_to_plotly
+plotly_fig = mpl_to_plotly(fig)
+plotly_fig.update_layout(template="none")
+plotly_fig.write_html("temp-plot3.html")
 ```
 
 # Ref

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>body-parser - tag - 隨手筆記</title>
+        <link>https://shihchun.github.io/tags/body-parser/</link>
+        <description>body-parser - tag - 隨手筆記</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Wed, 26 Dec 2018 12:16:22 &#43;0000</lastBuildDate><atom:link href="https://shihchun.github.io/tags/body-parser/" rel="self" type="application/rss+xml" /><item>
+    <title>node.js body-parser &#43; swig 處理HTML表單</title>
+    <link>https://shihchun.github.io/node-js-2/</link>
+    <pubDate>Wed, 26 Dec 2018 12:16:22 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/node-js-2/</guid>
+    <description><![CDATA[安裝curl 1 2 # 打開cmd用Chocolatey（Windows下的軟體包管理器） choco install curl # 安裝curl 用curl測試post 1 2 3 4 5 6 7]]></description>
+</item></channel>
+</rss>

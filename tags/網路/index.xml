@@ -10,7 +10,7 @@
     <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
     <author></author>
     <guid>https://shihchun.github.io/aqua-sim/</guid>
-    <description><![CDATA[Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki 1 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz after you download it, you can try as below: Pyviz issue in this version 3.29 ref here AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo; line_dash=GooCanvas.LineDash() cange to line_dash=GooCanvas.CanvasLineDash.newv() Aqua-sim 是一]]></description>
+    <description><![CDATA[Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki, install the dependency first, ref here 1 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz after you download it, you can try as below: Pyviz issue in this version 3.29 ref here AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo; line_dash=GooCanvas.LineDash()]]></description>
 </item><item>
     <title>ACL Packet Tracert Cisco CLI</title>
     <link>https://shihchun.github.io/acl-packet-tracert-cisco-cli/</link>

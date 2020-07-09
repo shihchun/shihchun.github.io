@@ -1,7 +1,7 @@
 # Aqua-Sim NS3.29 安裝
 
 
-Aquasim-ng installation, to install it download the files from zheng peng's wiki
+Aquasim-ng installation, to install it download the files from zheng peng's wiki, install the dependency first, ref [here](https://www.nsnam.org/wiki/Installation)
 
 ```sh
 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz

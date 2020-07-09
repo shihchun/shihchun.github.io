@@ -35,6 +35,13 @@ Main program First we look at the main porgram
     <guid>https://shihchun.github.io/hugo_chart_test/</guid>
     <description><![CDATA[加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一]]></description>
 </item><item>
+    <title>Aqua-Sim NS3.29 安裝</title>
+    <link>https://shihchun.github.io/aqua-sim/</link>
+    <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/aqua-sim/</guid>
+    <description><![CDATA[Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki 1 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz after you download it, you can try as below: Pyviz issue in this version 3.29 ref here AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo; line_dash=GooCanvas.LineDash() cange to line_dash=GooCanvas.CanvasLineDash.newv() Aqua-sim 是一]]></description>
+</item><item>
     <title>python 基本</title>
     <link>https://shihchun.github.io/jupyter/</link>
     <pubDate>Fri, 31 Jan 2020 19:43:16 &#43;0800</pubDate>
@@ -69,12 +76,5 @@ Main program First we look at the main porgram
     <author></author>
     <guid>https://shihchun.github.io/git-set/</guid>
     <description><![CDATA[編輯現有的project 1 2 3 4 5 6 $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &#34;commit message 可以寫做什麼修改&#34; ## 上傳 $ git push -u orgin master ## push 到叫做org]]></description>
-</item><item>
-    <title>kvm 安裝</title>
-    <link>https://shihchun.github.io/kvm/</link>
-    <pubDate>Tue, 30 Oct 2018 19:04:06 &#43;0000</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/kvm/</guid>
-    <description><![CDATA[KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計]]></description>
 </item></channel>
 </rss>

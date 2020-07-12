@@ -31,13 +31,6 @@ Main program First we look at the main porgram
     <guid>https://shihchun.github.io/ns3_001/</guid>
     <description><![CDATA[ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download 1 2 3 wget url tar -jxvf file # make alias or not Bassic useage waf configure &ldquo;&ndash;enable-tests&rdquo; &ldquo;&ndash;enable-examples&rdquo; &ldquo;&ndash;build-profile=debug&rdquo; &ldquo;&ndash;with-python=python2&rdquo; &ldquo;&ndash;disable-python&rdquo; &ldquo;&ndash;enable-modules&rdquo; build run Full build 1]]></description>
 </item><item>
-    <title>ShortCode 整理</title>
-    <link>https://shihchun.github.io/mindmap/</link>
-    <pubDate>Sun, 28 Jun 2020 20:20:51 &#43;0800</pubDate>
-    <author></author>
-    <guid>https://shihchun.github.io/mindmap/</guid>
-    <description><![CDATA[整理一下最近加入的shortcode，{{}}會錯誤所以都用{}代替，不然會變成這樣，今天換了Loveit發現主題內建了mermaid，所以]]></description>
-</item><item>
     <title>Plotly csv 讀取</title>
     <link>https://shihchun.github.io/hugo_chart_test/</link>
     <pubDate>Sat, 27 Jun 2020 13:29:30 &#43;0800</pubDate>
@@ -79,5 +72,12 @@ Main program First we look at the main porgram
     <author></author>
     <guid>https://shihchun.github.io/hugo-math/</guid>
     <description><![CDATA[原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明]]></description>
+</item><item>
+    <title>Git 使用</title>
+    <link>https://shihchun.github.io/git-set/</link>
+    <pubDate>Mon, 18 Feb 2019 15:17:29 &#43;0000</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/git-set/</guid>
+    <description><![CDATA[編輯現有的project 1 2 3 4 5 6 $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &#34;commit message 可以寫做什麼修改&#34; ## 上傳 $ git push -u orgin master ## push 到叫做org]]></description>
 </item></channel>
 </rss>

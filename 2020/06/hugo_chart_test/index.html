@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Plotly csv 讀取 - 隨手筆記
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html hugo中加入一" />
+  <meta name="generator" content="Hugo 0.65.1 with theme pure" />
+  <title>Plotly csv 讀取 - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.d2efa11d63fc2f1fbee8ad1c4099d53cc12c57c0db05a035cdbfdbfa6ff4c055.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="Plotly csv 讀取" />
+<meta property="og:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/2020/06/hugo_chart_test/" />
+<meta property="article:published_time" content="2020-06-27T13:29:30+08:00" />
+<meta property="article:modified_time" content="2020-06-27T13:29:30+08:00" />
+<meta itemprop="name" content="Plotly csv 讀取">
+<meta itemprop="description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一">
+<meta itemprop="datePublished" content="2020-06-27T13:29:30&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-27T13:29:30&#43;08:00" />
+<meta itemprop="wordCount" content="2152">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Plotly csv 讀取"/>
+<meta name="twitter:description" content="加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/shihchun" target="_blank">
+            <img class="img-circle img-rotate" src="https://shihchun.github.io/lo_img/avat.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Taoyuan, Taiwan</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">首頁</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">檔案</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分類</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">標籤</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">關於我</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>沒有公告</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分類</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 標籤</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ffmpeg/" class="tag-list-link">ffmpeg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/gource/" class="tag-list-link">gource</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/kvm/" class="tag-list-link">kvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/libvirt/" class="tag-list-link">libvirt</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="tag-list-link">linux-學習筆記</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" class="tag-list-link">linux基本指令</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/qemu/" class="tag-list-link">qemu</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/vm/" class="tag-list-link">vm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/dropdown/" class="title">Dropdown Terminal</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-12 12:02:35 &#43;0800 CST" itemprop="datePublished">2020-07-12</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_002/" class="title">Ns3 day 2</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-05 13:53:45 &#43;0800 CST" itemprop="datePublished">2020-07-05</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_001/" class="title">Ns3 day 1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-04 14:41:22 &#43;0800 CST" itemprop="datePublished">2020-07-04</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="title">Plotly csv 讀取</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/ns3_installation/" class="title">NS3 installation</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目錄</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/06/hugo_chart_test/"
+    >Plotly csv 讀取</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="article-date">
+  <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
+</a>
+</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/hugo_chart_test/#comments"
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 2152字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="加入自定義-shortcodes">加入自定義 ShortCodes</h1>
+<p><a href="https://gohugo.io/templates/shortcode-templates/">Hugo 的文檔</a>有提到我們可以自己製作<code>shortcodes</code>，這篇文章紀錄我把<code>char.js</code>放到我自己hugo的過程。</p>
+<ol>
+<li><code>/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
+<li><code>/themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html</code></li>
+</ol>
+<p>hugo中加入一個檔案<code>layouts/shortcodes/rawhtml.html</code></p>
+<pre><code class="language-html">&lt;!-- raw html --&gt;
+{{.Inner}}
+</code></pre>
+<h1 id="用法">用法</h1>
+<p>最後只要在文章中加入，其實就是加入html的程式碼而已，之後可以再修改。</p>
+<pre><code class="language-text">{&lt; rawhtml &gt;}
+html code， 由於{{ }}， 會錯誤，所以只用一個{}表示
+{&lt; /rawhtml &gt;}
+</code></pre>
+<h1 id="python產生plotly的html">python產生plotly的html</h1>
+<p>python安裝要用到的庫</p>
+<pre><code class="language-sh">conda install pandas
+conda install -c plotly plotly
+conda install -c conda-forge cufflinks-py 
+</code></pre>
+<p>加入iframe之後會跑掉格式，找到一個比較可以的例子：</p>
+<pre><code class="language-html">&lt;!-- plotly html --&gt;
+&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+    &lt;div class='embed-container'&gt;
+        &lt;iframe frameborder='0' scrolling='no' src='/plotly/{ index .Params 0 }.html'&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    
+</code></pre>
+<p>加入shortcode，hugo中加入一個檔案<code>layouts/shortcodes/plotly.html</code>，檔案放在</p>
+<pre><code class="language-html">&lt;!-- plotly html --&gt;
+&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%;      
+height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+.embed-container object, .embed-container embed { position: absolute;   
+top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;
+&lt;div class='embed-container'&gt;
+{{.Inner}}    
+&lt;/div&gt;
+</code></pre>
+<p>以後直接使用，一樣怕<code>{{}}</code>被識別，紀錄就少寫一個，檔案放在<code>static/plotly/</code></p>
+<pre><code>{&lt; plotly ns3_ofdm_yans_wifi_model&gt;}
+</code></pre>
+<h1 id="多個trace用pandas更快">多個trace用pandas更快</h1>
+<p>這個辦法很快，但是如果要plot子圖的話就還是要用上面的。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model.html'></iframe>
+</div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
+<pre><code class="language-python"># with plotly + pandas
+import pandas as pd
+pd.options.plotting.backend = &quot;plotly&quot;
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model&quot;,
+template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line'
+)
+fig.update_layout(xaxis_title='SNR(dB)',yaxis_title='Frame Success')
+fig.update_yaxes(exponentformat=&quot;power&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
+fig.add_annotation(x=1.1, y=1, text=&quot;success transmit&quot;) # add note
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+</code></pre>
+<p>用matplotlib的不用設定backend，當然除了plotly這個<code>backend</code>，pandas還支援其他的backend。</p>
+<h2 id="multiple-plot-facet_col">multiple plot facet_col</h2>
+
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/ns3_ofdm_yans_wifi_model_col_trace.html'></iframe>
+</div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
+<pre><code class="language-python"># with plotly + pandas + subplot col trace
+import pandas as pd
+pd.options.plotting.backend = &quot;plotly&quot;
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0],y=df.columns[1:], title=&quot;ns3 ofdm yans wifi model col trace&quot;,
+template=&quot;none&quot;, labels=dict( index=&quot;&quot;, value=&quot;success&quot;, variable=&quot;&quot;),log_x=False, log_y=False, kind='line',
+facet_col=&quot;variable&quot;,facet_col_wrap=2 # express way facet_raw=&quot;variable&quot;, wrap col only
+)
+fig.update_layout(xaxis_title='SNR(dB)', yaxis_title='Frame Success' ) # showlegend=True
+fig.update_yaxes(exponentformat=&quot;power&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;)
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+</code></pre>
+<p>這個方法雖然很快，不過很多設定還是要用plotly本身的工具:</p>
+<pre><code class="language-python"># with plotly + pandas + make_subplots
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+fig = make_subplots(rows=1, cols=2)
+
+for i in range(1, 5):
+    fig.add_trace(
+        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
+        row=1, col=1
+    )
+    pass
+
+for i in range(1, 5):
+    fig.add_trace(
+        go.Scatter(x=df[df.columns[0]], y=df[df.columns[i]]),
+        row=1, col=2
+    )
+    pass
+
+fig.update_layout(title=&quot;ns3 ofdm yans wifi model subplot&quot;, xaxis_title='SNR(dB)', yaxis_title='Frame Success', template=&quot;none&quot;)
+fig.update_yaxes(exponentformat=&quot;power&quot;, rangemode=&quot;tozero&quot;)
+fig.update_xaxes(tickprefix=&quot;&gt;&quot;, ticksuffix = &quot;dB&quot;, range=[-3, 10])
+fig.show()
+# fig.write_html(&quot;file.html&quot;)
+# mode [maker | lines ]
+# theme template: [&quot;plotly&quot;, &quot;plotly_white&quot;, &quot;plotly_dark&quot;, &quot;ggplot2&quot;, &quot;seaborn&quot;, &quot;simple_white&quot;, &quot;none&quot;]
+# exponentformat &quot;none&quot; | &quot;e&quot; | &quot;E&quot; | &quot;power&quot; | &quot;SI&quot; | &quot;B&quot;
+</code></pre>
+<h1 id="matplotlib-with-plotly-display">Matplotlib with plotly display</h1>
+<p>另外Matplotlib也可以用來產生plotly的圖表。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandas_subplot.html'></iframe>
+</div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
+<pre><code class="language-python"># with matplot + plotly.offline
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+from plotly.offline import iplot_mpl, init_notebook_mode, enable_mpl_offline
+from plotly.offline.offline import plot_mpl
+
+# init_notebook_mode()
+# plotly.offline.init_notebook_mode(connected=True)
+enable_mpl_offline()
+
+mean = [10,12,16,22,25]
+variance = [3,6,8,10,12]
+x = np.linspace(0,40,1000)
+
+fig = plt.figure()
+for i in range(4):
+    sigma = np.sqrt(variance[i])
+    y = norm.pdf(x,mean[i],sigma)
+    plt.plot(x,y, label=r'$v_{}$'.format(i+1))
+    pass
+
+plt.xlabel(&quot;X&quot;)
+plt.ylabel(&quot;P(X)&quot;)
+plt.title(&quot;Standard Deviation&quot;)
+plot_mpl(fig, filename='temp-plot.html', auto_open=False)
+# plt.show()
+from plotly.tools import mpl_to_plotly
+plotly_fig = mpl_to_plotly(fig)
+plotly_fig.update_layout(template=&quot;none&quot;)
+plotly_fig.write_html(&quot;temp-plot.html&quot;)
+</code></pre>
+<h2 id="matplotlib-pandas-subplot">Matplotlib pandas subplot</h2>
+<p>用pandas的時候，要返回<code>plt.figure()</code>的物件的方法是用<code>df.get_figure()</code>，返回之後就可以plot了。</p>
+<p>用<code>plt_mpl</code>做的html相對於plotly直接做的有點缺點，大小控制的沒這麼好，我都刪除一個div了還是有一點大小問題。</p>
+
+<style>.embed-container { position: relative; padding-bottom: 500px; 
+height: 100%; width:100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+    <iframe frameborder='0' scrolling="yes" style="overflow-y: hidden;" src='/plotly/matplotlib_pandasns3_ofdm_yans_wifi_model.html'></iframe>
+</div>
+
+<script>
+    var waitForPlotly = setInterval( function() {
+        if( typeof(window.Plotly) !== "undefined" ){
+            MathJax.Hub.Config({ SVG: { font: "STIX-Web" }, displayAlign: "center" });
+            MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+            clearInterval(waitForPlotly);
+        }}, 250 );
+</script>
+<pre><code class="language-python"># with matplotlib + pandas
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+fig = df.plot(x=df.columns[0], y=df.columns[1:])
+#plt.show()
+from plotly.offline.offline import plot_mpl
+plot_mpl(fig.get_figure(), filename='temp-plot.html', auto_open=False)
+# more setting with plotly
+fig = fig.get_figure()
+from plotly.tools import mpl_to_plotly
+plotly_fig = mpl_to_plotly(fig)
+plotly_fig.update_layout(template=&quot;none&quot;,showlegend=True,annotations=[dict(visible=False)])
+plotly_fig.write_html(&quot;temp-plot.html&quot;)
+</code></pre>
+<p>不過也有例外，比如下面這樣寫，<code>df.get_figure()</code>我就沒找到，因該是<code>subplot=True</code>，加上的關係。</p>
+<pre><code class="language-python">
+# with matplotlib + pandas
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('./ns3_ofdm_yans_wifi_model.csv')
+# Plotting
+fig = df.plot(kind='line', subplots=True, grid=True, title=&quot;Sample Data (Unit)&quot;,
+    layout=(4, 3), sharex=True, sharey=False, legend=False,    
+    style=['r', 'r', 'r', 'g', 'g', 'g', 'b', 'b', 'b', 'r', 'r', 'r'],
+    xticks=np.arange(0, len(df), 16))
+
+[ax.legend(loc=1) for ax in plt.gcf().axes]
+  df.plot(x=df.columns[0], y=df.columns[1:5])
+
+plt.show()
+</code></pre>
+<h1 id="plotlyjs">Plotly.js</h1>
+<p>直接寫的話比較不好寫，需要的cdn</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script> -->
+<div id="myDiv" ></div>
+
+<script>
+csv_url = document.location.origin+ '/csv/test.csv';
+url = "https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv";
+function makeplot() {
+  Plotly.d3.csv(url, function(data){ processData(data) } );
+};
+function processData(allRows) {
+  // console.log(allRows);
+  var x = [], y = [];
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['AAPL_x'] );
+    y.push( row['AAPL_y'] );
+    // x.push( row['t'] );
+    // y.push( row['v'] );
+  }
+  // console.log( 'X',x, 'Y',y);
+  makePlotly( x, y);
+}
+
+function makePlotly( x, y){
+  var traces = [{
+    x: x,
+    y: y
+  }];
+
+  Plotly.newPlot('myDiv', traces,
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+</script>
+
+<pre><code>AAPL_x,AAPL_y
+2014-01-02,77.44539475
+2014-01-03,77.04557544
+2014-01-06,74.89697204
+2014-01-07,75.856461
+2014-01-08,75.09194679
+2014-01-09,76.20263178
+2014-01-10,75.2301837
+2014-01-13,73.84891755
+2014-01-14,75.0113527
+2014-01-15,77.14481412
+2014-01-16,77.33058367
+2014-01-17,76.85652616
+2014-01-21,75.39394758
+2014-01-22,76.7763823
+2014-01-23,76.64038513
+2014-01-24,77.20512022
+2014-01-27,76.66007339
+</code></pre>
+<h1 id="讀檔">讀檔</h1>
+<p>讀取我自己hugo的檔案：</p>
+<pre><code class="language-js">csv_url = document.location.origin+ '/csv/test.csv';
+</code></pre>
+
+
+<div id="graph3"></div>
+
+<script>
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i < cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+
+url = document.location.origin+ '/csv/test.csv';
+Plotly.d3.csv(url, function(data){
+  var x = [], y = []
+  for (var i=0; i<data.length; i++) {
+    row = data[i];
+    x.push( row['t'] );
+    y.push( row['v'] );
+  }
+  // console.log(x)
+  // console.log(y)
+  var trace1 = {
+    x: x,
+    y: y,
+    name: 'sine from csv data',
+    type: 'scatter'
+  };
+  var trace2 = {
+    x: t,
+    y: x2,
+    name: 'cosine',
+    type: 'scatter'
+  };
+  var data = [trace1,trace2];
+  layout = {
+    title: 'test dataset',
+  };
+  Plotly.newPlot('graph3', data, layout);
+  var layout = {
+    title: 'semilog scale test',
+    xaxis: {
+      title: 'time(s)',
+      type: 'linear',
+      autorange: true
+    },
+    yaxis: {
+      title: 'v(t)',
+      type: 'log',
+      autorange: true
+    }
+  };
+  Plotly.newPlot('graph4', data, layout);
+});
+</script>
+
+<pre><code class="language-html">&lt;div id=&quot;graph3&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+function linspace(startValue, stopValue, cardinality) {
+    var arr = [];
+    var step = (stopValue - startValue) / (cardinality - 1);
+    for (var i = 0; i &lt; cardinality; i++) {
+      arr.push(startValue + (step * i));
+    }
+    return arr;
+  }
+
+t = linspace(1,8,100);
+var x1 = new Array;
+var x2 = new Array;
+for (i = 1; t[i] != t.end; ++i){
+    x1.push( Math.sin(t[i]) );
+    x2.push(Math.cos(t[i]) );
+}
+
+url = document.location.origin+ '/csv/test.csv';
+Plotly.d3.csv(url, function(data){
+  var x = [], y = []
+  for (var i=0; i&lt;data.length; i++) {
+    row = data[i];
+    x.push( row['t'] );
+    y.push( row['v'] );
+  }
+  console.log(x)
+  console.log(y)
+  var trace1 = {
+    x: x,
+    y: y,
+    name: 'sine from csv data',
+    type: 'scatter'
+  };
+  var trace2 = {
+    x: t,
+    y: x2,
+    name: 'cosine',
+    type: 'scatter'
+  };
+  var data = [trace1,trace2];
+  Plotly.newPlot('graph3', data, {title: 'test dataset'} );
+});
+&lt;/script&gt;
+&lt;div id=&quot;graph4&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h1 id="layout-和-line-type">layout 和 line type</h1>
+<p>再來title和axis，type的部分，也可以設定，下面是semilog的例子，填到後面layout就可以用了</p>
+
+
+<div id="graph4"></div>
+
+<pre><code class="language-js">var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    title: 'time(s)',
+    type: 'linear',
+    autorange: true
+  },
+  yaxis: {
+    title: 'v(t)',
+    type: 'log',
+    autorange: true
+  }
+};
+
+Plotly.newPlot('myDiv', data, layout);
+</code></pre>
+<h1 id="suffix">suffix</h1>
+<p>再來是suffix，可以加在前面後面，<code>showexponent： all</code>看起來不用加</p>
+
+
+
+<div id="graph5"></div>
+
+<script>
+var trace1 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [8, 7, 6, 5, 4, 3, 2, 1, 0],
+  type: 'scatter'
+};
+
+var trace2 = {
+  x: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  y: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  type: 'scatter'
+};
+
+var data = [trace1, trace2];
+
+var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    title: 'time(s)',
+    type: 'linear',
+    tickprefix: '-> ', 
+    ticksuffix: ' s', 
+    // showexponent: 'all',
+    autorange: true
+  },
+  yaxis: {
+    title: 'v(t)',
+    type: 'log',
+    tickprefix: '-> ', 
+    ticksuffix: ' volt', 
+    // showexponent: 'all',
+    autorange: true
+  }
+};
+
+Plotly.newPlot('graph5', data, layout);
+</script>
+
+<pre><code class="language-js">var layout = {
+  title: 'semilog scale test',
+  xaxis: {
+    title: 'time(s)',
+    type: 'linear',
+    tickprefix: '-&gt; ', 
+    ticksuffix: ' s', 
+    // showexponent: 'all',
+    autorange: true
+  },
+  yaxis: {
+    title: 'v(t)',
+    type: 'log',
+    tickprefix: '-&gt; ', 
+    ticksuffix: ' volt', 
+    // showexponent: 'all',
+    autorange: true
+  }
+};
+</code></pre>
+<p>上面用的是cpp產生的sine csv。</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+
+template&lt;typename T&gt;
+std::vector&lt;double&gt; linspace(T start_in, T end_in, int num_in)
+{
+
+  std::vector&lt;double&gt; linspaced;
+
+  double start = static_cast&lt;double&gt;(start_in);
+  double end = static_cast&lt;double&gt;(end_in);
+  double num = static_cast&lt;double&gt;(num_in);
+
+  if (num == 0) { return linspaced; }
+  if (num == 1) 
+    {
+      linspaced.push_back(start);
+      return linspaced;
+    }
+
+  double delta = (end - start) / (num - 1);
+
+  for(int i=0; i &lt; num-1; ++i)
+    {
+      linspaced.push_back(start + delta * i);
+    }
+  linspaced.push_back(end); // I want to ensure that start and end
+                            // are exactly the same as the input
+  return linspaced;
+}
+
+void print_vector(std::vector&lt;double&gt; vec)
+{
+  std::cout &lt;&lt; &quot;size: &quot; &lt;&lt; vec.size() &lt;&lt; std::endl;
+  for (double d : vec)
+    std::cout &lt;&lt; d &lt;&lt; &quot; &quot;;
+  std::cout &lt;&lt; std::endl;
+}
+
+int main()
+{
+  std::ofstream out(&quot;test.csv&quot;); // sefl-define
+  std::vector&lt; int &gt; arr; // 1d
+  std::vector&lt;double&gt;  t = linspace(1,8,100);
+  std::vector&lt;double&gt; x;
+  print_vector(t);
+  out&lt;&lt; 't' &lt;&lt; ',' &lt;&lt; 'v' &lt;&lt; std::endl;
+  for (int i = 0; i &lt;= t.size()-1; ++i){
+    x.push_back( std::sin(t[i]) );
+    out&lt;&lt; t[i] &lt;&lt; ',' &lt;&lt; x[i] &lt;&lt; std::endl;
+  }
+  print_vector(x);
+  out.close();
+  return 0;
+}
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文鏈結: </strong>
+      <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" title="Plotly csv 讀取" target="_blank" rel="external">https://shihchun.github.io/2020/06/hugo_chart_test/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://shihchun.github.io/lo_img/avat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/shihchun" target="_blank"><span class="text-dark">shihchun</span><small class="ml-1x">一天忘記一件事</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'shihchunk';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+  </div>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://shihchun.github.io/2020/06/ns3_installation/" title="NS3 installation"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://shihchun.github.io/2020/07/ns3_001/"
+                    title="Ns3 day 1"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter"
+                data-mobile-sites="facebook, twitter"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/shihchun" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://shihchun.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/shihchun.github.io',
+            CONTENT_URL: 'https:\/\/shihchun.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://shihchun.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
+    });
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-97401827-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </body>
+</html>

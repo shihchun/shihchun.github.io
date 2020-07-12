@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        kvm 安裝 - 隨手筆記
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &amp;hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計" />
+  <meta name="generator" content="Hugo 0.65.1 with theme pure" />
+  <title>kvm 安裝 - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.d2efa11d63fc2f1fbee8ad1c4099d53cc12c57c0db05a035cdbfdbfa6ff4c055.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="kvm 安裝" />
+<meta property="og:description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/2018/10/kvm/" />
+<meta property="article:published_time" content="2018-10-30T19:04:06+00:00" />
+<meta property="article:modified_time" content="2018-10-30T19:04:06+00:00" />
+<meta itemprop="name" content="kvm 安裝">
+<meta itemprop="description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計">
+<meta itemprop="datePublished" content="2018-10-30T19:04:06&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-30T19:04:06&#43;00:00" />
+<meta itemprop="wordCount" content="1193">
+
+
+
+<meta itemprop="keywords" content="vm,kvm,libvirt,qemu," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kvm 安裝"/>
+<meta name="twitter:description" content="KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/shihchun" target="_blank">
+            <img class="img-circle img-rotate" src="https://shihchun.github.io/lo_img/avat.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Taoyuan, Taiwan</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">首頁</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">檔案</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分類</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">標籤</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">關於我</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>沒有公告</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分類</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 標籤</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ffmpeg/" class="tag-list-link">ffmpeg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/gource/" class="tag-list-link">gource</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/kvm/" class="tag-list-link">kvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/libvirt/" class="tag-list-link">libvirt</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="tag-list-link">linux-學習筆記</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" class="tag-list-link">linux基本指令</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/qemu/" class="tag-list-link">qemu</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/vm/" class="tag-list-link">vm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/dropdown/" class="title">Dropdown Terminal</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-12 12:02:35 &#43;0800 CST" itemprop="datePublished">2020-07-12</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_002/" class="title">Ns3 day 2</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-05 13:53:45 &#43;0800 CST" itemprop="datePublished">2020-07-05</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_001/" class="title">Ns3 day 1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-04 14:41:22 &#43;0800 CST" itemprop="datePublished">2020-07-04</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="title">Plotly csv 讀取</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/ns3_installation/" class="title">NS3 installation</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目錄</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2018/10/kvm/"
+    >kvm 安裝</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://shihchun.github.io/2018/10/kvm/" class="article-date">
+  <time datetime="2018-10-30 19:04:06 &#43;0000 UTC" itemprop="datePublished">2018-10-30</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/linux/"> Linux </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/vm/"> vm </a>
+    <a class="article-tag-link" href="/tags/kvm/"> kvm </a>
+    <a class="article-tag-link" href="/tags/libvirt/"> libvirt </a>
+    <a class="article-tag-link" href="/tags/qemu/"> qemu </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2018/10/kvm/#comments"
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1193字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="kvm">KVM</h1>
+<p>KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor.</p>
+<p>&hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計算，實現位置監控以及自動化</p>
+<!-- raw HTML omitted -->
+<p><img src="/media/Kernel-based_Virtual_Machine.svg" alt="KVM structure"></p>
+<h2 id="how-it-works">How it works</h2>
+<p>It works with</p>
+<p>GNU / LINUX</p>
+<ul>
+<li>User Space</li>
+<li>Kernel Space</li>
+</ul>
+<pre><code class="language-bash"># top
+</code></pre>
+<p>通常如果User Space使用率高是正常的，如果Kernel Space（sys）的部分使用率過高的話就要注意一下了。</p>
+<!-- raw HTML omitted -->
+<p>而KVM的虛擬機virtual machine就是透過QEMU去做安裝的，如果要使用虛擬機KVM的話用像VMware一樣有嵌套虛擬化的VM工具，可以在虛擬機下面執行虛擬機，還有V-td（Intel）的功能也要打開，AMD系列主機板則是AMD-V。</p>
+<pre><code class="language-bash"># kvm -qemu
+</code></pre>
+<p><img src="/media/qemu.JPG" alt="kvm QEMU"></p>
+<h1 id="installation-kvm">Installation KVM</h1>
+<p>Determine the if Hardware virtualization is Enabled or not.</p>
+<pre><code># grep -E '(vmx|svm)' /proc/cpuinfo 
+or
+# egrep &quot;vmx|svm&quot; /proc/cpuinfo
+</code></pre>
+<p>kvm需要安裝<code>qemu-kvm</code>、<code>libvirt</code>，kvm就不用說明了，libvirt是做虛擬機管理用的。</p>
+<p>使用指令建立虛擬機的優點就是可以選擇建立的各個參數，例如磁碟鏡像使用raw聽說是相對而言最快的，但是virt-manager卻只可以建立建立qcow2，當然格式這些可以互相轉換。</p>
+<pre><code class="language-bash">$ sudo apt-get install qemu-kvm libvirt-bin virtinst
+$ systemctl enable libvirtd
+$ systemctl start libvirtd
+$
+## 建立10GB的虛擬硬碟
+qemu-img create -f qcow2 /var/lib/libvirt/images/ubuntu_vm1.qcow2 10G
+qemu-img info ubuntu_vm1.qcow2
+## 用virtinst 安裝 （預設vnc port=5900）
+$ virt-install --virt-type kvm --name ubuntu_vm1 --ram 1024 \
+--cdrom=/opt/ubuntu-18.04.1-desktop-amd64.iso \
+--disk /var/lib/libvirt/images/ubuntu_vm1.qcow2,format=qcow2,format=qcow2,size=10,sparse=true|false \
+--network network=default \
+--graphics vnc,listen=0.0.0.0 --noautoconsole \
+--os-type=linux --os-variant=ubuntutrusty
+
+WARNING  No operating system detected, VM performance may suffer. Specify an OS with --os-variant for optimal results.
+ERROR    Couldn't create storage volume 'ubuntu_vm1.qcow2': '[Errno 32] Broken pipe'
+Domain installation does not appear to have been successful.
+If it was, you can restart your domain by running:
+  virsh --connect qemu:///system start ubuntu_vm1
+
+## 重新執行一次
+
+$ virsh --connect qemu:///system start ubuntu_vm1
+$ virt-install --virt-type kvm --name ubuntu_vm1 --ram 1024 \
+--cdrom=/opt/ubuntu-18.04.1-desktop-amd64.iso \
+--disk /var/lib/libvirt/images/ubuntu_vm1.qcow2,format=qcow2,format=qcow2,size=10,sparse=true|false \
+--network network=default \
+--graphics vnc,listen=0.0.0.0 --noautoconsole \
+--os-type=linux --os-variant=ubuntutrusty
+
+## 格式轉換 ： qcow2 , qed , raw , vdi , vpc , vmdk
+## The qcow2 type can be created if the qemu-img tool is present. The others are dependent on support of the qemu-img tool.
+
+# example kvm -&gt; vmware
+$ qemu-img convert -f raw -O vmdk -p windows.raw /run/media/geek/2TB/Virtual\ Machines/Windows/windows.vmdk
+$ vmkfstools -i windows.vmdk -d thin windows_transfered.vmdk
+</code></pre>
+<p><img src="/media/kvm_install2.JPG" alt="kvm 安裝"></p>
+<p>在經過折騰一陣之後我發現直接用<code>virt-manager</code>安裝就行了，指令安裝可能有它的好處在吧！</p>
+<pre><code class="language-bash">$ sudo apt-get install qemu-kvm libvirt-bin virtinst virt-manager
+$ systemctl enable libvirtd
+$ systemctl start libvirtd
+$ virt-manager
+# 圖形界面
+</code></pre>
+<p><img src="/media/kvm_install.JPG" alt="kvm manager"></p>
+<h2 id="vnc-server">vnc server</h2>
+<p>安裝vnc server，並且啟動vncserver，可以在遠端透過vnc遙控vm主機</p>
+<pre><code class="language-bash">$ sudo apt install xfce4 xfce4-goodies
+$ sudo apt install tightvncserver
+$ vncserver
+
+You will require a password to access your desktops.
+
+Password: 
+Verify:   
+Would you like to enter a view-only password (y/n)? y
+Password: 
+Verify:   
+
+New 'X' desktop is geek-virtual-machine:1
+
+Creating default startup script /home/geek/.vnc/xstartup
+Starting applications specified in /home/geek/.vnc/xstartup
+Log file is /home/geek/.vnc/geek-virtual-machine:1.log
+</code></pre>
+<h1 id="virsh-list-查看啟動刪除-kvm">virsh list 查看/啟動/刪除 kvm</h1>
+<pre><code class="language-bash">$ virsh list --all
+ Id    Name                           State
+----------------------------------------------------
+ -     ubuntu_vm1                     shut off
+$ virsh start ubuntu_vm1
+Domain ubuntu_vm1 started
+
+## 如果要刪除 KVM
+$ virsh undefine ubuntu_vm1 --remove-all-storage
+Domain ubuntu_vm1 has been undefined
+Volume 'hda'(/opt/ubuntu_vm1.qcow2) removed.
+
+## 遠端連線範例
+$ virsh --connect qemu+ssh://geek@192.168.59.129/system list --all
+
+</code></pre>
+<h1 id="虛擬機管理">虛擬機管理</h1>
+<p>libvirt管理虛擬機有一個很大的優點，就是在管理的過程中，如果libvirt不動作了，不會影響到KVM，他們沒有依賴關係。</p>
+<pre><code class="language-bash">$ pwd
+/etc/libvirt/qemu
+$ ll
+total 12K
+drwxr-xr-x 3 root root 4.0K Oct 31 23:01 networks
+-rw------- 1 root root 4.1K Nov  1 20:22 ubuntu_vm1.xml
+</code></pre>
+<pre><code class="language-xml">&lt;!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh edit ubuntu_vm1
+or other application using the libvirt API.
+--&gt;
+
+&lt;domain type='kvm'&gt;
+  &lt;name&gt;ubuntu_vm1&lt;/name&gt;
+  &lt;uuid&gt;eb6f6313-ba45-4255-8df3-89773ef183b4&lt;/uuid&gt;
+  &lt;memory unit='KiB'&gt;1048576&lt;/memory&gt;
+.
+.
+.
+</code></pre>
+<p>在<code>etc</code>目錄下面<code>libvirt</code>個設定檔案，告訴我們說他的設定是自動生成的，要我們自行去用指令做設定。</p>
+<p>ip addr del dev eth0 192.168.56.32/24</p>
+<h1 id="虛擬機網路管理">虛擬機網路管理</h1>
+<p>libvert networking 可以使用Linux Virtual Networking的virtual network switch來達到layer2使用TAP指令、layer3 使用TUN(tunnel) 指令。</p>
+<p>&hellip;..To be continue</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文鏈結: </strong>
+      <a href="https://shihchun.github.io/2018/10/kvm/" title="kvm 安裝" target="_blank" rel="external">https://shihchun.github.io/2018/10/kvm/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://shihchun.github.io/lo_img/avat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/shihchun" target="_blank"><span class="text-dark">shihchun</span><small class="ml-1x">一天忘記一件事</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'shihchunk';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+  </div>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://shihchun.github.io/2017/05/gource-github-log-visualization/" title="Gource — GitHub Log Visualization"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://shihchun.github.io/2019/02/git-set/"
+                    title="Git 使用"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter"
+                data-mobile-sites="facebook, twitter"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/shihchun" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://shihchun.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/shihchun.github.io',
+            CONTENT_URL: 'https:\/\/shihchun.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://shihchun.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
+    });
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-97401827-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </body>
+</html>

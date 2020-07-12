@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on 隨手筆記</title>
+    <link>https://shihchun.github.io/series/</link>
+    <description>Recent content in Series on 隨手筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+        <atom:link href="https://shihchun.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dropdown Terminal</title>
+      <link>https://shihchun.github.io/2020/07/dropdown/</link>
+      <pubDate>Sun, 12 Jul 2020 12:02:35 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/07/dropdown/</guid>
+      <description>Resently I　use the Manjaro KDE, and I very love the functionilary of the dropdown terminal.
+Today I wanna install it on my own PC and MacOS.
+On Windows choco install cmder  the *.reg file for enable the shortcut, save it and double click
+Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\Directory\Background\shell\Cmder] @=&amp;quot;Open Cmder Here&amp;quot; &amp;quot;Icon&amp;quot;=&amp;quot;C:\\tools\\cmder\\Cmder.exe,0&amp;quot; [HKEY_CLASSES_ROOT\Directory\Background\shell\Cmder\command] @=&amp;quot;\&amp;quot;C:\\tools\\cmder\\Cmder.exe\&amp;quot; \&amp;quot;%V\&amp;quot;&amp;quot; [HKEY_CLASSES_ROOT\Directory\shell\Cmder] @=&amp;quot;Open Cmder Here&amp;quot; &amp;quot;Icon&amp;quot;=&amp;quot;C:\\tools\\cmder\\Cmder.exe,0&amp;quot; [HKEY_CLASSES_ROOT\Directory\shell\Cmder\command] @=&amp;quot;\&amp;quot;C:\\tools\\cmder\\Cmder.exe\&amp;quot; \&amp;quot;%1\&amp;quot;&amp;quot;  Then you can use the Ctrl+ ~ to open the drop down terminal.</description>
+    </item>
+    
+    <item>
+      <title>Ns3 day 2</title>
+      <link>https://shihchun.github.io/2020/07/ns3_002/</link>
+      <pubDate>Sun, 05 Jul 2020 13:53:45 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/07/ns3_002/</guid>
+      <description>I going to look at the ns3/src/core/examples/sample-simulator.cc today.
+Main program First we look at the main porgram
+#include &amp;lt;iostream&amp;gt; #include &amp;quot;ns3/simulator.h&amp;quot; #include &amp;quot;ns3/nstime.h&amp;quot; #include &amp;quot;ns3/command-line.h&amp;quot; #include &amp;quot;ns3/double.h&amp;quot; #include &amp;quot;ns3/random-variable-stream.h&amp;quot; /* ....... */ int main (int argc, char *argv[]) { CommandLine cmd (__FILE__); cmd.Parse (argc, argv); MyModel model; Ptr&amp;lt;UniformRandomVariable&amp;gt; v = CreateObject&amp;lt;UniformRandomVariable&amp;gt; (); v-&amp;gt;SetAttribute (&amp;quot;Min&amp;quot;, DoubleValue (10)); v-&amp;gt;SetAttribute (&amp;quot;Max&amp;quot;, DoubleValue (20)); Simulator::Schedule (Seconds (10.0), &amp;amp;ExampleFunction, &amp;amp;model); Simulator::Schedule (Seconds (v-&amp;gt;GetValue ()), &amp;amp;RandomFunction); EventId id = Simulator::Schedule (Seconds (30.</description>
+    </item>
+    
+    <item>
+      <title>Ns3 day 1</title>
+      <link>https://shihchun.github.io/2020/07/ns3_001/</link>
+      <pubDate>Sat, 04 Jul 2020 14:41:22 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/07/ns3_001/</guid>
+      <description>ns3 is build with the waf-tools whitch is based on python, so we need to learn how to configure and build the modules with it. First，copy the links. switch to terminal and download wget url tar -jxvf file # make alias or not Bassic useage waf configure &amp;ldquo;&amp;ndash;enable-tests&amp;rdquo; &amp;ldquo;&amp;ndash;enable-examples&amp;rdquo; &amp;ldquo;&amp;ndash;build-profile=debug&amp;rdquo; &amp;ldquo;&amp;ndash;with-python=python2&amp;rdquo; &amp;ldquo;&amp;ndash;disable-python&amp;rdquo; &amp;ldquo;&amp;ndash;enable-modules&amp;rdquo; build run Full build ./waf confiugre --enable-tests --enable-examples</description>
+    </item>
+    
+    <item>
+      <title>Plotly csv 讀取</title>
+      <link>https://shihchun.github.io/2020/06/hugo_chart_test/</link>
+      <pubDate>Sat, 27 Jun 2020 13:29:30 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/06/hugo_chart_test/</guid>
+      <description>加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html /themes/&amp;lt;THEME&amp;gt;/layouts/shortcodes/&amp;lt;SHORTCODE&amp;gt;.html hugo中加入一</description>
+    </item>
+    
+    <item>
+      <title>NS3 installation</title>
+      <link>https://shihchun.github.io/2020/06/ns3_installation/</link>
+      <pubDate>Thu, 04 Jun 2020 17:49:36 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/06/ns3_installation/</guid>
+      <description>NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml</description>
+    </item>
+    
+    <item>
+      <title>python 基本</title>
+      <link>https://shihchun.github.io/2020/01/jupyter/</link>
+      <pubDate>Fri, 31 Jan 2020 19:43:16 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/jupyter/</guid>
+      <description>JupyterNotebook 下載： part I part II Jupyter notebook 轉換 去除output，其他自定參考文檔 jupyter nbconvert --to markdown &#39;bassic.ipynb&#39; --stdout --TemplateExporter.exclude_output=True &amp;gt; bassic.md Part I 基礎不討論算法 Day1 # clear all variable in python import sys sys.modules[__name__].__dict__.clear() 篩選資料 一般想法 filter 函數 列表</description>
+    </item>
+    
+    <item>
+      <title>Manjaro 雙系統安裝</title>
+      <link>https://shihchun.github.io/2020/01/duelboot/</link>
+      <pubDate>Sat, 18 Jan 2020 19:36:48 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/duelboot/</guid>
+      <description>切出空間 在Windows或是其他系統中分割出空間，在Windows管理下面壓縮磁區，或是在MacOS上面建立FAT32的磁區。 安裝 在EFI磁</description>
+    </item>
+    
+    <item>
+      <title>Jack2&#43;cadence 低延遲輸出</title>
+      <link>https://shihchun.github.io/2020/01/jack2/</link>
+      <pubDate>Mon, 13 Jan 2020 14:47:28 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/jack2/</guid>
+      <description>安裝Jack2、qJackCtl、cadence 我是使用Manjaro community的版本。 然後打開qjackCtl設備調整成地延遲的D</description>
+    </item>
+    
+    <item>
+      <title>從Hexo到Hugo</title>
+      <link>https://shihchun.github.io/2020/01/hugo-math/</link>
+      <pubDate>Sat, 11 Jan 2020 18:51:35 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/2020/01/hugo-math/</guid>
+      <description>原因 隨着文章增加，雖然沒有些什麼東西，漸漸的發現在靜態檔案轉換的速度漸漸的變慢了，發現Hexo的速度以及它plugin過度依賴的問題太過於明</description>
+    </item>
+    
+    <item>
+      <title>關於我</title>
+      <link>https://shihchun.github.io/about/</link>
+      <pubDate>Sat, 11 Jan 2020 17:53:25 +0800</pubDate>
+      
+      <guid>https://shihchun.github.io/about/</guid>
+      <description>Hello HA ~ Email: shihchun13@gmail.com</description>
+    </item>
+    
+    <item>
+      <title>Git 使用</title>
+      <link>https://shihchun.github.io/2019/02/git-set/</link>
+      <pubDate>Mon, 18 Feb 2019 15:17:29 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2019/02/git-set/</guid>
+      <description>編輯現有的project $ git clone https://www.gitxxx/xxx/xxx.git ## 編輯完之後上傳 $ git add . $ git commit -m &amp;quot;commit message 可以寫做什麼修改&amp;quot; ## 上傳 $ git push -u orgin master ## push 到叫做orgin的xx</description>
+    </item>
+    
+    <item>
+      <title>kvm 安裝</title>
+      <link>https://shihchun.github.io/2018/10/kvm/</link>
+      <pubDate>Tue, 30 Oct 2018 19:04:06 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2018/10/kvm/</guid>
+      <description>KVM KVM (Kernel-based Virtual Machine) is a virtuallation ifrastructure for the Linux that turns the Linux kernel into a hypervisor. &amp;hellip;.Libvirt可以管理KVM，透過Libvirt可以使用Openstack做雲端計</description>
+    </item>
+    
+    <item>
+      <title>Gource — GitHub Log Visualization</title>
+      <link>https://shihchun.github.io/2017/05/gource-github-log-visualization/</link>
+      <pubDate>Thu, 04 May 2017 10:27:01 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/05/gource-github-log-visualization/</guid>
+      <description>Gource 我一直很想試試看Gource這個玩意，但是之前一直沒有在使用GitHub，所以也沒有辦法玩，最近不知道為什麼突然使用過&amp;lt;(￣︶￣)↗</description>
+    </item>
+    
+    <item>
+      <title>Linux 掛載命令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 27 Apr 2017 18:44:11 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E6%8E%9B%E8%BC%89%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;h1 id=&#34;mount-查看已經掛載的設備&#34;&gt;mount 查看已經掛載的設備&lt;/h1&gt;
+&lt;p&gt;在Linux上面要使用一些設備需要自己掛載，比如光碟機之類的，就需要使用掛載命令把它掛載到&lt;code&gt;/mnt&lt;/code&gt;下面&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# mount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime,seclabel)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+devtmpfs on /dev type devtmpfs (rw,nosuid,seclabel,size=231216k,nr_inodes=57804,mode=755)
+.
+.
+.
+/dev/sda1 on /boot type xfs (rw,relatime,seclabel,attr2,inode64,noquota)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,seclabel,size=48388k,mode=700,uid=1000,gid=1000)
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 關機重啟命令</title>
+      <link>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 27 Apr 2017 17:17:25 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux%E9%97%9C%E6%A9%9F%E5%91%BD%E4%BB%A4/</guid>
+      <description>shutdown shutdown [option] [time] option: -c 取消關機命令 -h 關機 -r 重新開機 $ shutdown now $ shutdown -r now [cyberjun@localhost ~]$ shutdown -r 05:30 Must be root. [cyberjun@localhost ~]$ su 密碼： [root@localhost cyberjun]# shutdown -r 05:30 Shutdown scheduled for 五 2017-04-28 05:30:00 CST, use &#39;shutdown -c&#39; to cancel. [root@localhost cyberjun]# shutdown -c Broadcast message from root@localhost.localdomain (Thu 2017-04-27 17:21:20 CST):</description>
+    </item>
+    
+    <item>
+      <title>Linux 壓縮與解壓縮</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</link>
+      <pubDate>Wed, 26 Apr 2017 18:34:29 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E5%A3%93%E7%B8%AE%E8%88%87%E8%A7%A3%E5%A3%93%E7%B8%AE/</guid>
+      <description>檔案壓縮有很多種方式，所以也有很多的壓縮格式，各種壓縮方式也有它的優缺點，當然這不是這篇的重點，這篇主要是要說在Linux上面壓縮與解壓縮的</description>
+    </item>
+    
+    <item>
+      <title>Linux 幫助指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Wed, 26 Apr 2017 14:11:20 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E5%B9%AB%E5%8A%A9%E6%8C%87%E4%BB%A4/</guid>
+      <description>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。 man 使用 $ man ls LS(1) NAME ls - list directory contents SYNOPSIS ls [OPTION]... [FILE]... DESCRIPTION List information about the FILEs (the current directory by default). Sort entries alphabetically if none</description>
+    </item>
+    
+    <item>
+      <title>ACL Packet Tracert Cisco CLI</title>
+      <link>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</link>
+      <pubDate>Sat, 15 Apr 2017 02:28:58 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/acl-packet-tracert-cisco-cli/</guid>
+      <description>提供的檔案 簡報 Final Exam(6.0).pkt 要求 切網段 順序 1 2 3 4 int vlan2 vlan3 vlan4 R1 切台數 64 32 16 8 網段頭 80.0 80.64 80.96 80.112 網段尾 80.63 80.95 80.111 80.119 遮罩 255.192 255.224 255.240 255.248 設定 IP 子網段設定 [Router]$confi Configuring from terminal, memory, or network [terminal]$? Enter configuration</description>
+    </item>
+    
+    <item>
+      <title>Linux 文件搜索指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:40:11 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/</guid>
+      <description>不像是Windows之類的GUI畫面都有搜索的功能，Linux的搜索命令非常的強大，這些搜索命令也比較多，至少功能比Windows強大了不知</description>
+    </item>
+    
+    <item>
+      <title>Linux 鍵結指令</title>
+      <link>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Fri, 14 Apr 2017 01:39:37 +0000</pubDate>
+      
+      <guid>https://shihchun.github.io/2017/04/linux-%E9%8D%B5%E7%B5%90%E6%8C%87%E4%BB%A4/</guid>
+      <description>ln [option] [source file] [target file] 選項 -s 建立軟鏈接 鏈接指令分為硬鏈接和軟連接，沒有加上任何選項，軟鏈接要加上-s 硬鏈接 硬鏈接的特征 硬鏈接和原本文件有相同的inod</description>
+    </item>
+    
+  </channel>
+</rss>

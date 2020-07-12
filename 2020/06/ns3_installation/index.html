@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        NS3 installation - 隨手筆記
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml" />
+  <meta name="generator" content="Hugo 0.65.1 with theme pure" />
+  <title>NS3 installation - 隨手筆記</title>
+  
+  
+  <link rel="stylesheet" href="https://shihchun.github.io/css/style.min.d2efa11d63fc2f1fbee8ad1c4099d53cc12c57c0db05a035cdbfdbfa6ff4c055.css">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+  <meta property="og:title" content="NS3 installation" />
+<meta property="og:description" content="NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.github.io/2020/06/ns3_installation/" />
+<meta property="article:published_time" content="2020-06-04T17:49:36+08:00" />
+<meta property="article:modified_time" content="2020-06-04T17:49:36+08:00" />
+<meta itemprop="name" content="NS3 installation">
+<meta itemprop="description" content="NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml">
+<meta itemprop="datePublished" content="2020-06-04T17:49:36&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-04T17:49:36&#43;08:00" />
+<meta itemprop="wordCount" content="1580">
+
+
+
+<meta itemprop="keywords" content="網路," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NS3 installation"/>
+<meta name="twitter:description" content="NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/shihchun" target="_blank">
+            <img class="img-circle img-rotate" src="https://shihchun.github.io/lo_img/avat.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">shihchun</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">一天忘記一件事</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Taoyuan, Taiwan</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜尋" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">首頁</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">檔案</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">分類</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">標籤</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">關於我</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>沒有公告</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分類</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/git/" class="category-list-link">git</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/gource/" class="category-list-link">gource</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/hugo/" class="category-list-link">hugo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" class="category-list-link">程式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://shihchun.github.io/categories/%E7%B6%B2%E8%B7%AF/" class="category-list-link">網路</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 標籤</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/duelboot/" class="tag-list-link">duelboot</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/ffmpeg/" class="tag-list-link">ffmpeg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/git/" class="tag-list-link">git</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/gource/" class="tag-list-link">gource</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/hugo/" class="tag-list-link">hugo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/kvm/" class="tag-list-link">kvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/libvirt/" class="tag-list-link">libvirt</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" class="tag-list-link">linux-學習筆記</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/linux%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/" class="tag-list-link">linux基本指令</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/macbook/" class="tag-list-link">macbook</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/manjaro/" class="tag-list-link">manjaro</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/mathjax/" class="tag-list-link">mathjax</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/qemu/" class="tag-list-link">qemu</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/vm/" class="tag-list-link">vm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/windows/" class="tag-list-link">windows</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" class="tag-list-link">網路</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/dropdown/" class="title">Dropdown Terminal</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-12 12:02:35 &#43;0800 CST" itemprop="datePublished">2020-07-12</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_002/" class="title">Ns3 day 2</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-05 13:53:45 &#43;0800 CST" itemprop="datePublished">2020-07-05</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/07/ns3_001/" class="title">Ns3 day 1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-07-04 14:41:22 &#43;0800 CST" itemprop="datePublished">2020-07-04</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/hugo_chart_test/" class="title">Plotly csv 讀取</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-27 13:29:30 &#43;0800 CST" itemprop="datePublished">2020-06-27</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://shihchun.github.io/2020/06/ns3_installation/" class="title">NS3 installation</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目錄</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2020/06/ns3_installation/"
+    >NS3 installation</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://shihchun.github.io/2020/06/ns3_installation/" class="article-date">
+  <time datetime="2020-06-04 17:49:36 &#43;0800 CST" itemprop="datePublished">2020-06-04</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E7%B6%B2%E8%B7%AF/"> 網路 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E7%B6%B2%E8%B7%AF/"> 網路 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2020/06/ns3_installation/#comments"
+            class="article-comment-link">評論</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字數統計: 1580字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">閱讀時間: 4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="ns3-installation">NS3 installation</h1>
+<p>Install the dependency of the NS3, I try to install all of them as I can. See the <a href="https://www.nsnam.org/wiki/Installation">NS3 wiki</a>.</p>
+<p>If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the <a href="https://gccxml.github.io/HTML/Install.html">official site</a>, but the cmake command not works for me, I just google it, find the solution as below:</p>
+<pre><code class="language-sh">cmake -D CMAKE_C_FLAGS=-fgnu89-inline ../gccxml
+make
+sudo make install
+</code></pre>
+<p>wsl visualization by choco install VcXsrv</p>
+<pre><code class="language-sh">choco install vcxsrv # open it and binding the port '0'
+wsl
+sudo apt-get install x11-apps
+echo &quot;export DISPLAY=127.0.0.1:0&quot; &gt;&gt; ~/.zshrc
+xeyes
+</code></pre>
+<p>You may have problem with python header not found and the pip installation</p>
+<pre><code class="language-sh">sudo apt-get install libpython2.7-dev # header prob
+wget https://bootstrap.pypa.io/get-pip.py # get_pip.py script download
+python2 get_pip.py
+python3 get_pip.py
+alias pip2=&quot;python2 -m pip&quot; # add the alias to the ~/.bashrc or ~/.zshrc
+alias pip3=&quot;python -m pip&quot;
+</code></pre>
+<h2 id="pyviz">PyViz</h2>
+<pre><code class="language-sh">./waf configure --enable-tests --enables-examples --with-python=python2
+...
+# see Pyviz: enable
+./waf #build
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis #Run sample
+</code></pre>
+<pre><code class="language-sh">pip2 install pybindgen pyviz graphviz # in doc have py... install if you can
+./waf configure --enable-tests --enables-examples --with-python=python2 # 3.29 is --python=python2
+./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis #Run sample
+</code></pre>
+<p><img src="/media/Deepin_plasmashell_20200616015518.png" alt="Deepin_plasmashell_20200616015518"></p>
+<p><img src="/media/Peek_2020-06-21_13-37.gif" alt="Deepin_plasmashell_20200616015518"></p>
+<h2 id="netanim">NetAnim</h2>
+<pre><code class="language-sh">➜  ns-3.29 ./waf --run &quot;dumbbell-animation --nLeftLeaf=5 --nRightLeaf=5 --animFile=dumbbell.xml&quot;
+(base) ➜  aquasim-ng_manjaro tree -L 1            
+.
+├── AquaSim-NG_Installation
+├── bake
+├── build.py
+├── constants.py
+├── netanim-3.108
+├── ns-3.29
+├── pybindgen-0.17.0.post58+ngcf00cc0
+├── README
+└── util.py
+cd netanim-3.108
+make clean 
+qmake NetAnim.pro
+make
+./NetAnim
+</code></pre>
+<p><img src="/media/Deepin_plasmashell_20200616030357.png" alt="Deepin_plasmashell_20200616030357"></p>
+<p><img src="/media/Deepin_select-area_20200616030433.png" alt="Deepin_select-area_20200616030433.png"></p>
+<p><img src="/media/Peek_2020-06-21_13-33.gif" alt="Deepin_select-area_20200616030433.png"></p>
+<h1 id="aquasim-ng">Aquasim-ng</h1>
+<p>Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki, install the dependency first, ref <a href="https://www.nsnam.org/wiki/Installation">here</a></p>
+<pre><code class="language-sh">wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz
+</code></pre>
+<p><img src="/media/Deepin_select-area_20200604104358.png" alt="Deepin 截圖_select-area_20200604104358"></p>
+<p>after you download it, you can try as below:</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>Pyviz issue in this version 3.29 ref <a href="https://blog.csdn.net/qq_31676673/article/details/88107454">here</a>
+AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo;
+<code>line_dash=GooCanvas.LineDash()</code> cange to <code>line_dash=GooCanvas.CanvasLineDash.newv()</code></p>
+</blockquote>
+<p>After you build successly, you&rsquo;d better remove the <code>-Werror</code> in the <code>ns3/build/c4che/_c4che.py</code></p>
+<blockquote>
+<p>after you build successly</p>
+<p>remove ns3/build/c4che/_c4che.py remove all -Werror</p>
+<p>cc1plus: all warnings being treated as errors</p>
+</blockquote>
+<p><img src="/media/Deepin_select-area_20200604173838.png" alt="Deepin 截圖_select-area_20200604173838"></p>
+<h1 id="5g-lena">5g lena</h1>
+<p>I build failed with this info on the wsl, it means I missing the file in <code>/build/ns3</code>, but works in my manjaro kde.</p>
+<pre><code class="language-sh">dpkg -l | grep &quot;sqlite&quot;
+ii  libqt5sql5-sqlite:amd64                   5.9.5+dfsg-0ubuntu2.5               amd64        Qt 5 SQLite 3 database driver
+ii  libsqlite0                                2.8.17-14fakesync1                  amd64        SQLite 2 shared library
+ii  libsqlite0-dev                            2.8.17-14fakesync1                  amd64        SQLite 2 development files
+ii  libsqlite3-0:amd64                        3.22.0-1ubuntu0.4                   amd64        SQLite 3 shared library
+ii  libsqlite3-dev:amd64                      3.22.0-1ubuntu0.4                   amd64        SQLite 3 development files
+ii  libsqlite3-ocaml                          4.0.5-2build1                       amd64        Embeddable SQL Database for OCaml Programs
+ii  libsqlite3-ocaml-dev                      4.0.5-2build1                       amd64        Embeddable SQL Database for OCaml Programs
+ii  sqlite                                    2.8.17-14fakesync1                  amd64        command line interface for SQLite 2
+ii  sqlite3                                   3.22.0-1ubuntu0.4                   amd64        Command line interface for SQLite 3
+
+./waf configure --enable-tests --enable-examples --with-python=python2 --enable-mpi
+Setting top to                           : /mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev
+Setting out to                           : /mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build
+Checking for 'gcc' (C compiler)          : /usr/bin/gcc
+Checking for cc version                  : 7.5.0
+Checking for 'g++' (C++ compiler)        : /usr/bin/g++
+Checking for compilation flag -Wl,--soname=foo support : ok
+Checking for compilation flag -std=c++11 support       : ok
+Checking boost includes                                : 1_65_1
+Checking boost libs                                    : ok
+Checking for boost linkage                             : ok
+Checking for program 'python'                          : python2
+Checking for python version &gt;= 2.3                     : 2.7.17
+python-config                                          : /usr/bin/python2-config
+Asking python-config for pyembed '--cflags --libs --ldflags --embed' flags : not found
+Asking python-config for pyembed '--cflags --libs --ldflags' flags         : yes
+Testing pyembed configuration                                              : yes
+Asking python-config for pyext '--cflags --libs --ldflags' flags           : yes
+Testing pyext configuration                                                : yes
+Checking for compilation flag -fvisibility=hidden support                  : ok
+Checking for compilation flag -Wno-array-bounds support                    : ok
+Checking for pybindgen location                                            : not found
+Checking for python module 'pybindgen'                                     : 0.21.0
+Checking for pybindgen version                                             : 0.21.0
+Checking for code snippet                                                  : yes
+Checking for types uint64_t and unsigned long equivalence                  : no
+Checking for code snippet                                                  : no
+Checking for types uint64_t and unsigned long long equivalence             : yes
+Checking for the apidefs that can be used for Python bindings              : gcc-LP64
+Checking for internal GCC cxxabi                                           : complete
+Checking for python module 'pygccxml'                                      : 1.9.1
+pygccxml version cannot be determined
+Checking for click location                                                : not found
+Checking for program 'pkg-config'                                          : /usr/bin/pkg-config
+Checking for 'gtk+-3.0'                                                    : yes
+Checking for 'libxml-2.0'                                                  : yes
+checking for uint128_t                                                     : not found
+checking for __uint128_t                                                   : yes
+Checking high precision implementation                                     : 128-bit integer (default)
+Checking for header stdint.h                                               : yes
+Checking for header inttypes.h                                             : yes
+Checking for header sys/inttypes.h                                         : not found
+Checking for header sys/types.h                                            : yes
+Checking for header sys/stat.h                                             : yes
+Checking for header dirent.h                                               : yes
+Checking for header stdlib.h                                               : yes
+Checking for header signal.h                                               : yes
+Checking for header pthread.h                                              : yes
+Checking for header stdint.h                                               : yes
+Checking for header inttypes.h                                             : yes
+Checking for header sys/inttypes.h                                         : not found
+Checking for library rt                                                    : yes
+Checking for header sys/ioctl.h                                            : yes
+Checking for header net/if.h                                               : yes
+Checking for header net/ethernet.h                                         : yes
+Checking for header linux/if_tun.h                                         : yes
+Checking for header netpacket/packet.h                                     : yes
+Checking for NSC location                                                  : not found
+Checking for ''                                                            : yes
+Checking for OpenFlow location                                             : not found
+Checking for 'sqlite3'                                                     : yes
+Checking for header linux/if_tun.h                                         : yes
+Checking for python module 'gi'                                            : 3.26.1
+Checking for python module 'gi.repository.GObject'                         : ok
+Checking for python module 'cairo'                                         : ok
+Checking for python module 'pygraphviz'                                    : 1.4rc1
+Checking for python module 'gi.repository.Gtk'                             : ok
+Checking for python module 'gi.repository.Gdk'                             : ok
+Checking for python module 'gi.repository.Pango'                           : ok
+Checking for python module 'gi.repository.GooCanvas'                       : ok
+Checking for program 'sudo'                                                : /usr/bin/sudo
+Checking for program 'valgrind'                                            : /usr/bin/valgrind
+Checking for 'gsl'                                                         : yes
+libgcrypt-config                                                           : /usr/bin/libgcrypt-config
+Checking for libgcrypt                                                     : yes
+Checking for compilation flag -fstrict-aliasing support                    : ok
+Checking for compilation flag -fstrict-aliasing support                    : ok
+Checking for compilation flag -Wstrict-aliasing support                    : ok
+Checking for compilation flag -Wstrict-aliasing support                    : ok
+Checking for program 'doxygen'                                             : /usr/bin/doxygen
+---- Summary of optional NS-3 features:
+Build profile                 : debug
+Build directory               :
+BRITE Integration             : not enabled (BRITE not enabled (see option --with-brite))
+DES Metrics event collection  : not enabled (defaults to disabled)
+Emulation FdNetDevice         : enabled
+Examples                      : enabled
+File descriptor NetDevice     : enabled
+GNU Scientific Library (GSL)  : enabled
+Gcrypt library                : enabled
+GtkConfigStore                : enabled
+MPI Support                   : enabled
+NS-3 Click Integration        : not enabled (nsclick not enabled (see option --with-nsclick))
+NS-3 OpenFlow Integration     : not enabled (OpenFlow not enabled (see option --with-openflow))
+Network Simulation Cradle     : not enabled (NSC not found (see option --with-nsc))
+PlanetLab FdNetDevice         : not enabled (PlanetLab operating system not detected (see option --force-planetlab))
+PyViz visualizer              : enabled
+Python API Scanning Support   : not enabled (pygccxml Python module version is unknown)
+Python Bindings               : enabled
+Real Time Simulator           : enabled
+SQlite stats data output      : enabled
+Tap Bridge                    : enabled
+Tap FdNetDevice               : enabled
+Tests                         : enabled
+Threading Primitives          : enabled
+Use sudo to set suid bit      : not enabled (option --enable-sudo not selected)
+XmlIo                         : enabled
+'configure' finished successfully (21.058s)
+
+./waf
+../src/nr/examples/cttc-simple-interference-example.cc:33:10: fatal error: ns3/sqlite-output.h: No such file or directory
+ #include &quot;ns3/sqlite-output.h&quot;
+          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+Waf: Leaving directory `/mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build'
+Build failed
+ -&gt; task in 'cttc-simple-interference-example' failed with exit status 1 (run with -v to display more information)
+</code></pre>
+<p>I solve this by checking the wscript in the src/modules_foloder, and edit the <code>.ns3rc</code></p>
+<pre><code class="language-sh">cp utils/.ns3rc .
+</code></pre>
+<p>Add the dependency to the file</p>
+<pre><code class="language-sh">#! /usr/bin/env python
+
+# A list of the modules that will be enabled when ns-3 is run.
+# Modules that depend on the listed modules will be enabled also.
+#
+# All modules can be enabled by choosing 'all_modules'.
+# modules_enabled = ['all_modules'] # after build change back
+modules_enabled = ['core','stats' , 'network', 'mobility', 'propagation',  'antenna', 'spectrum', 'virtual-net-device', 'mpi', 'point-to-point', 'bridge', 'traffic-control', 'internet', 'config-store', 'applications', 'buildings', 'csma', 'lte', 'wifi', 'visualizer','wimax', 'uan', 'lr-wpan', 'energy', 'wave', 'netanim', 'nr']
+
+# Set this equal to true if you want examples to be run.
+examples_enabled = True
+
+# Set this equal to true if you want tests to be run.
+tests_enabled = True
+</code></pre>
+<p>Then run it</p>
+<pre><code>./waf configure --with-python=python2 --enable-mpi
+./waf
+...
+Waf: Leaving directory `/mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (8.066s)
+
+Modules built:
+antenna                   applications              bridge
+buildings                 config-store              core
+csma                      energy                    fd-net-device
+internet                  lr-wpan                   lte
+mobility                  mpi                       netanim
+network                   nr (no Python)            point-to-point
+point-to-point-layout     propagation               spectrum
+stats                     traffic-control           uan
+virtual-net-device        visualizer                wave
+wifi                      wimax
+
+Modules not built (see ns-3 tutorial for explanation):
+brite                     click                     openflow
+
+./waf --run src/nr/examples/cttc-3gpp-channel-example
+ll # I have the result file
+-rwxrwxrwx 1 geek geek 1.2M Jul 11 21:11 RxedEnbMacCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek 1.2M Jul 11 21:11 RxedEnbPhyCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek 621K Jul 11 21:11 RxedUeMacCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek 636K Jul 11 21:11 RxedUePhyCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek  130 Jul 11 21:08 TxedEnbMacCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek 629K Jul 11 21:11 TxedEnbPhyCtrlMsgsTrace.txt
+-rwxrwxrwx 1 geek geek 1.2M Jul 11 21:11 TxedUePhyCtrlMsgsTrace.txt
+</code></pre>
+<p>With my manjaro it can build with all_module but, still have problem with that file, looking forward with next revise.</p>
+<pre><code class="language-sh">pacman -Qn | grep &quot;sqlite&quot; 
+lib32-sqlite 3.32.1-1 
+sqlite 3.32.2-1
+# build success with all_module
+./waf --run src/nr/examples/cttc-simple-interference-example
+Waf: Entering directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build'
+Waf: Leaving directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (3.112s)
+msg=&quot;Could not set default value for ns3::PointToPointEpcHelper::X2LinkDelay&quot;, file=../src/core/model/config.cc, line=815
+terminate called without an active exception
+Command ['/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build/src/nr/examples/ns3-dev-cttc-simple-interference-example-debug'] terminated with signal SIGIOT. Run it under a debugger to get more information (./waf --run &lt;program&gt; --command-template=&quot;gdb --args %s &lt;args&gt;&quot;).
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文鏈結: </strong>
+      <a href="https://shihchun.github.io/2020/06/ns3_installation/" title="NS3 installation" target="_blank" rel="external">https://shihchun.github.io/2020/06/ns3_installation/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/shihchun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://shihchun.github.io/lo_img/avat.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/shihchun" target="_blank"><span class="text-dark">shihchun</span><small class="ml-1x">一天忘記一件事</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+  <div class="disqus markdown">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function() {
+        
+        
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'shihchunk';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+  </div>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://shihchun.github.io/2020/01/jupyter/" title="python 基本"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://shihchun.github.io/2020/06/hugo_chart_test/"
+                    title="Plotly csv 讀取"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目錄" role="button">
+                    <span>[&nbsp;</span><span>文章目錄</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="facebook,twitter"
+                data-mobile-sites="facebook, twitter"></div>
+        </div>
+    </div>
+</nav>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/shihchun" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://shihchun.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2020
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://shihchun.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
+<script src="https://shihchun.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/shihchun.github.io',
+            CONTENT_URL: 'https:\/\/shihchun.github.io\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://shihchun.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+        
+  				
+  				
+  				
+  				
+  				collapseDepth: 2,
+    });
+</script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-97401827-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </body>
+</html>

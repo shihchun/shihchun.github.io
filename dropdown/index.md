@@ -91,4 +91,4 @@ brew cask instal iterm2
 
 ![](https://www.sharmaprakash.com.np/assets/images/posts/guake-like-terminal-mac/hotkey-window.png)
 
-Enable the ‘Hide iTerm2 from the Dock…’ option from the Advanced menu in preferencesPermalink
+![](https://i.stack.imgur.com/QXDRd.png)

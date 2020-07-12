@@ -5,12 +5,12 @@
         <description>網路 - tag - 隨手筆記</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
             <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/tags/%E7%B6%B2%E8%B7%AF/" rel="self" type="application/rss+xml" /><item>
-    <title>Aqua-Sim NS3.29 安裝</title>
-    <link>https://shihchun.github.io/aqua-sim/</link>
+    <title>NS3 installation</title>
+    <link>https://shihchun.github.io/ns3_installation/</link>
     <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/aqua-sim/</guid>
-    <description><![CDATA[Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki, install the dependency first, ref here 1 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz after you download it, you can try as below: Pyviz issue in this version 3.29 ref here AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo; line_dash=GooCanvas.LineDash()]]></description>
+    <guid>https://shihchun.github.io/ns3_installation/</guid>
+    <description><![CDATA[NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: 1 2 3 cmake]]></description>
 </item><item>
     <title>ACL Packet Tracert Cisco CLI</title>
     <link>https://shihchun.github.io/acl-packet-tracert-cisco-cli/</link>

@@ -45,12 +45,12 @@ Main program First we look at the main porgram
     <guid>https://shihchun.github.io/hugo_chart_test/</guid>
     <description><![CDATA[加入自定義 ShortCodes Hugo 的文檔有提到我們可以自己製作shortcodes，這篇文章紀錄我把char.js放到我自己hugo的過程。 /layouts/shortcodes/&lt;SHORTCODE&gt;.html /themes/&lt;THEME&gt;/layouts/shortcodes/&lt;SHORTCODE&gt;.html hugo中加入一]]></description>
 </item><item>
-    <title>Aqua-Sim NS3.29 安裝</title>
-    <link>https://shihchun.github.io/aqua-sim/</link>
+    <title>NS3 installation</title>
+    <link>https://shihchun.github.io/ns3_installation/</link>
     <pubDate>Thu, 04 Jun 2020 17:49:36 &#43;0800</pubDate>
     <author></author>
-    <guid>https://shihchun.github.io/aqua-sim/</guid>
-    <description><![CDATA[Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki, install the dependency first, ref here 1 wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz after you download it, you can try as below: Pyviz issue in this version 3.29 ref here AttributeError: ‘gi.repository.GooCanvas’ object has no attribute &lsquo;LineDash&rsquo; line_dash=GooCanvas.LineDash()]]></description>
+    <guid>https://shihchun.github.io/ns3_installation/</guid>
+    <description><![CDATA[NS3 installation Install the dependency of the NS3, I try to install all of them as I can. See the NS3 wiki. If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the official site, but the cmake command not works for me, I just google it, find the solution as below: 1 2 3 cmake]]></description>
 </item><item>
     <title>python 基本</title>
     <link>https://shihchun.github.io/jupyter/</link>

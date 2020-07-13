@@ -88,6 +88,28 @@ make
 ![Deepin_select-area_20200616030433.png](/media/Peek_2020-06-21_13-33.gif)
 
 
+
+# Wireshark PCAP
+
+If you use the wsl to do packet capture (PCAP), you can install the wireshark, and just add it to the windows env.
+
+```sh
+choco install wireshark
+```
+
+Then add to the env.
+
+![](/media/Snipaste_2020-07-13_15-45-36.png)
+
+Then just use it in wsl by this way.
+
+```sh
+./waf --run sixth
+wireshark.exe sixth.pcap
+```
+
+![](/media/Snipaste_2020-07-13_15-48-32.png)
+
 # Aquasim-ng
 
 Aquasim-ng installation, to install it download the files from zheng peng's wiki, install the dependency first, ref [here](https://www.nsnam.org/wiki/Installation)

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/ns3_installation\/"
-        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","keywords": "網路","wordcount":  1807 ,
+        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","keywords": "網路","wordcount":  1857 ,
         "url": "https:\/\/shihchun.github.io\/ns3_installation\/","datePublished": "2020-06-04T17:49:36+08:00","dateModified": "2020-06-04T17:49:36+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -121,6 +121,7 @@
         <li><a href="#netanim">NetAnim</a></li>
       </ul>
     </li>
+    <li><a href="#wireshark-pcap">Wireshark PCAP</a></li>
     <li><a href="#aquasim-ng">Aquasim-ng</a></li>
     <li><a href="#5g-lena">5g lena</a></li>
   </ul>
@@ -286,6 +287,44 @@ make
         data-sizes="auto"
         alt="/media/Peek_2020-06-21_13-33.gif"
         title="Deepin_select-area_20200616030433.png" /></p>
+<h1 id="wireshark-pcap">Wireshark PCAP</h1>
+<p>If you use the wsl to do packet capture (PCAP), you can install the wireshark, and just add it to the windows env.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">choco install wireshark
+</code></pre></td></tr></table>
+</div>
+</div><p>Then add to the env.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Snipaste_2020-07-13_15-45-36.png"
+        data-srcset="/media/Snipaste_2020-07-13_15-45-36.png, /media/Snipaste_2020-07-13_15-45-36.png 1.5x, /media/Snipaste_2020-07-13_15-45-36.png 2x"
+        data-sizes="auto"
+        alt="/media/Snipaste_2020-07-13_15-45-36.png"
+        title="/media/Snipaste_2020-07-13_15-45-36.png" /></p>
+<p>Then just use it in wsl by this way.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">./waf --run sixth
+wireshark.exe sixth.pcap
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/media/Snipaste_2020-07-13_15-48-32.png"
+        data-srcset="/media/Snipaste_2020-07-13_15-48-32.png, /media/Snipaste_2020-07-13_15-48-32.png 1.5x, /media/Snipaste_2020-07-13_15-48-32.png 2x"
+        data-sizes="auto"
+        alt="/media/Snipaste_2020-07-13_15-48-32.png"
+        title="/media/Snipaste_2020-07-13_15-48-32.png" /></p>
 <h1 id="aquasim-ng">Aquasim-ng</h1>
 <p>Aquasim-ng installation, to install it download the files from zheng peng&rsquo;s wiki, install the dependency first, ref <a href="https://www.nsnam.org/wiki/Installation" target="_blank" rel="noopener noreffer">here</a></p>
 <div class="highlight"><div class="chroma">

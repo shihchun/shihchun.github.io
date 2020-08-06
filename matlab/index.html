@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/matlab\/"
-        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  607 ,
+        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  670 ,
         "url": "https:\/\/shihchun.github.io\/matlab\/","datePublished": "2020-08-06T10:28:43+08:00","dateModified": "2020-08-06T10:28:43+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -115,7 +115,16 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><p>安裝字體，可以複製Windows的字體<code>/windows/Windows/Fonts</code>，詳細方法可以參考<a href="https://wiki.archlinux.org/index.php/Microsoft_fonts" target="_blank" rel="noopener noreffer">Arch Wiki Microsoft fonts</a>，如果跟我一樣用雙系統的話，用Arch Wiki的方法打開Matlab之前掛載好windows分區硬碟，字體就會讀的到。</p>
-<p>由於enca的格式轉換</p>
+<p>由於enca的格式轉換在我的電腦使用起來有點問題所以只有拿來確認格式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">enca -L chinese ar_rate_1D.m
+</code></pre></td></tr></table>
+</div>
+</div><p>確認格式之後進行轉檔：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -126,7 +135,7 @@
 iconv -f  UTF-8 -t  BIG-5 test1.m -o test2.m
 </code></pre></td></tr></table>
 </div>
-</div><p>腳本參考<a href="https://www.geek-share.com/detail/2729179337.html" target="_blank" rel="noopener noreffer">這裏</a>，不過要轉換的格式不是GB是BIG-5所以要改一下。</p>
+</div><p>腳本參考<a href="https://www.geek-share.com/detail/2729179337.html" target="_blank" rel="noopener noreffer">這裏</a>，不過要轉換的格式不是GB是BIG-5所以要改一下，未來如果要改可能加入enca判斷格式可能也不錯。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

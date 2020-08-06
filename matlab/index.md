@@ -3,15 +3,20 @@
 
 安裝字體，可以複製Windows的字體`/windows/Windows/Fonts`，詳細方法可以參考[Arch Wiki Microsoft fonts](https://wiki.archlinux.org/index.php/Microsoft_fonts)，如果跟我一樣用雙系統的話，用Arch Wiki的方法打開Matlab之前掛載好windows分區硬碟，字體就會讀的到。
 
-由於enca的格式轉換
+由於enca的格式轉換在我的電腦使用起來有點問題所以只有拿來確認格式
 
+```sh
+enca -L chinese ar_rate_1D.m
+```
+
+確認格式之後進行轉檔：
 
 ```sh
 iconv -f  BIG-5 -t  UTF-8 rate.m -o test1.m
 iconv -f  UTF-8 -t  BIG-5 test1.m -o test2.m
 ```
 
-腳本參考[這裏](https://www.geek-share.com/detail/2729179337.html)，不過要轉換的格式不是GB是BIG-5所以要改一下。
+腳本參考[這裏](https://www.geek-share.com/detail/2729179337.html)，不過要轉換的格式不是GB是BIG-5所以要改一下，未來如果要改可能加入enca判斷格式可能也不錯。
 
 
 ```sh

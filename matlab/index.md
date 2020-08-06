@@ -1,0 +1,79 @@
+# Matlab Linux 亂碼
+
+
+安裝字體，可以複製Windows的字體`/windows/Windows/Fonts`，詳細方法可以參考[Arch Wiki Microsoft fonts](https://wiki.archlinux.org/index.php/Microsoft_fonts)，如果跟我一樣用雙系統的話，用Arch Wiki的方法打開Matlab之前掛載好windows分區硬碟，字體就會讀的到。
+
+由於enca的格式轉換
+
+
+```sh
+iconv -f  BIG-5 -t  UTF-8 rate.m -o test1.m
+iconv -f  UTF-8 -t  BIG-5 test1.m -o test2.m
+```
+
+腳本參考[這裏](https://www.geek-share.com/detail/2729179337.html)，不過要轉換的格式不是GB是BIG-5所以要改一下。
+
+
+```sh
+#!/bin/bash  
+# 功能：将BIG-5文件 转换成 UTF-8【解决Windows文件复制到Linux之后乱码问题】  
+#read -p "Input Path:" SPATH  
+SPATH="."  
+#echo $SPATH  
+POSTFIX="m"  
+param1="$1"  
+if [ "$param1" == "win" ];then  
+sys1="Linux"  
+sys2="Windows"  
+format1="UTF-8"  
+format2="BIG-5"  
+elif [ "$param1" == "linux" ];then  
+sys1="Windows"  
+sys2="Linux"  
+format1="BIG-5"  
+format2="UTF-8"  
+else  
+echo "************** 功能 ************"  
+echo "  解决matlab脚本文件在Windows和Linux中移动时出现的乱码问题！"  
+echo "  将该脚本复制到程序文件夹中，运行该脚本，它会对当前文件夹及子文件夹中的所有*.m文件进行格式转换，解决乱码问题。"  
+echo "  转换到 Linux 的命令: $0 linux"  
+echo "  转换到 Window的命令: $0 win"  
+exit  
+fi  
+  
+echo "********************************"  
+echo "  格式转换中......"  
+echo "  从"$sys1"("$format1") 转换到 "$sys2"("$format2")"  
+echo "********************************"  
+  
+FILELIST(){  
+filelist=`ls $SPATH `  
+for filename in $filelist; do  
+if [ -f $filename ];then  
+#echo File:$filename  
+#echo "${filename#*.}"  
+EXTENSION="${filename#*.}"  
+#echo $EXTENSION  
+if [ "$EXTENSION" == "$POSTFIX" ];then  
+#echo "${filename%%.*}"  
+echo Processing: $filename  
+#iconv  -f $format1 -t $format2 $filename -o $filename  
+iconv -f BIG-5 -t UTF-8 $filename -o $filename  
+fi  
+  
+elif [ -d $filename ];then  
+cd $filename  
+SPATH=`pwd`  
+#echo $SPATH  
+FILELIST  
+cd ..  
+else  
+echo "$SPATH/$filename is not a common file."  
+fi  
+done  
+}  
+cd $SPATH  
+FILELIST  
+echo "======== Convert Done. ========"  
+
+```

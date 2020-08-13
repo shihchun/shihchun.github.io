@@ -9,6 +9,8 @@
 enca -L chinese ar_rate_1D.m
 ```
 
+# 轉檔
+
 確認格式之後進行轉檔：
 
 ```sh
@@ -81,4 +83,28 @@ cd $SPATH
 FILELIST  
 echo "======== Convert Done. ========"  
 
+```
+
+# Memory Overflow
+
+在算一些東西deepleaning的時，matlab常常會有overflow的問題，`clear all;`之類的不行使用，在[這裏](https://www.mathworks.com/matlabcentral/answers/316681-matlab-doesn-t-release-memory-when-variables-are-cleared)看到一個可以用的方法。
+
+修改tmp size
+
+```sh
+sudo mount -t tmpfs -o size=100G none /run/media/2TB/tmp
+```
+
+```cpp
+[DeepMIMO_dataset,params]=DeepMIMO_generator(params);
+% pack;
+% clear all;
+% clearvars -except DeepMIMO_dataset params;
+evalin('base','save(''DeepMIMO_dataset'')');
+evalin('base','save(''params'')');
+clearvars -global;
+evalin('base','clear');
+evalin('base','load(''DeepMIMO_dataset'')');
+evalin('base','load(''params'')');
+pack;
 ```

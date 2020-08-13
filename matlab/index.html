@@ -20,7 +20,7 @@
 <meta name="application-name" content="隨手筆記">
 <meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/matlab/" /><link rel="prev" href="https://shihchun.github.io/dropdown/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.github.io/matlab/" /><link rel="prev" href="https://shihchun.github.io/dropdown/" /><link rel="next" href="https://shihchun.github.io/multiprocess/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/matlab\/"
-        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  670 ,
+        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  792 ,
         "url": "https:\/\/shihchun.github.io\/matlab\/","datePublished": "2020-08-06T10:28:43+08:00","dateModified": "2020-08-06T10:28:43+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -113,7 +113,12 @@
                     <span></span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#轉檔">轉檔</a></li>
+    <li><a href="#memory-overflow">Memory Overflow</a></li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><p>安裝字體，可以複製Windows的字體<code>/windows/Windows/Fonts</code>，詳細方法可以參考<a href="https://wiki.archlinux.org/index.php/Microsoft_fonts" target="_blank" rel="noopener noreffer">Arch Wiki Microsoft fonts</a>，如果跟我一樣用雙系統的話，用Arch Wiki的方法打開Matlab之前掛載好windows分區硬碟，字體就會讀的到。</p>
 <p>由於enca的格式轉換在我的電腦使用起來有點問題所以只有拿來確認格式</p>
 <div class="highlight"><div class="chroma">
@@ -124,7 +129,8 @@
 <pre class="chroma"><code class="language-sh" data-lang="sh">enca -L chinese ar_rate_1D.m
 </code></pre></td></tr></table>
 </div>
-</div><p>確認格式之後進行轉檔：</p>
+</div><h1 id="轉檔">轉檔</h1>
+<p>確認格式之後進行轉檔：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -264,6 +270,45 @@ FILELIST
 
 </code></pre></td></tr></table>
 </div>
+</div><h1 id="memory-overflow">Memory Overflow</h1>
+<p>在算一些東西deepleaning的時，matlab常常會有overflow的問題，<code>clear all;</code>之類的不行使用，在<a href="https://www.mathworks.com/matlabcentral/answers/316681-matlab-doesn-t-release-memory-when-variables-are-cleared" target="_blank" rel="noopener noreffer">這裏</a>看到一個可以用的方法。</p>
+<p>修改tmp size</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sudo mount -t tmpfs -o <span class="nv">size</span><span class="o">=</span>100G none /run/media/2TB/tmp
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="p">[</span><span class="n">DeepMIMO_dataset</span><span class="p">,</span><span class="n">params</span><span class="p">]</span><span class="o">=</span><span class="n">DeepMIMO_generator</span><span class="p">(</span><span class="n">params</span><span class="p">);</span>
+<span class="o">%</span> <span class="n">pack</span><span class="p">;</span>
+<span class="o">%</span> <span class="n">clear</span> <span class="n">all</span><span class="p">;</span>
+<span class="o">%</span> <span class="n">clearvars</span> <span class="o">-</span><span class="n">except</span> <span class="n">DeepMIMO_dataset</span> <span class="n">params</span><span class="p">;</span>
+<span class="n">evalin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="sc">&#39;,&#39;</span><span class="n">save</span><span class="p">(</span><span class="err">&#39;&#39;</span><span class="n">DeepMIMO_dataset</span><span class="err">&#39;</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+<span class="n">evalin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="sc">&#39;,&#39;</span><span class="n">save</span><span class="p">(</span><span class="err">&#39;&#39;</span><span class="n">params</span><span class="err">&#39;</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+<span class="n">clearvars</span> <span class="o">-</span><span class="n">global</span><span class="p">;</span>
+<span class="n">evalin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="sc">&#39;,&#39;</span><span class="n">clear</span><span class="err">&#39;</span><span class="p">);</span>
+<span class="n">evalin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="sc">&#39;,&#39;</span><span class="n">load</span><span class="p">(</span><span class="err">&#39;&#39;</span><span class="n">DeepMIMO_dataset</span><span class="err">&#39;</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+<span class="n">evalin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="sc">&#39;,&#39;</span><span class="n">load</span><span class="p">(</span><span class="err">&#39;&#39;</span><span class="n">params</span><span class="err">&#39;</span><span class="sc">&#39;)&#39;</span><span class="p">);</span>
+<span class="n">pack</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
 </div></div>
         <script>
             if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
@@ -297,7 +342,8 @@ FILELIST
         </section>
     </div>
 
-    <div class="post-nav"><a href="/dropdown/" class="prev" rel="prev" title="Dropdown Terminal"><i class="fas fa-angle-left fa-fw"></i>Dropdown Terminal</a></div>
+    <div class="post-nav"><a href="/dropdown/" class="prev" rel="prev" title="Dropdown Terminal"><i class="fas fa-angle-left fa-fw"></i>Dropdown Terminal</a>
+            <a href="/multiprocess/" class="next" rel="next" title="Python 多進程">Python 多進程<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments">
             

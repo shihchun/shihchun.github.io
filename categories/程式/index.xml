@@ -4,7 +4,14 @@
         <link>https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/</link>
         <description>程式 - category - 隨手筆記</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
-            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Fri, 31 Jan 2020 19:43:16 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Mon, 07 Sep 2020 15:24:38 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>Tensor 計算 complex number</title>
+    <link>https://shihchun.github.io/tensor/</link>
+    <pubDate>Mon, 07 Sep 2020 15:24:38 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/tensor/</guid>
+    <description><![CDATA[記錄一下Tensorflow和Pytorch的complex number用法，以後真的寫code會遇到什麼問題就不清楚了，Debug的階段才]]></description>
+</item><item>
     <title>python 基本</title>
     <link>https://shihchun.github.io/jupyter/</link>
     <pubDate>Fri, 31 Jan 2020 19:43:16 &#43;0800</pubDate>

@@ -70,6 +70,21 @@ matmul:
        [-453. +67.j,   -8. -30.j]])]
 ```
 
+tensorflow 1.x 版本跟 2.x 最大差別應該是session了，如果是用2.3的話可以直接這樣用，和Pytorch幾乎差不多
+
+```python
+>>> print(A)
+[[17.+4.j -3.+2.j]
+ [-7.+3.j  1.+9.j]]
+>>> A@BB
+<tf.Tensor: shape=(2, 2), dtype=complex128, numpy=
+array([[1048.+227.j,  -86. +26.j],
+       [-453. +67.j,   -8. -30.j]])>
+>>> AA@B
+<tf.Tensor: shape=(2, 2), dtype=complex128, numpy=
+array([[1048.+227.j,  -86. +26.j],
+       [-453. +67.j,   -8. -30.j]])>
+```
 
 ```python
 import numpy as np

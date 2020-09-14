@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>torchvision - category - 隨手筆記</title>
+        <link>https://shihchun.github.io/categories/torchvision/</link>
+        <description>torchvision - category - 隨手筆記</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (Shih Chun)</managingEditor>
+            <webMaster>shihchun13@gmail.com (Shih Chun)</webMaster><lastBuildDate>Mon, 14 Sep 2020 13:21:32 &#43;0800</lastBuildDate><atom:link href="https://shihchun.github.io/categories/torchvision/" rel="self" type="application/rss+xml" /><item>
+    <title>Pytorch視覺化</title>
+    <link>https://shihchun.github.io/tensor_vis/</link>
+    <pubDate>Mon, 14 Sep 2020 13:21:32 &#43;0800</pubDate>
+    <author></author>
+    <guid>https://shihchun.github.io/tensor_vis/</guid>
+    <description><![CDATA[Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorbo]]></description>
+</item></channel>
+</rss>

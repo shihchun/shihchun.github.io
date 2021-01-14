@@ -1,7 +1,7 @@
 # Pytorch視覺化
 
 
-Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorboard相對起來難讀一點，不過要讓可讀性增加還是要從程式下手。
+Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是包在Tensor裏面，這就會讓tensorboard相對起來難讀一點，不過要讓可讀性增加還是要從程式下手，另外Autograd也是它特別的地方。
 
 # Tensorboard 生成圖
 
@@ -86,6 +86,35 @@ fc3.bias     torch.Size([10])
 Optimizer's state_dict:
 state    {}
 param_groups     [{'lr': 0.001, 'momentum': 0.9, 'dampening': 0, 'weight_decay': 0, 'nesterov': False, 'params': [4675713712, 4675713784, 4675714000, 4675714072, 4675714216, 4675714288, 4675714432, 4675714504, 4675714648, 4675714720]}]
+```
+
+如果還要儲存現在的計算過程，分很多次計算的話可以使用checkpoint的方式儲存
+
+```python
+torch.save({
+            'epoch': epoch+1,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'loss': loss,
+            ...
+            }, PATH)
+```
+
+加載
+
+```python
+model = TheModelClass(*args, **kwargs)
+optimizer = TheOptimizerClass(*args, **kwargs)
+
+checkpoint = torch.load(PATH)
+model.load_state_dict(checkpoint['model_state_dict'])
+optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+epoch = checkpoint['epoch']
+loss = checkpoint['loss']
+
+model.eval()
+# - or -
+model.train()
 ```
 
 # Torchvision 網路

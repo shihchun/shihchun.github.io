@@ -2,21 +2,20 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://shihchun.github.io/categories/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/graphviz/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/posts/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/tags/python/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/python/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/pytorch/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/tensor_vis/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/tags/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/tensorboard/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/torchvision/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/tensor/</loc><lastmod>2020-09-07T15:24:38&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/categories/tensorflow/</loc><lastmod>2020-09-07T15:24:38&#43;08:00</lastmod><changefreq>always</changefreq><priority>1</priority></url><url>
-            <loc>https://shihchun.github.io/multiprocess/</loc><lastmod>2020-08-13T14:33:08&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.6</priority></url><url>
+            <loc>https://shihchun.github.io/categories/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/graphviz/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/posts/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/tags/python/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/python/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/pytorch/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/tensor_vis/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/tags/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/tensorboard/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/torchvision/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/%E7%A8%8B%E5%BC%8F/</loc><lastmod>2020-09-14T13:21:32&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/tensor/</loc><lastmod>2020-09-07T15:24:38&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/categories/tensorflow/</loc><lastmod>2020-09-07T15:24:38&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/multiprocess/</loc><lastmod>2020-08-13T14:33:08&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/matlab/</loc><lastmod>2020-08-06T10:28:43&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/dropdown/</loc><lastmod>2020-07-12T12:02:35&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/ns3_002/</loc><lastmod>2020-07-05T13:53:45&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
@@ -39,6 +38,7 @@
             <loc>https://shihchun.github.io/tags/mathjax/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/hugo-math/</loc><lastmod>2020-01-11T18:51:35&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/about/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
+            <loc>https://shihchun.github.io/</loc><lastmod>2020-03-04T15:58:26&#43;08:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/tags/git/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/categories/git/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>
             <loc>https://shihchun.github.io/git-set/</loc><lastmod>2019-02-18T15:17:29&#43;00:00</lastmod><changefreq>always</changefreq><priority>0.5</priority></url><url>

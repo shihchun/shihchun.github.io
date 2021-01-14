@@ -10,6 +10,6 @@
     <pubDate>Mon, 14 Sep 2020 13:21:32 &#43;0800</pubDate>
     <author></author>
     <guid>https://shihchun.github.io/tensor_vis/</guid>
-    <description><![CDATA[Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorbo]]></description>
+    <description><![CDATA[Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是包在Tensor裏面，這就會讓tensorb]]></description>
 </item></channel>
 </rss>

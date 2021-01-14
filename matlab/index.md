@@ -108,3 +108,23 @@ evalin('base','load(''DeepMIMO_dataset'')');
 evalin('base','load(''params'')');
 pack;
 ```
+
+
+
+# Class Debug
+
+```cpp
+function [r]=filename()
+% do something
+    
+% assign to base with break points debugs
+myVarList={'st', 'ed', 'Hj', 'Wj', 'covj', 'Pj', 'Wintf', 'covtp', 'Wintf', 'covtp', 'cov_intf', 'Pintf', 'rate'};
+
+for indVar = 1:length(myVarList)
+    assignin('base',myVarList{indVar},eval(myVarList{indVar}))
+end
+return r
+end
+```
+
+

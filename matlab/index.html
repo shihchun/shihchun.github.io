@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/matlab\/"
-        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  792 ,
+        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","wordcount":  840 ,
         "url": "https:\/\/shihchun.github.io\/matlab\/","datePublished": "2020-08-06T10:28:43+08:00","dateModified": "2020-08-06T10:28:43+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -117,6 +117,7 @@
   <ul>
     <li><a href="#轉檔">轉檔</a></li>
     <li><a href="#memory-overflow">Memory Overflow</a></li>
+    <li><a href="#class-debug">Class Debug</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>安裝字體，可以複製Windows的字體<code>/windows/Windows/Fonts</code>，詳細方法可以參考<a href="https://wiki.archlinux.org/index.php/Microsoft_fonts" target="_blank" rel="noopener noreffer">Arch Wiki Microsoft fonts</a>，如果跟我一樣用雙系統的話，用Arch Wiki的方法打開Matlab之前掛載好windows分區硬碟，字體就會讀的到。</p>
@@ -309,6 +310,35 @@ FILELIST
 <span class="n">pack</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
+</div><h1 id="class-debug">Class Debug</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">function</span> <span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">=</span><span class="n">filename</span><span class="p">()</span>
+<span class="o">%</span> <span class="k">do</span> <span class="n">something</span>
+    
+<span class="o">%</span> <span class="n">assign</span> <span class="n">to</span> <span class="n">base</span> <span class="n">with</span> <span class="k">break</span> <span class="n">points</span> <span class="n">debugs</span>
+<span class="n">myVarList</span><span class="o">=</span><span class="p">{</span><span class="err">&#39;</span><span class="n">st</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">ed</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Hj</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Wj</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">covj</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Pj</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Wintf</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">covtp</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Wintf</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">covtp</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">cov_intf</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Pintf</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">rate</span><span class="err">&#39;</span><span class="p">};</span>
+
+<span class="k">for</span> <span class="n">indVar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">myVarList</span><span class="p">)</span>
+    <span class="n">assignin</span><span class="p">(</span><span class="err">&#39;</span><span class="n">base</span><span class="err">&#39;</span><span class="p">,</span><span class="n">myVarList</span><span class="p">{</span><span class="n">indVar</span><span class="p">},</span><span class="n">eval</span><span class="p">(</span><span class="n">myVarList</span><span class="p">{</span><span class="n">indVar</span><span class="p">}))</span>
+<span class="n">end</span>
+<span class="k">return</span> <span class="n">r</span>
+<span class="n">end</span>
+</code></pre></td></tr></table>
+</div>
 </div></div>
         <script>
             if (typeof jQuery != "undefined" || typeof kityminder != "undefined") {
@@ -359,7 +389,7 @@ FILELIST
             <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

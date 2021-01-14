@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Pytorch視覺化 - 隨手筆記</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Pytorch視覺化" />
-<meta property="og:description" content="Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorbo" />
+<meta property="og:description" content="Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是包在Tensor裏面，這就會讓tensorb" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://shihchun.github.io/tensor_vis/" />
 <meta property="og:image" content="https://shihchun.github.io/lo_img/avat.png"/>
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://shihchun.github.io/lo_img/avat.png"/>
 
 <meta name="twitter:title" content="Pytorch視覺化"/>
-<meta name="twitter:description" content="Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorbo"/>
+<meta name="twitter:description" content="Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是包在Tensor裏面，這就會讓tensorb"/>
 <meta name="application-name" content="隨手筆記">
 <meta name="apple-mobile-web-app-title" content="隨手筆記"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/shihchun.github.io\/tensor_vis\/"
-        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","keywords": "python","wordcount":  1403 ,
+        },"image": ["https:\/\/shihchun.github.io\/lo_img\/avator.jpg"],"genre": "posts","keywords": "python","wordcount":  1522 ,
         "url": "https:\/\/shihchun.github.io\/tensor_vis\/","datePublished": "2020-09-14T13:21:32+08:00","dateModified": "2020-09-14T13:21:32+08:00","publisher": {
             "@type": "Organization",
             "name": "shihchun","logo": "https:\/\/shihchun.github.io\/lo_img\/avator.jpg"},"author": {
@@ -117,12 +117,12 @@
   <ul>
     <li><a href="#tensorboard-生成圖">Tensorboard 生成圖</a></li>
     <li><a href="#torchvision生成graphviz流程圖">torchvision生成graphviz流程圖</a></li>
-    <li><a href="#save--load-weight">Save &amp; Load weight</a></li>
+    <li><a href="#save--load-weight">Save & Load weight</a></li>
     <li><a href="#torchvision-網路">Torchvision 網路</a></li>
     <li><a href="#custom-layer">Custom Layer</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是用Autograd，這就會讓tensorboard相對起來難讀一點，不過要讓可讀性增加還是要從程式下手。</p>
+            </div><div class="content" id="content"><p>Pytorch相對於tensorflow不一樣的地方是不是用tf.variable來分類圖，而是包在Tensor裏面，這就會讓tensorboard相對起來難讀一點，不過要讓可讀性增加還是要從程式下手，另外Autograd也是它特別的地方。</p>
 <h1 id="tensorboard-生成圖">Tensorboard 生成圖</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -264,6 +264,58 @@ fc3.bias     torch.Size([10])
 Optimizer&#39;s state_dict:
 state    {}
 param_groups     [{&#39;lr&#39;: 0.001, &#39;momentum&#39;: 0.9, &#39;dampening&#39;: 0, &#39;weight_decay&#39;: 0, &#39;nesterov&#39;: False, &#39;params&#39;: [4675713712, 4675713784, 4675714000, 4675714072, 4675714216, 4675714288, 4675714432, 4675714504, 4675714648, 4675714720]}]
+</code></pre></td></tr></table>
+</div>
+</div><p>如果還要儲存現在的計算過程，分很多次計算的話可以使用checkpoint的方式儲存</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span>
+            <span class="s1">&#39;epoch&#39;</span><span class="p">:</span> <span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;model_state_dict&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
+            <span class="s1">&#39;optimizer_state_dict&#39;</span><span class="p">:</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
+            <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span>
+            <span class="o">...</span>
+            <span class="p">},</span> <span class="n">PATH</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>加載</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">TheModelClass</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">TheOptimizerClass</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">checkpoint</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;model_state_dict&#39;</span><span class="p">])</span>
+<span class="n">optimizer</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;optimizer_state_dict&#39;</span><span class="p">])</span>
+<span class="n">epoch</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">]</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="c1"># - or -</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="torchvision-網路">Torchvision 網路</h1>
@@ -593,7 +645,7 @@ param_groups     [{&#39;lr&#39;: 0.001, &#39;momentum&#39;: 0.9, &#39;dampening&
             <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2018 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="http://shihchun.github.io" target="_blank">Shih Chun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 

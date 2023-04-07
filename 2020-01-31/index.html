@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Python 基本 - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="Python 基本" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2020-01-31/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-01-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-02T17:55:28+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="Python 基本"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2020-01-31/" /><link rel="prev" href="https://shihchun.gitlab.io/2020-01-18/" /><link rel="next" href="https://shihchun.gitlab.io/2020-06-04/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Python 基本",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2020-01-31\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "python","wordcount":  9727 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2020-01-31\/","datePublished": "2020-01-31T00:00:00+00:00","dateModified": "2019-10-02T17:55:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2020-01-31/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2020-01-31/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Python 基本</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-01-31">2020-01-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 9727 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 20 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#jupyter-notebook-轉換">Jupyter notebook 轉換</a></li>
+    <li><a href="#part-i">Part I</a></li>
+    <li><a href="#day1">Day1</a>
+      <ul>
+        <li><a href="#篩選資料">篩選資料</a></li>
+        <li><a href="#python上的解析方式">Python上的解析方式</a></li>
+        <li><a href="#增加可讀性">增加可讀性</a></li>
+      </ul>
+    </li>
+    <li><a href="#day2">Day2</a>
+      <ul>
+        <li><a href="#找到公共鍵key">找到公共鍵（key）</a></li>
+        <li><a href="#字典排序">字典排序</a></li>
+        <li><a href="#製作歷史記錄history-log">製作歷史記錄（history log）</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-3">Day 3</a>
+      <ul>
+        <li><a href="#疊代">疊代</a></li>
+        <li><a href="#curl或是request接收">curl或是request接收</a></li>
+        <li><a href="#封裝使用疊代器">封裝（使用疊代器）</a></li>
+        <li><a href="#錯誤處理">錯誤處理</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-4">Day 4</a>
+      <ul>
+        <li><a href="#yield-產生器generator來做疊代器">yield 產生器（Generator）來做疊代器</a></li>
+        <li><a href="#反向疊代">反向疊代</a></li>
+        <li><a href="#文件讀取">文件讀取</a></li>
+        <li><a href="#並行">並行</a></li>
+      </ul>
+    </li>
+    <li><a href="#day-5">Day 5</a>
+      <ul>
+        <li><a href="#字串拆分">字串拆分</a></li>
+        <li><a href="#map">map</a></li>
+        <li><a href="#split拆分-vs-resplit正則表達式">split()拆分 vs re.split()正則表達式</a></li>
+        <li><a href="#判斷字串開頭結尾字符">判斷字串開頭結尾字符</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-ii">Part II</a></li>
+    <li><a href="#判斷字串">判斷字串</a></li>
+    <li><a href="#修改權限">修改權限</a></li>
+    <li><a href="#替換文檔格式格式處理">替換文檔格式，格式處理</a></li>
+    <li><a href="#字串拼接">字串拼接</a></li>
+    <li><a href="#對齊字串">對齊字串</a></li>
+    <li><a href="#字串去除">字串去除</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>JupyterNotebook 下載：</p>
+<ul>
+<li><a href="/2020-01-31/bassic.ipynb" rel="">part I</a></li>
+<li><a href="/2020-01-31/bassic2.ipynb" rel="">part II</a></li>
+</ul>
+<h2 id="jupyter-notebook-轉換">Jupyter notebook 轉換</h2>
+<p>去除output，其他自定參考<a href="https://nbconvert.readthedocs.io/en/latest/config_options.html" target="_blank" rel="noopener noreffer ">文檔</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">markdown</span> <span class="n">bassic</span><span class="o">.</span><span class="n">ipynb</span> <span class="o">--</span><span class="n">stdout</span> <span class="o">--</span><span class="n">TemplateExporter</span><span class="o">.</span><span class="n">exclude_output</span><span class="o">=</span><span class="kc">True</span> <span class="o">&gt;</span> <span class="n">bassic</span><span class="o">.</span><span class="n">md</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="part-i">Part I</h2>
+<p><code>ctrl</code>+<code>]</code>：收起全部
+<code>ctrl</code>+<code>[</code>：打開全部</p>
+<p>基礎不討論算法</p>
+<h2 id="day1">Day1</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## ## clear all variable in python
+</span></span><span class="line"><span class="cl">## import sys
+</span></span><span class="line"><span class="cl">## sys.modules[__name__].__dict__.clear()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="篩選資料">篩選資料</h3>
+<ul>
+<li>一般想法</li>
+<li>filter 函數</li>
+<li>列表解析式（list comprehension）似乎最快</li>
+</ul>
+<p>##速度測試</p>
+<p>當然一般在計算上的時候如果用的電腦比較好可能可以測到幾ms的計算速度，大概速度差個10倍左右。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 一般想法 篩選掉負數
+</span></span><span class="line"><span class="cl">import timeit
+</span></span><span class="line"><span class="cl">!timeit?
+</span></span><span class="line"><span class="cl">data = [1,5,-3,-2,6,8,9]
+</span></span><span class="line"><span class="cl">res = []
+</span></span><span class="line"><span class="cl">for x in data:
+</span></span><span class="line"><span class="cl">  if x &gt;= 0:
+</span></span><span class="line"><span class="cl">    res.append(x) ## 把x加入res這個list裏面（list append）
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(res)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 執行時間測試
+</span></span><span class="line"><span class="cl">def test():
+</span></span><span class="line"><span class="cl">  res = []
+</span></span><span class="line"><span class="cl">  for x in data:
+</span></span><span class="line"><span class="cl">    if x &gt;= 0:
+</span></span><span class="line"><span class="cl">      res.append(x) ## 把x加入res這個list裏面（list append）
+</span></span><span class="line"><span class="cl">      pass
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  return res
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">t = timeit.timeit(test, number=10000)
+</span></span><span class="line"><span class="cl">print(&#34;執行時間：%f 秒&#34; % t)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del t, res,x ,data, timeit, test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## filter 濾出奇數
+</span></span><span class="line"><span class="cl">## filter(fcn, iterable) == &gt; filter(is_odd, data)
+</span></span><span class="line"><span class="cl">## 將data每個元素帶到is_odd中，留下返回的
+</span></span><span class="line"><span class="cl">!filter?
+</span></span><span class="line"><span class="cl">def is_odd(n):
+</span></span><span class="line"><span class="cl">  return n % 2 == 1 ## 返回 True or False
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">newlist = filter(is_odd, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+</span></span><span class="line"><span class="cl">print(list(newlist))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del is_odd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 使用filter 篩選掉負數
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">import timeit
+</span></span><span class="line"><span class="cl">!randint?
+</span></span><span class="line"><span class="cl">data = [randint(-10, 10) for _ in range(10)] ## list comprehension
+</span></span><span class="line"><span class="cl">new = filter(lambda x: x &gt;= 0 , data)
+</span></span><span class="line"><span class="cl">## 從data中的每個元素x來判斷，x&gt;=0的資料，
+</span></span><span class="line"><span class="cl">## filter(fcn, iterable)，fcn是匿名函數
+</span></span><span class="line"><span class="cl">## 匿名函數除了Linux C以外大部分的新語言都有，已經是一個很普遍使用的方法
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(new,&#34;\n&#34;,list(new)) ## python3不能直接print，python2可以，聽說節省了內存
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 執行時間測試
+</span></span><span class="line"><span class="cl">def test():
+</span></span><span class="line"><span class="cl">  return [randint(-10, 10) for _ in range(10)]
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">t = timeit.timeit(test, number=10000)
+</span></span><span class="line"><span class="cl">print(&#34;執行時間：%f 秒&#34; % t)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del data, new, t, randint, timeit, test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 列表解析（list comprehension） 篩選掉負數
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">import timeit
+</span></span><span class="line"><span class="cl">data = [randint(-10, 10) for _ in range(10)] ## xrange是python2用的
+</span></span><span class="line"><span class="cl">new = [x for x in data if x &gt;= 0]
+</span></span><span class="line"><span class="cl">print(new)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 執行時間測試
+</span></span><span class="line"><span class="cl">def test():
+</span></span><span class="line"><span class="cl">  return [x for x in data if x &gt;= 0]
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">t = timeit.timeit(test, number=10000)
+</span></span><span class="line"><span class="cl">print(&#34;執行時間：%f 秒&#34; % t)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del t, data, new, timeit, randint, test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="python上的解析方式">Python上的解析方式</h3>
+<ul>
+<li>
+<p>列表解析（list comprehension） <code>[77,78,79]</code></p>
+</li>
+<li>
+<p>字典解析（dict comprehension） <code>{'我':12,'K.Gracia':100}</code></p>
+</li>
+<li>
+<p>集合解析（set comprehension） <code>{77,79,79}</code></p>
+</li>
+<li>
+<p>元組（tuple） <code>('a','b','c')</code></p>
+<p>列表和字典解析使用的陳述句用的i、j、k之類的執行結束會自行del掉</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 字典解析
+</span></span><span class="line"><span class="cl">## 假設20人隨機產生分數60~100分
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">d = {x: randint(60, 100) for x in range(1,21)} ## range(20)的話會從零開始0~19
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#39;產生的字典\n&#39;,d,&#39;\n解析結果：\n&#39;,d.items()) ## python2用d.iteritems()來解析出資料
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">## 篩選出大於90分，然後再寫成之前的字典形式（dict）
+</span></span><span class="line"><span class="cl">Largethan = {k: v for k, v in d.items() if v &gt; 90} ## (k,v)就是dict_items下面的兩個元素
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#39;大於90分\n&#39;,Largethan)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del Largethan, d, randint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 集合解析
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">data = [randint(-10, 10) for _ in range(10)] ## 建立列表（list）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">s = set(data) ## 建立集合（set）
+</span></span><span class="line"><span class="cl">## 找集合裏面可以被3整除的元素
+</span></span><span class="line"><span class="cl">newS = {x for x in s if x%3 ==0 }
+</span></span><span class="line"><span class="cl">print(&#39;資料\n&#39;,data,&#39;\n集合\n&#39;,s,&#39;\n篩選可以被3整除的集合\n&#39;, newS)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del data, s , newS, randint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="增加可讀性">增加可讀性</h3>
+<ul>
+<li>原始</li>
+<li>枚舉</li>
+<li>元組 namedtuple數據結構</li>
+</ul>
+<p>在C語言裏面是這個樣子解決這類問題的，Java的想法也類似：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define NAME 0
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define AGE 1
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">Student</span> <span class="p">{</span> <span class="cm">/*枚舉*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">NAME</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">AGE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">SEX</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="n">Student</span><span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Java 也是類似：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">enum</span> <span class="n">Student</span> <span class="o">{</span> <span class="cm">/*枚舉*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">NAME</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">AGE</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">SEX</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">Student</span><span class="o">[]</span> <span class="n">creatures</span> <span class="o">=</span> <span class="o">{</span><span class="n">Student</span><span class="o">.</span><span class="na">NAME</span><span class="o">,</span> <span class="n">Student</span><span class="o">.</span><span class="na">AGE</span><span class="o">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 通常似乎很繁瑣的判斷寫法
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">student = (&#39;Mike&#39;, 16, &#39;male&#39;, &#39;grama8722@mail.edu.tw&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找 name
+</span></span><span class="line"><span class="cl">print(student[0]) ## mike
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找 age
+</span></span><span class="line"><span class="cl">if student[1] &gt;= 18:
+</span></span><span class="line"><span class="cl">  ## some condition
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找性別sex
+</span></span><span class="line"><span class="cl">if student[2] == &#39;male&#39;:
+</span></span><span class="line"><span class="cl">  ## some condition
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del student
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 用枚舉的方式
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## NAME = 0; AGE = 1; SEX = 2; EMAIL = 3;
+</span></span><span class="line"><span class="cl">NAME, AGE, SEX, EMAIL = range(4) ## 簡單寫法
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">student = (&#39;Mike&#39;, 16, &#39;male&#39;, &#39;grama8722@mail.edu.tw&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找 name
+</span></span><span class="line"><span class="cl">print(student[NAME]) ## Mike
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找 age
+</span></span><span class="line"><span class="cl">if student[AGE] &gt;= 18:
+</span></span><span class="line"><span class="cl">  ## some condition
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找性別sex
+</span></span><span class="line"><span class="cl">if student[SEX] == &#39;male&#39;:
+</span></span><span class="line"><span class="cl">  ## some condition
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del student, NAME, AGE, SEX, EMAIL
+</span></span><span class="line"><span class="cl">## NAME, AGE, SEX, EMAIL 會在記憶體裡面
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 元組 namedtuple 數據結構
+</span></span><span class="line"><span class="cl">from collections import namedtuple ## import collections.namedtuple
+</span></span><span class="line"><span class="cl">Student = namedtuple(&#39;Student&#39;, [&#39;name&#39;,&#39;age&#39;,&#39;sex&#39;,&#39;email&#39;])
+</span></span><span class="line"><span class="cl">s = Student(&#39;Mike&#39;, 16, &#39;male&#39;, &#39;grama8722@mail.edu.tw&#39;)
+</span></span><span class="line"><span class="cl">print(s,&#39;\nNAME: s.name\n&#39;, s.name,&#39;\nAGE: s.age\n&#39;, s.age)
+</span></span><span class="line"><span class="cl">isinstance(s, tuple) ## s是否爲元組 ==&gt; True 所以namedtuple返回確實是元組
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del s, Student, namedtuple
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day2">Day2</h2>
+<h3 id="找到公共鍵key">找到公共鍵（key）</h3>
+<p>公共鍵指在多個字典裏面存在相同的鍵（key）</p>
+<p>在下面的字典中其中<code>me</code>和<code>K.Gracia</code>就是鍵（key）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">&#39;me&#39;:12,&#39;K.Gracia&#39;:100</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>一般寫loop找</li>
+<li>使用集合（set）的方式</li>
+<li>使用map reduce更快的找到公共鍵</li>
+</ul>
+<p>集合下面可以使用</p>
+<ul>
+<li>python3 s.items、s.keys、s.values</li>
+<li>python2 s.viewitems、s.viewkeys、s.viewvalues</li>
+</ul>
+<blockquote>
+<p>在Python寫loop的判斷運算元跟java、c、js不太一樣，ex: &lsquo;||&lsquo;要用&rsquo;or&rsquo;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Operator (other languages)</th>
+<th>Operator (Python)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>and</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>not</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://openhome.cc/Gossip/CodeData/PythonTutorial/FunctionalProgrammingPy3.html" target="_blank" rel="noopener noreffer ">reduce</a>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif"
+        data-srcset="https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif, https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif 1.5x, https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif 2x"
+        data-sizes="auto"
+        alt="https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif"
+        title="https://openhome.cc/Gossip/CodeData/PythonTutorial/images/FunctionalProgrammingPy3-1.gif" /></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from random import randint, sample
+</span></span><span class="line"><span class="cl">sample(&#39;abcdefg&#39;,3) ## 隨機在abcdefg中產生3個sample
+</span></span><span class="line"><span class="cl">sample(&#39;abcdefg&#39;,randint(3,6)) ## 隨機在abcdefg中產生3~6個sample
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 假設由abcdefg個球員名稱，每一輪的進球數是1~4
+</span></span><span class="line"><span class="cl">## { for x in sample(&#39;abcdefg&#39;,randint(3,6)) } 
+</span></span><span class="line"><span class="cl">## { x: randint(1,4) for x in sample(&#39;abcdefg&#39;,randint(3,6)) }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">s1 = { x: randint(1,4) for x in sample(&#39;abcdefg&#39;,randint(3,6)) } #第一輪
+</span></span><span class="line"><span class="cl">s2 = { x: randint(1,4) for x in sample(&#39;abcdefg&#39;,randint(3,6)) } #第二輪
+</span></span><span class="line"><span class="cl">s3 = { x: randint(1,4) for x in sample(&#39;abcdefg&#39;,randint(3,6)) } #第三輪
+</span></span><span class="line"><span class="cl">print(&#34;\n&#34;,s1,&#34;\n&#34;,s2,&#34;\n&#34;,s3)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 一般找公共鍵
+</span></span><span class="line"><span class="cl">res = [];
+</span></span><span class="line"><span class="cl">for k in s1:
+</span></span><span class="line"><span class="cl">  if k in s2 and k in s3:
+</span></span><span class="line"><span class="cl">    res.append(k)
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(&#34;Loop找公共鍵： &#34;,res)
+</span></span><span class="line"><span class="cl">del k
+</span></span><span class="line"><span class="cl">### 使用集合（set）的方式找 直接用 &amp; 或是 |
+</span></span><span class="line"><span class="cl">print(&#39;集合操作：\n&#39;,s1.keys(),&#39;\n&#39;,s2.keys(),&#39;\n&#39;,s3.keys())## python2用 s1.viewkeys()
+</span></span><span class="line"><span class="cl">print(s1.keys() &amp; s2.keys() &amp; s3.keys())
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 如果&#34;很多集合&#34;裏面找，可以使用map、reduce
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mapp = map(dict.keys,[s1,s2,s3]) ## &lt;map at 0x7f92df970278&gt;
+</span></span><span class="line"><span class="cl">print(&#34;map得到： \n&#34;, list(mapp))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">from functools import reduce ## functools.reduce
+</span></span><span class="line"><span class="cl">redd = reduce(lambda a, b: a &amp; b, map(dict.keys,[s1,s2,s3]))
+</span></span><span class="line"><span class="cl">print(&#34;reduce得到\n&#34;, redd)
+</span></span><span class="line"><span class="cl">## 其中 lambda a, b: a &amp; b ==&gt; 前個結果a跟下個結果b交集
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del redd, reduce, mapp, s1, s2, s3, res, randint, sample
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="字典排序">字典排序</h3>
+<p>希望字典按照輸入順序排序。</p>
+<p>使用<code>collection</code>.<code>OrdereDict</code>(python2)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## OrderDict特性 （python2需要）
+</span></span><span class="line"><span class="cl">## from collections import OrderedDict
+</span></span><span class="line"><span class="cl">## d = OrderedDict()
+</span></span><span class="line"><span class="cl">d = {}
+</span></span><span class="line"><span class="cl">d[&#39;Jim&#39;] = (1, 35)
+</span></span><span class="line"><span class="cl">d[&#39;Leo&#39;] = (5, 356)
+</span></span><span class="line"><span class="cl">d[&#39;Bob&#39;] = (3, 37)
+</span></span><span class="line"><span class="cl">for k in d: 
+</span></span><span class="line"><span class="cl">  print(k) ## 會按照輸入順序
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del d, k
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="製作歷史記錄history-log">製作歷史記錄（history log）</h3>
+<p>下面可以發現，如果執行次數多了速度就會變慢很多。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import time
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">players = list(&#39;ABCDEFGH&#39;) ## 8個player
+</span></span><span class="line"><span class="cl">start = time.time()
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for i in range(1,8): ## 執行7次
+</span></span><span class="line"><span class="cl">  #input(&#34;：第%d次：&#34;% i)
+</span></span><span class="line"><span class="cl">  p = players.pop( randint( 0,7-i ) ) ## 從列表刪除pop(i)第i個元素，p爲取出的元素
+</span></span><span class="line"><span class="cl">  end = time.time()
+</span></span><span class="line"><span class="cl">  print(i, &#39;刪除： &#39;,p , &#39;取出元素執行時間：&#39;, (end-start)*1000,&#34;ms&#34;)
+</span></span><span class="line"><span class="cl">  print(&#39;列表變爲：&#39;, players)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del players, p, end, start, randint, time
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在python 裏面有一個<code>collection.deque</code>的庫可以使用。</p>
+<p>例如<code>deque([],5)</code>則可以記錄5個數列更改之前的五個元素。</p>
+<p>將其實體化<code>d = deque([],5)</code>，直接使用再append數列的時候同時也對其append即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from collections import deque
+</span></span><span class="line"><span class="cl">d = deque([],5)
+</span></span><span class="line"><span class="cl">a = [1,2,3,4,5]
+</span></span><span class="line"><span class="cl">d.extend(a) ## append list中的所有元素時，使用extend
+</span></span><span class="line"><span class="cl">print(d)
+</span></span><span class="line"><span class="cl">d.append(9) ## 對[1,2,3,4,5]再append一個 &#39;1&#39;
+</span></span><span class="line"><span class="cl">print(d) ## 可以發現只剩下五個元素，第一個append的1不會顯示，剩下五個歷史記錄
+</span></span><span class="line"><span class="cl">#要使用直接使用 list(d) 可以直接使用數列
+</span></span><span class="line"><span class="cl">print(list(d))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del d, deque, a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>若需要在下面加入歷史記錄的話</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">N = randint(0,5)
+</span></span><span class="line"><span class="cl">print(&#34;答案: &#34;,N)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def guess(k):
+</span></span><span class="line"><span class="cl">  if k == N:
+</span></span><span class="line"><span class="cl">    print(&#34;猜對&#34;)
+</span></span><span class="line"><span class="cl">    return True
+</span></span><span class="line"><span class="cl">  if k &lt; N:
+</span></span><span class="line"><span class="cl">    print(&#34;N比%s還要大&#34; % k)
+</span></span><span class="line"><span class="cl">  else:
+</span></span><span class="line"><span class="cl">    print(&#34;N比%s還要小&#34; % k)
+</span></span><span class="line"><span class="cl">  return False
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">while True:
+</span></span><span class="line"><span class="cl">  line = input(&#34;請輸入一個數字： &#34;)
+</span></span><span class="line"><span class="cl">  if line.isdigit():
+</span></span><span class="line"><span class="cl">    k = int(line)
+</span></span><span class="line"><span class="cl">    if guess(k): ## 執行guess function，猜對跳出
+</span></span><span class="line"><span class="cl">      break
+</span></span><span class="line"><span class="cl">      pass
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del k, line, N, randint, guess
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 加入deque歷史記錄
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">from collections import deque
+</span></span><span class="line"><span class="cl">&#39;&#39;&#39;
+</span></span><span class="line"><span class="cl">使用pikle的話可以將寫好的資料dump成檔案並儲存
+</span></span><span class="line"><span class="cl">要用的時候可一在別的檔案透過路徑的方式讀取。
+</span></span><span class="line"><span class="cl">類似寫程式的時候把資料存到txt裏面再讀取出來，不過那要writeline
+</span></span><span class="line"><span class="cl">一行一行寫與讀取，這個不用
+</span></span><span class="line"><span class="cl">&#39;&#39;&#39;
+</span></span><span class="line"><span class="cl">import pickle
+</span></span><span class="line"><span class="cl">## qq = pickle.load(open(&#39;history&#39;)) ## 讀取儲存結果
+</span></span><span class="line"><span class="cl">## qq = pickle.dump(q, open(&#39;history&#39;,&#39;w&#39;)) ## 儲存結果
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">N = randint(0,20)
+</span></span><span class="line"><span class="cl">history = deque([],5)
+</span></span><span class="line"><span class="cl">print(&#34;答案: &#34;,N)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def guess(k):
+</span></span><span class="line"><span class="cl">  if k == N:
+</span></span><span class="line"><span class="cl">    print(&#34;猜對&#34;)
+</span></span><span class="line"><span class="cl">    return True
+</span></span><span class="line"><span class="cl">  if k &lt; N:
+</span></span><span class="line"><span class="cl">    print(&#34;N比%s還要大&#34; % k)
+</span></span><span class="line"><span class="cl">  else:
+</span></span><span class="line"><span class="cl">    print(&#34;N比%s還要小&#34; % k)
+</span></span><span class="line"><span class="cl">  return False
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">while True:
+</span></span><span class="line"><span class="cl">  line = input(&#34;請輸入一個數字： &#34;)
+</span></span><span class="line"><span class="cl">  if line.isdigit():
+</span></span><span class="line"><span class="cl">    k = int(line)
+</span></span><span class="line"><span class="cl">    history.append(k) ## 每次輸入一個數字就加入history裏面
+</span></span><span class="line"><span class="cl">    if guess(k): ## 執行guess function，猜對跳出
+</span></span><span class="line"><span class="cl">      break
+</span></span><span class="line"><span class="cl">  elif line == &#39;history&#39; or line == &#39;h?&#39;:
+</span></span><span class="line"><span class="cl">    print( list(history) )
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del history, line, k, N, pickle, deque, randint, guess
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day-3">Day 3</h2>
+<h3 id="疊代">疊代</h3>
+<p>iter(x)可以檢查一個東西是否可疊代，iter()可以找到疊代器。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">L = [1,2,3,4]
+</span></span><span class="line"><span class="cl">s = &#39;abcdefghijk&#39;
+</span></span><span class="line"><span class="cl">print( &#39;疊代器存在：\n L: &#39;, iter(L),&#39;\n s: &#39;, iter(s) ) ## 都可以list跟char都可疊代
+</span></span><span class="line"><span class="cl">print( &#39;疊代可實體化：\n L: &#39;, L.__iter__(),&#39;\n s: &#39;, s.__iter__() ) 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### next()協議在python3變成__next__()
+</span></span><span class="line"><span class="cl">it = iter(L)
+</span></span><span class="line"><span class="cl">## print( it.__next__() ) ## 第0個元素
+</span></span><span class="line"><span class="cl">## print( it.__next__() ) ## 第1個元素
+</span></span><span class="line"><span class="cl">## print( it.__next__() ) ## 第2個元素
+</span></span><span class="line"><span class="cl">## print( it.__next__() ) ## 第3個元素
+</span></span><span class="line"><span class="cl">## print( it.__next__() ) ## 返回StopIteration 然後條錯誤
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for _ in range(len(L)):
+</span></span><span class="line"><span class="cl">  print(it.__next__())
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del it, L, s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="curl或是request接收">curl或是request接收</h3>
+<p><a href="https://rapidapi.com/collection/top-weather-apis" target="_blank" rel="noopener noreffer ">apis</a></p>
+<p>可以參考其他的api拿到對他們的網址伺服器發出get請求，可以返回資料，然後使用python將其轉換成json的格式，可以對這些資料做類似字典的操作。</p>
+<p>這類操作常常要看文檔以及他們的一些檔案格式來做調整。</p>
+<p>對HTML內容進行GET請求並且將資料拿下來成JSON之類的可分析格式就是爬蟲了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## curl &#34;http://wthrcdn.etouch.cn/weather_mini?city=&#34; ### shell命令
+</span></span><span class="line"><span class="cl">import requests
+</span></span><span class="line"><span class="cl">def getWeather(city): 
+</span></span><span class="line"><span class="cl">  r = requests.get(u&#39;http://wthrcdn.etouch.cn/weather_mini?city=&#39; + city)
+</span></span><span class="line"><span class="cl">  data = r.json()[&#39;data&#39;][&#39;yesterday&#39;]
+</span></span><span class="line"><span class="cl">  #print(&#34;資料：&#34;,r.json())
+</span></span><span class="line"><span class="cl">  #print(&#34;昨天資料：&#34;,r.json()[&#39;data&#39;][&#39;yesterday&#39;])
+</span></span><span class="line"><span class="cl">  return &#39;%s: %s, %s&#39; % (city, data[&#39;low&#39;], data[&#39;high&#39;])
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(getWeather(u&#39;北京&#39;))
+</span></span><span class="line"><span class="cl">print(getWeather(u&#39;上海&#39;))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del requests
+</span></span><span class="line"><span class="cl">## function只會返回return的東西喔， 所以r、data都被清掉了
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 舉個例子，一般是用api的時候會長這樣
+</span></span><span class="line"><span class="cl">import requests
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">url = &#34;https://weatherbit-v1-mashape.p.rapidapi.com/current&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">querystring = {&#34;lang&#34;:&#34;en&#34;,&#34;lon&#34;:&#34;&lt;required&gt;&#34;,&#34;lat&#34;:&#34;&lt;required&gt;&#34;}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">headers = {
+</span></span><span class="line"><span class="cl">    &#39;x-rapidapi-host&#39;: &#34;weatherbit-v1-mashape.p.rapidapi.com&#34;,
+</span></span><span class="line"><span class="cl">    &#39;x-rapidapi-key&#39;: &#34;SIGN-UP-FOR-KEY&#34;
+</span></span><span class="line"><span class="cl">    } ### 一般的api都需要有api key，通常是需要一些付費或是需要註冊帳號的
+</span></span><span class="line"><span class="cl">### 自己在自己的電腦寫網頁php、django、tornado、expressJS之類的編寫，也可以透過這個方法得到返回值
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">response = requests.request(&#34;GET&#34;, url, headers=headers, params=querystring)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(response)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del response, headers, querystring, url, requests
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="封裝使用疊代器">封裝（使用疊代器）</h3>
+<p>可疊代-&gt;批次</p>
+<p>首先瞭解什麼是<a href="https://www.kawabangga.com/posts/2772" target="_blank" rel="noopener noreffer ">疊代器</a>，在Python中所有的loop疊代，例如for之類的都是透過所謂的next協議去做出來的，包括現在常常被使用的ES6 javascript也是，所以我們可以透過使用疊代器，減少記憶體的使用，因爲Python是一個執行效率不太高的語言。</p>
+<p><a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/python3-gcc.html" target="_blank" rel="noopener noreffer ">Python vs C</a>，看完大概就知道使用這個的原因，而且很多框架（framework）也是直接調用next疊代協議（iterator protocol），所以瞭解一點對寫Python會有很多的幫助。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">### 將之前使用的API做封裝成 可疊代物件
+</span></span><span class="line"><span class="cl">import requests
+</span></span><span class="line"><span class="cl">from collections import Iterable, Iterator
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class WeatherIterator(Iterator): ##疊代器
+</span></span><span class="line"><span class="cl">  def __init__(self, cities): ### 設定index和cities
+</span></span><span class="line"><span class="cl">    self.cities = cities
+</span></span><span class="line"><span class="cl">    self.index = 0
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def getWeather(self, city): ### 拿資料
+</span></span><span class="line"><span class="cl">    r = requests.get(u&#39;http://wthrcdn.etouch.cn/weather_mini?city=&#39; + city)
+</span></span><span class="line"><span class="cl">    data = r.json()[&#39;data&#39;][&#39;yesterday&#39;]
+</span></span><span class="line"><span class="cl">    return &#39;%s: %s, %s&#39; % (city, data[&#39;low&#39;], data[&#39;high&#39;])
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def __next__(self): ### next()在python3變成__next__()
+</span></span><span class="line"><span class="cl">    if self.index == len(self.cities):
+</span></span><span class="line"><span class="cl">      raise StopIteration ### 錯誤處理 riase（引發）StopIteration錯誤（pyton內建）
+</span></span><span class="line"><span class="cl">      pass
+</span></span><span class="line"><span class="cl">    city = self.cities[self.index]
+</span></span><span class="line"><span class="cl">    self.index += 1
+</span></span><span class="line"><span class="cl">    return self.getWeather(city)
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">class WeatherIterable(Iterable): ### 可以疊代物件
+</span></span><span class="line"><span class="cl">  def __init__(self,cities):
+</span></span><span class="line"><span class="cl">    self.cities = cities
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def __iter__(self):
+</span></span><span class="line"><span class="cl">    return WeatherIterator(self.cities)
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">### 封裝完畢，實體化來使用，可以對它疊代、批次處理
+</span></span><span class="line"><span class="cl">for x in WeatherIterable([u&#39;北京&#39;,u&#39;上海&#39;]):
+</span></span><span class="line"><span class="cl">  print(x)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del x, Iterable, Iterator, requests
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="錯誤處理">錯誤處理</h3>
+<ul>
+<li>基本</li>
+<li>錯誤判斷處理</li>
+<li>自己定義錯誤類型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Ex1: 基本
+</span></span><span class="line"><span class="cl">try:
+</span></span><span class="line"><span class="cl">   raise TypeError
+</span></span><span class="line"><span class="cl">except TypeError:
+</span></span><span class="line"><span class="cl">  print(&#39;TypeError&#39;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Ex2: 錯誤判斷處理
+</span></span><span class="line"><span class="cl">def mye( level ):
+</span></span><span class="line"><span class="cl">  if level &lt; 1:
+</span></span><span class="line"><span class="cl">    raise Traceback(&#39;Hi~Hi&#39;) 
+</span></span><span class="line"><span class="cl">    ## 這裏拋出 Traceback不是內建的，會顯示&#39;is not defined&#39;
+</span></span><span class="line"><span class="cl">    ## 就沒有，印出我們想要定義的錯誤類型
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    print(&#34;這裏不執行&#34;)
+</span></span><span class="line"><span class="cl">    ### 下面是其中一些python有的錯誤類型，下面的程式不執行
+</span></span><span class="line"><span class="cl">    raise TypeError(&#39;Hi&#39;)
+</span></span><span class="line"><span class="cl">    raise ValueError(&#34;Hi&#34;) 
+</span></span><span class="line"><span class="cl">    raise NameError(&#39;Hi&#39;)
+</span></span><span class="line"><span class="cl">    raise ZeroDivisionError(&#39;Hi&#39;)
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#mye(0) ## 會raise拋出錯誤，error會顯示我們定義的錯誤
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">try: ## 在c java是try catch、foreach多載之類，用法差不多
+</span></span><span class="line"><span class="cl">  mye( 0 )
+</span></span><span class="line"><span class="cl">except Exception as err: ## print出所有錯誤
+</span></span><span class="line"><span class="cl">  print(&#34;44321&#34;,&#34;Erro {}&#34;.format(err))
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del mye
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Ex3： 自己定義錯誤類型
+</span></span><span class="line"><span class="cl">class Networkerror(RuntimeError):
+</span></span><span class="line"><span class="cl">  def __init__(self, arg):
+</span></span><span class="line"><span class="cl">    self.name = &#34;Networkerror&#34;
+</span></span><span class="line"><span class="cl">    self.args = arg
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">try:
+</span></span><span class="line"><span class="cl">  raise Networkerror(&#34;Bad hostname&#34;)
+</span></span><span class="line"><span class="cl">except Networkerror as err:
+</span></span><span class="line"><span class="cl">  print(&#34;Err &#34;,err.name, &#39;\n&#39;,err. args)  ## 作用一樣 &#34;Erro {}&#34;.format(err))
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del Networkerror
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day-4">Day 4</h2>
+<h3 id="yield-產生器generator來做疊代器">yield 產生器（Generator）來做疊代器</h3>
+<ul>
+<li>yield 產生器使用方法</li>
+<li>yield 產生器做成可以疊代的物件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">### 介紹 Python yield Generator 疊代方法
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def f(): ## Generator Fcn 這個可以疊代
+</span></span><span class="line"><span class="cl">  print(&#39;執行 yield 1&#39;)
+</span></span><span class="line"><span class="cl">  yield 1
+</span></span><span class="line"><span class="cl">  print(&#39;執行 yield 2&#39;)
+</span></span><span class="line"><span class="cl">  yield 2
+</span></span><span class="line"><span class="cl">  print(&#39;執行 yield 3&#39;)
+</span></span><span class="line"><span class="cl">  yield 3
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">g = f()
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## print( g.__next__() )
+</span></span><span class="line"><span class="cl">## print( g.__next__() )
+</span></span><span class="line"><span class="cl">## print( g.__next__() )
+</span></span><span class="line"><span class="cl">## print( g.__next__() ) ## StopIteration會錯誤，跟之前一樣可以用產生器（Generator）器去做
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## ## 第一種
+</span></span><span class="line"><span class="cl">## for _ in range(3):
+</span></span><span class="line"><span class="cl">##   print( g.__next__() )
+</span></span><span class="line"><span class="cl">##   pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 可以寫成
+</span></span><span class="line"><span class="cl">for x in g:
+</span></span><span class="line"><span class="cl">  print(x)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print( g.__iter__() is g ) ## True =&gt;由於g可以作爲g.__iter__()來調用
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del x, g, f
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">class PrimeNumbers:
+</span></span><span class="line"><span class="cl">  def __init__(self, start, end): ## 建構子
+</span></span><span class="line"><span class="cl">    self.start = start
+</span></span><span class="line"><span class="cl">    self.end = end
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def isPrimeNum(self, k):
+</span></span><span class="line"><span class="cl">    for i in range(2, k):
+</span></span><span class="line"><span class="cl">      if k%i == 0: ## k mod i == 0
+</span></span><span class="line"><span class="cl">        return False
+</span></span><span class="line"><span class="cl">      return True
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def __iter__(self): ## 疊代器
+</span></span><span class="line"><span class="cl">    for k in range(self.start, self.end + 1):
+</span></span><span class="line"><span class="cl">      if self.isPrimeNum(k):
+</span></span><span class="line"><span class="cl">        yield k
+</span></span><span class="line"><span class="cl">        pass ## pass if pass可以不寫
+</span></span><span class="line"><span class="cl">      pass ## pass for
+</span></span><span class="line"><span class="cl">    pass ## pass fcn
+</span></span><span class="line"><span class="cl">  pass ## pass class
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 測試封裝完的class
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for x in PrimeNumbers(1,100):
+</span></span><span class="line"><span class="cl">  y.append(x)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del y, x, PrimeNumbers
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="反向疊代">反向疊代</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 反向疊代
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">L = [1,2,3,4,5]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print( &#39;L[::-1]: &#39;, L[::-1] ) ## 會得到新列表到記憶體
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## reversed() 只有多一個疊代器，不會多一個列表，較好
+</span></span><span class="line"><span class="cl">print( reversed(L) )
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for _ in reversed(L):
+</span></span><span class="line"><span class="cl">  y.append(_)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del y, _, L
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">### 寫成物件範例
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">class FloatRange:
+</span></span><span class="line"><span class="cl">  def __init__(self, start, end, step=0.1): ### 建構子
+</span></span><span class="line"><span class="cl">    self.start = start; self.end = end; self.step = step;
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def __iter__(self):
+</span></span><span class="line"><span class="cl">    t = self.start
+</span></span><span class="line"><span class="cl">    while t &lt;= self.end:
+</span></span><span class="line"><span class="cl">      yield t
+</span></span><span class="line"><span class="cl">      t += self.step
+</span></span><span class="line"><span class="cl">      pass
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  def __reversed__(self):
+</span></span><span class="line"><span class="cl">    t = self.end
+</span></span><span class="line"><span class="cl">    while t &gt;= self.start:
+</span></span><span class="line"><span class="cl">      yield t
+</span></span><span class="line"><span class="cl">      t -= self.step
+</span></span><span class="line"><span class="cl">      pass
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 測試封裝完的class
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 正序
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for x in FloatRange(1.0, 4.0, 0.5):
+</span></span><span class="line"><span class="cl">  y.append(x)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 反序
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for x in reversed( FloatRange(1.0, 4.0, 0.5) ):
+</span></span><span class="line"><span class="cl">  y.append(x)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del y, x, FloatRange
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文件讀取">文件讀取</h3>
+<ul>
+<li>ope().readlines() 把每個row存到列表中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 產生可以讀寫的檔案
+</span></span><span class="line"><span class="cl">! dmesg &gt; dmessg.log
+</span></span><span class="line"><span class="cl">! find / -name &#39;dmessg.log&#39;
+</span></span><span class="line"><span class="cl">#! cat /content/dmessg.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">f = open(&#39;/content/dmessg.log&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## readline 讀取太大的文件會浪費太多記憶體
+</span></span><span class="line"><span class="cl">lines = f.readlines()
+</span></span><span class="line"><span class="cl">print(&#39;f after readlines()會被清空成 list(f)=&#39;, list(f))
+</span></span><span class="line"><span class="cl">print(lines[1:10]) ### 用列表的方法可以直接找第1到第10行的數據
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 在python中可以使用islice 做切片
+</span></span><span class="line"><span class="cl">## islice(iterable, [start], [stop]) ## 到最後一行stop寫None
+</span></span><span class="line"><span class="cl">from itertools import islice #itertools.islice
+</span></span><span class="line"><span class="cl">f = open(&#39;/content/dmessg.log&#39;) ## reandlines()完f = []
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for _ in islice(f,1,10): ## 取出第一行到第十行f的1～10元素就會被拿走了
+</span></span><span class="line"><span class="cl">  y.append(_)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del y, f
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="並行">並行</h3>
+<p>使用一個for疊代多個iterable物件</p>
+<ul>
+<li>zip 把列表<em><strong>並</strong></em>起來</li>
+<li>itertools.chain 把列表<em><strong>串</strong></em>起來</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">!zip?
+</span></span><span class="line"><span class="cl">## zip 把列表並起來
+</span></span><span class="line"><span class="cl">x = zip([1,2,3,4],(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;)) ## 合併兩個列表
+</span></span><span class="line"><span class="cl">y = zip([1,2,3,4],(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;),[7,8,9,10]) ## 合併三個列表
+</span></span><span class="line"><span class="cl">i = zip([1,2,3,4],(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)) ## 列表len()不一樣合併
+</span></span><span class="line"><span class="cl">print(&#39;按照順序抓元素合併包起來\n&#39;
+</span></span><span class="line"><span class="cl">    ,&#39;\n合併2個列表: &#39;,list(x) ,&#39;\n合併3個列表: &#39;, list(y),
+</span></span><span class="line"><span class="cl">      &#39;\n列表len()不一樣合併, 取最大公因數: &#39;,list(i) )
+</span></span><span class="line"><span class="cl">del x, y, i
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## zip 範例
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## generating data
+</span></span><span class="line"><span class="cl">math = [randint(60, 100) for _ in range(40)] ## random the score
+</span></span><span class="line"><span class="cl">  science = [randint(60, 100) for _ in range(40)]
+</span></span><span class="line"><span class="cl">english = [randint(60, 100) for _ in range(40)]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 處理加總
+</span></span><span class="line"><span class="cl">for i in range(len(math)):
+</span></span><span class="line"><span class="cl">  math[i] + science[i] + english[i]
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 使用zip處理
+</span></span><span class="line"><span class="cl">total=[] #加總
+</span></span><span class="line"><span class="cl">for i,j,k in zip(math, science, english):
+</span></span><span class="line"><span class="cl">  total.append(i+j+k)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del math, science, english, i, j, k
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## itertools.chain 把列表串起來
+</span></span><span class="line"><span class="cl">from itertools import chain
+</span></span><span class="line"><span class="cl">!chain?
+</span></span><span class="line"><span class="cl">y = chain([1,2,3,4], [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;])
+</span></span><span class="line"><span class="cl">print(list(y))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">y = []
+</span></span><span class="line"><span class="cl">for _ in chain([1,2,3,4], [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;]):
+</span></span><span class="line"><span class="cl">  y.append(_)
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">print(y)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del _, y, chain
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 範例
+</span></span><span class="line"><span class="cl">from itertools import chain
+</span></span><span class="line"><span class="cl">e1 = [randint(60, 100) for _ in range(40)]
+</span></span><span class="line"><span class="cl">e2 = [randint(60, 100) for _ in range(40)]
+</span></span><span class="line"><span class="cl">e3 = [randint(60, 100) for _ in range(44)]
+</span></span><span class="line"><span class="cl">e4 = [randint(60, 100) for _ in range(39)]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 找超過90分的數量
+</span></span><span class="line"><span class="cl">count = 0
+</span></span><span class="line"><span class="cl">for s in chain(e1,e2,e3,e4):
+</span></span><span class="line"><span class="cl">  if s &gt; 90:
+</span></span><span class="line"><span class="cl">    count += 1
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">    print(&#39;超過90分的數量: &#39;, count)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del count, s, e1, e2, e3, e4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day-5">Day 5</h2>
+<h3 id="字串拆分">字串拆分</h3>
+<ul>
+<li>單一字串 <code>split()</code></li>
+<li>多個字串 <code>re.split('正則表達式', str)</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 處理單一分隔符號
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 產生可以讀寫的檔案
+</span></span><span class="line"><span class="cl">#! ps aux &gt; psAux.log
+</span></span><span class="line"><span class="cl">#! find / -name &#39;psAux.log&#39;
+</span></span><span class="line"><span class="cl">#! cat /content/psAux.log.log
+</span></span><span class="line"><span class="cl">## Linux中的CPU進程PID，系統目錄下面PROC執行中的程序會在上面
+</span></span><span class="line"><span class="cl">!ps aux
+</span></span><span class="line"><span class="cl">x = !ps aux 
+</span></span><span class="line"><span class="cl">s = x[-1] #取出x的最後一行
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#39;\n最後一行:\n&#39;, s)
+</span></span><span class="line"><span class="cl">print( &#39;\n以空格方式去分隔:\n&#39;, s.split() )
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del s, x
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="map">map</h3>
+<p><a href="https://stackoverflow.com/questions/18433488/non-lazy-evaluation-version-of-map-in-python3" target="_blank" rel="noopener noreffer ">Python3 map() bug</a></p>
+<p>在Function 裡面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">map(lambda x: k.extend(x.split(_)), res) 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>要寫成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list( map(lambda x: k.extend(x.split(_)), res) )
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## map(fcn, iterable)，用法跟filter很像
+</span></span><span class="line"><span class="cl">## map: convert each item of an array, 
+</span></span><span class="line"><span class="cl">## filter: select certain items of an array.
+</span></span><span class="line"><span class="cl">## filter 的fcn要返回True或是False判斷是否留下列表元素
+</span></span><span class="line"><span class="cl">## map 則是對列表每個元素操作，返回
+</span></span><span class="line"><span class="cl">!map?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 對每個列表元素做平方
+</span></span><span class="line"><span class="cl">def square(x) :
+</span></span><span class="line"><span class="cl">  return x ** 2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">k = map(square, [1,2,3,4,5])
+</span></span><span class="line"><span class="cl">print(list(k))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del k
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a = &#39;;/\,|abcdefghijklmnopqrstuvwxyzABCD&#39;
+</span></span><span class="line"><span class="cl">print(&#39;使用亂數 a：&#39;, a)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 產生了亂數a，使用 ;/\,| 分隔
+</span></span><span class="line"><span class="cl">## 直接使用split的問題
+</span></span><span class="line"><span class="cl">s = &#39;;/\,|&#39;
+</span></span><span class="line"><span class="cl">k = a.split(&#39;;&#39;); 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print( &#34;\n第一次拆完之後為二維列表無法直接再直接拆分 a.split(&#39;;&#39;):\n&#34;, k)
+</span></span><span class="line"><span class="cl">## k = k.split(&#39;/&#39;); 不能繼續用同樣方法拆
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## map 再切一次 第二次拆分map完的結果list變得更難處理
+</span></span><span class="line"><span class="cl">k = map(lambda x: x.split(&#39;/&#39;), k) ## k中的每個元素x拿出來回傳x.split(&#39;,&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#39;\n第二次拆分map完的結果list變得更難處理\n&#39;,
+</span></span><span class="line"><span class="cl">      &#34;map(lambda x: x.split(&#39;/&#39;), k):\n&#34;,list(k))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 第二次拆分map完的結果extend到新的list中
+</span></span><span class="line"><span class="cl">k = []
+</span></span><span class="line"><span class="cl">k = a.split(&#39;;&#39;); 
+</span></span><span class="line"><span class="cl">map( lambda x: k.extend( x.split(&#39;/&#39;) ), k)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#39;\n第二次拆分map完的結果extend到新的list中就解決了\n&#39;,
+</span></span><span class="line"><span class="cl">      &#34;map( lambda x: k.extend( x.split(&#39;/&#39;) ), k):\n&#34;,k)
+</span></span><span class="line"><span class="cl">k = [x for x in k if x]
+</span></span><span class="line"><span class="cl">print(&#39;濾除空字串\n[x for x in k if x]\n&#39;,k)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del k, s, a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="split拆分-vs-resplit正則表達式">split()拆分 vs re.split()正則表達式</h3>
+<p>正則表達式（regulation expression）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 亂數產生器
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">def makeSalt(lens):
+</span></span><span class="line"><span class="cl">  strs = &#39;;/\,|abcdefghijklmnopqrstuvwxyzABCD&#39;
+</span></span><span class="line"><span class="cl">  salt = &#39;&#39;
+</span></span><span class="line"><span class="cl">  for i in range(lens):
+</span></span><span class="line"><span class="cl">    salt += strs[randint(0,31)]
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  return salt
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">def mySplit(strs, salt):
+</span></span><span class="line"><span class="cl">  res = [strs]
+</span></span><span class="line"><span class="cl">  k = []
+</span></span><span class="line"><span class="cl">  for _ in salt:
+</span></span><span class="line"><span class="cl">    k = []
+</span></span><span class="line"><span class="cl">    ## python3 function裡面map()外要加上一個list()，不然不會動作
+</span></span><span class="line"><span class="cl">    list( map(lambda x: k.extend(x.split(_)), res) )
+</span></span><span class="line"><span class="cl">    res = k
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  return [x for x in res if x] ##去除空字串
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sInput = makeSalt(35)
+</span></span><span class="line"><span class="cl">sSalt = &#39;;/\,|&#39;
+</span></span><span class="line"><span class="cl">print( sInput,&#39;\n&#39;, mySplit(sInput, sSalt) )
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del sInput, sSalt, makeSalt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 亂數產生器
+</span></span><span class="line"><span class="cl">from random import randint
+</span></span><span class="line"><span class="cl">def makeSalt(lens):
+</span></span><span class="line"><span class="cl">  strs = &#39;;/\,|abcdefghijklmnopqrstuvwxyzABCD&#39;
+</span></span><span class="line"><span class="cl">  salt = &#39;&#39;
+</span></span><span class="line"><span class="cl">  for i in range(lens):
+</span></span><span class="line"><span class="cl">    salt += strs[randint(0,31)]
+</span></span><span class="line"><span class="cl">    pass
+</span></span><span class="line"><span class="cl">  return salt
+</span></span><span class="line"><span class="cl">  pass
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">import re ## 正則表達式
+</span></span><span class="line"><span class="cl">!re.split?
+</span></span><span class="line"><span class="cl">sInput = makeSalt(35)
+</span></span><span class="line"><span class="cl">sSalt = &#39;;/\,|&#39;
+</span></span><span class="line"><span class="cl">print( sInput,&#34;\n\n直接用 re.split(r&#39;[;\,/|]+&#39;, sInput):\n&#34;,re.split(r&#39;[;\,/|]+&#39;, sInput))
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del sInput, sSalt, makeSalt, randint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="判斷字串開頭結尾字符">判斷字串開頭結尾字符</h3>
+<p>bassic2.ipynb 從這裡開始繼續下個檔案會重新說過</p>
+<p><code>char.startswith()</code>、<code>char.endswith()</code>，只能傳入字串或是元組</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#!ls -lh sample_data
+</span></span><span class="line"><span class="cl">import os
+</span></span><span class="line"><span class="cl">k = os.listdir(&#39;sample_data&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## char.startswith()、char.endswith()
+</span></span><span class="line"><span class="cl">s = &#39;california_housing_test.csv&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(&#34;s =&#34;, s)
+</span></span><span class="line"><span class="cl">print(&#34;s.endswith(&#39;.csv&#39;) =&gt;&#34;, s.endswith(&#39;.csv&#39;) )
+</span></span><span class="line"><span class="cl">print(&#34;s.endswith(&#39;.py&#39;) =&gt;&#34;,s.endswith(&#39;.py&#39;),&#39;\n&#39; )
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 所以可以寫成
+</span></span><span class="line"><span class="cl">s =[name for name in k if name.endswith( (&#39;.md&#39;, &#39;.json&#39;))]
+</span></span><span class="line"><span class="cl">## 輸出name（最前面的），for name in k，if判斷k的第name個元素endswith（（&#39;&#39;, &#39;&#39;,&#39;&#39;））
+</span></span><span class="line"><span class="cl">print(&#39;os.listdir(): \n&#39;,k)
+</span></span><span class="line"><span class="cl">print(&#34;濾出 *.md  *.json :\n&#34;,s)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del k, s, os
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 把 *.txt 檔案全部改成 *.m 的格式
+</span></span><span class="line"><span class="cl">import os
+</span></span><span class="line"><span class="cl">path = &#39;./&#39;
+</span></span><span class="line"><span class="cl">f = os.listdir(path)
+</span></span><span class="line"><span class="cl">out = [x for x in f if x.endswith(&#39;.txt&#39;)]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">n = 0; i = 0
+</span></span><span class="line"><span class="cl">for i in out:
+</span></span><span class="line"><span class="cl">    ## 設定舊檔名（就是路徑+檔名）
+</span></span><span class="line"><span class="cl">    oldname = out[n]
+</span></span><span class="line"><span class="cl">    k = len(out[n])-4
+</span></span><span class="line"><span class="cl">    ## 設定新檔名
+</span></span><span class="line"><span class="cl">    newname = out[n][0:k] + &#39;.m&#39;
+</span></span><span class="line"><span class="cl">    ## 用os模組中的rename方法對檔案改名
+</span></span><span class="line"><span class="cl">    os.rename(path+oldname, path+newname)
+</span></span><span class="line"><span class="cl">    print(oldname, &#39;======&gt;&#39;, newname)
+</span></span><span class="line"><span class="cl">    n += 1
+</span></span><span class="line"><span class="cl">    pass
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#!ls -lh sample_data
+</span></span><span class="line"><span class="cl">import os, stat ## stat是掩碼庫
+</span></span><span class="line"><span class="cl">k = os.stat(&#39;sample_data/README.md&#39;)
+</span></span><span class="line"><span class="cl">print(&#39;資料：\n&#39;,k)
+</span></span><span class="line"><span class="cl">k = os.stat(&#39;sample_data/README.md&#39;).st_mode ## oct 八進制
+</span></span><span class="line"><span class="cl">print(&#39;掩碼：\n&#39;,k)
+</span></span><span class="line"><span class="cl">k = oct(k)
+</span></span><span class="line"><span class="cl">print(&#39;權限知道權限755: \n&#39;,k)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 修改Linux權限
+</span></span><span class="line"><span class="cl">## stat.S_IXUSR 掩碼AND權限 =&gt; 權限755, 最上面的group會加上可執行權限(x,rwx)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## os.chmod(&#39;sample_data/README.md&#39;, os.stat(&#39;sample_data/README.md&#39;).st_mode | stat.S_IXUSR)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">del k, os, stat
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="part-ii">Part II</h2>
+<h2 id="判斷字串">判斷字串</h2>
+<p>可傳入元組</p>
+<ul>
+<li>str.startwith()</li>
+<li>str.endwith()</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># generate testing dir file</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&#34;test&#34;</span> <span class="p">];</span> <span class="n">then</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">test</span><span class="p">;</span>  <span class="n">fi</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span> <span class="n">mkdir</span> <span class="n">test</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">test</span> <span class="o">&amp;&amp;</span> <span class="n">touch</span> <span class="n">a</span><span class="o">.</span><span class="n">sh</span> <span class="n">b</span><span class="o">.</span><span class="n">py</span> <span class="n">c</span><span class="o">.</span><span class="n">h</span> <span class="n">d</span><span class="o">.</span><span class="n">java</span> <span class="n">e</span><span class="o">.</span><span class="n">py</span> <span class="n">f</span><span class="o">.</span><span class="n">cpp</span>  <span class="o">&amp;&amp;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">lh</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">stat</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./test&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;g.sh&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="s2">&#34;s = &#39;g.sh&#39;, s.endswith: &#34;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.sh&#39;</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 篩選</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">列表comprehension, </span><span class="se">\n</span><span class="s2"> [ name for name in os.listdir(&#39;./test&#39;) if name.endswith((&#39;.sh&#39;, &#39;.py&#39;)) ])&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span> <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./test&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;.sh&#39;</span><span class="p">,</span> <span class="s1">&#39;.py&#39;</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">s</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">stat</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改權限">修改權限</h2>
+<p>修改成其他權限可參考</p>
+<ul>
+<li>os.stat(&lsquo;filepath&rsquo;)</li>
+<li>os.stat(&lsquo;filepath&rsquo;).st_mode</li>
+<li>os.chmod(&lsquo;file&rsquo;, os.stat(&lsquo;file&rsquo;).st_mode | stat.S_IXUSR )</li>
+</ul>
+<p>os.chmod(檔案路徑, 檔案的stat與掩碼做OR的結果)</p>
+<p><a href="https://docs.python.org/2/library/stat.html" target="_blank" rel="noopener noreffer ">python stat doc</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">stat</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;./test&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 修改執行權限 755 644 使用遮罩掩碼做OR去改</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">st_mode</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">os.stat:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">os.stat.st_mode: </span><span class="si">%s</span><span class="s2"> =&gt; 這個是二進制數值</span><span class="se">\n</span><span class="s2">轉換成八進制oct(): </span><span class="si">%s</span><span class="s2"> =&gt;看得出來是644的權限（user gourp other三位元權限u+g+o）</span><span class="se">\n</span><span class="s2">&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="o">%</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">),</span><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">st_mode</span> <span class="p">,</span> <span class="nb">oct</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">st_mode</span><span class="p">)),</span> 
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;每個用戶組分別有read-write-execute 可執行、可讀、可寫三種權限，基本Linux&#34;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span> <span class="o">./</span><span class="n">test</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&#34;e.py&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;./test/e.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">st_mode</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IXUSR</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span> <span class="o">./</span><span class="n">test</span> <span class="o">|</span> <span class="n">grep</span> <span class="s2">&#34;e.py&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">os</span><span class="p">,</span> <span class="n">stat</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="替換文檔格式格式處理">替換文檔格式，格式處理</h2>
+<p>使用正則表達式，進行處理</p>
+<p>替換</p>
+<ul>
+<li>re.sub()</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># !find / -name dpkg.log # /var/log/dpkg.log</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># !cat /var/log/dpkg.log | less #more</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;看前十個資料，要改變日期格式&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&#34;test&#34;</span> <span class="p">];</span> <span class="n">then</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">test</span><span class="p">;</span> <span class="n">mkdir</span> <span class="n">test</span><span class="p">;</span> <span class="n">fi</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">cat</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">dpkg</span><span class="o">.</span><span class="n">log</span> <span class="o">&gt;&gt;</span> <span class="o">./</span><span class="n">test</span><span class="o">/</span><span class="n">dpkg</span><span class="o">.</span><span class="n">log</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># !head 10 ./test/dpkg.log</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">用python&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># log = open(&#39;/var/log/dpkg.log&#39;).read() # readall</span>
+</span></span><span class="line"><span class="cl"><span class="n">log</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/var/log/dpkg.log&#39;</span><span class="p">)</span> <span class="c1">#.readline() 執行一次迭代器+1 讀出一行</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">#x = log.readline().rstrip(&#34;\n&#34;) # print 會自動加入 \n</span>
+</span></span><span class="line"><span class="cl">  <span class="n">x</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">  <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span> <span class="c1"># 正則表達式</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#!re.sub?</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 描述日期格式 \d{4} \d{2} \d{2} 用()把三組圈起來</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\1</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;\1\2&#39; 表示第一組跟第二組</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\1</span><span class="s1">-</span><span class="se">\2</span><span class="s1">&#39;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># r&#39;\1\2&#39; 原始字串</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1-\2&#39;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">a: </span><span class="se">\1</span><span class="s2">&#39;: </span><span class="se">\n</span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">b: &#39;</span><span class="se">\1\2</span><span class="s2">&#39;: </span><span class="se">\n</span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">c: 使用原始字串的話長度不會因爲正規改變(可能會像是a、b一樣有格式問題)r&#39;</span><span class="se">\1\2</span><span class="s2">&#39;: </span><span class="se">\n</span><span class="si">%s</span><span class="s2"> &#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 知道上面就可以知道 ==&gt; r&#39;\2 / \3 / \1&#39; 三組之間用/隔開</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\2/\3/\1&#39;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">d:  r&#39;</span><span class="se">\2</span><span class="s2">/</span><span class="se">\3</span><span class="s2">/</span><span class="se">\1</span><span class="s2">&#39;: </span><span class="se">\n</span><span class="si">%s</span><span class="s2"> &#34;</span> <span class="o">%</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 可以對每個組定義名稱一樣的結果可以寫成下面 每個組( ?P&lt;name&gt;\d{} ), 然後建構就用\g&lt;name&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">e</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(?P&lt;year&gt;\d</span><span class="si">{4}</span><span class="s1">)-(?P&lt;month&gt;\d</span><span class="si">{2}</span><span class="s1">)-(?P&lt;day&gt;\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\g&lt;month&gt;/\g&lt;day&gt;/\g&lt;year&gt;&#39;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">d: 每個組( ?P&lt;name&gt;\d</span><span class="si">{}</span><span class="s2"> ), 然後建構就用\g&lt;name&gt;: </span><span class="se">\n</span><span class="si">%s</span><span class="s2"> &#34;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">re</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="字串拼接">字串拼接</h2>
+<ul>
+<li>&lsquo;+&rsquo;</li>
+<li>‘分隔符號’.join(list) ：list可以是comprehension</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;abcdefg&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 拼起來</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;s = s1 + s2 &#39;+&#39; ： </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="n">s1</span><span class="o">+</span><span class="n">s2</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;str.__add__(s1,s2) :</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="nb">str</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;s1 &gt; s2: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s1</span><span class="o">&gt;</span><span class="n">s2</span><span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;str.__gt__(s1,s2): </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="fm">__gt__</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pl</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;&lt;0112&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;32&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;1024x768&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;60&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;1&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;100.0&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;500.0&gt;&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">pl</span><span class="p">:</span> <span class="c1">## 列表很長會有記憶體浪費</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="o">+=</span><span class="n">_</span>
+</span></span><span class="line"><span class="cl">  <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span> <span class="c1">## 這會比較好 (以空字串分隔)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;&#39;&#39;.join(pl): </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> &#39;;&#39;.join(pl): </span><span class="si">%s</span><span class="s2"> &#34;</span> <span class="o">%</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pl</span><span class="p">),</span> <span class="s1">&#39;;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pl</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用列表</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pl</span><span class="p">])</span> <span class="c1"># 列表[]會創建列表到記憶體</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pl</span><span class="p">)</span> <span class="c1"># 產生器這個比較好</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">pl</span>     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="對齊字串">對齊字串</h2>
+<ul>
+<li>str.ljust(), str.rjust(), str.center() 左右中對齊</li>
+<li>format(,&lt;&gt;^) print 字典的時候也可以用</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">ljust(): </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">rjust(): </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">center(): </span><span class="se">\n</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;&lt;20&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;&gt;20&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;^20&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">format(s, &#39;&lt;20&#39;): </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">format(s, &#39;&gt;20&#39;): </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">format(s, &#39;^20&#39;): </span><span class="se">\n</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;lodDict&#34;</span><span class="p">:</span><span class="mf">100.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;SmallCull&#34;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;DistCull&#34;</span><span class="p">:</span> <span class="mf">500.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;trilinear&#34;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;farclip&#34;</span><span class="p">:</span> <span class="mi">477</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl"><span class="n">w</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">對齊字典</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span> <span class="c1">#到冒號之前對齊，用最長的長度w去對齊</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span> <span class="n">k</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">  <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">s</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="字串去除">字串去除</h2>
+<ul>
+<li>strip()、lstrip()、rstrip()</li>
+<li>&lsquo;+&rsquo;、[:end]</li>
+<li>replace()</li>
+<li>replace()、re.sub</li>
+<li>translate()</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#  strip() lstrip() rstrip()</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;    ======abc ++ 123   --   &#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span> <span class="s2">&#34; s: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2"> s.strip() 除掉兩邊空白: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> s.strip() 除掉左邊空白: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> s.strip() 除掉右邊邊空白: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;-=&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34; s.strip().strip(&#39;-=&#39;) 去除前後空白再去處前後-=: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">s</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc:123&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;s: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> s[:3] + s[4:]: </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">a</span><span class="p">));</span> <span class="k">del</span> <span class="n">s</span><span class="p">,</span><span class="n">a</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># replace() re.sub() &#39;\&#39; print 不太出來</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">abc</span><span class="se">\t</span><span class="s2">123</span><span class="se">\t</span><span class="s2">xyz</span><span class="se">\r</span><span class="s2">opq</span><span class="se">\r</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[</span><span class="se">\t\r</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;s: </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> s.replace(&#39;</span><span class="se">\t</span><span class="s2">&#39;, &#39;&#39;): </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> re.sub(&#39;[</span><span class="se">\t\r</span><span class="s2">]&#39;, &#39;&#39;, s): </span><span class="si">%s</span><span class="s2">&#34;</span> 
+</span></span><span class="line"><span class="cl">      <span class="o">%</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">));</span> <span class="k">del</span> <span class="n">s</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># str.translate() unicode.translate()</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc1230323xyz&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 假設有一個加密是將上面abc-&gt;xyz，xyz-&gt;abc</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;abcxyz&#39;</span><span class="p">,</span> <span class="s1">&#39;xyzabc&#39;</span><span class="p">)</span> <span class="c1"># 產生mapping 映射表</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; s:&#39;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> mapping:&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> 轉換結果：&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2019-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020-01-31/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2020-01-31/" data-title="Python 基本" data-hashtags="python"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2020-01-31/" data-hashtag="python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2020-01-31/" data-title="Python 基本" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2020-01-31/" data-title="Python 基本"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-01-18/" class="prev" rel="prev" title="Manjaro 雙系統安裝"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Manjaro 雙系統安裝</a>
+            <a href="/2020-06-04/" class="next" rel="next" title="NS3 installation">NS3 installation<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

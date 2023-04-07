@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux目錄指令 - 隨手筆記</title><meta name="Description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南."><meta property="og:title" content="Linux目錄指令" />
+<meta property="og:description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2017_03_27_2/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-03-27T22:55:28+08:00" />
+<meta property="article:modified_time" content="2019-10-02T17:55:28+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="Linux目錄指令"/>
+<meta name="twitter:description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2017_03_27_2/" /><link rel="prev" href="https://shihchun.gitlab.io/2017_03_27/" /><link rel="next" href="https://shihchun.gitlab.io/2017_03_27_3/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux目錄指令",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2017_03_27_2\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Linux筆記","wordcount":  2569 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2017_03_27_2\/","datePublished": "2017-03-27T22:55:28+08:00","dateModified": "2019-10-02T17:55:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "Hugo 和 LoveIt 中的 Emoji 的用法指南."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2017_03_27_2/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2017_03_27_2/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux目錄指令</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-03-27">2017-03-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2569 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mkdir-目錄創建">mkdir 目錄創建</a></li>
+    <li><a href="#cd-切換目錄">cd 切換目錄</a></li>
+    <li><a href="#rm-刪除文件或是目錄">rm 刪除文件或是目錄</a></li>
+    <li><a href="#cp-複製指令">cp 複製指令</a>
+      <ul>
+        <li><a href="#cp--a">cp -a</a></li>
+      </ul>
+    </li>
+    <li><a href="#mv-搬移指令">mv 搬移指令</a></li>
+    <li><a href="#linux-目錄功用">Linux 目錄功用</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="mkdir-目錄創建">mkdir 目錄創建</h2>
+<p>mkdir [option]  [parameter]</p>
+<p>選項</p>
+<ul>
+<li><code>-p</code>遞歸創建（創建<code>/Gumdan/...</code>）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1">#mkdir ~/Desktop/Gumdan</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># mkdir ~/Desktop/Gumdan/season</span>
+</span></span><span class="line"><span class="cl">mkdir: /Users/Gumdam/Desktop/Gumdan: No such file or directory
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># mkdir -p ~/Desktop/Gumdan/season</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>當要創建<code>/Gumdan/season</code>的時候<code>/Gumdan</code>不存在的話要是用<code>-p</code>才可以進行創建。</p>
+<h2 id="cd-切換目錄">cd 切換目錄</h2>
+<table>
+<thead>
+<tr>
+<th>簡化指令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd /</td>
+<td>進入根目錄</td>
+</tr>
+<tr>
+<td>cd ~</td>
+<td>進入家目錄</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>進入家目錄</td>
+</tr>
+<tr>
+<td>cd -</td>
+<td>進入上一次目錄（切換前）</td>
+</tr>
+<tr>
+<td>cd ..</td>
+<td>進入上一級目錄</td>
+</tr>
+<tr>
+<td>cd .</td>
+<td>進入當前目錄（沒有用）</td>
+</tr>
+</tbody>
+</table>
+<p>可以利用<code>pwd</code>查看自己的目錄位置，<code>cd</code>值得一說的一點是它是shell原本內建（自帶）的命令，可以使用搜索指令查詢得知：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># which cd</span>
+</span></span><span class="line"><span class="cl">cd: shell built-in <span class="nb">command</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>除了<code>cd</code>是shell自帶命令以外，其實還有很多指令是自帶的，例如：<code>alias</code>、<code>bg</code>、<code>fg</code>、<code>echo</code></p>
+<p>使用<code>cd</code>指令的時候需要考慮路徑的問題，路徑分為相對路徑和絕對路徑，相對路徑是參照目前目錄位置去執行的路徑，絕對路徑是則可以因為不用參照路徑，所以可以在任何目錄中執行。</p>
+<table>
+<thead>
+<tr>
+<th>相對路徑</th>
+<th>絕對路徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>../usr/local/src</code></td>
+<td><code>/usr/local/src</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># pwd</span>
+</span></span><span class="line"><span class="cl">/root   <span class="c1"># 參照目錄為 /root</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cd ../usr/local/src </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost src<span class="o">]</span><span class="c1"># pwd</span>
+</span></span><span class="line"><span class="cl">/usr/local/src <span class="c1">## 參照目錄為 /usr/local/src</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cd ../usr/local/src </span>
+</span></span><span class="line"><span class="cl">cd: no such file or directory: ../usr/local <span class="c1">## 無法辨認 /usr、/local </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost src<span class="o">]</span><span class="c1"># cd /usr/local/src ## 絕對路徑可以在任何位置使用</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>相對路徑要注意一點，當我當前目錄位置發生變化，原本可以執行的命令，就有可能不能執行，相對的絕對路徑就不會有這個問題，所以使用網路上面複製的指令時，要特別注意路徑是否正確。</p>
+<p>在Linux當中有<code>Tab</code>補全的功能，建議使用<code>Tab</code>避免打字錯誤的狀況發生，在一些發行版本作業系統雖然指令使用方法雖然相同，但是可能會有一些小問題，比如我在Mac OS裡面的空格（blank space）在終端機上會顯示為<code>\</code>，所以在不使用<code>Tab</code>的狀況之下，打錯的可能性很高，使用<code>Tab</code>可以減少不必要的錯誤。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost ~/Desktop]# cd   ## 按下 Tab 鍵會出現下方補全
+</span></span><span class="line"><span class="cl">\$RECYCLE.BIN/   Project.logicx/  Tools/      icircuit/
+</span></span><span class="line"><span class="cl">Gumdan/          Rmd\ to\ pptx/   cpp\ text/
+</span></span><span class="line"><span class="cl">[root@localhost ~/Desktop]# cd Rmd\ to\ pptx/  ##按 Tab 選出要的
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="rm-刪除文件或是目錄">rm 刪除文件或是目錄</h2>
+<p>rm  [option]  [file or directory]</p>
+<p>選項：</p>
+<ul>
+<li><code>r</code> 刪除目錄</li>
+<li><code>f</code> 強制刪除</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~/Desktop<span class="o">]</span><span class="c1"># mkdir abc</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~/Desktop<span class="o">]</span><span class="c1"># rm abc</span>
+</span></span><span class="line"><span class="cl">rm: abc: is a directory
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~/Desktop<span class="o">]</span><span class="c1"># rm -r abc</span>
+</span></span><span class="line"><span class="cl">rm: remove directory <span class="s1">&#39;abc&#39;</span>? n
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~/Desktop<span class="o">]</span><span class="c1"># rm -rf abc</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在Linux上面的<code>rm</code>指令不是Windows上面的刪除，它並不會把檔案送到回收桶，你刪了他就消失了，一般在使用<code>rm</code>指令的時候都會直接使用<code>rm -rf</code>來刪除檔案，因為刪除目錄的時候要有<code>-r</code>、不加<code>-f</code>的話有會被問是否刪除，所以一般常用<code>rm -rf</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~/Desktop<span class="o">]</span><span class="c1"># rm -rf /</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>rm</code>有一個要小心的地方，上面的這個指令真的不要打上去，這個指令會讓系統99%的數據被刪除，但是系統並不會崩潰，如果沒有raid陣列或是其他的保護檔案的措施的話文件是無法還原的，說簡單一點數據恢復牽涉的條件非常的廣，要盡量避免這種事情發生。</p>
+<p>這是讓Linux自殺的指令，但是Linux卻會不誤的去執行它，令人不安心的是，在輸入路徑的時候這個是很可能不小心出現的錯誤，但是這也側面說明了在Linux上面使用者擁有很高的系統權限。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost /<span class="o">]</span><span class="c1"># rm -rf /bin</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost /<span class="o">]</span><span class="c1"># rm -rf /bin/*</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用<code>rm -rf</code>的時候還要注意一個地方不要刪錯一些系統目錄或是系統的掛載點，上面的指令中的<code>/bin/*</code>是指<code>/bin</code>目錄下面的內容，這個指令如果刪除<code>/bin</code>的話會刪除<code>/bin</code>這個系統目錄，這個是我們不希望發生的，如果刪除了像是<code>/proc</code>、<code>/sys</code>之類的掛在點可能就出大事情了。</p>
+<h2 id="cp-複製指令">cp 複製指令</h2>
+<p>cp  [option]  [source file] [target file]</p>
+<p>選項</p>
+<ul>
+<li><code>-r</code> 複製目錄</li>
+<li><code>-p</code> 連帶文件屬性一起複製</li>
+<li><code>-d</code> 如果複製的文件是鏈接文件，複製鏈接屬性</li>
+<li><code>-a</code> 相當於 <code>-pdr</code> 全部，一般使用<code>-a</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cp install.log /tmp # 沒寫檔案名稱會原名複製</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cp install.log /tmp/knps # 複製后為knps</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cp Gumdan ~/Desktop # 要複製目錄要使用 -r</span>
+</span></span><span class="line"><span class="cl">cp: Gumdan is a directory <span class="o">(</span>not copied<span class="o">)</span>.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cp -r Gumdan ~/Desktop # 保險一點使用 -a</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在使用<code>cp</code>指令的時候，如果只有給目標目錄位置，沒有給檔案名稱的話<code>cp</code>指令會原名複製。</p>
+<h3 id="cp--a">cp -a</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># date</span>
+</span></span><span class="line"><span class="cl">2017年 3月 9日 周四 21時03分15秒 CST
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ll a.out</span>
+</span></span><span class="line"><span class="cl">-rwxr-xr-x  <span class="m">1</span> Gumdam  staff    15K  <span class="m">3</span>  <span class="m">6</span> 21:51 a.out
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># cp a.out ~</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># cp -a  a.out ~/b.out</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># cd ~</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~<span class="o">]</span><span class="c1"># find *.out -exec ls -lh {} \;</span>
+</span></span><span class="line"><span class="cl">-rwxr-xr-x  <span class="m">1</span> Gumdam  staff    15K  <span class="m">3</span>  <span class="m">9</span> 21:13 a.out
+</span></span><span class="line"><span class="cl">-rwxr-xr-x  <span class="m">1</span> Gumdam  staff    15K  <span class="m">3</span>  <span class="m">6</span> 21:51 b.out
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果單只是使用<code>cp</code>的話其他的屬性是不會被複製的例如日期、鏈接&hellip;，所以只要記得使用<code>-a</code>就可以了。如上面的指令有使用<code>-a</code>複製出來的文件日期是3月6日，而沒有使用的話，日期就是今天的日期。</p>
+<h2 id="mv-搬移指令">mv 搬移指令</h2>
+<p>mv  [file or directory] [target directory]</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># mv -r  Gumdan</span>
+</span></span><span class="line"><span class="cl">mv: illegal option -- r
+</span></span><span class="line"><span class="cl">usage: mv <span class="o">[</span>-f <span class="p">|</span> -i <span class="p">|</span> -n<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="nb">source</span> target
+</span></span><span class="line"><span class="cl">       mv <span class="o">[</span>-f <span class="p">|</span> -i <span class="p">|</span> -n<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="nb">source</span> ... directory
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># mv Gumdam ~</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>mv</code>和之前的<code>rm</code>還有<code>cp</code>不一樣，需要注意的之有它搬移目錄的時候不需要也不行使用<code>-r</code>，這個是因為Linux是分散式的開發，所以會有這種開發上面是有興趣人去開發的，所以有些指令會有這種選項不一的問題存在。</p>
+<h2 id="linux-目錄功用">Linux 目錄功用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># cd /</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls</span>
+</span></span><span class="line"><span class="cl">bin cgroup  etc lib media  mnt  opt root  
+</span></span><span class="line"><span class="cl">selinux  sys  usr boot  dev home  lost+found
+</span></span><span class="line"><span class="cl">misc  net proc  sbin  srv tmp var
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># cd /usr</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1"># ls</span>
+</span></span><span class="line"><span class="cl">bin etc games include lib libexec <span class="nb">local</span> sbin
+</span></span><span class="line"><span class="cl">share src tmp
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost~/Desktop<span class="o">]</span><span class="c1">#</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根目錄和<code>/usr</code>目錄中的<code>/bin</code>目錄和<code>/sbin</code>是用來儲存系統命令用的目錄，<code>/boot</code>目錄是放開機啟動數據的，<code>/dev</code>目錄裡面放的是硬體相關的文件，這幾個文件沒事不用去動它，裡面是一般的使用者用不到的內容，其中<code>/bin</code>和<code>/sbin</code>的區別就是<code>/bin</code>儲存一般使用者的指令，是所有使用這都可以使用的指令、<code>/sbin</code>儲存超級使用者的指令。</p>
+<p><code>/etc</code>目錄儲存系統的一些設定檔案，是很常用到的目錄。</p>
+<p><code>/home</code>普通使用者的家目錄。</p>
+<p><code>/root</code>是最高權限使用者的家目錄。</p>
+<p><code>/lib</code>是Linux函數庫儲存的目錄，在Linux裡面啟動的時候所有函數都加載的話，啟動和執行的速度將會無比的緩慢，所以會把一些不常使用的函數庫放在<code>/lib</code>裡面要是用的時候再調用，不使用就算了。</p>
+<p><code>/mnt</code>、<code>/media</code>、<code>/misc</code>是Linux準備的三個掛載目錄，這三個目錄只要是空目錄就可以了，是留給使用者掛載設備用的，三個都可以使用，但是大部分人一般只使用<code>/mnt</code>，因為在比較早的Linux裡面只有<code>/mnt</code>這個掛載目錄。</p>
+<p><code>/sys</code>、<code>/proc</code>是儲存內存數據資料的，是內存記憶體的掛載點，是不能直接操作的，我們是不能在裡面寫資料的，第一，如果重新啟動會資料丟失、第二，如果丟太大的檔案記憶體又不夠，會系統崩潰。</p>
+<p><code>/var</code>儲存特定於此系統的可變數據，在系統啟動之間保持永久性。動態變化文件（如：資料庫、緩存目錄、日誌文件、印表機後台處理文檔和網站內容等）。</p>
+<p>一般可以隨便放檔案的目錄只有三個<code>/home</code>、<code>/root</code>、<code>/tmp</code>，其他的目錄如果不清楚就不要去動它，還有不建議把所有的檔案儲存在根目錄<code>/</code>下面，就像是把檔案全部放在Windows的桌面一樣，在使用上根目錄是非常常訪問的目錄，為操作方便，不要把所有的檔案放在根目錄。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2019-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2017_03_27_2/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2017_03_27_2/" data-title="Linux目錄指令" data-hashtags="Linux筆記"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2017_03_27_2/" data-hashtag="Linux筆記"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2017_03_27_2/" data-title="Linux目錄指令" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2017_03_27_2/" data-title="Linux目錄指令"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux%E7%AD%86%E8%A8%98/">Linux筆記</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2017_03_27/" class="prev" rel="prev" title="Linux命令基本格式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux命令基本格式</a>
+            <a href="/2017_03_27_3/" class="next" rel="next" title="Linux鍵結指令">Linux鍵結指令<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

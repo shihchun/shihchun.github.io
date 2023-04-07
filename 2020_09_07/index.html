@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Tensor 計算 complex number - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="Tensor 計算 complex number" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2020_09_07/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-02T17:55:28+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="Tensor 計算 complex number"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2020_09_07/" /><link rel="prev" href="https://shihchun.gitlab.io/2020-08-13/" /><link rel="next" href="https://shihchun.gitlab.io/2020-09-14/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Tensor 計算 complex number",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2020_09_07\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "python","wordcount":  1232 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2020_09_07\/","datePublished": "2020-09-07T00:00:00+00:00","dateModified": "2019-10-02T17:55:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2020_09_07/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2020_09_07/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Tensor 計算 complex number</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-09-07">2020-09-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1232 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#tensorflow">Tensorflow</a></li>
+    <li><a href="#pytorch">Pytorch</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>記錄一下Tensorflow和Pytorch的complex number用法，以後真的寫code會遇到什麼問題就不清楚了，Debug的階段才會發現。</p>
+<h2 id="tensorflow">Tensorflow</h2>
+<p>Tensorflows相對而言比較不好用，因爲要建立好session，還有graph邏輯之後，纔可以print結果，要一些時間下去瞭解。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">17.</span><span class="o">+</span><span class="mf">4.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">7.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">9.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">60.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">4.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">12.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">,</span>   <span class="mf">0.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">mmul</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span> <span class="c1"># np.mul(A,B)</span>
+</span></span><span class="line"><span class="cl"><span class="n">matmmul</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span> <span class="c1"># np.matmul(A,B)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A+B, A-B, A**2, A**(1/2) </span>
+</span></span><span class="line"><span class="cl"><span class="n">AA</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span> <span class="c1"># tf.float64</span>
+</span></span><span class="line"><span class="cl"><span class="n">BB</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mull</span> <span class="o">=</span> <span class="n">AA</span><span class="o">*</span><span class="n">BB</span> <span class="c1"># tf.multiply(AA,BB)</span>
+</span></span><span class="line"><span class="cl"><span class="n">matmull</span> <span class="o">=</span> <span class="n">AA</span><span class="nd">@BB</span> <span class="c1"># tf.matmul(AA,BB)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 不好用</span>
+</span></span><span class="line"><span class="cl"><span class="n">real</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">3.25</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">imag</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">4.75</span><span class="p">,</span> <span class="mf">5.75</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">comp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">complex</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">)</span>  <span class="c1"># [[2.25 + 4.75j], [3.25 + 5.75j]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1d complex:</span><span class="se">\n</span><span class="s1">comp:</span><span class="se">\n</span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">[real,imag]:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">comp</span><span class="p">),</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">real</span><span class="p">,</span><span class="n">imag</span><span class="p">])</span> <span class="p">)</span> <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;converted:</span><span class="se">\n</span><span class="s1">AA:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">BB:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">AA</span><span class="p">]),</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">BB</span><span class="p">])</span> <span class="p">)</span>  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;numpy:</span><span class="se">\n\n</span><span class="s1">mul: </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">matmul: </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">mmul</span><span class="p">,</span><span class="n">matmmul</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensor:</span><span class="se">\n\n</span><span class="s1"> mul:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">matmul:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">mull</span><span class="p">]),</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">matmull</span><span class="p">])</span> <span class="p">)</span>  <span class="p">)</span> <span class="c1"># [mull,matmull]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>result:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1d complex:
+</span></span><span class="line"><span class="cl">comp:
+</span></span><span class="line"><span class="cl">[2.25+4.75j 3.25+5.75j]
+</span></span><span class="line"><span class="cl">[real,imag]:
+</span></span><span class="line"><span class="cl">[array([2.25, 3.25], dtype=float32), array([4.75, 5.75], dtype=float32)]
+</span></span><span class="line"><span class="cl">converted:
+</span></span><span class="line"><span class="cl">AA:
+</span></span><span class="line"><span class="cl">[array([[17.+4.j, -3.+2.j],
+</span></span><span class="line"><span class="cl">       [-7.+3.j,  1.+9.j]])]
+</span></span><span class="line"><span class="cl">BB:
+</span></span><span class="line"><span class="cl">[array([[ 60.+1.j,  -4.+3.j],
+</span></span><span class="line"><span class="cl">       [-12.+2.j,   0.+3.j]])]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">numpy:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mul:
+</span></span><span class="line"><span class="cl">[[1016.+257.j    6. -17.j]
+</span></span><span class="line"><span class="cl"> [  78. -50.j  -27.  +3.j]]
+</span></span><span class="line"><span class="cl">matmul:
+</span></span><span class="line"><span class="cl">[[1048.+227.j  -86. +26.j]
+</span></span><span class="line"><span class="cl"> [-453. +67.j   -8. -30.j]]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tensor:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> mul:
+</span></span><span class="line"><span class="cl">[array([[1016.+257.j,    6. -17.j],
+</span></span><span class="line"><span class="cl">       [  78. -50.j,  -27.  +3.j]])]
+</span></span><span class="line"><span class="cl">matmul:
+</span></span><span class="line"><span class="cl">[array([[1048.+227.j,  -86. +26.j],
+</span></span><span class="line"><span class="cl">       [-453. +67.j,   -8. -30.j]])]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>tensorflow 1.x 版本跟 2.x 最大差別應該是session了，如果是用2.3的話可以直接這樣用，和Pytorch幾乎差不多</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="mf">17.</span><span class="o">+</span><span class="mf">4.</span><span class="n">j</span> <span class="o">-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="p">[</span><span class="o">-</span><span class="mf">7.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">9.</span><span class="n">j</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="nd">@BB</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex128</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="p">([[</span><span class="mf">1048.</span><span class="o">+</span><span class="mf">227.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">86.</span> <span class="o">+</span><span class="mf">26.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="o">-</span><span class="mf">453.</span> <span class="o">+</span><span class="mf">67.</span><span class="n">j</span><span class="p">,</span>   <span class="o">-</span><span class="mf">8.</span> <span class="o">-</span><span class="mf">30.</span><span class="n">j</span><span class="p">]])</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">AA</span><span class="nd">@B</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex128</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="p">([[</span><span class="mf">1048.</span><span class="o">+</span><span class="mf">227.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">86.</span> <span class="o">+</span><span class="mf">26.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="o">-</span><span class="mf">453.</span> <span class="o">+</span><span class="mf">67.</span><span class="n">j</span><span class="p">,</span>   <span class="o">-</span><span class="mf">8.</span> <span class="o">-</span><span class="mf">30.</span><span class="n">j</span><span class="p">]])</span><span class="o">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># SCMA Codebooks</span>
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="o">-</span><span class="mf">0.1815</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.6351</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.6351</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.1815</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mf">0.7851</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.2243</span><span class="p">,</span>             <span class="mf">0.2243</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.7851</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mf">0.7851</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.2243</span><span class="p">,</span>             <span class="mf">0.2243</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.7851</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">,</span>                 <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="o">-</span><span class="mf">0.1815</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.6351</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.6351</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.1815</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="o">-</span><span class="mf">0.6351</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.1815</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.1815</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>   <span class="mf">0.6351</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mf">0.1392</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1759</span><span class="p">,</span>   <span class="mf">0.4873</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.6156</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.4873</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.6156</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.1392</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1759</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mf">0.7851</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.2243</span><span class="p">,</span>             <span class="mf">0.2243</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.7851</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="o">-</span><span class="mf">0.0055</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.2242</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.0193</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7848</span><span class="p">,</span>   <span class="mf">0.0193</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7848</span><span class="p">,</span>   <span class="mf">0.0055</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.2242</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="o">-</span><span class="mf">0.0055</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.2242</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.0193</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7848</span><span class="p">,</span>   <span class="mf">0.0193</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.7848</span><span class="p">,</span>   <span class="mf">0.0055</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.2242</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="o">-</span><span class="mf">0.6351</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span><span class="p">,</span>   <span class="mf">0.1815</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.1815</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1318</span><span class="p">,</span>   <span class="mf">0.6351</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.4615</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mf">0.7851</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.2243</span><span class="p">,</span>             <span class="mf">0.2243</span><span class="p">,</span>            <span class="o">-</span><span class="mf">0.7851</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mf">0.1392</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1759</span><span class="p">,</span>   <span class="mf">0.4873</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.6156</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.4873</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.6156</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.1392</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mf">0.1759</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span><span class="p">,</span>                  <span class="mi">0</span> <span class="p">]</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">CBB</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">CB</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CB[:,:,0]:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">CB</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tensor CBB[:,:,0]:</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">CBB</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]]))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>result:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CB[:,:,0]:
+</span></span><span class="line"><span class="cl">[[ 0.    +0.j      0.    +0.j      0.    +0.j      0.    +0.j    ]
+</span></span><span class="line"><span class="cl"> [-0.1815-0.1318j -0.6351-0.4615j  0.6351+0.4615j  0.1815+0.1318j]
+</span></span><span class="line"><span class="cl"> [ 0.    +0.j      0.    +0.j      0.    +0.j      0.    +0.j    ]
+</span></span><span class="line"><span class="cl"> [ 0.7851+0.j     -0.2243+0.j      0.2243+0.j     -0.7851+0.j    ]]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tensor CBB[:,:,0]:
+</span></span><span class="line"><span class="cl">[array([[ 0.    +0.j    ,  0.    +0.j    ,  0.    +0.j    ,
+</span></span><span class="line"><span class="cl">         0.    +0.j    ],
+</span></span><span class="line"><span class="cl">       [-0.1815-0.1318j, -0.6351-0.4615j,  0.6351+0.4615j,
+</span></span><span class="line"><span class="cl">         0.1815+0.1318j],
+</span></span><span class="line"><span class="cl">       [ 0.    +0.j    ,  0.    +0.j    ,  0.    +0.j    ,
+</span></span><span class="line"><span class="cl">         0.    +0.j    ],
+</span></span><span class="line"><span class="cl">       [ 0.7851+0.j    , -0.2243+0.j    ,  0.2243+0.j    ,
+</span></span><span class="line"><span class="cl">        -0.7851+0.j    ]])]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="pytorch">Pytorch</h2>
+<p>Pytorch的Complex要在1.6版本，CUDA 10.2之後的版本做GPU計算。</p>
+<p>雖然似乎可以做計算，不過由於還是beta測試版本。比起Tensorflow用起來好了不少，Debug起來容易了很多，不用多寫<code>print(session.run([var])</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cfloat</span><span class="p">)</span> <span class="c1"># or torch.complex64, torch.complex128</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.4621</span><span class="o">-</span><span class="mf">0.0303</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2438</span><span class="o">-</span><span class="mf">0.5874</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">     <span class="p">[</span> <span class="mf">0.7706</span><span class="o">+</span><span class="mf">0.1421</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.2110</span><span class="o">+</span><span class="mf">0.1918</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">17.</span><span class="o">+</span><span class="mf">4.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">7.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">9.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">60.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">4.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">12.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">,</span>   <span class="mf">0.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AA</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">17.</span><span class="o">+</span><span class="mf">4.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">7.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">9.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BB</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span> <span class="mf">60.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">4.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">              <span class="p">[</span><span class="o">-</span><span class="mf">12.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">,</span>   <span class="mf">0.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A+B, A-B, A**2, A**(1/2) </span>
+</span></span><span class="line"><span class="cl"><span class="n">mmul</span> <span class="o">=</span> <span class="n">AA</span><span class="o">*</span><span class="n">BB</span> <span class="c1"># or torch.mul(A,B) </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mul: </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="o">%</span><span class="n">mmul</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">matmmul</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span><span class="n">BB</span><span class="p">)</span> <span class="c1">#這裏似乎 1.6 還沒開發完全</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">AA</span><span class="nd">@BB</span> <span class="c1"># or use torch.matmul(A,B)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">_th_addmm_out</span> <span class="ow">not</span> <span class="n">supported</span> <span class="n">on</span> <span class="n">CPUType</span> <span class="k">for</span> <span class="n">ComplexFloat</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 不過可以用numpy代替，相對而言，可能就是不用gpu算，或是計算慢點，不過numpy 還是很快</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># torch 可以這樣用，相對還滿和藹的</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">AA</span><span class="p">,</span><span class="n">BB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tensor</span><span class="p">([[</span><span class="mf">1048.</span><span class="o">+</span><span class="mf">227.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">86.</span><span class="o">+</span><span class="mf">26.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="o">-</span><span class="mf">453.</span><span class="o">+</span><span class="mf">67.</span><span class="n">j</span><span class="p">,</span>   <span class="o">-</span><span class="mf">8.</span><span class="o">-</span><span class="mf">30.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="nd">@B</span>
+</span></span><span class="line"><span class="cl"><span class="n">array</span><span class="p">([[</span><span class="mf">1048.</span><span class="o">+</span><span class="mf">227.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">86.</span> <span class="o">+</span><span class="mf">26.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">       <span class="p">[</span><span class="o">-</span><span class="mf">453.</span> <span class="o">+</span><span class="mf">67.</span><span class="n">j</span><span class="p">,</span>   <span class="o">-</span><span class="mf">8.</span> <span class="o">-</span><span class="mf">30.</span><span class="n">j</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 似乎tensor 放在前面 後面用numpy array會可以用，不過還是輸入numpy fcn比較好</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">AA</span><span class="nd">@B</span>
+</span></span><span class="line"><span class="cl"><span class="n">tensor</span><span class="p">([[</span><span class="mf">1048.</span><span class="o">+</span><span class="mf">227.</span><span class="n">j</span><span class="p">,</span>  <span class="o">-</span><span class="mf">86.</span><span class="o">+</span><span class="mf">26.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="o">-</span><span class="mf">453.</span><span class="o">+</span><span class="mf">67.</span><span class="n">j</span><span class="p">,</span>   <span class="o">-</span><span class="mf">8.</span><span class="o">-</span><span class="mf">30.</span><span class="n">j</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">A</span><span class="nd">@BB</span>
+</span></span><span class="line"><span class="cl"><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="n">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">@</span><span class="p">:</span> <span class="s1">&#39;numpy.ndarray&#39;</span> <span class="ow">and</span> <span class="s1">&#39;Tensor&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">AA</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cfloat</span><span class="p">)</span> <span class="c1"># or torch.complex64, torch.complex128</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cfloat</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">tensor</span><span class="p">([[</span><span class="mf">17.</span><span class="o">+</span><span class="mf">4.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.</span><span class="o">+</span><span class="mf">2.</span><span class="n">j</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="o">-</span><span class="mf">7.</span><span class="o">+</span><span class="mf">3.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.</span><span class="o">+</span><span class="mf">9.</span><span class="n">j</span><span class="p">]])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2019-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020_09_07/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2020_09_07/" data-title="Tensor 計算 complex number" data-hashtags="python"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2020_09_07/" data-hashtag="python"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2020_09_07/" data-title="Tensor 計算 complex number" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2020_09_07/" data-title="Tensor 計算 complex number"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-08-13/" class="prev" rel="prev" title="Python 多進程"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Python 多進程</a>
+            <a href="/2020-09-14/" class="next" rel="next" title="Pytorch視覺化">Pytorch視覺化<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

@@ -1,8 +1,0 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>OS - Category - 隨手筆記</title>
-        <link>https://shihchun.gitlab.io/en/categories/os/</link>
-        <description>OS - Category - 隨手筆記</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>shihchun13@gmail.com (shihchun)</managingEditor>
-            <webMaster>shihchun13@gmail.com (shihchun)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://shihchun.gitlab.io/en/categories/os/" rel="self" type="application/rss+xml" /></channel>
-</rss>

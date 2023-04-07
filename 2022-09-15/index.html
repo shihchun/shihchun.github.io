@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>C語言筆記 - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="C語言筆記" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2022-09-15/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-15T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="C語言筆記"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2022-09-15/" /><link rel="prev" href="https://shihchun.gitlab.io/2022_07_02/" /><link rel="next" href="https://shihchun.gitlab.io/2022-12-16/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "C語言筆記",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2022-09-15\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "clang","wordcount":  5311 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2022-09-15\/","datePublished": "2022-09-15T00:00:00+00:00","dateModified": "2022-09-15T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2022-09-15/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2022-09-15/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C語言筆記</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-15">2022-09-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 5311 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 11 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#day1">Day1</a>
+      <ul>
+        <li><a href="#gcc編譯過程">GCC編譯過程</a></li>
+        <li><a href="#編譯文件範例">編譯文件範例</a></li>
+        <li><a href="#表頭預處理錯誤問題-gcc--i">表頭預處理錯誤問題 gcc -I</a></li>
+        <li><a href="#鏈接錯誤">鏈接錯誤</a></li>
+        <li><a href="#多檔案編譯">多檔案編譯</a></li>
+        <li><a href="#編譯錯誤">編譯錯誤</a></li>
+        <li><a href="#預處理撰寫">預處理撰寫</a>
+          <ul>
+            <li><a href="#條件預處理ifdef-else-endif-gcc--d">條件預處理（<code>#ifdef</code> <code>#else</code> <code>#endif</code>） gcc -D</a></li>
+            <li><a href="#宏展開">宏展開</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#day2">Day2</a>
+      <ul>
+        <li><a href="#c語言關鍵字">C語言關鍵字</a></li>
+        <li><a href="#return">return</a></li>
+        <li><a href="#sizeof">sizeof</a></li>
+        <li><a href="#char">char</a></li>
+        <li><a href="#int">int</a>
+          <ul>
+            <li><a href="#整型常量">整型常量</a></li>
+          </ul>
+        </li>
+        <li><a href="#long-short">long, short</a></li>
+        <li><a href="#unsigned-signed">unsigned, signed</a></li>
+        <li><a href="#float-double">float, double</a></li>
+        <li><a href="#void">void</a></li>
+        <li><a href="#自定義數據類型">自定義數據類型</a>
+          <ul>
+            <li><a href="#struct">struct</a></li>
+            <li><a href="#union">union</a></li>
+            <li><a href="#structunion差別">struct、union差別</a></li>
+            <li><a href="#enum">enum</a></li>
+            <li><a href="#typedef">typedef</a></li>
+          </ul>
+        </li>
+        <li><a href="#邏輯流程判斷式">邏輯流程判斷式</a>
+          <ul>
+            <li><a href="#if-else">if else</a></li>
+            <li><a href="#switch-case-defaut">switch case defaut</a></li>
+            <li><a href="#do-while-for">do while for</a></li>
+            <li><a href="#continue-break-goto">continue break goto</a></li>
+          </ul>
+        </li>
+        <li><a href="#類型修飾符">類型修飾符</a>
+          <ul>
+            <li><a href="#auto">auto</a></li>
+            <li><a href="#register">register</a></li>
+            <li><a href="#static">static</a></li>
+            <li><a href="#const">const</a></li>
+            <li><a href="#extern">extern</a></li>
+            <li><a href="#volatile">volatile</a></li>
+          </ul>
+        </li>
+        <li><a href="#運算符號">運算符號</a></li>
+      </ul>
+    </li>
+    <li><a href="#day3">Day3</a>
+      <ul>
+        <li><a href="#指針">指針</a>
+          <ul>
+            <li><a href="#指針加入-const">指針加入 const</a></li>
+            <li><a href="#指針加入-voliatiletypedef">指針加入 voliatile、typedef</a></li>
+            <li><a href="#指針加入-typedef">指針加入 typedef</a></li>
+            <li><a href="#指標加減">指標加減</a></li>
+            <li><a href="#多重指針">多重指針</a></li>
+          </ul>
+        </li>
+        <li><a href="#記憶體空間">記憶體空間</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="day1">Day1</h2>
+<h3 id="gcc編譯過程">GCC編譯過程</h3>
+<p>C語言編譯過程會按照順序經過</p>
+<ul>
+<li>預處理（define include替換後給編譯器處理），不屬於關鍵字</li>
+<li>gcc -E -o</li>
+<li>編譯</li>
+<li>gcc -S -o</li>
+<li>組譯（匯編）</li>
+<li>gcc -c -o</li>
+<li>鏈接 連接*.o的binary檔案</li>
+<li>gcc -o 產生可執行檔案</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> gcc -v -o build test1.c
+</span></span><span class="line"><span class="cl">Using built-in specs.
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_GCC</span><span class="o">=</span>gcc
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/lto-wrapper
+</span></span><span class="line"><span class="cl">Target: x86_64-pc-linux-gnu
+</span></span><span class="line"><span class="cl">Configured with: /build/gcc/src/gcc/configure --prefix<span class="o">=</span>/usr --libdir<span class="o">=</span>/usr/lib --libexecdir<span class="o">=</span>/usr/lib --mandir<span class="o">=</span>/usr/share/man --infodir<span class="o">=</span>/usr/share/info --with-bugurl<span class="o">=</span>https://bugs.archlinux.org/ --enable-languages<span class="o">=</span>c,c++,ada,fortran,go,lto,objc,obj-c++,d --with-isl --with-linker-hash-style<span class="o">=</span>gnu --with-system-zlib --enable-__cxa_atexit --enable-cet<span class="o">=</span>auto --enable-checking<span class="o">=</span>release --enable-clocale<span class="o">=</span>gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-install-libiberty --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads<span class="o">=</span>posix --disable-libssp --disable-libstdcxx-pch --disable-libunwind-exceptions --disable-werror <span class="nv">gdc_include_dir</span><span class="o">=</span>/usr/include/dlang/gdc
+</span></span><span class="line"><span class="cl">Thread model: posix
+</span></span><span class="line"><span class="cl">Supported LTO compression algorithms: zlib zstd
+</span></span><span class="line"><span class="cl">gcc version 11.1.0 <span class="o">(</span>GCC<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_GCC_OPTIONS</span><span class="o">=</span><span class="s1">&#39;-v&#39;</span> <span class="s1">&#39;-o&#39;</span> <span class="s1">&#39;build&#39;</span> <span class="s1">&#39;-mtune=generic&#39;</span> <span class="s1">&#39;-march=x86-64&#39;</span> <span class="s1">&#39;-dumpdir&#39;</span> <span class="s1">&#39;build-&#39;</span>
+</span></span><span class="line"><span class="cl"> /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/cc1 -quiet -v test1.c -quiet -dumpdir build- -dumpbase test1.c -dumpbase-ext .c -mtune<span class="o">=</span>generic -march<span class="o">=</span>x86-64 -version -o /tmp/ccvuBrUn.s
+</span></span><span class="line"><span class="cl">GNU C17 <span class="o">(</span>GCC<span class="o">)</span> version 11.1.0 <span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        compiled by GNU C version 11.1.0, GMP version 6.2.1, MPFR version 4.1.0-p13, MPC version 1.2.1, isl version isl-0.24-GMP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GGC heuristics: --param ggc-min-expand<span class="o">=</span><span class="m">100</span> --param ggc-min-heapsize<span class="o">=</span><span class="m">131072</span>
+</span></span><span class="line"><span class="cl">ignoring nonexistent directory <span class="s2">&#34;/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../x86_64-pc-linux-gnu/include&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &#34;...&#34; search starts here:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#include &lt;...&gt; search starts here:</span>
+</span></span><span class="line"><span class="cl"> /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include
+</span></span><span class="line"><span class="cl"> /usr/local/include
+</span></span><span class="line"><span class="cl"> /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed
+</span></span><span class="line"><span class="cl"> /usr/include
+</span></span><span class="line"><span class="cl">End of search list.
+</span></span><span class="line"><span class="cl">GNU C17 <span class="o">(</span>GCC<span class="o">)</span> version 11.1.0 <span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        compiled by GNU C version 11.1.0, GMP version 6.2.1, MPFR version 4.1.0-p13, MPC version 1.2.1, isl version isl-0.24-GMP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GGC heuristics: --param ggc-min-expand<span class="o">=</span><span class="m">100</span> --param ggc-min-heapsize<span class="o">=</span><span class="m">131072</span>
+</span></span><span class="line"><span class="cl">Compiler executable checksum: ec1bc319e19ef4dd2d241e66d95d4739
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_GCC_OPTIONS</span><span class="o">=</span><span class="s1">&#39;-v&#39;</span> <span class="s1">&#39;-o&#39;</span> <span class="s1">&#39;build&#39;</span> <span class="s1">&#39;-mtune=generic&#39;</span> <span class="s1">&#39;-march=x86-64&#39;</span> <span class="s1">&#39;-dumpdir&#39;</span> <span class="s1">&#39;build-&#39;</span>
+</span></span><span class="line"><span class="cl"> as -v --64 -o /tmp/ccYy1xpJ.o /tmp/ccvuBrUn.s
+</span></span><span class="line"><span class="cl">GNU assembler version 2.36.1 <span class="o">(</span>x86_64-pc-linux-gnu<span class="o">)</span> using BFD version <span class="o">(</span>GNU Binutils<span class="o">)</span> 2.36.1
+</span></span><span class="line"><span class="cl"><span class="nv">COMPILER_PATH</span><span class="o">=</span>/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+</span></span><span class="line"><span class="cl"><span class="nv">LIBRARY_PATH</span><span class="o">=</span>/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../:/lib/:/usr/lib/
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_GCC_OPTIONS</span><span class="o">=</span><span class="s1">&#39;-v&#39;</span> <span class="s1">&#39;-o&#39;</span> <span class="s1">&#39;build&#39;</span> <span class="s1">&#39;-mtune=generic&#39;</span> <span class="s1">&#39;-march=x86-64&#39;</span> <span class="s1">&#39;-dumpdir&#39;</span> <span class="s1">&#39;build.&#39;</span>
+</span></span><span class="line"><span class="cl"> /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/liblto_plugin.so -plugin-opt<span class="o">=</span>/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/lto-wrapper -plugin-opt<span class="o">=</span>-fresolution<span class="o">=</span>/tmp/cciGeuNv.res -plugin-opt<span class="o">=</span>-pass-through<span class="o">=</span>-lgcc -plugin-opt<span class="o">=</span>-pass-through<span class="o">=</span>-lgcc_s -plugin-opt<span class="o">=</span>-pass-through<span class="o">=</span>-lc -plugin-opt<span class="o">=</span>-pass-through<span class="o">=</span>-lgcc -plugin-opt<span class="o">=</span>-pass-through<span class="o">=</span>-lgcc_s --build-id --eh-frame-hdr --hash-style<span class="o">=</span>gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o build /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../.. /tmp/ccYy1xpJ.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/crtn.o
+</span></span><span class="line"><span class="cl"><span class="nv">COLLECT_GCC_OPTIONS</span><span class="o">=</span><span class="s1">&#39;-v&#39;</span> <span class="s1">&#39;-o&#39;</span> <span class="s1">&#39;build&#39;</span> <span class="s1">&#39;-mtune=generic&#39;</span> <span class="s1">&#39;-march=x86-64&#39;</span> <span class="s1">&#39;-dumpdir&#39;</span> <span class="s1">&#39;build.&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在編譯過程中可以看到編譯<code>cc1</code>、組譯<code>as</code>、鏈接<code>collect2</code>的過程</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/cc1
+</span></span><span class="line"><span class="cl"> as -v --64 -o /tmp/ccYy1xpJ.o /tmp/ccvuBrUn.s
+</span></span><span class="line"><span class="cl"> /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/collect2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="編譯文件範例">編譯文件範例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc -S -o a.s test1.c <span class="c1"># 編譯 a.s我組合語言檔案</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">a.s  test1.c
+</span></span><span class="line"><span class="cl">gcc -c -o a.o test1.c <span class="c1"># 組譯 a.o爲二進制檔案</span>
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl">a.s  a.o  test1.c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>test1.c</code>檔案如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">9</span><span class="o">-</span><span class="n">i</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]];}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;a[8]: %d&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">8</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>a.s</code>檔案如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	.file	&#34;test1.c&#34;
+</span></span><span class="line"><span class="cl">	.text
+</span></span><span class="line"><span class="cl">	.section	.rodata
+</span></span><span class="line"><span class="cl">.LC0:
+</span></span><span class="line"><span class="cl">	.string	&#34;a[8]: %d&#34;
+</span></span><span class="line"><span class="cl">	.text
+</span></span><span class="line"><span class="cl">	.globl	main
+</span></span><span class="line"><span class="cl">	.type	main, @function
+</span></span><span class="line"><span class="cl">main:
+</span></span><span class="line"><span class="cl">.LFB0:
+</span></span><span class="line"><span class="cl">	.cfi_startproc
+</span></span><span class="line"><span class="cl">	pushq	%rbp
+</span></span><span class="line"><span class="cl">	.cfi_def_cfa_offset 16
+</span></span><span class="line"><span class="cl">	.cfi_offset 6, -16
+</span></span><span class="line"><span class="cl">	movq	%rsp, %rbp
+</span></span><span class="line"><span class="cl">	.cfi_def_cfa_register 6
+</span></span><span class="line"><span class="cl">	subq	$64, %rsp
+</span></span><span class="line"><span class="cl">	movq	%fs:40, %rax
+</span></span><span class="line"><span class="cl">	movq	%rax, -8(%rbp)
+</span></span><span class="line"><span class="cl">	xorl	%eax, %eax
+</span></span><span class="line"><span class="cl">	movl	$0, -56(%rbp)
+</span></span><span class="line"><span class="cl">	jmp	.L2
+</span></span><span class="line"><span class="cl">.L3:
+</span></span><span class="line"><span class="cl">	movl	$9, %eax
+</span></span><span class="line"><span class="cl">	subl	-56(%rbp), %eax
+</span></span><span class="line"><span class="cl">	movl	%eax, %edx
+</span></span><span class="line"><span class="cl">	movl	-56(%rbp), %eax
+</span></span><span class="line"><span class="cl">	cltq
+</span></span><span class="line"><span class="cl">	movl	%edx, -48(%rbp,%rax,4)
+</span></span><span class="line"><span class="cl">	addl	$1, -56(%rbp)
+</span></span><span class="line"><span class="cl">.L2:
+</span></span><span class="line"><span class="cl">	cmpl	$9, -56(%rbp)
+</span></span><span class="line"><span class="cl">	jle	.L3
+</span></span><span class="line"><span class="cl">	movl	$0, -52(%rbp)
+</span></span><span class="line"><span class="cl">	jmp	.L4
+</span></span><span class="line"><span class="cl">.L5:
+</span></span><span class="line"><span class="cl">	movl	-52(%rbp), %eax
+</span></span><span class="line"><span class="cl">	cltq
+</span></span><span class="line"><span class="cl">	movl	-48(%rbp,%rax,4), %eax
+</span></span><span class="line"><span class="cl">	cltq
+</span></span><span class="line"><span class="cl">	movl	-48(%rbp,%rax,4), %edx
+</span></span><span class="line"><span class="cl">	movl	-52(%rbp), %eax
+</span></span><span class="line"><span class="cl">	cltq
+</span></span><span class="line"><span class="cl">	movl	%edx, -48(%rbp,%rax,4)
+</span></span><span class="line"><span class="cl">	addl	$1, -52(%rbp)
+</span></span><span class="line"><span class="cl">.L4:
+</span></span><span class="line"><span class="cl">	cmpl	$9, -52(%rbp)
+</span></span><span class="line"><span class="cl">	jle	.L5
+</span></span><span class="line"><span class="cl">	movl	-16(%rbp), %eax
+</span></span><span class="line"><span class="cl">	movl	%eax, %esi
+</span></span><span class="line"><span class="cl">	leaq	.LC0(%rip), %rax
+</span></span><span class="line"><span class="cl">	movq	%rax, %rdi
+</span></span><span class="line"><span class="cl">	movl	$0, %eax
+</span></span><span class="line"><span class="cl">	call	printf@PLT
+</span></span><span class="line"><span class="cl">	movl	$0, %eax
+</span></span><span class="line"><span class="cl">	movq	-8(%rbp), %rdx
+</span></span><span class="line"><span class="cl">	subq	%fs:40, %rdx
+</span></span><span class="line"><span class="cl">	je	.L7
+</span></span><span class="line"><span class="cl">	call	__stack_chk_fail@PLT
+</span></span><span class="line"><span class="cl">.L7:
+</span></span><span class="line"><span class="cl">	leave
+</span></span><span class="line"><span class="cl">	.cfi_def_cfa 7, 8
+</span></span><span class="line"><span class="cl">	ret
+</span></span><span class="line"><span class="cl">	.cfi_endproc
+</span></span><span class="line"><span class="cl">.LFE0:
+</span></span><span class="line"><span class="cl">	.size	main, .-main
+</span></span><span class="line"><span class="cl">	.ident	&#34;GCC: (GNU) 11.1.0&#34;
+</span></span><span class="line"><span class="cl">	.section	.note.GNU-stack,&#34;&#34;,@progbits
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="表頭預處理錯誤問題-gcc--i">表頭預處理錯誤問題 gcc -I</h3>
+<p><code>&lt;&gt;</code>尋找系統環境變量中的目錄位置的檔案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>若新增一個<code>abc.h</code>的檔案在<code>./inc</code>目錄之下，
+可以使用<code>gcc -I ./inc -o build test1.c</code></p>
+<h3 id="鏈接錯誤">鏈接錯誤</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">fun</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> gcc -o build test1.c
+</span></span><span class="line"><span class="cl">/usr/sbin/ld: /tmp/ccWBLXSg.o: in <span class="k">function</span> <span class="sb">`</span>main<span class="s1">&#39;:
+</span></span></span><span class="line"><span class="cl"><span class="s1">test1.c:(.text+0x5): undefined reference to `fun&#39;</span>
+</span></span><span class="line"><span class="cl">collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改爲</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="nf">fun</span><span class="p">(</span><span class="kt">void</span><span class="p">){}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">fun</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="多檔案編譯">多檔案編譯</h3>
+<p>直接生成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc -o build a.c b.c
+</span></span><span class="line"><span class="cl">gcc -I ./inc -o build a.c b.c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>生成二進制檔案後，重新進行鏈接</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc -c -I ./inc -o a.o a.c
+</span></span><span class="line"><span class="cl">gcc -c -I ./inc -o b.o b.c
+</span></span><span class="line"><span class="cl">gcc -o build a.o b.o
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="編譯錯誤">編譯錯誤</h3>
+<p>語法問題</p>
+<h3 id="預處理撰寫">預處理撰寫</h3>
+<p>預處理主要有<code>#include</code>、<code>#define</code>、系統預定義宏（<strong>FUNCTION</strong>、<strong>LINE</strong>、<strong>FILE</strong>）、條件預處理（<code>#ifdef</code> <code>#else</code> <code>#endif</code>）</p>
+<p>其中<code>#include</code>爲標頭檔案文件位置，<code>&lt;&gt;</code>表示爲環境變量中的名字，<code>&quot;&quot;</code>中表示爲當前目錄的位置</p>
+<p><code>#define</code>爲預處理器指示詞，可建立類似函式的宏(宏函數)，需要注意，儘量以<strong>大寫字母表示</strong>，安全起見在運算上加入<code>()</code></p>
+<p>Ex:在預處理中需記得加入掛號，如下例子中，若無加入掛號ABx5會爲5+3x5並非我們想要的答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define AB 5+3
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ABC (5+3)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ABCD(x) (5+x)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">AB</span><span class="o">*</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">ABC</span><span class="o">*</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="nf">ABCD</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;__FUNCTION__:%s</span><span class="se">\n</span><span class="s">__LINE__:%d</span><span class="se">\n</span><span class="s">__FILE__:%s&#34;</span><span class="p">,</span><span class="n">__FUNCTION__</span><span class="p">,</span><span class="n">__LINE__</span><span class="p">,</span><span class="n">__FILE__</span><span class="p">);</span> <span class="c1">//這裏LINE 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc -o build test1.c
+</span></span><span class="line"><span class="cl">./build
+</span></span><span class="line"><span class="cl">The <span class="m">20</span>
+</span></span><span class="line"><span class="cl">The <span class="m">40</span>
+</span></span><span class="line"><span class="cl">The <span class="m">50</span>
+</span></span><span class="line"><span class="cl">__FUNCTION__:main
+</span></span><span class="line"><span class="cl">__LINE__:10
+</span></span><span class="line"><span class="cl">__FILE__:test1.c%
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="條件預處理ifdef-else-endif-gcc--d">條件預處理（<code>#ifdef</code> <code>#else</code> <code>#endif</code>） gcc -D</h4>
+<p>方便程式碼測試管理使用，避免大量修改而使用的功能
+使用<code>gcc -D ABC</code> === <code>#define ABC</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// #define ABC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#ifdef ABC
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;====%s====:%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">__FILE__</span><span class="p">,</span><span class="n">__LINE__</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s 函數執行</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">__FUNCTION__</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;hello world!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">hello world!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gcc -D ABC -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl"><span class="o">====</span>test1.c<span class="o">====</span>:4
+</span></span><span class="line"><span class="cl">main 函數執行
+</span></span><span class="line"><span class="cl">hello world!%
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gcc -DABC -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl"><span class="o">====</span>test1.c<span class="o">====</span>:4
+</span></span><span class="line"><span class="cl">main 函數執行
+</span></span><span class="line"><span class="cl">hello world!%
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="宏展開">宏展開</h4>
+<p>透過宏展開可以簡化名稱定義，使得撰寫更加方便，在Linux Kernel內核編程上也是尤爲常見，通常用來囊括一些相關訊息使用</p>
+<p><code>#</code> 字符串化
+<code>##</code> 連接符號</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ABC(x)	#x
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define DAY(x)	myday##x
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">myday1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">myday2</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="nf">ABC</span><span class="p">(</span><span class="n">ab</span><span class="err">\</span><span class="n">n</span><span class="p">));</span> <span class="c1">// 字符串化 ABC爲ab 需要\n換行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">printf</span><span class="p">(</span><span class="nf">ABC</span><span class="p">(</span><span class="n">ab</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;the day is %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">DAY</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;the day2 is %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">DAY</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">ab
+</span></span><span class="line"><span class="cl">abthe day is <span class="m">10</span>
+</span></span><span class="line"><span class="cl">the day2 is <span class="m">20</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ex：如下程式便是此定義的衍生使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define err(formajt, arg...) printk(KERN_ERR &#34;%s: &#34; format, MY_NAME, ## arg)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define info(formajt, arg...) printk(KERN_INFO &#34;%s: &#34; format, MY_NAME, ## arg)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define warn(formajt, arg...) printk(KERN_WARNING &#34;%s: &#34; format, MY_NAME, ## arg)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM(x) (priv-&gt;pdev-&gt;revision &lt; ADM8211_REV_BA ? \
+</span></span></span><span class="line"><span class="cl"><span class="cp">		ADM8211_SRAM_A_ ## x: ADM8211_SRAM_B_ ## x)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_INDIV_KEY  0x0000
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_A_SHARE_KEY  0x0160
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_B_SHARE_KEY  0x00c0
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_A_SSID  0x0180
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_B_SSID  0x00d4
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ADM8211_SRAM_SSID ADM8211_SRAM(SSID)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="day2">Day2</h2>
+<h3 id="c語言關鍵字">C語言關鍵字</h3>
+<p>C語言常見的32個關鍵字有介紹，簡略概括有，資料形別、自定義數據類型（enum枚舉、typedef、struct、union等等）、邏輯流程判斷式、類型修飾符號等等</p>
+<p>char、int、long、short、unsigned、signed、float、double、void
+stuct、union、enum、typedef
+sizeof、return
+if、else
+switch、case、default
+do、while、for
+continue、break、go
+auto、register、static、const、extern、volatile</p>
+<h3 id="return">return</h3>
+<p>函數定義後返回而已</p>
+<h3 id="sizeof">sizeof</h3>
+<p><code>sizeof()</code>存在<code>()</code>容易被誤認爲函數，但是實際上在編譯過程中爲關鍵字，主要辨識</p>
+<p>功能上主要查詢變量記憶體儲存容量的空間大小，沒什麼好說的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;int sizeof %lu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// %lu無符號的返回詞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;int sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">float</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;float sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">double</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;double sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;char sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">long</span> <span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;long sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">short</span> <span class="n">f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;short sizeof %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">int sizeof <span class="m">4</span>
+</span></span><span class="line"><span class="cl">int sizeof <span class="m">4</span>
+</span></span><span class="line"><span class="cl">float sizeof <span class="m">4</span>
+</span></span><span class="line"><span class="cl">double sizeof <span class="m">8</span>
+</span></span><span class="line"><span class="cl">char sizeof <span class="m">1</span>
+</span></span><span class="line"><span class="cl">long sizeof <span class="m">8</span>
+</span></span><span class="line"><span class="cl">short sizeof <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="char">char</h3>
+<p>char爲位元操作的的最小單位<code>sizeof</code>爲1byte，1byte=8bits=2^8可以記錄256個狀態，在操作上需要注意最大範圍，當Overflow的問題發生的時候，需對溢出位元進行額外處理</p>
+<p>char buffer[32];</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;char sizeof %lu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// %lu無符號的返回詞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">255</span><span class="p">;</span> <span class="n">i</span><span class="o">+=</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%c</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span> <span class="c1">// 字串內容查詢ASCII表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">a</span><span class="o">=</span><span class="mi">255</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%c</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span> <span class="c1">// %lu無符號的返回詞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">char</span> <span class="n">a</span><span class="o">=</span><span class="mi">256</span><span class="p">;</span> <span class="c1">// overflow
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="int">int</h3>
+<p>大小：根據編譯器來進行決定</p>
+<p>編譯器最優處理大小，定義形別爲系統一個週期，能夠承受的最大處理單位</p>
+<p>Ex：Signed value</p>
+<ul>
+<li>32bit處理器爲 4 Byte大小=(2^31)-1= 2,147,483,647 dec</li>
+<li>16bit處理器爲 2 Byte大小=(2^15)-1= 32,767 dec</li>
+</ul>
+<p>Ex：Unsinged</p>
+<ul>
+<li>16bit=(2^16)-1=65,535dec&hellip;..</li>
+</ul>
+<h4 id="整型常量">整型常量</h4>
+<p>在進行賦值的時候會根據編譯器一個週期可以處理的單位爲Limit進行賦值，若是2B系統的，<code>200</code>的地方最大只能寫到65535，32bit系統2147483647，其餘進制轉換此處不多介紹</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="long-short">long, short</h3>
+<p>特殊長度限制，此關鍵字需瞭解編譯器是否支援</p>
+<h3 id="unsigned-signed">unsigned, signed</h3>
+<ul>
+<li>unsigned 用於數據採集</li>
+<li>signed 用於數學意義的數值運算</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//0xff =最大值255 signed value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">// 右移8次 除2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">b</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// b = &#34;11111111&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">// 右移8次 除2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl">-1 
+</span></span><span class="line"><span class="cl"><span class="m">255</span>
+</span></span><span class="line"><span class="cl"><span class="m">127</span>
+</span></span><span class="line"><span class="cl"><span class="m">63</span> 
+</span></span><span class="line"><span class="cl"><span class="m">31</span> 
+</span></span><span class="line"><span class="cl"><span class="m">15</span> 
+</span></span><span class="line"><span class="cl"><span class="m">7</span>  
+</span></span><span class="line"><span class="cl"><span class="m">3</span>  
+</span></span><span class="line"><span class="cl"><span class="m">1</span>  
+</span></span><span class="line"><span class="cl"><span class="m">0</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="float-double">float, double</h3>
+<ul>
+<li>單精度 float 4B=32bit=-2^128~2^128</li>
+<li>雙精度 double 8B=64bit=-2^1024~2^1024</li>
+</ul>
+<h3 id="void">void</h3>
+<p>void（空的）表示不回傳</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">main</span><span class="p">(){}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自定義數據類型">自定義數據類型</h3>
+<p>在嵌入式系統撰寫中，爲了增加程式可讀性、以及未來編修的方便性，假設一個WDT看門狗計數器在系統中有四個暫存器位置的話，便可以使用自定義的方式完成定義並編輯。</p>
+<p>Ex： Register Map</p>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>R/W</th>
+<th>Description</th>
+<th>Reset Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WTCON</td>
+<td>0xE270_0000</td>
+<td>R/W</td>
+<td>Watchdog Timer Control Register</td>
+<td>0x00008021</td>
+</tr>
+<tr>
+<td>WTDAT</td>
+<td>0xE270_0004</td>
+<td>R/W</td>
+<td>Watchdog Timer Data Register</td>
+<td>0x00008000</td>
+</tr>
+<tr>
+<td>WTCNT</td>
+<td>0xE270_0008</td>
+<td>R/W</td>
+<td>Watchdog Timer Count Register</td>
+<td>0x00008000</td>
+</tr>
+<tr>
+<td>WTCLRINT</td>
+<td>0xE270_000C</td>
+<td>W</td>
+<td>Watchdog Timer Interupt Clear Register</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="struct">struct</h4>
+<p>在<code>struct</code>的創建過程中需注意其中元素的，擺放順序，不僅影響其表示意義，且也可能影響最後生成的結構大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">abc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">abc</span> <span class="n">myAbc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="union">union</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">union</span> <span class="n">abc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">union</span> <span class="n">abc</span> <span class="n">myAbc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="structunion差別">struct、union差別</h4>
+<p>stuct在創建過程中會在各個Variable中創建起始位址，而union則所有變量共用起始位址</p>
+<p>假設在union創建如下，在修改b的同時a也會改變，屬於比較技巧性的處理手段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">union</span> <span class="n">abc</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg" title="struct vs union" data-thumbnail="https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg" data-sub-html="<h2>Struct VS Union</h2><p>struct vs union</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg"
+            data-srcset="https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg, https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg 1.5x, https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg 2x"
+            data-sizes="auto"
+            alt="https://programmerbay.com/wp-content/uploads/2019/11/structure-and-union.jpg" />
+    </a><figcaption class="image-caption">Struct VS Union</figcaption>
+    </figure></p>
+<h4 id="enum">enum</h4>
+<p>枚舉 enumerate，用來取代#define的使用，增加程式可讀性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// #define MON 0
+</span></span></span><span class="line"><span class="cl"><span class="c1">// #define TUE 1
+</span></span></span><span class="line"><span class="cl"><span class="c1">// #define WED 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">week</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Monday</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">Tuesday</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">Wednesday</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1">// 在無標識的情況按照順序進行編號
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Thursday</span><span class="p">,</span><span class="n">Friday</span><span class="p">,</span><span class="n">Saturday</span><span class="p">,</span><span class="n">Sunday</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">enum</span> <span class="n">abc</span><span class="p">{</span><span class="n">AA</span><span class="p">,</span><span class="n">BB</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">CC</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="p">{</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">};</span> <span class="c1">//可以不需要定義名稱
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">AA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">BB</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">CC</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">B</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">0</span>   
+</span></span><span class="line"><span class="cl"><span class="m">100</span> 
+</span></span><span class="line"><span class="cl"><span class="m">101</span> 
+</span></span><span class="line"><span class="cl"><span class="m">0</span>   
+</span></span><span class="line"><span class="cl"><span class="m">100</span> 
+</span></span><span class="line"><span class="cl"><span class="m">101</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>實際例子大概看起來如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* The top five bits written to EL3_CMD are a command, the lower 11 bits are the parameter, if applicable */</span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">c509cmd</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">TotalReset</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span> <span class="n">Select</span> <span class="n">Window</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span> <span class="n">StartCoax</span><span class="o">=</span><span class="mi">2</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">RxDisable</span><span class="o">=</span><span class="mi">3</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span> <span class="n">RxEnable</span><span class="o">=</span><span class="mi">4</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span> <span class="n">RxReset</span><span class="o">=</span><span class="mi">5</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span><span class="n">RxDisable</span><span class="o">=</span><span class="mi">8</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">TxEnable</span><span class="o">=</span><span class="mi">9</span><span class="o">&lt;&lt;</span><span class="mi">11</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">Window1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">TX_FIFO</span><span class="o">=</span><span class="mh">0x10</span><span class="p">,</span> <span class="n">RX_FIFO</span><span class="o">=</span><span class="mh">0x10</span><span class="p">,</span> <span class="n">RX_Errors</span><span class="o">=</span><span class="mh">0x14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">RxStatus</span><span class="o">=</span><span class="mh">0x18</span><span class="p">,</span> <span class="n">Timer</span><span class="o">=</span><span class="mh">0x1A</span><span class="p">,</span> <span class="n">TxStatus</span><span class="o">=</span><span class="mh">0x1B</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">TxFree</span><span class="o">=</span><span class="mh">0x1c</span><span class="p">,</span> <span class="cm">/* Remaining free bytes in Tx buffer. */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">enum</span> <span class="n">Window0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Wn0EepromCmd</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="cm">/* Window 0: EEPROM command register. */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">WnEeprom</span> <span class="n">Data</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>  <span class="cm">/* Window 0 : EEPROM results register. */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">IntrStatus</span><span class="o">=</span><span class="mh">0x0E</span><span class="p">,</span>  <span class="cm">/* Valid in all windows. */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="typedef">typedef</h4>
+<p>建立數據類型的別名，可以使得程式碼的可讀性增加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span><span class="mi">800</span><span class="p">;</span> <span class="c1">// 800m
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span><span class="mi">1500</span><span class="p">;</span> <span class="c1">// 1500m
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">typdef</span> <span class="kt">int</span> <span class="kt">a_t</span><span class="p">;</span> <span class="c1">// 建立一個別名形態，其創立的形態別爲int
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">a_t</span> <span class="n">mydistance</span><span class="p">;</span> <span class="c1">// mydistance爲一個int型別
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="邏輯流程判斷式">邏輯流程判斷式</h3>
+<h4 id="if-else">if else</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">cond</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="switch-case-defaut">switch case defaut</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sitch</span><span class="p">(</span><span class="n">a</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="mf">1.0</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="mf">2.0</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">char</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;-&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="sc">&#39;-&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;default&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="do-while-for">do while for</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">do</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">cond</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="n">cond</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">start</span><span class="p">;</span><span class="n">cond</span><span class="p">;</span><span class="n">conpute</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">statement</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="continue-break-goto">continue break goto</h4>
+<p>goto: 同個函數中調用</p>
+<h3 id="類型修飾符">類型修飾符</h3>
+<p>定義並限定記憶體內部的存放位址
+auto、register、static、const、extern、volatile</p>
+<h4 id="auto">auto</h4>
+<p>預設使用的情況，auto，設定在可讀寫的位置上</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">auto</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// 與int a;  相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="kt">long</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// 與long b; 相同
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>加入{}表示爲stack space</p>
+<h4 id="register">register</h4>
+<p>定義快速訪問的變量，
+會將訪問次數較高的變量設定爲此，
+編譯器會儘量安排CPU的Register去存放定義的變量，
+如果Register不足的時候，還是會放在，通常沒什麼用
+因爲無法使用<code>&amp;</code>取址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="k">register</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">a</span><span class="o">=</span><span class="mh">0x10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;the a is %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;the addr %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">test1.c: In <span class="k">function</span> ‘main’:
+</span></span><span class="line"><span class="cl">test1.c:6:9: error: address of register variable ‘a’ requested
+</span></span><span class="line"><span class="cl">    <span class="m">6</span> <span class="p">|</span>         printf<span class="o">(</span><span class="s2">&#34;the addr %d\n&#34;</span>,<span class="p">&amp;</span>a<span class="o">)</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="static">static</h4>
+<ol>
+<li>Function 內部的變量定義</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">fun</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">static</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Function外部的變量</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">fun</span> <span class="p">(){}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>Function</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">fun</span> <span class="p">(){}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="const">const</h4>
+<p>定義一個無法修改的變量，不過實際上還是可以透過指針進行修改，
+因爲實際位置被安排在可以修改的記憶體區塊的緣故</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">a</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span> <span class="c1">// 無法修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">test1.c: In <span class="k">function</span> ‘main’:
+</span></span><span class="line"><span class="cl">test1.c:4:10: error: assignment of read-only variable ‘a’
+</span></span><span class="line"><span class="cl">    <span class="m">4</span> <span class="p">|</span>         <span class="nv">a</span><span class="o">=</span>200<span class="p">;</span> // 無法修改
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="extern">extern</h4>
+<p>外部聲明，在全域Function使用</p>
+<h4 id="volatile">volatile</h4>
+<p>告知編譯器的編譯方法的編譯器，不優化編譯的組合語言，
+修飾變量值的修改，通常是外部硬體數值修改的時候做修飾</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="nf">pprint</span><span class="p">(){</span> <span class="nf">print</span><span class="p">(</span><span class="s">&#34;Hello~&#34;</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">pprint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nl">f1:</span> <span class="nf">LDR</span> <span class="no">R0</span><span class="p">,</span> <span class="p">[</span><span class="no">a</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nl">f2:</span> <span class="nf">CMP</span> <span class="no">R0</span><span class="p">,</span> <span class="c1">#100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">f3:</span> <span class="nf">JMPeq</span> <span class="no">f1</span>	<span class="p">---</span><span class="err">&gt;</span> <span class="no">JMPEQ</span> <span class="no">f2</span> <span class="c1">// 就沒有去取a的真實位址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nl">f4:</span> <span class="nf">pprint</span><span class="p">()</span><span class="c1">;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="運算符號">運算符號</h3>
+<ul>
+<li>basic operator ：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>、<code>%</code></li>
+<li>logic operator： <code>||</code>、<code>&amp;&amp;</code>、<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>!</code>、<code>?:</code></li>
+<li>bitwize: <code>&gt;&gt;</code>、<code>&lt;&lt;</code>、<code>&amp;</code>、<code>|</code>、<code>^</code>xor、<code>~</code>not // 需要考慮是否爲有號數</li>
+<li>賦值：<code>=</code>、<code>+=</code>、<code>-=</code>、<code>^=</code></li>
+<li>限制符：<code>()</code>、<code>[]</code>、<code>{}</code>、</li>
+<li>訪問自定義空間的成員：<code>-&gt;</code>、<code>.</code></li>
+<li>指標取址：<code>&amp;</code>、<code>*</code>，<code>&amp;*p===p</code>互消</li>
+</ul>
+<p>!a if(!a){}</p>
+<p>char a=0x0000;</p>
+<p><code>~a</code> 0xffff</p>
+<h2 id="day3">Day3</h2>
+<h3 id="指針">指針</h3>
+<ol>
+<li>指針變量指針多大？</li>
+</ol>
+<p>在32位元編譯器的系統中指針大小爲4 Byte字節大小
+64位元則爲8 Byte大小</p>
+<p>1GB=2^N
+2^10=1K
+2^20=1M
+2^30=1G
+2^32=4Byte
+2^64=8Byte</p>
+<ol start="2">
+<li>指針分配多大</li>
+</ol>
+<p>看定義的數據形態，例如int、char&hellip;. etc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">p3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">**</span><span class="n">q</span><span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span> <span class="c1">// pointer to pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">p1</span><span class="p">,</span><span class="k">sizeof</span> <span class="n">p2</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">p3</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">p</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="m">8</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>讀取方式</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x12345</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span><span class="p">;</span> <span class="c1">// 指標變數指向一個char類型變數範圍，定義後p爲地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p2</span><span class="p">;</span> <span class="c1">// 錯誤寫法型別不同，有的編譯器可以執行會得到不同範圍，相同起始位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">p1</span><span class="o">=&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">// *p1相當於取*&amp;a,*&amp;對消爲a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">p2</span><span class="o">=&amp;</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="o">*</span><span class="n">p1</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="o">*</span><span class="n">p2</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p2</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">30a3fd24
+</span></span><span class="line"><span class="cl"><span class="m">12345</span>
+</span></span><span class="line"><span class="cl"><span class="m">12345</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">30a3fd24
+</span></span><span class="line"><span class="cl"><span class="m">45</span>
+</span></span><span class="line"><span class="cl"><span class="m">12345</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">30a3fd25
+</span></span><span class="line"><span class="cl"><span class="m">23</span>
+</span></span><span class="line"><span class="cl"><span class="m">12345</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="指針加入-const">指針加入 const</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// char *p =&#34;hello world!\n&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span><span class="s">&#34;hello world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span> <span class="c1">// 指標變數宣告後，p爲位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#34;hello world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%x</span><span class="se">\n</span><span class="s">%c</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">68</span>
+</span></span><span class="line"><span class="cl">h
+</span></span><span class="line"><span class="cl">hello world!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">aello world!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// char *p =&#34;hello world!\n&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span><span class="s">&#34;hello world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span> <span class="c1">// 指標變數宣告後，p爲位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#34;hello world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%x</span><span class="se">\n</span><span class="s">%c</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">test1.c: In <span class="k">function</span> ‘main’:
+</span></span><span class="line"><span class="cl">test1.c:8:9: error: assignment of read-only location ‘*p2’
+</span></span><span class="line"><span class="cl">    <span class="m">8</span> <span class="p">|</span>     *p2 <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">|</span>         ^
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="指針加入-voliatiletypedef">指針加入 voliatile、typedef</h4>
+<p>防止指向內存位置的組合語言被簡化，主要硬體訪問資料的時候做修飾</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">volatile</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">p</span> <span class="o">==</span><span class="mh">0x10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="o">==</span><span class="mh">0x10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nf">fun</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="指針加入-typedef">指針加入 typedef</h4>
+<p>對複雜的指針加入名稱定義</p>
+<p>Ex：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">])(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="o">*</span><span class="kt">name_t</span><span class="p">;</span> <span class="c1">// name_t 爲一個指針，指向一個char類型的記憶體空間
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="kt">char</span> <span class="o">*</span><span class="kt">name_t</span><span class="p">;</span> <span class="c1">// name_t爲一個指針類型的名稱，指向一個char 類型的記憶體空間
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">name_t</span> <span class="n">abc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="指標加減">指標加減</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x12345678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0x99991199</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span> <span class="c1">// 強制轉型 類型不同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// *(p1+1) 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The p1+1 is %x,%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The p2+1 is %x,%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">p2</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x12345678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0x99991199</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 兩個pointer 定義相同起始位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span> <span class="c1">// 強制轉型 類型不同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// *(p1+1) 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;addr p1:%x, p2:%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The p1 is %x, p1+1 is %x,%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="n">p1</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The p2 is %x, p2+1 is %x,%x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">*</span><span class="n">p2</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p2</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">addr p1:12881ef0, p2:12881ef0
+</span></span><span class="line"><span class="cl">The p1 is 99991199, p1+1 is 12345678,12345678
+</span></span><span class="line"><span class="cl">The p2 is ffffff99, p2+1 is 11,11
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="多重指針">多重指針</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">**</span><span class="n">q</span><span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span> <span class="c1">// pointer to pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)[</span><span class="mi">5</span><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="記憶體空間">記憶體空間</h3>
+<p>在下面的程式碼中，可以看出來pubic的變量位址距離function的定義位置較爲接近，由此可知道，記憶體配置的位置不同</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// a at public
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">a</span><span class="o">=</span><span class="mh">0x10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">main</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">0x7fff42996854
+</span></span><span class="line"><span class="cl">0x5568c472c149
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// a at public
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">a</span><span class="o">=</span><span class="mh">0x10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">main</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gcc  -o build test1.c <span class="o">&amp;&amp;</span> ./build
+</span></span><span class="line"><span class="cl">0x561c3455f034
+</span></span><span class="line"><span class="cl">0x561c3455c139
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>記憶體區段主要分爲code space（malloc）、stack space（local variable）、heap space、kernel space（程式不行訪問）</p>
+<p>![](<a href="https://img-blog.csdnimg.cn/13cc8bf3b9714d15bbd2e451dc767846.png" target="_blank" rel="noopener noreffer ">https://img-blog.csdnimg.cn/13cc8bf3b9714d15bbd2e451dc767846.png</a> Code Space)</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-09-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2022-09-15/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2022-09-15/" data-title="C語言筆記" data-hashtags="clang"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2022-09-15/" data-hashtag="clang"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2022-09-15/" data-title="C語言筆記" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2022-09-15/" data-title="C語言筆記"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/clang/">clang</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022_07_02/" class="prev" rel="prev" title="msys2 環境建立"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>msys2 環境建立</a>
+            <a href="/2022-12-16/" class="next" rel="next" title="Build EDK source code">Build EDK source code<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

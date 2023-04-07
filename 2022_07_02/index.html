@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>msys2 環境建立 - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="msys2 環境建立" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2022_07_02/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-02T10:32:08+08:00" />
+<meta property="article:modified_time" content="2022-07-02T10:32:08+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="msys2 環境建立"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2022_07_02/" /><link rel="prev" href="https://shihchun.gitlab.io/2020-09-14/" /><link rel="next" href="https://shihchun.gitlab.io/2022-09-15/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "msys2 環境建立",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2022_07_02\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "msys2, env","wordcount":  193 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2022_07_02\/","datePublished": "2022-07-02T10:32:08+08:00","dateModified": "2022-07-02T10:32:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2022_07_02/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2022_07_02/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">msys2 環境建立</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-02">2022-07-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 193 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">install</a></li>
+    <li><a href="#others">Others</a>
+      <ul>
+        <li><a href="#depoly-espidf-toolchain">depoly espidf toolchain</a></li>
+        <li><a href="#portable-python">Portable python</a></li>
+        <li><a href="#nvm">nvm</a></li>
+      </ul>
+    </li>
+    <li><a href="#ref">Ref</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="install">install</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># install msys2</span>
+</span></span><span class="line"><span class="cl">choco install msys2
+</span></span><span class="line"><span class="cl"><span class="c1"># add to cmder</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># *&#34;C:\tools\msys64\msys2_shell.cmd&#34; -msys2 -defterm -here -no-start </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># add to win11 open in terminal</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;C:\tools\msys64\msys2_shell.cmd&#34; -msys2 -defterm -here -no-start </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pacman -Syyu
+</span></span><span class="line"><span class="cl">pacman -S git vim gcc mingw-w64-x86_64-toolchain
+</span></span><span class="line"><span class="cl">pacman -S msys2-w32api-headers msys2-w32api-runtime <span class="c1"># windows cpp api ex: windows.h</span>
+</span></span><span class="line"><span class="cl">pacman -S mingw-w64-x86_64-gsl
+</span></span><span class="line"><span class="cl">pacman -S mingw-w64-x86_64-gtk3
+</span></span><span class="line"><span class="cl"><span class="c1"># Qt</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 32 bit</span>
+</span></span><span class="line"><span class="cl">pacman -S --needed mingw-w64-i686-qt5-static mingw-w64-i686-qt-creator mingw-w64-i686-clang mingw-w64-i686-gdb mingw-w64-i686-cmake
+</span></span><span class="line"><span class="cl"><span class="c1"># 64 bit</span>
+</span></span><span class="line"><span class="cl">pacman -S --needed mingw-w64-x86_64-qt5-static mingw-w64-x86_64-qt-creator mingw-w64-x86_64-clang mingw-w64-x86_64-gdb mingw-w64-x86_64-cmake
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="others">Others</h2>
+<h3 id="depoly-espidf-toolchain">depoly espidf toolchain</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">wget https://dl.espressif.com/dl/xtensa-esp32-elf-win32-1.22.0-61-gab8375a-5.2.0.zip
+</span></span><span class="line"><span class="cl">unzip xtensa-esp32-elf-win32
+</span></span><span class="line"><span class="cl">export IDF_PATH=&#34;C:\xtensa-esp32-elf&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="portable-python">Portable python</h3>
+<p>加入環境變數</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> %path% <span class="c1"># 加入後存在..</span>
+</span></span><span class="line"><span class="cl">C:<span class="se">\P</span>ortable Python-3.10.5 x64<span class="se">\A</span>pp<span class="se">\P</span>ython
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python -m ensurepip --upgrade
+</span></span><span class="line"><span class="cl">python -m pip install --upgrade pip
+</span></span><span class="line"><span class="cl">python -m pip install numpy scipy pandas pywin32 matplotlib <span class="nv">plotly</span><span class="o">==</span>4.8.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="nvm">nvm</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">choco install nvm
+</span></span><span class="line"><span class="cl">nvm install 16.17.1 <span class="c1"># or nvm install node</span>
+</span></span><span class="line"><span class="cl">nvm list
+</span></span><span class="line"><span class="cl">nvm use 16.17.1
+</span></span><span class="line"><span class="cl">Now using node v16.17.1 <span class="o">(</span>64-bit<span class="o">)</span>
+</span></span><span class="line"><span class="cl">npm -v
+</span></span><span class="line"><span class="cl">node -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ref">Ref</h2>
+<ul>
+<li><a href="https://blog.owo9.com/904/install-qt-static-with-msys2/" target="_blank" rel="noopener noreffer ">Qt install</a></li>
+<li><a href="https://opensourcedoc.com/windows-programming/mingw-msys/" target="_blank" rel="noopener noreffer ">Gtk</a></li>
+<li><a href="https://gitdemo.readthedocs.io/en/latest/windows-setup.html" target="_blank" rel="noopener noreffer ">ESP32 Tool Chain</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-07-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2022_07_02/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2022_07_02/" data-title="msys2 環境建立" data-hashtags="msys2,env"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2022_07_02/" data-hashtag="msys2"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2022_07_02/" data-title="msys2 環境建立" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2022_07_02/" data-title="msys2 環境建立"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/msys2/">msys2</a>,&nbsp;<a href="/tags/env/">env</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-09-14/" class="prev" rel="prev" title="Pytorch視覺化"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Pytorch視覺化</a>
+            <a href="/2022-09-15/" class="next" rel="next" title="C語言筆記">C語言筆記<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

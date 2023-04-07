@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>NS3 installation - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="NS3 installation" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2020-06-04/" /><meta property="og:image" content="https://shihchun.gitlab.io/2020-06-04/Deepin_select-area_20200604173838.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-02T17:55:28+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/2020-06-04/Deepin_select-area_20200604173838.png"/>
+<meta name="twitter:title" content="NS3 installation"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2020-06-04/" /><link rel="prev" href="https://shihchun.gitlab.io/2020-01-31/" /><link rel="next" href="https://shihchun.gitlab.io/2020-06-27/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "NS3 installation",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2020-06-04\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/2020-06-04\/Deepin_select-area_20200604173838.png",
+                            "width":  1124 ,
+                            "height":  734 
+                        }],"genre": "posts","keywords": "ns3, aquasim, 5g-lena","wordcount":  1827 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2020-06-04\/","datePublished": "2020-06-04T00:00:00+00:00","dateModified": "2019-10-02T17:55:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2020-06-04/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2020-06-04/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">NS3 installation</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-06-04">2020-06-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1827 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 9 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-ns3">Install NS3</a>
+      <ul>
+        <li><a href="#gccxml">gccxml</a></li>
+        <li><a href="#pyviz">PyViz</a></li>
+        <li><a href="#netanim">NetAnim</a></li>
+      </ul>
+    </li>
+    <li><a href="#wireshark-pcap">Wireshark PCAP</a></li>
+    <li><a href="#aquasim-ng">Aquasim-ng</a></li>
+    <li><a href="#5g-lena">5g lena</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="install-ns3">Install NS3</h2>
+<p>Install the dependency of the NS3, I try to install all of them as I can. See the <a href="https://www.nsnam.org/wiki/Installation" target="_blank" rel="noopener noreffer ">NS3 wiki</a>.</p>
+<h3 id="gccxml">gccxml</h3>
+<p>If you use the wsl (ubuntu 18.04), then you may have the problem with the gccxml. I just build it from source code in the <a href="https://gccxml.github.io/HTML/Install.html" target="_blank" rel="noopener noreffer ">official site</a>, but the cmake command not works for me, I just google it, find the solution as below:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cmake -D <span class="nv">CMAKE_C_FLAGS</span><span class="o">=</span>-fgnu89-inline ../gccxml
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">sudo make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>wsl visualization by choco install VcXsrv</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install vcxsrv <span class="c1"># open it and binding the port &#39;0&#39;</span>
+</span></span><span class="line"><span class="cl">wsl
+</span></span><span class="line"><span class="cl">sudo apt-get install x11-apps
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;export DISPLAY=127.0.0.1:0&#34;</span> &gt;&gt; ~/.zshrc
+</span></span><span class="line"><span class="cl">xeyes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You may have problem with python header not found and the pip installation</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install libpython2.7-dev <span class="c1"># header prob</span>
+</span></span><span class="line"><span class="cl">wget https://bootstrap.pypa.io/get-pip.py <span class="c1"># get_pip.py script download</span>
+</span></span><span class="line"><span class="cl">python2 get_pip.py
+</span></span><span class="line"><span class="cl">python3 get_pip.py
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">pip2</span><span class="o">=</span><span class="s2">&#34;python2 -m pip&#34;</span> <span class="c1"># add the alias to the ~/.bashrc or ~/.zshrc</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">pip3</span><span class="o">=</span><span class="s2">&#34;python -m pip&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="pyviz">PyViz</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./waf configure --enable-tests --enables-examples --with-python<span class="o">=</span>python2
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="c1"># see Pyviz: enable</span>
+</span></span><span class="line"><span class="cl">./waf <span class="c1">#build</span>
+</span></span><span class="line"><span class="cl">./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis <span class="c1">#Run sample</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip2 install pybindgen pyviz graphviz <span class="c1"># in doc have py... install if you can</span>
+</span></span><span class="line"><span class="cl">./waf configure --enable-tests --enables-examples --with-python<span class="o">=</span>python2 <span class="c1"># 3.29 is --python=python2</span>
+</span></span><span class="line"><span class="cl">./waf --pyrun src/flow-monitor/examples/wifi-olsr-flowmon.py --vis <span class="c1">#Run sample</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2020-06-04/Deepin_plasmashell_20200616015518.png" title="/2020-06-04/Deepin_plasmashell_20200616015518.png" data-thumbnail="/2020-06-04/Deepin_plasmashell_20200616015518.png" data-sub-html="<h2>PyViz</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Deepin_plasmashell_20200616015518.png"
+            data-srcset="/2020-06-04/Deepin_plasmashell_20200616015518.png, /2020-06-04/Deepin_plasmashell_20200616015518.png 1.5x, /2020-06-04/Deepin_plasmashell_20200616015518.png 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Deepin_plasmashell_20200616015518.png" width="1343" height="996" />
+    </a><figcaption class="image-caption">PyViz</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/2020-06-04/Peek_2020-06-21_13-37.gif" title="/2020-06-04/Peek_2020-06-21_13-37.gif" data-thumbnail="/2020-06-04/Peek_2020-06-21_13-37.gif" data-sub-html="<h2>PyViz</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Peek_2020-06-21_13-37.gif"
+            data-srcset="/2020-06-04/Peek_2020-06-21_13-37.gif, /2020-06-04/Peek_2020-06-21_13-37.gif 1.5x, /2020-06-04/Peek_2020-06-21_13-37.gif 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Peek_2020-06-21_13-37.gif" width="1761" height="996" />
+    </a><figcaption class="image-caption">PyViz</figcaption>
+    </figure></p>
+<h3 id="netanim">NetAnim</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜  ns-3.29 ./waf --run <span class="s2">&#34;dumbbell-animation --nLeftLeaf=5 --nRightLeaf=5 --animFile=dumbbell.xml&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span>base<span class="o">)</span> ➜  aquasim-ng_manjaro tree -L <span class="m">1</span>            
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── AquaSim-NG_Installation
+</span></span><span class="line"><span class="cl">├── bake
+</span></span><span class="line"><span class="cl">├── build.py
+</span></span><span class="line"><span class="cl">├── constants.py
+</span></span><span class="line"><span class="cl">├── netanim-3.108
+</span></span><span class="line"><span class="cl">├── ns-3.29
+</span></span><span class="line"><span class="cl">├── pybindgen-0.17.0.post58+ngcf00cc0
+</span></span><span class="line"><span class="cl">├── README
+</span></span><span class="line"><span class="cl">└── util.py
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> netanim-3.108
+</span></span><span class="line"><span class="cl">make clean 
+</span></span><span class="line"><span class="cl">qmake NetAnim.pro
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">./NetAnim
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2020-06-04/Deepin_plasmashell_20200616030357.png" title="/2020-06-04/Deepin_plasmashell_20200616030357.png" data-thumbnail="/2020-06-04/Deepin_plasmashell_20200616030357.png" data-sub-html="<h2>Open outputfile</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Deepin_plasmashell_20200616030357.png"
+            data-srcset="/2020-06-04/Deepin_plasmashell_20200616030357.png, /2020-06-04/Deepin_plasmashell_20200616030357.png 1.5x, /2020-06-04/Deepin_plasmashell_20200616030357.png 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Deepin_plasmashell_20200616030357.png" width="1920" height="1006" />
+    </a><figcaption class="image-caption">Open outputfile</figcaption>
+    </figure></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020-06-04/Deepin_select-area_20200616030433.png"
+        data-srcset="/2020-06-04/Deepin_select-area_20200616030433.png, /2020-06-04/Deepin_select-area_20200616030433.png 1.5x, /2020-06-04/Deepin_select-area_20200616030433.png 2x"
+        data-sizes="auto"
+        alt="/2020-06-04/Deepin_select-area_20200616030433.png"
+        title="/2020-06-04/Deepin_select-area_20200616030433.png" width="1280" height="691" /></p>
+<p><figure><a class="lightgallery" href="/2020-06-04/Peek_2020-06-21_13-33.gif" title="/2020-06-04/Peek_2020-06-21_13-33.gif" data-thumbnail="/2020-06-04/Peek_2020-06-21_13-33.gif" data-sub-html="<h2>NetAnim</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Peek_2020-06-21_13-33.gif"
+            data-srcset="/2020-06-04/Peek_2020-06-21_13-33.gif, /2020-06-04/Peek_2020-06-21_13-33.gif 1.5x, /2020-06-04/Peek_2020-06-21_13-33.gif 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Peek_2020-06-21_13-33.gif" width="1761" height="996" />
+    </a><figcaption class="image-caption">NetAnim</figcaption>
+    </figure></p>
+<h2 id="wireshark-pcap">Wireshark PCAP</h2>
+<p>If you use the wsl to do packet capture (PCAP), you can install the wireshark, and just add it to the windows env.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install wireshark
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then add to the env.</p>
+<p><figure><a class="lightgallery" href="/2020-06-04/Snipaste_2020-07-13_15-45-36.png" title="/2020-06-04/Snipaste_2020-07-13_15-45-36.png" data-thumbnail="/2020-06-04/Snipaste_2020-07-13_15-45-36.png" data-sub-html="<h2>add path env</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Snipaste_2020-07-13_15-45-36.png"
+            data-srcset="/2020-06-04/Snipaste_2020-07-13_15-45-36.png, /2020-06-04/Snipaste_2020-07-13_15-45-36.png 1.5x, /2020-06-04/Snipaste_2020-07-13_15-45-36.png 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Snipaste_2020-07-13_15-45-36.png" width="1356" height="647" />
+    </a><figcaption class="image-caption">add path env</figcaption>
+    </figure></p>
+<p>Then just use it in wsl by this way.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./waf --run sixth
+</span></span><span class="line"><span class="cl">wireshark.exe sixth.pcap
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2020-06-04/Snipaste_2020-07-13_15-48-32.png" title="/2020-06-04/Snipaste_2020-07-13_15-48-32.png" data-thumbnail="/2020-06-04/Snipaste_2020-07-13_15-48-32.png" data-sub-html="<h2>PCAP outlook</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Snipaste_2020-07-13_15-48-32.png"
+            data-srcset="/2020-06-04/Snipaste_2020-07-13_15-48-32.png, /2020-06-04/Snipaste_2020-07-13_15-48-32.png 1.5x, /2020-06-04/Snipaste_2020-07-13_15-48-32.png 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Snipaste_2020-07-13_15-48-32.png" width="906" height="728" />
+    </a><figcaption class="image-caption">PCAP outlook</figcaption>
+    </figure></p>
+<h2 id="aquasim-ng">Aquasim-ng</h2>
+<p>Aquasim-ng installation, to install it download the files from zheng peng’s wiki, install the dependency first, ref <a href="https://www.nsnam.org/wiki/Installation" target="_blank" rel="noopener noreffer ">here</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget http://hudson.ccny.cuny.edu/download/aquasim-ng.tgz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2020-06-04/Deepin_select-area_20200604104358.png" title="/2020-06-04/Deepin_select-area_20200604104358.png" data-thumbnail="/2020-06-04/Deepin_select-area_20200604104358.png" data-sub-html="<h2>Download</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2020-06-04/Deepin_select-area_20200604104358.png"
+            data-srcset="/2020-06-04/Deepin_select-area_20200604104358.png, /2020-06-04/Deepin_select-area_20200604104358.png 1.5x, /2020-06-04/Deepin_select-area_20200604104358.png 2x"
+            data-sizes="auto"
+            alt="/2020-06-04/Deepin_select-area_20200604104358.png" width="1237" height="761" />
+    </a><figcaption class="image-caption">Download</figcaption>
+    </figure></p>
+<p>after you download it, you can try as below:</p>
+<p><a href="https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy.svg"
+        data-srcset="https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy.svg, https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy.svg 1.5x, https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy.svg 2x"
+        data-sizes="auto"
+        alt="https://asciinema.org/a/eOFGEwuL947wtvWKrFTR4pnwy.svg"
+        title="asciicast" /></a></p>
+<blockquote>
+<p>Pyviz issue in this version 3.29 ref here AttributeError: &lsquo;gi.repository.GooCanvas&rsquo; object has no attribute ‘LineDash’ <code>line_dash=GooCanvas.LineDash()</code> cange to <code>line_dash=GooCanvas.CanvasLineDash.newv()</code></p>
+</blockquote>
+<p>After you build successly, you’d better remove the <code>-Werror</code> in the <code>ns3/build/c4che/_c4che.py</code></p>
+<blockquote>
+<p>after you build successly
+remove ns3/build/c4che/_c4che.py remove all -Werror
+cc1plus: all warnings being treated as errors</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="Deepin_select-area_20200604173838.png"
+        data-srcset="Deepin_select-area_20200604173838.png, Deepin_select-area_20200604173838.png 1.5x, Deepin_select-area_20200604173838.png 2x"
+        data-sizes="auto"
+        alt="Deepin_select-area_20200604173838.png"
+        title="Deepin_select-area_20200604173838.png" /></p>
+<h2 id="5g-lena">5g lena</h2>
+<p>I build failed with this info on the wsl, it means I missing the file in <code>/build/ns3</code>, but works in my manjaro kde.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dpkg -l <span class="p">|</span> grep <span class="s2">&#34;sqlite&#34;</span>
+</span></span><span class="line"><span class="cl">ii  libqt5sql5-sqlite:amd64                   5.9.5+dfsg-0ubuntu2.5               amd64        Qt <span class="m">5</span> SQLite <span class="m">3</span> database driver
+</span></span><span class="line"><span class="cl">ii  libsqlite0                                2.8.17-14fakesync1                  amd64        SQLite <span class="m">2</span> shared library
+</span></span><span class="line"><span class="cl">ii  libsqlite0-dev                            2.8.17-14fakesync1                  amd64        SQLite <span class="m">2</span> development files
+</span></span><span class="line"><span class="cl">ii  libsqlite3-0:amd64                        3.22.0-1ubuntu0.4                   amd64        SQLite <span class="m">3</span> shared library
+</span></span><span class="line"><span class="cl">ii  libsqlite3-dev:amd64                      3.22.0-1ubuntu0.4                   amd64        SQLite <span class="m">3</span> development files
+</span></span><span class="line"><span class="cl">ii  libsqlite3-ocaml                          4.0.5-2build1                       amd64        Embeddable SQL Database <span class="k">for</span> OCaml Programs
+</span></span><span class="line"><span class="cl">ii  libsqlite3-ocaml-dev                      4.0.5-2build1                       amd64        Embeddable SQL Database <span class="k">for</span> OCaml Programs
+</span></span><span class="line"><span class="cl">ii  sqlite                                    2.8.17-14fakesync1                  amd64        <span class="nb">command</span> line interface <span class="k">for</span> SQLite <span class="m">2</span>
+</span></span><span class="line"><span class="cl">ii  sqlite3                                   3.22.0-1ubuntu0.4                   amd64        Command line interface <span class="k">for</span> SQLite <span class="m">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./waf configure --enable-tests --enable-examples --with-python<span class="o">=</span>python2 --enable-mpi
+</span></span><span class="line"><span class="cl">Setting top to                           : /mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev
+</span></span><span class="line"><span class="cl">Setting out to                           : /mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;gcc&#39;</span> <span class="o">(</span>C compiler<span class="o">)</span>          : /usr/bin/gcc
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> cc version                  : 7.5.0
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;g++&#39;</span> <span class="o">(</span>C++ compiler<span class="o">)</span>        : /usr/bin/g++
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -Wl,--soname<span class="o">=</span>foo support : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -std<span class="o">=</span>c++11 support       : ok
+</span></span><span class="line"><span class="cl">Checking boost includes                                : 1_65_1
+</span></span><span class="line"><span class="cl">Checking boost libs                                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> boost linkage                             : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> program <span class="s1">&#39;python&#39;</span>                          : python2
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python version &gt;<span class="o">=</span> 2.3                     : 2.7.17
+</span></span><span class="line"><span class="cl">python-config                                          : /usr/bin/python2-config
+</span></span><span class="line"><span class="cl">Asking python-config <span class="k">for</span> pyembed <span class="s1">&#39;--cflags --libs --ldflags --embed&#39;</span> flags : not found
+</span></span><span class="line"><span class="cl">Asking python-config <span class="k">for</span> pyembed <span class="s1">&#39;--cflags --libs --ldflags&#39;</span> flags         : yes
+</span></span><span class="line"><span class="cl">Testing pyembed configuration                                              : yes
+</span></span><span class="line"><span class="cl">Asking python-config <span class="k">for</span> pyext <span class="s1">&#39;--cflags --libs --ldflags&#39;</span> flags           : yes
+</span></span><span class="line"><span class="cl">Testing pyext configuration                                                : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -fvisibility<span class="o">=</span>hidden support                  : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -Wno-array-bounds support                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> pybindgen location                                            : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;pybindgen&#39;</span>                                     : 0.21.0
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> pybindgen version                                             : 0.21.0
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> code snippet                                                  : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> types uint64_t and unsigned long equivalence                  : no
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> code snippet                                                  : no
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> types uint64_t and unsigned long long equivalence             : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> the apidefs that can be used <span class="k">for</span> Python bindings              : gcc-LP64
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> internal GCC cxxabi                                           : <span class="nb">complete</span>
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;pygccxml&#39;</span>                                      : 1.9.1
+</span></span><span class="line"><span class="cl">pygccxml version cannot be determined
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> click location                                                : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> program <span class="s1">&#39;pkg-config&#39;</span>                                          : /usr/bin/pkg-config
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;gtk+-3.0&#39;</span>                                                    : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;libxml-2.0&#39;</span>                                                  : yes
+</span></span><span class="line"><span class="cl">checking <span class="k">for</span> uint128_t                                                     : not found
+</span></span><span class="line"><span class="cl">checking <span class="k">for</span> __uint128_t                                                   : yes
+</span></span><span class="line"><span class="cl">Checking high precision implementation                                     : 128-bit integer <span class="o">(</span>default<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header stdint.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header inttypes.h                                             : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header sys/inttypes.h                                         : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header sys/types.h                                            : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header sys/stat.h                                             : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header dirent.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header stdlib.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header signal.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header pthread.h                                              : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header stdint.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header inttypes.h                                             : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header sys/inttypes.h                                         : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> library rt                                                    : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header sys/ioctl.h                                            : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header net/if.h                                               : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header net/ethernet.h                                         : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header linux/if_tun.h                                         : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header netpacket/packet.h                                     : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> NSC location                                                  : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;&#39;</span>                                                            : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> OpenFlow location                                             : not found
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;sqlite3&#39;</span>                                                     : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> header linux/if_tun.h                                         : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi&#39;</span>                                            : 3.26.1
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi.repository.GObject&#39;</span>                         : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;cairo&#39;</span>                                         : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;pygraphviz&#39;</span>                                    : 1.4rc1
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi.repository.Gtk&#39;</span>                             : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi.repository.Gdk&#39;</span>                             : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi.repository.Pango&#39;</span>                           : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> python module <span class="s1">&#39;gi.repository.GooCanvas&#39;</span>                       : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> program <span class="s1">&#39;sudo&#39;</span>                                                : /usr/bin/sudo
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> program <span class="s1">&#39;valgrind&#39;</span>                                            : /usr/bin/valgrind
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> <span class="s1">&#39;gsl&#39;</span>                                                         : yes
+</span></span><span class="line"><span class="cl">libgcrypt-config                                                           : /usr/bin/libgcrypt-config
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> libgcrypt                                                     : yes
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -fstrict-aliasing support                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -fstrict-aliasing support                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -Wstrict-aliasing support                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> compilation flag -Wstrict-aliasing support                    : ok
+</span></span><span class="line"><span class="cl">Checking <span class="k">for</span> program <span class="s1">&#39;doxygen&#39;</span>                                             : /usr/bin/doxygen
+</span></span><span class="line"><span class="cl">---- Summary of optional NS-3 features:
+</span></span><span class="line"><span class="cl">Build profile                 : debug
+</span></span><span class="line"><span class="cl">Build directory               :
+</span></span><span class="line"><span class="cl">BRITE Integration             : not enabled <span class="o">(</span>BRITE not enabled <span class="o">(</span>see option --with-brite<span class="o">))</span>
+</span></span><span class="line"><span class="cl">DES Metrics event collection  : not enabled <span class="o">(</span>defaults to disabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Emulation FdNetDevice         : enabled
+</span></span><span class="line"><span class="cl">Examples                      : enabled
+</span></span><span class="line"><span class="cl">File descriptor NetDevice     : enabled
+</span></span><span class="line"><span class="cl">GNU Scientific Library <span class="o">(</span>GSL<span class="o">)</span>  : enabled
+</span></span><span class="line"><span class="cl">Gcrypt library                : enabled
+</span></span><span class="line"><span class="cl">GtkConfigStore                : enabled
+</span></span><span class="line"><span class="cl">MPI Support                   : enabled
+</span></span><span class="line"><span class="cl">NS-3 Click Integration        : not enabled <span class="o">(</span>nsclick not enabled <span class="o">(</span>see option --with-nsclick<span class="o">))</span>
+</span></span><span class="line"><span class="cl">NS-3 OpenFlow Integration     : not enabled <span class="o">(</span>OpenFlow not enabled <span class="o">(</span>see option --with-openflow<span class="o">))</span>
+</span></span><span class="line"><span class="cl">Network Simulation Cradle     : not enabled <span class="o">(</span>NSC not found <span class="o">(</span>see option --with-nsc<span class="o">))</span>
+</span></span><span class="line"><span class="cl">PlanetLab FdNetDevice         : not enabled <span class="o">(</span>PlanetLab operating system not detected <span class="o">(</span>see option --force-planetlab<span class="o">))</span>
+</span></span><span class="line"><span class="cl">PyViz visualizer              : enabled
+</span></span><span class="line"><span class="cl">Python API Scanning Support   : not enabled <span class="o">(</span>pygccxml Python module version is unknown<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Python Bindings               : enabled
+</span></span><span class="line"><span class="cl">Real Time Simulator           : enabled
+</span></span><span class="line"><span class="cl">SQlite stats data output      : enabled
+</span></span><span class="line"><span class="cl">Tap Bridge                    : enabled
+</span></span><span class="line"><span class="cl">Tap FdNetDevice               : enabled
+</span></span><span class="line"><span class="cl">Tests                         : enabled
+</span></span><span class="line"><span class="cl">Threading Primitives          : enabled
+</span></span><span class="line"><span class="cl">Use sudo to <span class="nb">set</span> suid bit      : not enabled <span class="o">(</span>option --enable-sudo not selected<span class="o">)</span>
+</span></span><span class="line"><span class="cl">XmlIo                         : enabled
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;configure&#39;</span> finished successfully <span class="o">(</span>21.058s<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./waf
+</span></span><span class="line"><span class="cl">../src/nr/examples/cttc-simple-interference-example.cc:33:10: fatal error: ns3/sqlite-output.h: No such file or directory
+</span></span><span class="line"><span class="cl"> <span class="c1">#include &#34;ns3/sqlite-output.h&#34;</span>
+</span></span><span class="line"><span class="cl">          ^~~~~~~~~~~~~~~~~~~~~
+</span></span><span class="line"><span class="cl">compilation terminated.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Waf: Leaving directory <span class="sb">`</span>/mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build<span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Build failed
+</span></span></span><span class="line"><span class="cl"><span class="s1"> -&gt; task in &#39;</span>cttc-simple-interference-example<span class="err">&#39;</span> failed with <span class="nb">exit</span> status <span class="m">1</span> <span class="o">(</span>run with -v to display more information<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I solve this by checking the wscript in the src/modules_foloder, and edit the <code>.ns3rc</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp utils/.ns3rc .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add the dependency to the file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#! /usr/bin/env python
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A list of the modules that will be enabled when ns-3 is run.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Modules that depend on the listed modules will be enabled also.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># All modules can be enabled by choosing &#39;all_modules&#39;.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># modules_enabled = [&#39;all_modules&#39;] # after build change back</span>
+</span></span><span class="line"><span class="cl"><span class="nv">modules_enabled</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;core&#39;</span>,<span class="s1">&#39;stats&#39;</span> , <span class="s1">&#39;network&#39;</span>, <span class="s1">&#39;mobility&#39;</span>, <span class="s1">&#39;propagation&#39;</span>,  <span class="s1">&#39;antenna&#39;</span>, <span class="s1">&#39;spectrum&#39;</span>, <span class="s1">&#39;virtual-net-device&#39;</span>, <span class="s1">&#39;mpi&#39;</span>, <span class="s1">&#39;point-to-point&#39;</span>, <span class="s1">&#39;bridge&#39;</span>, <span class="s1">&#39;traffic-control&#39;</span>, <span class="s1">&#39;internet&#39;</span>, <span class="s1">&#39;config-store&#39;</span>, <span class="s1">&#39;applications&#39;</span>, <span class="s1">&#39;buildings&#39;</span>, <span class="s1">&#39;csma&#39;</span>, <span class="s1">&#39;lte&#39;</span>, <span class="s1">&#39;wifi&#39;</span>, <span class="s1">&#39;visualizer&#39;</span>,<span class="s1">&#39;wimax&#39;</span>, <span class="s1">&#39;uan&#39;</span>, <span class="s1">&#39;lr-wpan&#39;</span>, <span class="s1">&#39;energy&#39;</span>, <span class="s1">&#39;wave&#39;</span>, <span class="s1">&#39;netanim&#39;</span>, <span class="s1">&#39;nr&#39;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set this equal to true if you want examples to be run.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">examples_enabled</span> <span class="o">=</span> True
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set this equal to true if you want tests to be run.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">tests_enabled</span> <span class="o">=</span> True
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then run it</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./waf configure --with-python<span class="o">=</span>python2 --enable-mpi
+</span></span><span class="line"><span class="cl">./waf
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Waf: Leaving directory <span class="sb">`</span>/mnt/d/Documents/PYTHON/NS-3/wsl-ns-3-dev/build<span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Build commands will be stored in build/compile_commands.json
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span>build<span class="err">&#39;</span> finished successfully <span class="o">(</span>8.066s<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Modules built:
+</span></span><span class="line"><span class="cl">antenna                   applications              bridge
+</span></span><span class="line"><span class="cl">buildings                 config-store              core
+</span></span><span class="line"><span class="cl">csma                      energy                    fd-net-device
+</span></span><span class="line"><span class="cl">internet                  lr-wpan                   lte
+</span></span><span class="line"><span class="cl">mobility                  mpi                       netanim
+</span></span><span class="line"><span class="cl">network                   nr <span class="o">(</span>no Python<span class="o">)</span>            point-to-point
+</span></span><span class="line"><span class="cl">point-to-point-layout     propagation               spectrum
+</span></span><span class="line"><span class="cl">stats                     traffic-control           uan
+</span></span><span class="line"><span class="cl">virtual-net-device        visualizer                wave
+</span></span><span class="line"><span class="cl">wifi                      wimax
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Modules not built <span class="o">(</span>see ns-3 tutorial <span class="k">for</span> explanation<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">brite                     click                     openflow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">./waf --run src/nr/examples/cttc-3gpp-channel-example
+</span></span><span class="line"><span class="cl">ll <span class="c1"># I have the result file</span>
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 1.2M Jul <span class="m">11</span> 21:11 RxedEnbMacCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 1.2M Jul <span class="m">11</span> 21:11 RxedEnbPhyCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 621K Jul <span class="m">11</span> 21:11 RxedUeMacCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 636K Jul <span class="m">11</span> 21:11 RxedUePhyCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek  <span class="m">130</span> Jul <span class="m">11</span> 21:08 TxedEnbMacCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 629K Jul <span class="m">11</span> 21:11 TxedEnbPhyCtrlMsgsTrace.txt
+</span></span><span class="line"><span class="cl">-rwxrwxrwx <span class="m">1</span> geek geek 1.2M Jul <span class="m">11</span> 21:11 TxedUePhyCtrlMsgsTrace.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>With my manjaro it can build with all_module but, still have problem with that file, looking forward with next revise.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -Qn <span class="p">|</span> grep <span class="s2">&#34;sqlite&#34;</span> 
+</span></span><span class="line"><span class="cl">lib32-sqlite 3.32.1-1 
+</span></span><span class="line"><span class="cl">sqlite 3.32.2-1
+</span></span><span class="line"><span class="cl"><span class="c1"># build success with all_module</span>
+</span></span><span class="line"><span class="cl">./waf --run src/nr/examples/cttc-simple-interference-example
+</span></span><span class="line"><span class="cl">Waf: Entering directory <span class="sb">`</span>/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build<span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">Waf: Leaving directory `/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build&#39;</span>
+</span></span><span class="line"><span class="cl">Build commands will be stored in build/compile_commands.json
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;build&#39;</span> finished successfully <span class="o">(</span>3.112s<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;Could not set default value for ns3::PointToPointEpcHelper::X2LinkDelay&#34;</span>, <span class="nv">file</span><span class="o">=</span>../src/core/model/config.cc, <span class="nv">line</span><span class="o">=</span><span class="m">815</span>
+</span></span><span class="line"><span class="cl">terminate called without an active exception
+</span></span><span class="line"><span class="cl">Command <span class="o">[</span><span class="s1">&#39;/run/media/geek/2TB/Documents/PYTHON/NS-3/manjaro-ns-3-dev/build/src/nr/examples/ns3-dev-cttc-simple-interference-example-debug&#39;</span><span class="o">]</span> terminated with signal SIGIOT. Run it under a debugger to get more information <span class="o">(</span>./waf --run &lt;program&gt; --command-template<span class="o">=</span><span class="s2">&#34;gdb --args %s &lt;args&gt;&#34;</span><span class="o">)</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2019-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020-06-04/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2020-06-04/" data-title="NS3 installation" data-hashtags="ns3,aquasim,5g-lena"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2020-06-04/" data-hashtag="ns3"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2020-06-04/" data-title="NS3 installation" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2020-06-04/" data-title="NS3 installation"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ns3/">ns3</a>,&nbsp;<a href="/tags/aquasim/">aquasim</a>,&nbsp;<a href="/tags/5g-lena/">5g-lena</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-01-31/" class="prev" rel="prev" title="Python 基本"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Python 基本</a>
+            <a href="/2020-06-27/" class="next" rel="next" title="Plotly csv 讀取">Plotly csv 讀取<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

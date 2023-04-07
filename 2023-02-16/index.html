@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MobaXterm Build EDK2 - 隨手筆記</title><meta name="Description" content="It&#39;s a example"><meta property="og:title" content="MobaXterm Build EDK2" />
+<meta property="og:description" content="It&#39;s a example" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2023-02-16/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-16T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="MobaXterm Build EDK2"/>
+<meta name="twitter:description" content="It&#39;s a example"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2023-02-16/" /><link rel="prev" href="https://shihchun.gitlab.io/2022-12-16/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MobaXterm Build EDK2",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2023-02-16\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","wordcount":  186 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2023-02-16\/","datePublished": "2023-02-16T00:00:00+00:00","dateModified": "2023-02-16T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "It's a example"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2023-02-16/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2023-02-16/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MobaXterm Build EDK2</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-16">2023-02-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 186 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 1 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content">
+<style>.embed-container { position: relative; padding-bottom: 56.25%;      
+    height: 100%; overflow: hidden; max-width: 100%; } .embed-container iframe, 
+    .embed-container object, .embed-container embed { position: absolute;   
+    top: 0; left: 0; width: 100%; height: 100%; }</style>
+    <div class='embed-container'>
+        <iframe frameborder='0' scrolling='no' src="https://shihchun.gitlab.io/2023-02-16/michael.html"></iframe>
+    </div>
+<script src="/encode/md5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.min.js"></script>
+
+<script>
+      function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function get(){
+        id = document.getElementsByClassName("hugo-encryptor-input");
+        console.log("==============")
+        console.log("michael")
+        console.log("==============")
+        console.log("1e192ebc6039c75e363488cb9f12fe5c5d505bbee1f15d13aa2f03c68838a1dd")
+        console.log("092dc03dc7bd5b403aba8dbe8333acf5e99c9ae6ede8ce59a9181291e6e436c2")
+        console.log("==============")
+        console.log(sha256(id[0].value));
+        console.log(sha256(id[0].value+"r.txojb,vp"));
+        console.log("==============")
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      }
+      function cookie2() {
+          if (getCookie("paa") == 'asdjifojaoijdfoa'){
+            id = document.getElementsByClassName("hugo-encryptor-container");
+            id[0].style="visibility:hidden";
+            id[0].style.height=0;
+            
+            
+            id = document.getElementsByClassName("content");
+            id[0].style="none";
+            
+            
+            document.cookie = "paa=asdjifojaoijdfoa";
+            themeInit();
+          
+          } else {
+            id = document.getElementsByClassName("content");
+            
+          }
+        }
+        window.addEventListener("load", cookie2);
+        
+</script>
+<h1>092dc03dc7bd5b403aba8dbe8333acf5e99c9ae6ede8ce59a9181291e6e436c2</h1>
+<h1>michael</h1>
+
+<div class="hugo-encryptor-container" >
+  <div class="hugo-encryptor-prompt">
+    
+      <p>輸入過密碼直接點擊即可</p>
+      <p>文章部分內容受密碼保護：</p>
+    
+  </div>
+  <div class="hugo-encryptor-form">
+    <input
+      class="hugo-encryptor-input"
+      placeholder='請輸入密碼'
+    />
+    <input
+      class="hugo-encryptor-button"
+      type="button"
+      value='點擊驗證'
+      onclick="get()"
+    />
+  </div>
+</div>
+<p>在Build EDK2的時候遇到一個問題造成無法成功，造成nmake編譯器產生錯誤</p>
+<p><code>env.bat</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl"><span class="p">:</span><span class="c1">: set PYTHON_COMMAND=C:\Python27\python.exe</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">PACKAGES_PATH</span><span class="p">=</span>C:\source\edk2-platforms;C:\source\edk2
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">PYTHON3_ENABLE</span><span class="p">=</span>TRUE
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">PYTHON_HOME</span><span class="p">=</span>C:\Python311
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">NASM_PREFIX</span><span class="p">=</span>C:\Program Files\NASM\
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="c1">: set CYGWIN_HOME=C:\ProgramData\chocolatey\lib\Cygwin</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">CYGWIN_HOME</span><span class="p">=</span>C:\source\edk2\BaseTools\Bin\CYGWIN_NT-5.1-i686
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">CLANG_BIN</span><span class="p">=</span>C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="c1">: if X86 IA32 put IASL exe files to C:\ASL\</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">.\edk2\edksetup.bat Rebuild  <span class="p">&amp;&amp;</span> .\edk2\edksetup.bat VS2019
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="./Snipaste_2023-02-16_09-08-29.jpg" title="./Snipaste_2023-02-16_09-08-29.jpg" data-thumbnail="./Snipaste_2023-02-16_09-08-29.jpg" data-sub-html="<h2>Fig</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./Snipaste_2023-02-16_09-08-29.jpg"
+            data-srcset="./Snipaste_2023-02-16_09-08-29.jpg, ./Snipaste_2023-02-16_09-08-29.jpg 1.5x, ./Snipaste_2023-02-16_09-08-29.jpg 2x"
+            data-sizes="auto"
+            alt="./Snipaste_2023-02-16_09-08-29.jpg" />
+    </a><figcaption class="image-caption">Fig</figcaption>
+    </figure></p>
+<p>主要原因是因爲echo使用了MobaXterm的echo，只要把<code>slash\bin</code>從環境變量中刪除即可正確的Build Code了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl"><span class="p">:</span><span class="c1">: C:\Users\michael\AppData\Roaming\MobaXterm\slash\bin</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="c1">: %APPDATA%\MobaXterm\slash\bin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Users\michael\AppData\Roaming\MobaXterm\slash\bin\echo.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2023-02-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2023-02-16/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2023-02-16/" data-title="MobaXterm Build EDK2"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2023-02-16/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2023-02-16/" data-title="MobaXterm Build EDK2" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2023-02-16/" data-title="MobaXterm Build EDK2"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022-12-16/" class="prev" rel="prev" title="Build EDK source code"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Build EDK source code</a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>

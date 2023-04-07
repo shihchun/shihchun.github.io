@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux 幫助指令 - 隨手筆記</title><meta name="Description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南."><meta property="og:title" content="Linux 幫助指令" />
+<meta property="og:description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shihchun.gitlab.io/2017_04_27_3/" /><meta property="og:image" content="https://shihchun.gitlab.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-04-27T16:55:28+08:00" />
+<meta property="article:modified_time" content="2017-10-02T17:55:28+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://shihchun.gitlab.io/logo.png"/>
+
+<meta name="twitter:title" content="Linux 幫助指令"/>
+<meta name="twitter:description" content="Hugo 和 LoveIt 中的 Emoji 的用法指南."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://shihchun.gitlab.io/2017_04_27_3/" /><link rel="prev" href="https://shihchun.gitlab.io/2017_04_27_2/" /><link rel="next" href="https://shihchun.gitlab.io/2017-05-04/" /><link rel="stylesheet" href="/css/style.min.c57300a31a581e27c9bdbbeba0f40607.css" integrity="md5-xXMAoxpYHifJvbvroPQGBw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux 幫助指令",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/shihchun.gitlab.io\/2017_04_27_3\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/shihchun.gitlab.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Linux筆記","wordcount":  1991 ,
+        "url": "https:\/\/shihchun.gitlab.io\/2017_04_27_3\/","datePublished": "2017-04-27T16:55:28+08:00","dateModified": "2017-10-02T17:55:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "shihchun","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/shihchun.gitlab.io\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "shihchun"
+            },"description": "Hugo 和 LoveIt 中的 Emoji 的用法指南."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 標簽 </a><a class="menu-item" href="/categories/"> 分類 </a><a class="menu-item" href="/categories/linux/"> Linux </a><a class="menu-item" href="/about/"> 關於 </a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2017_04_27_3/" selected>繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="隨手筆記"><span class="header-title-pre"><i class='fas fa-pencil-alt'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">標簽</a><a class="menu-item" href="/categories/" title="">分類</a><a class="menu-item" href="/categories/linux/" title="">Linux</a><a class="menu-item" href="/about/" title="">關於</a><a class="menu-item" href="https://github.com/shihchun" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2017_04_27_3/" selected>繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux 幫助指令</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://shihchun.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>shihchun</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2017-04-27">2017-04-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1991 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 4 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#man-使用">man 使用</a>
+      <ul>
+        <li><a href="#man-文件級別">man 文件級別</a></li>
+        <li><a href="#man--f-or-whatis">man -f or whatis</a></li>
+        <li><a href="#man--k-or-apropos">man -k or apropos</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他指令">其他指令</a>
+      <ul>
+        <li><a href="#help-和-info">help 和 info</a></li>
+        <li><a href="#whereiswhichtype--acommand--vcommand--v"><code>whereis</code>、<code>which</code>、<code>type -a</code>、<code>command -v</code>、<code>command -V</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Linux 查找命令的用法的時候可以使用Linux下面的幫助指令查找命令的使用方法。</p>
+<!---more--->
+<h2 id="man-使用">man 使用</h2>
+<p><a href="https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo.svg"
+        data-srcset="https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo.svg, https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo.svg 1.5x, https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo.svg 2x"
+        data-sizes="auto"
+        alt="https://asciinema.org/a/NdNkEIBFZfUAc5D9bFY9JiBDo.svg"
+        title="asciicast" /></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ man ls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>文檔內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">LS<span class="o">(</span>1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME
+</span></span><span class="line"><span class="cl">       ls - list directory contents
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SYNOPSIS
+</span></span><span class="line"><span class="cl">       ls <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>FILE<span class="o">]</span>...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">DESCRIPTION
+</span></span><span class="line"><span class="cl">       List information about the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">       Sort entries alphabetically <span class="k">if</span> none of -cftuvSUX nor --sort is spec‐
+</span></span><span class="line"><span class="cl">       ified.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       Mandatory  arguments to long options are mandatory <span class="k">for</span> short options
+</span></span><span class="line"><span class="cl">       too.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       -a, --all
+</span></span><span class="line"><span class="cl">              <span class="k">do</span> not ignore entries starting with .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       -A, --almost-all
+</span></span><span class="line"><span class="cl">              <span class="k">do</span> not list implied . and ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       --author
+</span></span><span class="line"><span class="cl">              with -l, print the author of each file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       -b, --escape
+</span></span><span class="line"><span class="cl">              print C-style escapes <span class="k">for</span> nongraphic characters
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       --block-size<span class="o">=</span>SIZE
+</span></span><span class="line"><span class="cl">              scale   sizes   by   SIZE   before   printing   them<span class="p">;</span>   e.g.,
+</span></span><span class="line"><span class="cl">              <span class="s1">&#39;--block-size=M&#39;</span>  prints  sizes  in units of 1,048,576 bytes<span class="p">;</span>
+</span></span><span class="line"><span class="cl">              see SIZE format below
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       -B, --ignore-backups
+</span></span><span class="line"><span class="cl">              <span class="k">do</span> not list implied entries ending with ~
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       -c     with -lt: sort by, and show, ctime <span class="o">(</span><span class="nb">time</span> of last modification
+</span></span><span class="line"><span class="cl">              of  file status information<span class="o">)</span><span class="p">;</span> with -l: show ctime and sort by
+</span></span><span class="line"><span class="cl"> Manual page ls<span class="o">(</span>1<span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>輸入之後會會看到ls指令的相關用法如上，輸入之後可以開始查找文檔裡面的內容了，進入man模式之後其實它的操作跟vi的操作十分雷同。</p>
+<p>如果要離開的話只要輸入一個<code>q</code>就可以離開了，同vi的操作如果我要查找<code>-d</code>的使用方式，我只要打入<code>/-d</code>，他就會跳到第一個出現<code>-d</code>的位置了，如果是要找前、後一個<code>-d</code>，只要輸入<code>n</code>、<code>shift</code>+<code>n</code>。</p>
+<h3 id="man-文件級別">man 文件級別</h3>
+<p>在之前輸入<code>man ls</code>的時候，有告知<code>LS(1)</code>，這個級別1代表指令的用戶級別，各個查找級別如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ man man
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>用戶級別</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">The table below shows the section numbers of the manual followed  by
+</span></span><span class="line"><span class="cl">       the types of pages they contain.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="m">1</span>   Executable programs or shell commands
+</span></span><span class="line"><span class="cl">       <span class="m">2</span>   System calls <span class="o">(</span>functions provided by the kernel<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       <span class="m">3</span>   Library calls <span class="o">(</span>functions within program libraries<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       <span class="m">4</span>   Special files <span class="o">(</span>usually found in /dev<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       <span class="m">5</span>   File formats and conventions eg /etc/passwd
+</span></span><span class="line"><span class="cl">       <span class="m">6</span>   Games
+</span></span><span class="line"><span class="cl">       <span class="m">7</span>   Miscellaneous  <span class="o">(</span>including  macro packages and conventions<span class="o">)</span>, e.g.
+</span></span><span class="line"><span class="cl">           man<span class="o">(</span>7<span class="o">)</span>, groff<span class="o">(</span>7<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       <span class="m">8</span>   System administration commands <span class="o">(</span>usually only <span class="k">for</span> root<span class="o">)</span>
+</span></span><span class="line"><span class="cl">       <span class="m">9</span>   Kernel routines <span class="o">[</span>Non standard<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>級別</th>
+<th>查找內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>命令</td>
+</tr>
+<tr>
+<td>2</td>
+<td>內核調用函數</td>
+</tr>
+<tr>
+<td>3</td>
+<td>函數與數據庫</td>
+</tr>
+<tr>
+<td>4</td>
+<td>特殊文件（<code>/dev</code>下的文件）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>配置文件（<code>/etc</code>下的文件）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>遊戲</td>
+</tr>
+<tr>
+<td>7</td>
+<td>其他雜項</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系統管理員可用命令</td>
+</tr>
+<tr>
+<td>9</td>
+<td>內核相關文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="man--f-or-whatis">man -f or whatis</h3>
+<p>綜上所述，我們查找的<code>ls</code>是屬於命令的級別，級別為1。如果我們要查找指令的級別的話使用<code>-f</code>或是<code>whatis</code>如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ man -f passwd
+</span></span><span class="line"><span class="cl">$ whatis passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>輸出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd <span class="o">(</span>1<span class="o">)</span>           - update user<span class="err">&#39;</span>s authentication tokens
+</span></span><span class="line"><span class="cl">passwd <span class="o">(</span>5<span class="o">)</span>           - password file
+</span></span><span class="line"><span class="cl">sslpasswd <span class="o">(</span>1ssl<span class="o">)</span>     - compute password hashes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面我們查找<code>passwd</code>有兩個級別（只查得到有安裝的幫助文檔），但是我們使用<code>man passwd</code>，出現的是級別1的內容，因為預設是打開等級最小的文件內容，所以如果要看級別5的內容，要輸入如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ man <span class="m">5</span> passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>透過這樣的查詢，我們就可以查找到我們想要的訊息了。</p>
+<p>之後我們發現級別5是配置文件，如果我們要找它的位置只要輸入如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ whereis passwd
+</span></span><span class="line"><span class="cl">passwd: /usr/bin/passwd /etc/passwd /usr/share/man/man1/passwd.1.gz /usr/share/man/man5/passwd.5.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其他級別的指令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ whatis ifconfig
+</span></span><span class="line"><span class="cl">ifconfig <span class="o">(</span>8<span class="o">)</span>         - configure a network interface
+</span></span><span class="line"><span class="cl">$ whatis netstat
+</span></span><span class="line"><span class="cl">netstat<span class="o">(</span>1<span class="o">)</span>               - show network status
+</span></span><span class="line"><span class="cl">$ whatis null
+</span></span><span class="line"><span class="cl">BIO_f_null<span class="o">(</span>3ssl<span class="o">)</span>         - null filter
+</span></span><span class="line"><span class="cl">BIO_s_null<span class="o">(</span>3ssl<span class="o">)</span>         - null data sink
+</span></span><span class="line"><span class="cl">DBD::Gofer::Transport::null<span class="o">(</span>3pm<span class="o">)</span> - DBD::Gofer client transport <span class="k">for</span> testing
+</span></span><span class="line"><span class="cl">DBM_Filter::null<span class="o">(</span>3pm<span class="o">)</span>    - filter <span class="k">for</span> DBM_Filter
+</span></span><span class="line"><span class="cl">Net::DNS::RR::NULL<span class="o">(</span>3pm<span class="o">)</span>  - DNS NULL resource record
+</span></span><span class="line"><span class="cl">PPI::Statement::Null<span class="o">(</span>3pm<span class="o">)</span> - A useless null statement
+</span></span><span class="line"><span class="cl">null<span class="o">(</span>4<span class="o">)</span>                  - the null device
+</span></span><span class="line"><span class="cl">null<span class="o">(</span>n<span class="o">)</span>                  - Create and manipulate null channels
+</span></span><span class="line"><span class="cl">openpam_nullconv<span class="o">(</span>3<span class="o">)</span>      - null conversation <span class="k">function</span>
+</span></span><span class="line"><span class="cl">slapd-null<span class="o">(</span>5<span class="o">)</span>            - Null backend to slapd
+</span></span><span class="line"><span class="cl">uuid_clear<span class="o">(</span>3<span class="o">)</span>            - reset value of UUID variable to the NULL value
+</span></span><span class="line"><span class="cl">uuid_is_null<span class="o">(</span>3<span class="o">)</span>          - compare the value of the UUID to the NULL value
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="man--k-or-apropos">man -k or apropos</h3>
+<p>查找所有相關指令幫助</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ man -k passwd
+</span></span><span class="line"><span class="cl">$ apropos passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">CURLOPT_KEYPASSWD<span class="o">(</span>3<span class="o">)</span>     - <span class="nb">set</span> passphrase to private key
+</span></span><span class="line"><span class="cl">SSL_CTX_set_default_passwd_cb<span class="o">(</span>3ssl<span class="o">)</span>, SSL_CTX_set_default_passwd_cb_userdata<span class="o">(</span>3ssl<span class="o">)</span> - <span class="nb">set</span> passwd callback <span class="k">for</span> encrypted PEM file handling
+</span></span><span class="line"><span class="cl">chkpasswd<span class="o">(</span>8<span class="o">)</span>             - verifies user password against various systems
+</span></span><span class="line"><span class="cl">firmwarepasswd<span class="o">(</span>8<span class="o">)</span>        - tool <span class="k">for</span> setting and removing firmware passwords on a system
+</span></span><span class="line"><span class="cl">htpasswd<span class="o">(</span>1<span class="o">)</span>              - Manage user files <span class="k">for</span> basic authentication
+</span></span><span class="line"><span class="cl">kpasswd<span class="o">(</span>1<span class="o">)</span>               - Kerberos <span class="m">5</span> password changing program
+</span></span><span class="line"><span class="cl">kpasswdd<span class="o">(</span>8<span class="o">)</span>              - Kerberos <span class="m">5</span> password changing server
+</span></span><span class="line"><span class="cl">ldappasswd<span class="o">(</span>1<span class="o">)</span>            - change the password of an LDAP entry
+</span></span><span class="line"><span class="cl">passwd<span class="o">(</span>1<span class="o">)</span>                - modify a user<span class="err">&#39;</span>s password
+</span></span><span class="line"><span class="cl">passwd<span class="o">(</span>1ssl<span class="o">)</span>             - compute password hashes
+</span></span><span class="line"><span class="cl">passwd<span class="o">(</span>5<span class="o">)</span>, master.passwd<span class="o">(</span>5<span class="o">)</span> - format of the password file
+</span></span><span class="line"><span class="cl">slapd-passwd<span class="o">(</span>5<span class="o">)</span>          - /etc/passwd backend to slapd
+</span></span><span class="line"><span class="cl">slappasswd<span class="o">(</span>8<span class="o">)</span>            - OpenLDAP password utility
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果我們是要找<code>htpasswd</code>的幫助文檔，但卻忘了指令的名稱，只記得有<code>passwd</code>這個字的時候，可以使用<code>man -k</code>或<code>apropos</code>來查找指令，這個指令會列出所有相關的文檔。</p>
+<h2 id="其他指令">其他指令</h2>
+<p>查找指令的內容還可以使用<code>info</code>、<code>help</code>可以使用，而查找指令別名或位置還有<code>whereis</code>、<code>which</code>、<code>type -a</code>、<code>command -v</code>、<code>command -V</code>、<code>alias</code>可以使用</p>
+<h3 id="help-和-info">help 和 info</h3>
+<p><code>help</code>只能夠查詢shell自帶的命令內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">help</span> <span class="nb">cd</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>info</code>的操作上比較複雜，雖然比較詳細，但是使用上比較複雜而且還有很多要記得一些用法。</p>
+<ul>
+<li>Enter 進入子頁面（在<code>*</code>的地方按）</li>
+<li>u 回到上一個頁面</li>
+<li>n 進入下一個小節</li>
+<li>p 進入上一個小節</li>
+<li>q 離開</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ info ls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>輸出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">10.1 <span class="s1">&#39;ls&#39;</span>: List directory <span class="nv">contents</span>
+</span></span><span class="line"><span class="cl"><span class="o">==================================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The <span class="s1">&#39;ls&#39;</span> program lists information about files <span class="o">(</span>of any type, including
+</span></span><span class="line"><span class="cl">............
+</span></span><span class="line"><span class="cl">* Menu:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* ls invocation::               List directory contents.
+</span></span><span class="line"><span class="cl">* dir invocation::              Briefly ls.
+</span></span><span class="line"><span class="cl">* vdir invocation::             Verbosely ls.
+</span></span><span class="line"><span class="cl">* dircolors invocation::        Color setup <span class="k">for</span> ls, etc
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在這裡按下<code>u</code>、<code>n</code>會進入下一個、上一個小節，如上如果按下<code>u</code>會變成10.2的章節，反之<code>n</code>則會回到10.1，離開<code>info</code>按<code>q</code>。</p>
+<p>文檔裡面看到<code>*</code>的時候可以按下<code>Enter</code>進入別的頁面，返回則按<code>u</code>。</p>
+<h3 id="whereiswhichtype--acommand--vcommand--v"><code>whereis</code>、<code>which</code>、<code>type -a</code>、<code>command -v</code>、<code>command -V</code></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ whereis <span class="nb">cd</span> <span class="c1">##查找位置</span>
+</span></span><span class="line"><span class="cl">/usr/bin/cd
+</span></span><span class="line"><span class="cl">$ which <span class="nb">cd</span> <span class="c1">##查找shell自帶指令是會顯示</span>
+</span></span><span class="line"><span class="cl">cd: shell built-in <span class="nb">command</span>
+</span></span><span class="line"><span class="cl">$ which ll <span class="c1">##查找別名指令的指令名稱</span>
+</span></span><span class="line"><span class="cl">ll: aliased to ls -lh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用<code>whereis</code>我們可以查找指令的位置，<code>which</code>則可以查詢別名指令的全名以及是否為shell自帶的指令</p>
+<p>type -a 更方便</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">type</span> -a <span class="nb">cd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> is a shell <span class="nb">builtin</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> is /usr/bin/cd
+</span></span><span class="line"><span class="cl">$ <span class="nb">type</span> -a ll
+</span></span><span class="line"><span class="cl">ll is an <span class="nb">alias</span> <span class="k">for</span> ls -lh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>type -a</code>和<code>whereis</code>&amp;<code>which</code>比較起來方便了許多，<code>type -a</code>和其他兩個指令不一樣的是，其他兩個指令是搜索<code>$PATH</code>找到的，而<code>type -a</code>是自己去執行一次的到的，就操作而言<code>type -a</code>簡單了不少，一個指令就可以查詢了。</p>
+<p>command -v or -V</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">command</span> -v <span class="nb">cd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">command</span> -V <span class="nb">cd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> is a shell <span class="nb">builtin</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">command</span> -v ll
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -lh&#39;</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">command</span> -V ll
+</span></span><span class="line"><span class="cl">ll is an <span class="nb">alias</span> <span class="k">for</span> ls -lh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外還有<code>command -v or -V</code>也可以用來查詢，它一樣是搜索<code>$PATH</code>找到內容的，優點是比較好記。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2017-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2017_04_27_3/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://shihchun.gitlab.io/2017_04_27_3/" data-title="Linux 幫助指令" data-hashtags="Linux筆記"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://shihchun.gitlab.io/2017_04_27_3/" data-hashtag="Linux筆記"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://shihchun.gitlab.io/2017_04_27_3/" data-title="Linux 幫助指令" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://shihchun.gitlab.io/2017_04_27_3/" data-title="Linux 幫助指令"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux%E7%AD%86%E8%A8%98/">Linux筆記</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2017_04_27_2/" class="prev" rel="prev" title="Linux 壓縮與解壓縮"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux 壓縮與解壓縮</a>
+            <a href="/2017-05-04/" class="next" rel="next" title="Gource — GitHub Log Visualization">Gource — GitHub Log Visualization<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="hyvor-talk-view"></div>
+            <script type="text/javascript">
+                var HYVOR_TALK_WEBSITE = 1060;
+                var HYVOR_TALK_CONFIG = {
+                    url: false,
+                    id: false
+                };
+            </script>
+            <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed.js"></script></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2017 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">shihchun</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.7f8b268338e76981e14314fa8e6c3137.js" integrity="md5-f4smgzjnaYHhQxT6jmwxNw=="></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.5a05d67de4d34f9ab1a7b74feffacb2f.js" integrity="md5-WgXWfeTTT5qxp7dP7/rLLw=="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":10},"comment":{},"data":{"id-1":"隨手筆記","id-2":"隨手筆記"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":20}};</script><script type="text/javascript" src="/js/theme.min.6867c5c51c62ce71f2047cc3f4b1cb9b.js" integrity="md5-aGfFxRxiznHyBHzD9LHLmw=="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-97401827-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-97401827-1" async></script></body>
+</html>
